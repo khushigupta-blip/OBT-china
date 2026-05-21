@@ -131,7 +131,7 @@ Scoped to **`#page-library`**. Desktop keeps the collapsible **FILTER TRIPS** ac
 | Tabs + cards | Filter icon + **Upcoming / History / Review** underline tabs; trip cards from table `data-*` rows | `#library-mobile-shell`, `#library-tab-mobile-*`, `#library-mobile-list-*`, `#library-mobile-empty-*` | `switchLibraryTab`, `syncLibraryMobileCards`, `_libraryMobileCardHtml`, `openLibraryTripDetailFromCard` |
 | Hide desktop chrome | No inline filter accordion or table on phone | `#library-filter-card.hidden.md:block`, `#library-desktop-shell.hidden.md:block` | — |
 | Filter drawer | Full-height slide-in from right; same filter field IDs | `#library-filter-drawer-*`, `#library-filter-mount` (teleported) | `openLibraryFilterDrawer`, `closeLibraryFilterDrawer`, `applyLibraryFilterDrawer`, `clearLibraryTripFilters`, `applyLibrarySearch` |
-| Empty state | Per-tab message when no visible rows | `#library-mobile-empty-{upcoming,history,reviews}` | `syncLibraryMobileCards` |
+| Empty state | Per-tab message when no visible rows | `#library-mobile-empty-{upcoming,history}` | `syncLibraryMobileCards` |
 
 **Filter note:** `#library-filter-mount` holds **Traveler Name**, **Order Style**, and **Travel Date Range** inputs. On mobile it moves into `#library-filter-drawer-body`; on `md:+` it stays inside `#library-filter-panel-body`. Filter algorithms are unchanged (`applyLibrarySearch` / `clearLibraryTripFilters`).
 

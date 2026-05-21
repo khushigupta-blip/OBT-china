@@ -116,3 +116,41 @@ Resize handler closes the drawer when crossing to `md:`+.
 - [ ] Flight search → results → **Filters** opens full-height sheet
 - [ ] Backdrop tap, X, and Apply close drawer; Clear All resets controls
 - [ ] ≥768px: header and left filter sidebar match pre-change desktop layout
+ 
+
+
+ # UI Architecture Audit: Restore Core Navigation Modules on Desktop
+
+## Problem Statement
+During a mobile responsive layout refactor, structural display modifiers (`hidden`, structural media queries, or conditional viewport states) caused an aggressive layout regression on desktop screens. Key system modules—including **My Trip Library**, **Approvals**, **Reports**, and **User Management**—have been completely omitted from the wider viewports.
+
+## Objective
+Audit all application navigation sheets, sidebar configurations, and view-state hooks to safely lift layout suppression on desktop (`screen >= 768px`) while maintaining pristine responsive mobile behaviors.
+
+---
+
+## Cursor AI Targeting Prompt
+Mobile responsive breakouts -------------------------------------------------------
+
+### Objective
+Review the layout, sidebar, navbar, permissions, or conditional rendering logic across the entire codebase. Locate and restore the missing layout sections on Desktop views, ensuring they use correct mobile-scoping classes so they hide gracefully on mobile but remain fully functional and visible on desktop.
+
+### Missing Content to Restore:
+1. "My Trip Library" (Dashboard/Navigation Module)
+2. Travel Application -> "Approvals" section
+3. Administration -> "Reports" module
+4. Administration -> "User Management" module
+
+### Technical Bug Analysis Context:
+This regression likely happened because mobile-first utility prefixes or visibility classes were applied incorrectly (e.g., an accidental `hidden md`, `max-md:hidden`, or incorrect logical toggles like `isMobile && <Component />` without a desktop fallback). 
+
+### Exact Execution Steps:
+1. Search globally for the terms "My Trip Library", "Approvals", "Reports", and "User Management" to locate their parent nav components, sidebar lists, or routing links.
+2. Check the container wrapper classes of these items. If you find responsive classes hiding them (like `hidden`, `md:hidden`, `lg:hidden`), correct them so they display on desktop (e.g., using `md:block`, `md:flex`, etc.).
+3. If they are being conditionally rendered using JavaScript window hooks (e.g., `useWindowSize` or `isMobile`), fix the logic expression so desktop screens render them seamlessly.
+
+### [CRITICAL SAFETY GUARDRAILS]:
+- Do Not Break Mobile UI: Ensure that making these visible on Desktop does not clutter or break the mobile layout. Use proper responsive prefixes to scope visibility.
+- Zero Functional Regressions: Do not modify, delete, or break any click handlers, routing links, API hooks, state variables, or TypeScript types connected to these modules.
+
+Scan the codebase, find the source files handling these navigation layers, and present the clean code diff to restore visibility.
