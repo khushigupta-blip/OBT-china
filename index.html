@@ -464,7 +464,7 @@
             }
 
             #page-dashboard .dashboard-stat-value {
-                font-size: 1.25rem;
+                font-size: 1.85rem;
                 line-height: 1.15;
             }
 
@@ -1088,6 +1088,16 @@
             display: none;
         }
 
+        .online-flight-search-label-mobile {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            #page-booking .online-flight-loc-card-frame {
+                display: contents;
+            }
+        }
+
         /* Mobile (<768px): flight/rail search — borderless stacked card with dividers (sample layout) */
         @media (max-width: 767px) {
             #page-booking #online-flight-searchbar.online-flight-searchbar,
@@ -1113,73 +1123,175 @@
                 padding: 0.875rem 1rem;
             }
 
-            #page-booking .online-flight-locations-row {
+            #page-booking .online-flight-trip-type-row {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 0.75rem;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 0.25rem;
+            }
+
+            #page-booking .online-flight-trip-type-row .radio-item {
+                flex-shrink: 0;
+                min-height: 48px;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            #page-booking .online-flight-loc-card-frame {
                 order: 1;
                 position: relative;
+                width: 100%;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.75rem;
+                background: #fff;
+                overflow: visible;
+            }
+
+            #page-booking .online-flight-locations-row {
+                order: 0;
+                position: relative;
                 display: grid;
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
                 width: 100%;
                 padding: 0;
-                border-bottom: 1px solid #f1f5f9;
+                border-bottom: none;
+            }
+
+            #page-booking .online-flight-loc-card-frame .online-flight-searchbar-label {
+                color: #3B82F6;
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.04em;
+                text-transform: none;
             }
 
             #page-booking .online-flight-locations-row > .online-flight-searchbar-seg:first-of-type {
                 grid-row: 1;
                 grid-column: 1;
-                padding: 0.625rem 1rem 0.5rem;
-                border-bottom: 1px solid #f1f5f9;
+                padding: 0.75rem 1.5rem 0.75rem 0.75rem;
+                border-right: 1px solid #e2e8f0;
+                border-bottom: none;
             }
 
             #page-booking .online-flight-locations-row > .online-flight-searchbar-swap {
-                grid-row: 1;
-                grid-column: 1;
-                justify-self: end;
-                align-self: end;
-                position: relative;
-                transform: translateY(50%);
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
                 z-index: 10;
-                margin: 0 1rem 0 0;
-                width: 2.25rem;
-                height: 2.25rem;
-                min-width: 2.25rem;
+                margin: 0;
+                width: 2.75rem;
+                height: 2.75rem;
+                min-width: 2.75rem;
+                min-height: 2.75rem;
                 flex: none;
                 border: 1px solid #e2e8f0;
                 border-radius: 9999px;
                 background: #fff;
-                box-shadow: 0 2px 6px rgba(15, 23, 42, 0.1);
+                box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             #page-booking .online-flight-locations-row > .online-flight-searchbar-seg:last-of-type {
-                grid-row: 2;
-                grid-column: 1;
-                padding: 0.5rem 1rem 0.625rem;
+                grid-row: 1;
+                grid-column: 2;
+                padding: 0.75rem 0.75rem 0.75rem 1.5rem;
+            }
+
+            #page-booking .online-flight-locations-row .online-flight-loc-input {
+                font-weight: 700;
+                font-size: 0.8125rem;
+                color: #0B2545;
+                border: none;
+                padding: 0;
+                background: transparent;
+            }
+
+            #page-booking .online-flight-locations-row .online-flight-loc-input:focus {
+                outline: none;
+                box-shadow: none;
             }
 
             #page-booking #online-flight-searchbar > .online-flight-dates-row,
             #page-booking #online-rail-searchbar > .online-flight-dates-row {
                 order: 2;
-                display: flex;
-                flex-direction: column;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
                 width: 100%;
                 padding: 0;
-                border-bottom: 1px solid #f1f5f9;
-                background: transparent;
+                margin-top: 0.75rem;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.75rem;
+                background: #fff;
+                overflow: hidden;
             }
 
-            #page-booking .online-flight-dates-row > .online-flight-date-card,
-            #page-booking .online-flight-dates-row > .online-flight-add-return-card {
+            #page-booking .online-flight-dates-row > .online-flight-date-card {
                 width: 100%;
                 min-width: 0;
-                padding: 0.875rem 1rem;
+                padding: 0.75rem;
                 border: none;
                 border-radius: 0;
                 background: transparent;
-                border-bottom: 1px solid #f1f5f9;
             }
 
-            #page-booking .online-flight-dates-row > :last-child {
-                border-bottom: none;
+            #page-booking .online-flight-dates-row > .online-flight-date-card:first-of-type {
+                border-right: 1px solid #e2e8f0;
+            }
+
+            #page-booking .online-flight-dates-row > .online-flight-add-return-card {
+                grid-column: 1 / -1;
+                width: 100%;
+                padding: 0.75rem;
+                border: none;
+                border-top: 1px solid #f1f5f9;
+            }
+
+            #page-booking .online-flight-dates-row.online-flight-dates-row--oneway > .online-flight-date-card:first-of-type {
+                grid-column: 1 / -1;
+                border-right: none;
+            }
+
+            #page-booking .online-flight-search-label-desktop {
+                display: none !important;
+            }
+
+            #page-booking .online-flight-search-label-mobile {
+                display: block !important;
+            }
+
+            #page-booking .online-flight-class-seg {
+                position: relative;
+            }
+
+            #page-booking .online-flight-class-seg > .flex.items-center {
+                position: relative;
+            }
+
+            #page-booking .online-flight-class-seg .online-flight-class-select {
+                padding-right: 2rem;
+                font-weight: 600;
+                color: #0B2545;
+            }
+
+            #page-booking .online-flight-class-chevron {
+                position: absolute;
+                right: 1rem;
+                bottom: 1rem;
+                pointer-events: none;
+                color: #64748b;
+            }
+
+            #page-booking .online-flight-search-btn-wrap .online-flight-search-submit {
+                width: 100%;
+                min-height: 48px;
+                border-radius: 0.75rem;
+                font-size: 0.9375rem;
             }
 
             #page-booking #online-flight-searchbar > .online-flight-searchbar-seg--last,
@@ -2561,6 +2673,759 @@
             }
         }
 
+        /* Profile Management — mobile-only (<768px) */
+        @media (max-width: 767px) {
+            #page-profile {
+                overflow: visible;
+            }
+
+            #page-profile .profile-split-desktop {
+                flex: 1;
+                min-height: 0;
+                overflow: hidden;
+            }
+
+            #page-profile .profile-page-header-desktop {
+                display: none !important;
+            }
+
+            #page-profile #profile-nav-aside {
+                display: none !important;
+            }
+
+            #page-profile #profile-content-scroll {
+                padding: 1rem;
+            }
+
+            #page-profile .prof-desktop-table-wrap {
+                display: none !important;
+            }
+
+            #page-profile .prof-deleg-desktop-tabs {
+                display: none !important;
+            }
+
+            #profile-mobile-shell {
+                display: block;
+                position: sticky;
+                top: 0;
+                z-index: 20;
+                background: #fff;
+                border-bottom: 1px solid #e2e8f0;
+                flex-shrink: 0;
+                overflow: visible;
+            }
+
+            #profile-mobile-hero {
+                background: #1e3a5f;
+                padding: 1rem 1.25rem;
+            }
+
+            #profile-mobile-tab-bar {
+                display: flex;
+                align-items: stretch;
+                gap: 0;
+                overflow: visible;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            #profile-mobile-tab-bar-scroll {
+                display: flex;
+                align-items: stretch;
+                flex: 1;
+                min-width: 0;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            #profile-mobile-tab-bar-scroll::-webkit-scrollbar {
+                display: none;
+            }
+
+            .profile-mobile-tab {
+                flex: 1 0 auto;
+                min-width: 4.5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.2rem;
+                padding: 0.5rem 0.35rem;
+                min-height: 48px;
+                font-size: 0.625rem;
+                font-weight: 700;
+                color: #64748b;
+                border-bottom: 2px solid transparent;
+                background: transparent;
+                transition: color 0.15s, border-color 0.15s;
+            }
+
+            .profile-mobile-tab.profile-mobile-tab--active {
+                color: #0B2545;
+                border-bottom-color: #f26522;
+            }
+
+            .profile-mobile-tab i,
+            .profile-mobile-tab svg {
+                width: 1.125rem;
+                height: 1.125rem;
+            }
+
+            #profile-mobile-more-wrap {
+                position: relative;
+                flex-shrink: 0;
+                z-index: 35;
+            }
+
+            #profile-mobile-more-menu {
+                position: absolute;
+                right: 0;
+                top: calc(100% + 4px);
+                min-width: 12.5rem;
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.75rem;
+                box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+                z-index: 50;
+                padding: 0.35rem;
+            }
+
+            #profile-mobile-more-menu.profile-mobile-more-menu--open {
+                display: block !important;
+            }
+
+            #profile-mob-tab-more.profile-mobile-tab--menu-open {
+                color: #0B2545;
+                border-bottom-color: #f26522;
+            }
+
+            .prof-mob-pane-detail.hidden {
+                display: none !important;
+            }
+
+            .prof-mob-membership-card,
+            .prof-mob-deleg-user-card,
+            .prof-mob-arranger-card {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.875rem 1rem;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.75rem;
+                background: #fff;
+                min-height: 48px;
+                width: 100%;
+                text-align: left;
+                transition: background 0.15s;
+            }
+
+            .prof-mob-membership-card:active,
+            .prof-mob-deleg-user-card:active,
+            .prof-mob-arranger-card:active {
+                background: #f8fafc;
+            }
+
+            .prof-mob-membership-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 0.5rem;
+                background: #f1f5f9;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                color: #1e3a5f;
+            }
+
+            .prof-mob-badge-active {
+                background: #E6F4EA;
+                color: #137333;
+                font-size: 0.625rem;
+                font-weight: 700;
+                padding: 0.2rem 0.5rem;
+                border-radius: 9999px;
+            }
+
+            .prof-mob-badge-expired {
+                background: #f1f5f9;
+                color: #64748b;
+                font-size: 0.625rem;
+                font-weight: 700;
+                padding: 0.2rem 0.5rem;
+                border-radius: 9999px;
+            }
+
+            .prof-mob-hero-navy {
+                background: #0B2545;
+                padding: 1.5rem 1.25rem 1.75rem;
+                text-align: center;
+            }
+
+            .prof-mob-detail-nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid #e2e8f0;
+                background: #fff;
+                position: sticky;
+                top: 0;
+                z-index: 15;
+                min-height: 48px;
+            }
+
+            .prof-mob-footer-actions {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 1rem 0 1.5rem;
+            }
+
+            .prof-mob-btn-edit-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                min-height: 48px;
+                padding: 0.875rem 1rem;
+                border: 2px solid #f26522;
+                border-radius: 0.75rem;
+                background: #fff;
+                color: #f26522;
+                font-weight: 700;
+                font-size: 0.8125rem;
+            }
+
+            .prof-mob-btn-remove {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                width: 100%;
+                min-height: 48px;
+                padding: 0.875rem 1rem;
+                border-radius: 0.75rem;
+                background: #FEF2F2;
+                color: #b91c1c;
+                font-weight: 700;
+                font-size: 0.8125rem;
+                border: none;
+            }
+
+            .prof-mob-btn-add-time {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                width: 100%;
+                min-height: 48px;
+                padding: 0.875rem 1rem;
+                border-radius: 0.75rem;
+                background: #fff;
+                color: #0B2545;
+                font-weight: 700;
+                font-size: 0.8125rem;
+                border: 2px solid #0B2545;
+            }
+
+            #prof-mob-deleg-segment-wrap {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin-bottom: 1rem;
+            }
+
+            #prof-mob-deleg-segment {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                min-width: 100%;
+                border-radius: 9999px;
+                overflow: hidden;
+                border: 1px solid #1e3a5f;
+            }
+
+            .prof-mob-deleg-seg-btn {
+                white-space: nowrap;
+                padding: 12px 14px;
+                font-size: 11px;
+                font-weight: 700;
+                min-height: 48px;
+                border: none;
+                background: #fff;
+                color: #1e3a5f;
+                transition: background 0.15s, color 0.15s;
+            }
+
+            .prof-mob-deleg-seg-btn.prof-mob-deleg-seg-btn--active {
+                background: #1e3a5f;
+                color: #fff;
+            }
+
+            .prof-mob-timeline {
+                position: relative;
+                padding-left: 1.5rem;
+            }
+
+            .prof-mob-timeline-item {
+                position: relative;
+                padding-bottom: 1.25rem;
+            }
+
+            .prof-mob-timeline-item:not(:last-child)::before {
+                content: '';
+                position: absolute;
+                left: -1.125rem;
+                top: 1.25rem;
+                bottom: 0;
+                width: 2px;
+                background: #e2e8f0;
+            }
+
+            .prof-mob-timeline-node {
+                position: absolute;
+                left: -1.375rem;
+                top: 0.35rem;
+                width: 0.75rem;
+                height: 0.75rem;
+                border-radius: 50%;
+                border: 2px solid #fff;
+                box-shadow: 0 0 0 2px currentColor;
+            }
+
+            .prof-mob-timeline-node--active {
+                color: #137333;
+                background: #137333;
+            }
+
+            .prof-mob-timeline-node--expired {
+                color: #94a3b8;
+                background: #94a3b8;
+            }
+
+            .prof-mob-timeline-row {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 0.5rem;
+                width: 100%;
+                text-align: left;
+                min-height: 48px;
+                padding: 0.5rem 0;
+                background: transparent;
+                border: none;
+            }
+
+            .prof-mob-info-banner {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 0.75rem 1rem;
+                background: #eff6ff;
+                border: 1px solid #bfdbfe;
+                border-radius: 0.5rem;
+                font-size: 0.6875rem;
+                color: #1e40af;
+                font-weight: 600;
+                line-height: 1.4;
+            }
+
+            header .header-profile-dropdown-wrap {
+                overflow: visible;
+            }
+
+            [data-profile-dropdown] {
+                z-index: 60;
+            }
+
+            [data-profile-dropdown] .profile-dropdown-menu-inner {
+                padding: 0.5rem 0.5rem 0.75rem;
+                max-height: min(70vh, 320px);
+                overflow-y: auto;
+            }
+
+            [data-profile-dropdown] .profile-sign-out-btn {
+                min-height: 48px;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+
+            .prof-mob-doc-card {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.75rem;
+                padding: 0.875rem 1rem;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.75rem;
+                background: #fff;
+                min-height: 48px;
+                width: 100%;
+                text-align: left;
+            }
+
+            .prof-mob-doc-card:active {
+                background: #f8fafc;
+            }
+
+            /* Personal Basic Info — TEMP 1 / TEMP 2 */
+            .prof-mob-basic {
+                border: 1px solid #a8d0e6;
+                border-radius: 0.5rem;
+                background: #f5faff;
+                overflow: hidden;
+            }
+
+            .prof-mob-basic-summary {
+                padding: 1rem 1.125rem 1.125rem;
+                position: relative;
+            }
+
+            .prof-mob-basic-top {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .prof-mob-basic-label {
+                display: block;
+                font-size: 0.6875rem;
+                font-weight: 600;
+                color: #64748b;
+                line-height: 1.3;
+            }
+
+            .prof-mob-basic-value {
+                display: block;
+                font-size: 0.8125rem;
+                font-weight: 800;
+                color: #0f172a;
+                line-height: 1.35;
+                margin-top: 0.125rem;
+            }
+
+            .prof-mob-basic-modify-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.25rem;
+                min-height: 48px;
+                min-width: 48px;
+                padding: 0.5rem 0.875rem;
+                background: #f26522;
+                color: #fff;
+                border: none;
+                border-radius: 0.375rem;
+                font-size: 0.75rem;
+                font-weight: 700;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            .prof-mob-basic-modify-chev {
+                font-size: 0.6875rem;
+                line-height: 1;
+            }
+
+            .prof-mob-basic-names {
+                display: flex;
+                flex-direction: column;
+                gap: 0.625rem;
+                margin-bottom: 0.875rem;
+            }
+
+            .prof-mob-basic-metrics {
+                display: flex;
+                justify-content: flex-end;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+            }
+
+            .prof-mob-basic-metric {
+                min-width: 5.5rem;
+                padding: 0.5rem 0.625rem;
+                border-radius: 0.375rem;
+                border: 1px solid;
+                text-align: center;
+            }
+
+            .prof-mob-basic-metric-label {
+                display: block;
+                font-size: 0.625rem;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+
+            .prof-mob-basic-metric-value {
+                display: block;
+                font-size: 0.8125rem;
+                font-weight: 800;
+                line-height: 1.3;
+                margin-top: 0.125rem;
+            }
+
+            .prof-mob-basic-metric--points {
+                background: #eff6ff;
+                border-color: #bfdbfe;
+            }
+
+            .prof-mob-basic-metric--points .prof-mob-basic-metric-label,
+            .prof-mob-basic-metric--points .prof-mob-basic-metric-value {
+                color: #1d4ed8;
+            }
+
+            .prof-mob-basic-metric--rank {
+                background: #fffbeb;
+                border-color: #fde68a;
+            }
+
+            .prof-mob-basic-metric--rank .prof-mob-basic-metric-label,
+            .prof-mob-basic-metric--rank .prof-mob-basic-metric-value {
+                color: #b45309;
+            }
+
+            .prof-mob-basic-drawer {
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                border-top: 0 dashed #a8d0e6;
+                transition: max-height 0.35s ease, opacity 0.25s ease, border-top-width 0.2s ease, padding 0.25s ease;
+                padding: 0 1.125rem;
+            }
+
+            .prof-mob-basic--modify-open .prof-mob-basic-drawer {
+                max-height: 32rem;
+                opacity: 1;
+                border-top-width: 2px;
+                padding: 1rem 1.125rem 1.125rem;
+            }
+
+            .prof-mob-basic-drawer-title {
+                font-size: 0.8125rem;
+                font-weight: 800;
+                color: #0f172a;
+                margin-bottom: 0.75rem;
+            }
+
+            .prof-mob-basic-field-label {
+                display: block;
+                font-size: 0.6875rem;
+                font-weight: 600;
+                color: #64748b;
+                margin-bottom: 0.375rem;
+            }
+
+            .prof-mob-basic-input {
+                width: 100%;
+                min-height: 48px;
+                padding: 0.625rem 0.75rem;
+                font-size: 0.8125rem;
+                font-weight: 600;
+                color: #0f172a;
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.375rem;
+            }
+
+            .prof-mob-basic-select-wrap {
+                position: relative;
+            }
+
+            .prof-mob-basic-select {
+                appearance: none;
+                padding-right: 2.25rem;
+            }
+
+            .prof-mob-basic-select-icon {
+                position: absolute;
+                right: 0.75rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 1rem;
+                height: 1rem;
+                color: #94a3b8;
+                pointer-events: none;
+            }
+
+            .prof-mob-basic-input-icon-wrap {
+                position: relative;
+                display: flex;
+                align-items: stretch;
+            }
+
+            .prof-mob-basic-input-icon-wrap .prof-mob-basic-input {
+                padding-right: 2.75rem;
+            }
+
+            .prof-mob-basic-icon-btn {
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                min-width: 48px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: transparent;
+                border: none;
+            }
+
+            .prof-mob-basic-dob-picker {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .prof-mob-basic-drawer-footer {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 0.5rem;
+                margin-top: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .prof-mob-basic-btn-cancel {
+                min-height: 48px;
+                min-width: 48px;
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #334155;
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.375rem;
+            }
+
+            .prof-mob-basic-btn-save {
+                min-height: 48px;
+                min-width: 48px;
+                padding: 0.5rem 1.25rem;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #fff;
+                background: #f26522;
+                border: none;
+                border-radius: 0.375rem;
+            }
+
+            .prof-mob-basic-btn-save:hover,
+            .prof-mob-basic-modify-btn:hover {
+                filter: brightness(0.95);
+            }
+
+            /* Approvals — mobile Action modal */
+            .approvals-action-modal {
+                position: fixed;
+                inset: 0;
+                z-index: 120;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1.25rem;
+            }
+
+            .approvals-action-modal.hidden {
+                display: none !important;
+            }
+
+            .approvals-action-modal__backdrop {
+                position: absolute;
+                inset: 0;
+                background: rgba(15, 23, 42, 0.55);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+            }
+
+            .approvals-action-modal__card {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                max-width: 20rem;
+                background: #fff;
+                border-radius: 0.75rem;
+                padding: 1.5rem 1.25rem 1.25rem;
+                box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+                text-align: center;
+            }
+
+            .approvals-action-modal__icon {
+                width: 3rem;
+                height: 3rem;
+                margin: 0 auto 0.75rem;
+                border-radius: 9999px;
+                background: #4285F4;
+                color: #fff;
+                font-size: 1.375rem;
+                font-weight: 900;
+                line-height: 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .approvals-action-modal__title {
+                font-size: 1rem;
+                font-weight: 800;
+                color: #0B2545;
+                margin-bottom: 1.25rem;
+            }
+
+            .approvals-action-modal__actions {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.625rem;
+            }
+
+            .approvals-action-modal__btn {
+                min-height: 48px;
+                padding: 0.75rem 0.5rem;
+                border: none;
+                border-radius: 0.375rem;
+                font-size: 0.6875rem;
+                font-weight: 800;
+                letter-spacing: 0.04em;
+                color: #fff;
+            }
+
+            .approvals-action-modal__btn--reject {
+                background: #eb2c2c;
+            }
+
+            .approvals-action-modal__btn--accept {
+                background: #15803D;
+            }
+
+            #approvals-mobile-pending .approvals-mobile-card--pending-action {
+                cursor: pointer;
+            }
+
+            #approvals-mobile-pending .approvals-mobile-card--pending-action:active {
+                background: #f8fafc;
+            }
+        }
+
+        @media (min-width: 768px) {
+            #approvals-action-modal {
+                display: none !important;
+            }
+
+            #profile-mobile-shell,
+            .prof-mob-only {
+                display: none !important;
+            }
+
+            #page-profile .prof-desktop-table-wrap {
+                display: block !important;
+            }
+
+            #page-profile .prof-deleg-desktop-tabs {
+                display: flex !important;
+            }
+        }
+
         /* --- BUTTON MICRO-INTERACTIONS --- */
         button,
         .nav-btn,
@@ -3142,6 +4007,11 @@
                 padding-bottom: 0.65rem;
             }
 
+            #nav-international,
+            #nav-user-management {
+                display: none !important;
+            }
+
             body.mobile-nav-open {
                 overflow: hidden;
             }
@@ -3588,7 +4458,7 @@
                         <img src="blue.png" alt="tripsource by BCD travel"
                             class="header-mobile-logo h-8 w-auto max-w-[min(160px,42vw)] object-contain object-left" width="120" height="28" decoding="async" />
                     </button>
-                    <div class="relative shrink-0">
+                    <div class="relative shrink-0 header-profile-dropdown-wrap">
                         <button type="button" onclick="window.toggleProfileDropdown()"
                             class="flex items-center gap-1.5 p-1 pr-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-all border border-slate-200 min-h-[44px]"
                             aria-label="Account menu">
@@ -3596,24 +4466,24 @@
                             <i data-lucide="chevron-down" class="w-3 h-3 text-slate-400"></i>
                         </button>
                         <div data-profile-dropdown
-                            class="hidden absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden text-slate-800 z-50">
+                            class="hidden absolute top-full right-0 mt-2 w-64 min-w-[220px] bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden text-slate-800 z-50">
                             <div class="p-4 bg-slate-50 border-b border-slate-100">
                                 <p class="text-xs font-bold text-slate-400 tracking-widest mb-1">Signed in as</p>
                                 <p class="text-sm font-bold text-slate-900">John Wick</p>
                             </div>
-                            <div class="p-2">
+                            <div class="profile-dropdown-menu-inner p-2">
                                 <button type="button" onclick="window.showPage('profile'); window.toggleProfileDropdown();"
-                                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors">
+                                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors min-h-[44px]">
                                     <i data-lucide="user-cog" class="w-4 h-4"></i> My Profile
                                 </button>
                                 <button type="button" onclick="window.showPage('my-points'); window.toggleProfileDropdown();"
-                                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors">
+                                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors min-h-[44px]">
                                     <i data-lucide="award" class="w-4 h-4"></i> My Points
                                 </button>
                                 <div class="h-px bg-slate-100 my-1"></div>
                                 <button type="button" onclick="window.handleLogout()"
-                                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors">
-                                    <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
+                                    class="profile-sign-out-btn w-full text-left flex items-center gap-3 px-3 py-3 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+                                    <i data-lucide="log-out" class="w-4 h-4 shrink-0"></i> Sign Out
                                 </button>
                             </div>
                         </div>
@@ -3659,7 +4529,7 @@
                         </div>
                     </div>
                     <div class="h-6 w-px bg-slate-200"></div>
-                    <div class="relative">
+                    <div class="relative header-profile-dropdown-wrap">
                         <div class="flex items-center gap-3">
                             <div class="text-right hidden md:block">
                                 <p class="text-sm font-bold text-slate-900 leading-tight">JOHN WICK</p>
@@ -3672,24 +4542,24 @@
                             </button>
                         </div>
                         <div data-profile-dropdown
-                            class="hidden absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden text-slate-800 z-50">
+                            class="hidden absolute top-full right-0 mt-2 w-64 min-w-[220px] bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden text-slate-800 z-50">
                             <div class="p-4 bg-slate-50 border-b border-slate-100">
                                 <p class="text-xs font-bold text-slate-400 tracking-widest mb-1">Signed in as</p>
                                 <p class="text-sm font-bold text-slate-900">John Wick</p>
                             </div>
-                            <div class="p-2">
+                            <div class="profile-dropdown-menu-inner p-2">
                                 <button type="button" onclick="window.showPage('profile'); window.toggleProfileDropdown();"
-                                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors">
+                                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors min-h-[44px]">
                                     <i data-lucide="user-cog" class="w-4 h-4"></i> My Profile
                                 </button>
                                 <button type="button" onclick="window.showPage('my-points'); window.toggleProfileDropdown();"
-                                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors">
+                                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors min-h-[44px]">
                                     <i data-lucide="award" class="w-4 h-4"></i> My Points
                                 </button>
                                 <div class="h-px bg-slate-100 my-1"></div>
                                 <button type="button" onclick="window.handleLogout()"
-                                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors">
-                                    <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
+                                    class="profile-sign-out-btn w-full text-left flex items-center gap-3 px-3 py-3 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+                                    <i data-lucide="log-out" class="w-4 h-4 shrink-0"></i> Sign Out
                                 </button>
                             </div>
                         </div>
@@ -3827,8 +4697,7 @@
                                                 onclick="window.openLibraryFromApproverMenu('approved')"
                                                 onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.openLibraryFromApproverMenu('approved');}">
                                                 <span
-                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 tracking-tighter mb-1 block">Approved
-                                                    Requests</span>
+                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 tracking-tighter mb-1 block">Approved Requests</span>
                                                 <span class="text-3xl font-black text-slate-800">0</span>
                                             </div>
                                         </div>
@@ -4073,13 +4942,26 @@
                             </table>
                         </div>
                     </div>
+
+                    <!-- Mobile: Action confirmation modal (Pending tab only) -->
+                    <div id="approvals-action-modal" class="approvals-action-modal hidden md:hidden" role="dialog" aria-modal="true" aria-labelledby="approvals-action-modal-title" aria-hidden="true">
+                        <div class="approvals-action-modal__backdrop" onclick="window.closeApprovalsActionModal()" aria-hidden="true"></div>
+                        <div class="approvals-action-modal__card" role="document">
+                            <div class="approvals-action-modal__icon" aria-hidden="true">!</div>
+                            <h3 id="approvals-action-modal-title" class="approvals-action-modal__title">Action</h3>
+                            <div class="approvals-action-modal__actions">
+                                <button type="button" onclick="window.closeApprovalsActionModal()" class="approvals-action-modal__btn approvals-action-modal__btn--reject profile-inline-action">REJECT</button>
+                                <button type="button" onclick="window.closeApprovalsActionModal()" class="approvals-action-modal__btn approvals-action-modal__btn--accept profile-inline-action">ACCEPT</button>
+                            </div>
+                        </div>
+                    </div>
                 </main>
 
                 <!-- MY PROFILE SCREEN (BRD-aligned) -->
                 <main id="page-profile" class="hidden animate-fade-in flex flex-col flex-1 min-h-0 overflow-hidden">
                     <!-- PROFILE HEADER -->
                     <div
-                        class="sticky top-0 z-40 bg-white border-b border-slate-200 px-6 sm:px-8 py-4 flex flex-wrap gap-4 justify-between items-center shadow-sm shrink-0">
+                        class="profile-page-header-desktop sticky top-0 z-40 bg-white border-b border-slate-200 px-6 sm:px-8 py-4 flex flex-wrap gap-4 justify-between items-center shadow-sm shrink-0">
                         <div class="flex items-center gap-4 min-w-0">
                             <button type="button" onclick="window.showPage('dashboard')"
                                 class="profile-inline-action shrink-0 p-2 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors"
@@ -4101,8 +4983,64 @@
                         </div>
                     </div>
 
+                    <!-- Mobile profile chrome: hero + horizontal icon tabs -->
+                    <div id="profile-mobile-shell" class="md:hidden shrink-0">
+                        <div id="profile-mobile-hero">
+                            <div class="flex items-center gap-3">
+                                <button type="button" onclick="window.showPage('dashboard')" class="profile-inline-action shrink-0 inline-flex items-center justify-center min-w-[48px] min-h-[48px] rounded-lg text-white/90 hover:bg-white/10" aria-label="Back">
+                                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                                </button>
+                                <div class="w-11 h-11 rounded-full bg-white/20 text-white flex items-center justify-center text-sm font-black shrink-0">JW</div>
+                                <div class="overflow-hidden min-w-0">
+                                    <p class="text-sm font-bold text-white truncate">John Wick</p>
+                                    <p class="text-[10px] text-blue-200 font-medium">ID: EMP-2210</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="profile-mobile-tab-bar" role="tablist" aria-label="Profile sections">
+                            <div id="profile-mobile-tab-bar-scroll" class="profile-mobile-tab-bar-scroll">
+                            <button type="button" id="profile-mob-tab-personal" data-profile-mob-tab="personal-information" onclick="window.profileMobileSwitchTab('personal-information')"
+                                class="profile-mobile-tab profile-mobile-tab--active" role="tab" aria-selected="true">
+                                <i data-lucide="user" aria-hidden="true"></i><span>Personal</span>
+                            </button>
+                            <button type="button" id="profile-mob-tab-billing" data-profile-mob-tab="billing-information" onclick="window.profileMobileSwitchTab('billing-information')"
+                                class="profile-mobile-tab" role="tab" aria-selected="false">
+                                <i data-lucide="file-text" aria-hidden="true"></i><span>Billing</span>
+                            </button>
+                            <button type="button" id="profile-mob-tab-membership" data-profile-mob-tab="membership-card" onclick="window.profileMobileSwitchTab('membership-card')"
+                                class="profile-mobile-tab" role="tab" aria-selected="false">
+                                <i data-lucide="badge-check" aria-hidden="true"></i><span>Membership</span>
+                            </button>
+                            <button type="button" id="profile-mob-tab-credit" data-profile-mob-tab="credit-card" onclick="window.profileMobileSwitchTab('credit-card')"
+                                class="profile-mobile-tab" role="tab" aria-selected="false">
+                                <i data-lucide="credit-card" aria-hidden="true"></i><span>Credit Card</span>
+                            </button>
+                            </div>
+                            <div id="profile-mobile-more-wrap">
+                                <button type="button" id="profile-mob-tab-more" onclick="window.profileMobileToggleMoreMenu(event)"
+                                    class="profile-mobile-tab" role="tab" aria-haspopup="true" aria-expanded="false" aria-controls="profile-mobile-more-menu">
+                                    <i data-lucide="more-horizontal" aria-hidden="true"></i><span>More...</span>
+                                </button>
+                                <div id="profile-mobile-more-menu" class="hidden" role="menu" aria-labelledby="profile-mob-tab-more">
+                                    <button type="button" role="menuitem" onclick="window.profileMobileSwitchTab('preference'); window.profileMobileCloseMoreMenu();"
+                                        class="w-full text-left flex items-center gap-2 px-3 py-3 text-xs font-bold text-slate-700 hover:bg-slate-50 rounded-lg min-h-[48px]">
+                                        <i data-lucide="settings" class="w-4 h-4"></i> Preference
+                                    </button>
+                                    <button type="button" role="menuitem" onclick="window.profileMobileSwitchTab('approve-delegation'); window.profileMobileCloseMoreMenu();"
+                                        class="w-full text-left flex items-center gap-2 px-3 py-3 text-xs font-bold text-slate-700 hover:bg-slate-50 rounded-lg min-h-[48px]">
+                                        <i data-lucide="users" class="w-4 h-4"></i> Approve Delegation
+                                    </button>
+                                    <button type="button" role="menuitem" onclick="window.profileMobileSwitchTab('change-password'); window.profileMobileCloseMoreMenu();"
+                                        class="w-full text-left flex items-center gap-2 px-3 py-3 text-xs font-bold text-slate-700 hover:bg-slate-50 rounded-lg min-h-[48px]">
+                                        <i data-lucide="lock" class="w-4 h-4"></i> Change Password
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- SPLIT CONTENT AREA -->
-                    <div class="flex flex-col lg:flex-row flex-1 min-h-0 overflow-hidden">
+                    <div class="profile-split-desktop flex flex-col lg:flex-row flex-1 min-h-0 overflow-hidden">
                         <!-- LEFT: PROFILE NAV (primary for this screen) -->
                         <!-- AI-ADDED: Refactored 7-tab blue sidebar for OBT China profile
                              Prompt: Refactor #page-profile to 7-tab layout matching reference images -->
@@ -4160,7 +5098,81 @@
 
                             <!-- TAB 1: PERSONAL BASIC INFORMATION (c99f21) -->
                             <div id="prof-content-personal-information" class="prof-tab-content space-y-6 animate-fade-in">
-                                <div class="prof-section-container">
+                                <!-- Mobile: TEMP 1 summary + TEMP 2 modify drawer -->
+                                <div id="prof-mob-basic-info" class="prof-mob-only md:hidden prof-mob-basic">
+                                    <div class="prof-mob-basic-summary">
+                                        <div class="prof-mob-basic-top">
+                                            <div class="prof-mob-basic-company">
+                                                <span class="prof-mob-basic-label">Company:</span>
+                                                <span class="prof-mob-basic-value" id="prof-mob-basic-company">BCD Travel China</span>
+                                            </div>
+                                            <button type="button" id="prof-mob-basic-modify-btn" onclick="window.profileMobBasicToggleModify()"
+                                                class="prof-mob-basic-modify-btn profile-inline-action" aria-expanded="false" aria-controls="prof-mob-basic-drawer">
+                                                Modify <span class="prof-mob-basic-modify-chev" aria-hidden="true">∨</span>
+                                            </button>
+                                        </div>
+                                        <div class="prof-mob-basic-names">
+                                            <div class="prof-mob-basic-name-block">
+                                                <span class="prof-mob-basic-label">Chinese Name:</span>
+                                                <span class="prof-mob-basic-value" id="prof-mob-basic-cn">王大明</span>
+                                            </div>
+                                            <div class="prof-mob-basic-name-block">
+                                                <span class="prof-mob-basic-label">English Name:</span>
+                                                <span class="prof-mob-basic-value" id="prof-mob-basic-en">JOHN WICK</span>
+                                            </div>
+                                        </div>
+                                        <div class="prof-mob-basic-metrics">
+                                            <div class="prof-mob-basic-metric prof-mob-basic-metric--points">
+                                                <span class="prof-mob-basic-metric-label">Points:</span>
+                                                <span class="prof-mob-basic-metric-value">1,250</span>
+                                            </div>
+                                            <div class="prof-mob-basic-metric prof-mob-basic-metric--rank">
+                                                <span class="prof-mob-basic-metric-label">Ranking:</span>
+                                                <span class="prof-mob-basic-metric-value">Gold</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="prof-mob-basic-drawer" class="prof-mob-basic-drawer" aria-hidden="true">
+                                        <p class="prof-mob-basic-drawer-title">Modify</p>
+                                        <div class="prof-mob-basic-form space-y-3">
+                                            <div class="prof-mob-basic-field">
+                                                <label class="prof-mob-basic-field-label" for="prof-mob-basic-gender">Gender</label>
+                                                <div class="prof-mob-basic-select-wrap">
+                                                    <select id="prof-mob-basic-gender" class="prof-mob-basic-input prof-mob-basic-select">
+                                                        <option value="male" selected>Male</option>
+                                                        <option value="female">Female</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                    <i data-lucide="chevron-down" class="prof-mob-basic-select-icon" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <div class="prof-mob-basic-field">
+                                                <label class="prof-mob-basic-field-label" for="prof-mob-basic-dob">Date of Birth</label>
+                                                <div class="prof-mob-basic-input-icon-wrap">
+                                                    <input type="text" id="prof-mob-basic-dob" class="prof-mob-basic-input" value="20-09-1985" inputmode="numeric" autocomplete="bday">
+                                                    <button type="button" class="prof-mob-basic-icon-btn profile-inline-action" aria-label="Pick date" onclick="document.getElementById('prof-mob-basic-dob-picker')?.showPicker?.()">
+                                                        <i data-lucide="calendar" class="w-4 h-4 text-slate-500"></i>
+                                                    </button>
+                                                    <input type="date" id="prof-mob-basic-dob-picker" class="prof-mob-basic-dob-picker" value="1985-09-20" tabindex="-1" aria-hidden="true">
+                                                </div>
+                                            </div>
+                                            <div class="prof-mob-basic-field">
+                                                <label class="prof-mob-basic-field-label" for="prof-mob-basic-phone">Phone Num</label>
+                                                <input type="tel" id="prof-mob-basic-phone" class="prof-mob-basic-input" value="+86-138-0000-1234">
+                                            </div>
+                                            <div class="prof-mob-basic-field">
+                                                <label class="prof-mob-basic-field-label" for="prof-mob-basic-email">Company Email</label>
+                                                <input type="email" id="prof-mob-basic-email" class="prof-mob-basic-input" value="john.wick@bcdtravel.cn">
+                                            </div>
+                                        </div>
+                                        <div class="prof-mob-basic-drawer-footer">
+                                            <button type="button" onclick="window.profileMobBasicCancelModify()" class="prof-mob-basic-btn-cancel profile-inline-action">Cancel</button>
+                                            <button type="button" onclick="window.profileMobBasicSaveChanges()" class="prof-mob-basic-btn-save profile-inline-action">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="prof-section-container prof-desktop-table-wrap" id="prof-desktop-basic-info">
                                     <div class="prof-section-header flex items-center justify-between">
                                         <div>
                                             <p class="text-xs text-slate-500 font-medium">Company: <span class="font-bold text-slate-800">BCD Travel China</span></p>
@@ -4174,11 +5186,11 @@
                                             <span class="px-3 py-1 rounded bg-amber-50 text-amber-700 font-bold border border-amber-200">Ranking: Gold</span>
                                         </div>
                                     </div>
-                                    <div class="p-5 space-y-6">
+                                    <div class="p-5 space-y-6" id="prof-desktop-basic-form">
                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                                             <div class="form-group !mb-0">
                                                 <label class="text-[11px] font-bold text-slate-600">Gender</label>
-                                                <select class="w-full rounded border border-slate-200 px-3 py-2 text-sm">
+                                                <select id="prof-desktop-basic-gender" class="w-full rounded border border-slate-200 px-3 py-2 text-sm">
                                                     <option value="male" selected>Male</option>
                                                     <option value="female">Female</option>
                                                     <option value="other">Other</option>
@@ -4186,15 +5198,15 @@
                                             </div>
                                             <div class="form-group !mb-0">
                                                 <label class="text-[11px] font-bold text-slate-600">Date of Birth</label>
-                                                <input type="date" class="w-full rounded border border-slate-200 px-3 py-2 text-sm" value="1985-09-20">
+                                                <input type="date" id="prof-desktop-basic-dob" class="w-full rounded border border-slate-200 px-3 py-2 text-sm" value="1985-09-20">
                                             </div>
                                             <div class="form-group !mb-0">
                                                 <label class="text-[11px] font-bold text-slate-600">Phone Num</label>
-                                                <input type="text" class="w-full rounded border border-slate-200 px-3 py-2 text-sm" value="+86-138-0000-1234" placeholder="+86-xxx-xxxx-xxxx">
+                                                <input type="text" id="prof-desktop-basic-phone" class="w-full rounded border border-slate-200 px-3 py-2 text-sm" value="+86-138-0000-1234" placeholder="+86-xxx-xxxx-xxxx">
                                             </div>
                                             <div class="form-group !mb-0">
                                                 <label class="text-[11px] font-bold text-slate-600">Company Email</label>
-                                                <input type="email" class="w-full rounded border border-slate-200 px-3 py-2 text-sm" value="john.wick@bcdtravel.cn" placeholder="name@company.cn">
+                                                <input type="email" id="prof-desktop-basic-email" class="w-full rounded border border-slate-200 px-3 py-2 text-sm" value="john.wick@bcdtravel.cn" placeholder="name@company.cn">
                                             </div>
                                         </div>
                                         <div class="flex justify-end">
@@ -4203,7 +5215,11 @@
                                     </div>
                                 </div>
 
-                                <div class="prof-section-container">
+                                <div id="prof-mob-doc-list" class="prof-mob-only md:hidden">
+                                    <p class="text-sm font-black text-slate-800 tracking-wide mb-2">Document Info</p>
+                                    <div id="prof-mob-doc-cards" class="space-y-2"></div>
+                                </div>
+                                <div class="prof-section-container prof-desktop-table-wrap">
                                     <div class="prof-section-header">
                                         <p class="text-xs font-black text-slate-800 tracking-wide">Document Info</p>
                                     </div>
@@ -4301,7 +5317,87 @@
 
                             <!-- TAB 3: MEMBERSHIP CARD (c99fa4) -->
                             <div id="prof-content-membership-card" class="prof-tab-content hidden space-y-6 animate-fade-in">
-                                <div class="prof-section-container">
+                                <!-- Mobile: list + detail drill-down -->
+                                <div id="prof-mob-membership-list" class="prof-mob-only md:hidden prof-mob-pane-list space-y-4">
+                                    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                                        <div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
+                                            <p class="text-sm font-black text-slate-800">Membership Card</p>
+                                            <button type="button" onclick="window.openProfileModal('membership')" class="profile-inline-action text-[#f26522] text-xs font-bold flex items-center gap-1 min-h-[48px]">+ Add Membership</button>
+                                        </div>
+                                        <div class="p-3 flex gap-2 items-center">
+                                            <input type="search" id="prof-mob-membership-search" oninput="window.profileMembershipMobileFilter(this.value)" placeholder="Search membership" aria-label="Search membership"
+                                                class="flex-1 min-h-[48px] rounded-lg border border-slate-200 px-3 text-sm">
+                                            <button type="button" onclick="window.profileMembershipMobileFilter(document.getElementById('prof-mob-membership-search')?.value || '')" aria-label="Filter membership"
+                                                class="shrink-0 inline-flex items-center justify-center min-h-[48px] min-w-[48px] rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50">
+                                                <i data-lucide="sliders-horizontal" class="w-5 h-5"></i>
+                                            </button>
+                                        </div>
+                                        <div id="prof-mob-membership-cards" class="p-3 pt-0 space-y-2"></div>
+                                    </div>
+                                </div>
+                                <div id="prof-mob-membership-detail" class="prof-mob-only md:hidden prof-mob-pane-detail hidden">
+                                    <div class="prof-mob-detail-nav">
+                                        <button type="button" onclick="window.profileMembershipMobileBack()" class="profile-inline-action inline-flex items-center justify-center min-w-[48px] min-h-[48px] text-slate-700" aria-label="Back">
+                                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                                        </button>
+                                        <p class="text-sm font-black text-slate-900">Membership</p>
+                                        <span class="w-12"></span>
+                                    </div>
+                                    <div class="prof-mob-hero-navy">
+                                        <div id="prof-mob-membership-detail-logo" class="w-16 h-16 mx-auto rounded-full bg-white/15 flex items-center justify-center text-white mb-3">
+                                            <i data-lucide="plane" class="w-8 h-8"></i>
+                                        </div>
+                                        <p id="prof-mob-membership-detail-title" class="text-lg font-black text-white">—</p>
+                                        <p id="prof-mob-membership-detail-sub" class="text-xs text-blue-200 mt-1">—</p>
+                                        <span class="prof-mob-badge-active inline-block mt-3">Active</span>
+                                    </div>
+                                    <div class="p-4 space-y-3">
+                                        <div class="bg-white rounded-xl border border-slate-200 p-4 space-y-4">
+                                            <div class="flex items-center justify-between gap-2">
+                                                <div class="flex items-center gap-2 min-w-0">
+                                                    <i data-lucide="hash" class="w-4 h-4 text-slate-400 shrink-0"></i>
+                                                    <div class="min-w-0">
+                                                        <p class="text-[10px] font-bold text-slate-500">ID Number</p>
+                                                        <p id="prof-mob-membership-detail-id" class="text-sm font-mono font-semibold text-slate-800 truncate">—</p>
+                                                    </div>
+                                                </div>
+                                                <button type="button" id="prof-mob-membership-copy-btn" onclick="window.profileMembershipMobileCopyId()" class="profile-inline-action shrink-0 text-[#f26522] text-[10px] font-bold min-h-[48px] px-2">Copy</button>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <i data-lucide="building-2" class="w-4 h-4 text-slate-400 shrink-0"></i>
+                                                <div>
+                                                    <p class="text-[10px] font-bold text-slate-500">Issuer</p>
+                                                    <p id="prof-mob-membership-detail-issuer" class="text-sm font-semibold text-slate-800">—</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <i data-lucide="calendar" class="w-4 h-4 text-slate-400 shrink-0"></i>
+                                                <div>
+                                                    <p class="text-[10px] font-bold text-slate-500">Date Added</p>
+                                                    <p id="prof-mob-membership-detail-date" class="text-sm text-slate-700">2024-06-15</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-start gap-2">
+                                                <i data-lucide="sticky-note" class="w-4 h-4 text-slate-400 shrink-0 mt-0.5"></i>
+                                                <div>
+                                                    <p class="text-[10px] font-bold text-slate-500">Notes</p>
+                                                    <p id="prof-mob-membership-detail-notes" class="text-sm text-slate-600">Corporate loyalty program linked to travel profile.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="prof-mob-footer-actions">
+                                            <button type="button" onclick="window.openProfileModal('membership')" class="prof-mob-btn-edit-row profile-inline-action">
+                                                <span class="flex items-center gap-2"><i data-lucide="pencil" class="w-4 h-4"></i> Edit Membership</span>
+                                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                            </button>
+                                            <button type="button" id="prof-mob-membership-remove-btn" onclick="window.profileMembershipMobileRemove()" class="prof-mob-btn-remove profile-inline-action">
+                                                <i data-lucide="trash-2" class="w-4 h-4"></i> Remove Membership
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Desktop table -->
+                                <div class="prof-section-container prof-desktop-table-wrap">
                                     <div class="prof-section-header flex items-center justify-between">
                                         <p class="text-xs font-black text-slate-800 tracking-wide">Membership Card</p>
                                         <button type="button" onclick="window.openProfileModal('membership')" class="profile-inline-action text-[#f26522] text-xs font-bold flex items-center gap-1 hover:underline"><i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Add Membership</button>
@@ -4317,19 +5413,19 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="profile-membership-tbody">
-                                                <tr class="border-t border-slate-200 bg-white hover:bg-slate-50/80 transition-colors">
+                                                <tr class="border-t border-slate-200 bg-white hover:bg-slate-50/80 transition-colors" data-membership-id="m1" data-icon="plane" data-date="2024-06-15" data-notes="Corporate loyalty program linked to travel profile.">
                                                     <td class="px-4 py-2.5 font-semibold text-slate-800">Air China PhoenixMiles</td>
                                                     <td class="px-4 py-2.5 text-slate-700 font-mono">CA88001234</td>
                                                     <td class="px-4 py-2.5 text-slate-600">Air China</td>
                                                     <td class="px-4 py-2.5"><button type="button" class="profile-inline-action text-[#f26522] text-xs font-bold hover:underline">Edit</button></td>
                                                 </tr>
-                                                <tr class="border-t border-slate-200 bg-slate-50/60 hover:bg-slate-100/80 transition-colors">
+                                                <tr class="border-t border-slate-200 bg-slate-50/60 hover:bg-slate-100/80 transition-colors" data-membership-id="m2" data-icon="train-front" data-date="2024-08-01" data-notes="Rail membership for domestic bookings.">
                                                     <td class="px-4 py-2.5 font-semibold text-slate-800">China Railway 12306</td>
                                                     <td class="px-4 py-2.5 text-slate-700 font-mono">CR12306-2210</td>
                                                     <td class="px-4 py-2.5 text-slate-600">China Railway</td>
                                                     <td class="px-4 py-2.5"><button type="button" class="profile-inline-action text-[#f26522] text-xs font-bold hover:underline">Edit</button></td>
                                                 </tr>
-                                                <tr class="border-t border-slate-200 bg-white hover:bg-slate-50/80 transition-colors">
+                                                <tr class="border-t border-slate-200 bg-white hover:bg-slate-50/80 transition-colors" data-membership-id="m3" data-icon="building-2" data-date="2025-01-10" data-notes="Hotel loyalty for preferred properties.">
                                                     <td class="px-4 py-2.5 font-semibold text-slate-800">Marriott Bonvoy</td>
                                                     <td class="px-4 py-2.5 text-slate-700 font-mono">MB-99001234</td>
                                                     <td class="px-4 py-2.5 text-slate-600">Marriott International</td>
@@ -4422,12 +5518,123 @@
 
                             <!-- TAB 6: APPROVE DELEGATION / TRAVEL ARRANGER (c9a307) -->
                             <div id="prof-content-approve-delegation" class="prof-tab-content hidden space-y-6 animate-fade-in">
-                                <div class="prof-section-container">
+                                <!-- Mobile delegation -->
+                                <div id="prof-mob-deleg-root" class="prof-mob-only md:hidden">
+                                    <div id="prof-mob-deleg-list-wrap" class="prof-mob-pane-list space-y-4">
+                                        <div id="prof-mob-deleg-segment-wrap">
+                                            <div id="prof-mob-deleg-segment" role="tablist" aria-label="Delegation type">
+                                                <button type="button" id="prof-mob-deleg-seg-approval" onclick="window.switchDelegSubTab('approval')" class="prof-mob-deleg-seg-btn prof-mob-deleg-seg-btn--active" role="tab" aria-selected="true">Approval Replacement</button>
+                                                <button type="button" id="prof-mob-deleg-seg-arranger" onclick="window.switchDelegSubTab('arranger')" class="prof-mob-deleg-seg-btn" role="tab" aria-selected="false">Travel Arranger</button>
+                                            </div>
+                                        </div>
+                                        <div id="prof-mob-deleg-approval-list">
+                                            <div class="bg-white rounded-xl border border-slate-200 p-4 mb-3">
+                                                <div class="flex items-start gap-3">
+                                                    <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 text-[#1e3a5f]">
+                                                        <i data-lucide="user-check" class="w-5 h-5"></i>
+                                                    </div>
+                                                    <div class="flex-1 min-w-0">
+                                                        <p class="text-sm font-black text-slate-800">Approval Replacement</p>
+                                                        <p class="text-[11px] text-slate-500 mt-0.5 leading-snug">Temporarily assign approval authority to another employee.</p>
+                                                    </div>
+                                                    <button type="button" onclick="window.openProfileModal('approval-replacement')" class="profile-inline-action text-[#f26522] text-xs font-bold shrink-0 min-h-[48px]">+ Add</button>
+                                                </div>
+                                            </div>
+                                            <div id="prof-mob-deleg-replacement-cards" class="space-y-2 mb-4"></div>
+                                            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                                                <div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
+                                                    <p class="text-sm font-black text-slate-800">Effective Time</p>
+                                                    <button type="button" onclick="window.openProfileModal('effective-time')" class="profile-inline-action text-[#f26522] text-xs font-bold min-h-[48px]">+ Add</button>
+                                                </div>
+                                                <div id="prof-mob-deleg-timeline" class="p-4 prof-mob-timeline"></div>
+                                                <div class="px-4 pb-4">
+                                                    <div class="prof-mob-info-banner">
+                                                        <i data-lucide="info" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                                                        <span>Approval authority will automatically revert back after the end time.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="prof-mob-deleg-arranger-list" class="hidden space-y-3">
+                                            <div class="flex items-center justify-between px-1">
+                                                <p class="text-sm font-black text-slate-800">Designated Travel Arrangers</p>
+                                                <button type="button" onclick="window.openProfileModal('travel-arranger')" class="profile-inline-action text-[#f26522] text-xs font-bold min-h-[48px]">+ Add</button>
+                                            </div>
+                                            <div id="prof-mob-arranger-cards" class="space-y-2"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Approval detail drill-down -->
+                                    <div id="prof-mob-deleg-detail-approval" class="prof-mob-pane-detail hidden">
+                                        <div class="prof-mob-detail-nav">
+                                            <button type="button" onclick="window.profileDelegationMobileBack()" class="profile-inline-action inline-flex items-center justify-center min-w-[48px] min-h-[48px] text-slate-700" aria-label="Back">
+                                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                                            </button>
+                                            <p class="text-sm font-black text-slate-900">Approval Replacement</p>
+                                            <button type="button" class="profile-inline-action text-[#f26522] text-xs font-bold min-h-[48px] px-2">Edit</button>
+                                        </div>
+                                        <div class="prof-mob-hero-navy">
+                                            <div class="w-16 h-16 mx-auto rounded-full bg-white/20 text-white flex items-center justify-center text-lg font-black mb-2" id="prof-mob-deleg-detail-initials">WS</div>
+                                            <p id="prof-mob-deleg-detail-name" class="text-lg font-black text-white">Winston Scott</p>
+                                            <p id="prof-mob-deleg-detail-emp" class="text-xs text-blue-200 mt-1">EMP-1180</p>
+                                            <span id="prof-mob-deleg-detail-dept" class="inline-block mt-2 px-3 py-1 rounded-full bg-white/15 text-white text-[10px] font-bold">Operations</span>
+                                        </div>
+                                        <div class="p-4 space-y-3">
+                                            <div class="bg-white rounded-xl border border-slate-200 p-4 space-y-3">
+                                                <p class="text-xs font-black text-slate-800">Replacement Details</p>
+                                                <div class="flex justify-between text-sm"><span class="text-slate-500 font-semibold">Employee ID</span><span id="prof-mob-deleg-d-empid" class="font-bold text-slate-800">EMP-1180</span></div>
+                                                <div class="flex justify-between text-sm"><span class="text-slate-500 font-semibold">Department</span><span id="prof-mob-deleg-d-dept" class="font-bold text-slate-800">Operations</span></div>
+                                            </div>
+                                            <div class="bg-white rounded-xl border border-slate-200 p-4">
+                                                <p class="text-xs font-black text-slate-800 mb-3">Effective Time</p>
+                                                <div id="prof-mob-deleg-detail-timeline" class="prof-mob-timeline"></div>
+                                            </div>
+                                            <div class="prof-mob-footer-actions">
+                                                <button type="button" onclick="window.openProfileModal('effective-time')" class="prof-mob-btn-add-time profile-inline-action">
+                                                    <i data-lucide="calendar-plus" class="w-4 h-4"></i> Add New Effective Time
+                                                </button>
+                                                <button type="button" onclick="window.profileDelegationMobileRemoveReplacement()" class="prof-mob-btn-remove profile-inline-action">
+                                                    <i data-lucide="trash-2" class="w-4 h-4"></i> Remove Replacement
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Travel arranger detail drill-down -->
+                                    <div id="prof-mob-deleg-detail-arranger" class="prof-mob-pane-detail hidden">
+                                        <div class="prof-mob-detail-nav">
+                                            <button type="button" onclick="window.profileDelegationMobileBack()" class="profile-inline-action inline-flex items-center justify-center min-w-[48px] min-h-[48px] text-slate-700" aria-label="Back">
+                                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                                            </button>
+                                            <p class="text-sm font-black text-slate-900">Travel Arranger</p>
+                                            <button type="button" class="profile-inline-action text-[#f26522] text-xs font-bold min-h-[48px] px-2">Edit</button>
+                                        </div>
+                                        <div class="prof-mob-hero-navy">
+                                            <div class="w-16 h-16 mx-auto rounded-full bg-white/20 text-white flex items-center justify-center text-lg font-black mb-2" id="prof-mob-arr-detail-initials">CG</div>
+                                            <p id="prof-mob-arr-detail-name" class="text-lg font-black text-white">Charon Gatekeeper</p>
+                                            <p id="prof-mob-arr-detail-range" class="text-xs text-blue-200 mt-1">2026-01-01 — 2026-12-31</p>
+                                        </div>
+                                        <div class="p-4 space-y-3">
+                                            <div class="bg-white rounded-xl border border-slate-200 p-4 space-y-3">
+                                                <div class="flex justify-between text-sm"><span class="text-slate-500 font-semibold">Effective Start</span><span id="prof-mob-arr-d-start" class="font-bold text-slate-800">—</span></div>
+                                                <div class="flex justify-between text-sm"><span class="text-slate-500 font-semibold">Effective End</span><span id="prof-mob-arr-d-end" class="font-bold text-slate-800">—</span></div>
+                                            </div>
+                                            <div class="prof-mob-footer-actions">
+                                                <button type="button" onclick="window.openProfileModal('travel-arranger')" class="prof-mob-btn-add-time profile-inline-action">
+                                                    <i data-lucide="user-plus" class="w-4 h-4"></i> Add New Arranger
+                                                </button>
+                                                <button type="button" onclick="window.profileDelegationMobileRemoveArranger()" class="prof-mob-btn-remove profile-inline-action">
+                                                    <i data-lucide="trash-2" class="w-4 h-4"></i> Remove Arranger
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Desktop delegation -->
+                                <div class="prof-section-container prof-desktop-table-wrap">
                                     <div class="prof-section-header">
                                         <p class="text-xs font-black text-slate-800 tracking-wide">Approve Delegation / Travel Arranger</p>
                                     </div>
                                     <div class="p-5">
-                                        <div class="flex gap-0 mb-4">
+                                        <div class="prof-deleg-desktop-tabs flex gap-0 mb-4">
                                             <button type="button" id="prof-deleg-tab-approval" onclick="window.switchDelegSubTab('approval')"
                                                 class="prof-deleg-sub-tab px-5 py-2 text-xs font-bold rounded-l-lg border border-[#1e3a5f] bg-[#1e3a5f] text-white transition-all">Approval Replacement</button>
                                             <button type="button" id="prof-deleg-tab-arranger" onclick="window.switchDelegSubTab('arranger')"
@@ -4449,8 +5656,8 @@
                                                             <th class="px-4 py-2.5 font-bold w-20">Edit</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr class="border-t border-slate-200 bg-white">
+                                                    <tbody id="profile-deleg-replacement-tbody">
+                                                        <tr class="border-t border-slate-200 bg-white" data-deleg-id="d1" data-initials="WS" data-dept="Operations">
                                                             <td class="px-4 py-2.5 font-semibold text-slate-800">Winston Scott</td>
                                                             <td class="px-4 py-2.5 text-slate-700">EMP-1180</td>
                                                             <td class="px-4 py-2.5 text-slate-600">Operations</td>
@@ -4472,13 +5679,13 @@
                                                             <th class="px-4 py-2.5 font-bold">Status</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr class="border-t border-slate-200 bg-white">
+                                                    <tbody id="profile-deleg-effective-tbody">
+                                                        <tr class="border-t border-slate-200 bg-white" data-eff-id="e1" data-status="active">
                                                             <td class="px-4 py-2.5 text-slate-700">2026-04-01 09:00</td>
                                                             <td class="px-4 py-2.5 text-slate-700">2026-04-15 18:00</td>
                                                             <td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">Active</span></td>
                                                         </tr>
-                                                        <tr class="border-t border-slate-200 bg-slate-50/60">
+                                                        <tr class="border-t border-slate-200 bg-slate-50/60" data-eff-id="e2" data-status="expired">
                                                             <td class="px-4 py-2.5 text-slate-700">2026-03-01 09:00</td>
                                                             <td class="px-4 py-2.5 text-slate-700">2026-03-10 18:00</td>
                                                             <td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded bg-slate-100 text-slate-500 text-[10px] font-bold border border-slate-200">Expired</span></td>
@@ -4504,13 +5711,13 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody id="profile-travel-arrangers-tbody">
-                                                        <tr class="border-t border-slate-200 bg-white">
+                                                        <tr class="border-t border-slate-200 bg-white" data-arranger-id="a1">
                                                             <td class="px-4 py-2.5 font-semibold text-slate-800">Charon Gatekeeper</td>
                                                             <td class="px-4 py-2.5 text-slate-700">2026-01-01</td>
                                                             <td class="px-4 py-2.5 text-slate-700">2026-12-31</td>
                                                             <td class="px-4 py-2.5"><button type="button" class="profile-inline-action text-[#f26522] text-xs font-bold hover:underline">Edit</button></td>
                                                         </tr>
-                                                        <tr class="border-t border-slate-200 bg-slate-50/60">
+                                                        <tr class="border-t border-slate-200 bg-slate-50/60" data-arranger-id="a2">
                                                             <td class="px-4 py-2.5 font-semibold text-slate-800">Winston Scott</td>
                                                             <td class="px-4 py-2.5 text-slate-700">2026-03-01</td>
                                                             <td class="px-4 py-2.5 text-slate-700">2026-06-30</td>
@@ -5163,7 +6370,7 @@
                                         <div id="online-flight-search-panel" class="hidden w-full max-w-full text-left animate-fade-in">
                                             <div class="bg-white border border-slate-200 rounded-xl p-5 max-md:p-3 shadow-sm space-y-5 max-md:space-y-4">
                                                 <div>
-                                                    <div class="flex flex-wrap gap-4">
+                                                    <div class="online-flight-trip-type-row flex flex-wrap gap-4">
                                                         <label class="radio-item text-xs cursor-pointer">
                                                             <input type="radio" name="online-flight-trip-type" value="round"
                                                                 checked onchange="window.updateOnlineFlightTripTypeUI()">
@@ -5184,8 +6391,9 @@
                                                 <div class="border-t border-slate-100 pt-4 space-y-4">
                                                     <div id="online-flight-searchbar-single-wrap">
                                                         <div id="online-flight-searchbar" class="online-flight-searchbar" role="group" aria-label="Flight search criteria">
-                                                                                                                        <div id="online-flight-locations-row" class="online-flight-locations-row max-md:relative max-md:w-full">
-<div class="online-flight-searchbar-seg max-md:pr-14 max-md:py-2 max-md:pb-2 max-md:border-b max-md:border-slate-100">
+                                                            <div class="online-flight-loc-card-frame">
+                                                            <div id="online-flight-locations-row" class="online-flight-locations-row">
+                                                            <div class="online-flight-searchbar-seg">
                                                                 <div class="online-flight-searchbar-label">From</div>
                                                                 <div class="flex items-center gap-2 min-w-0">
                                                                     <i data-lucide="map-pin" class="w-4 h-4 text-slate-400 shrink-0"></i>
@@ -5194,14 +6402,14 @@
                                                                 </div>
                                                             </div>
                                                             <button type="button" onclick="window.swapOnlineFlightLocations()"
-                                                                class="online-flight-searchbar-swap max-md:flex max-md:items-center max-md:justify-center" title="Swap From and To" aria-label="Swap From and To">
-                                                                <i data-lucide="arrow-up-down" class="w-4 h-4 md:hidden" aria-hidden="true"></i>
+                                                                class="online-flight-searchbar-swap" title="Swap From and To" aria-label="Swap From and To">
+                                                                <i data-lucide="arrow-up-down" class="w-4 h-4 max-md:inline md:hidden" aria-hidden="true"></i>
                                                                 <span class="hidden md:inline-flex items-center gap-0.5" aria-hidden="true">
                                                                     <i data-lucide="chevron-left" class="w-4 h-4"></i>
                                                                     <i data-lucide="chevron-right" class="w-4 h-4"></i>
                                                                 </span>
                                                             </button>
-                                                            <div class="online-flight-searchbar-seg max-md:pr-14 max-md:py-2 max-md:pt-2">
+                                                            <div class="online-flight-searchbar-seg">
                                                                 <div class="online-flight-searchbar-label">To</div>
                                                                 <div class="flex items-center gap-2 min-w-0">
                                                                     <i data-lucide="map-pin" class="w-4 h-4 text-slate-400 shrink-0"></i>
@@ -5210,9 +6418,11 @@
                                                                 </div>
                                                             </div>
                                                             </div>
-                                                            <div id="online-flight-dates-row" class="online-flight-dates-row max-md:w-full">
+                                                            </div>
+                                                            <div id="online-flight-dates-row" class="online-flight-dates-row">
                                                             <div id="online-flight-depart-segment" class="online-flight-searchbar-seg online-flight-date-card">
-                                                                <div class="online-flight-searchbar-label">Departure date</div>
+                                                                <div class="online-flight-searchbar-label online-flight-search-label-desktop">Departure date</div>
+                                                                <div class="online-flight-searchbar-label online-flight-search-label-mobile">DEPARTURE DATE</div>
                                                                 <div class="material-date-field w-full">
                                                                     <span id="online-flight-depart-display" class="online-flight-date-display" aria-hidden="true"></span>
                                                                     <input type="date" id="online-flight-depart-date" class="material-date-input"
@@ -5227,7 +6437,8 @@
                                                                 <span class="online-flight-add-return-card-sub">Tap to add return date</span>
                                                             </button>
                                                             <div id="online-flight-return-segment" class="online-flight-searchbar-seg online-flight-date-card">
-                                                                <div class="online-flight-searchbar-label" id="online-flight-return-bar-label">Return date</div>
+                                                                <div class="online-flight-searchbar-label online-flight-search-label-desktop" id="online-flight-return-bar-label">Return date</div>
+                                                                <div class="online-flight-searchbar-label online-flight-search-label-mobile">RETURN DATE</div>
                                                                 <div class="material-date-field w-full">
                                                                     <span id="online-flight-return-display" class="online-flight-date-display" aria-hidden="true"></span>
                                                                     <input type="date" id="online-flight-return-date" class="material-date-input"
@@ -5238,16 +6449,17 @@
                                                             </div>
                                                             <!-- AI-ADDED: Class dropdown in the primary search bar
                                                                  Prompt: Add Class input to #online-flight-searchbar -->
-                                                            <div class="online-flight-searchbar-seg online-flight-searchbar-seg--last">
+                                                            <div class="online-flight-searchbar-seg online-flight-searchbar-seg--last online-flight-class-seg">
                                                                 <div class="online-flight-searchbar-label">Class</div>
                                                                 <div class="flex items-center gap-2 min-w-0">
                                                                     <i data-lucide="armchair" class="w-4 h-4 text-slate-400 shrink-0"></i>
-                                                                    <select id="online-flight-class-search" class="online-flight-loc-input !py-1" aria-label="Cabin class">
+                                                                    <select id="online-flight-class-search" class="online-flight-loc-input online-flight-class-select !py-1 flex-1 min-w-0" aria-label="Cabin class">
                                                                         <option value="economy">Economy</option>
                                                                         <option value="premium">Premium Economy</option>
                                                                         <option value="business">Business</option>
                                                                         <option value="first">First Class</option>
                                                                     </select>
+                                                                    <i data-lucide="chevron-down" class="online-flight-class-chevron w-4 h-4 md:hidden shrink-0" aria-hidden="true"></i>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -5264,9 +6476,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="flex justify-center pt-1">
+                                                <div class="online-flight-search-btn-wrap flex justify-center pt-1 max-md:pt-3">
                                                     <button type="button" onclick="window.searchOnlineFlight()"
-                                                        class="bg-[#4285F4] text-white px-10 py-2.5 rounded-xl font-bold text-sm hover:bg-[#3367D6] transition-all shadow-sm">
+                                                        class="online-flight-search-submit bg-[#4285F4] text-white px-10 py-2.5 rounded-xl font-bold text-sm hover:bg-[#3367D6] transition-all shadow-sm max-md:w-full max-md:min-h-[48px]">
                                                         Search
                                                     </button>
                                                 </div>
@@ -10850,6 +12062,10 @@
         };
 
         window.showPage = (pageId, type) => {
+            if (window.matchMedia('(max-width: 767px)').matches && pageId === 'user-management') {
+                pageId = 'dashboard';
+                type = undefined;
+            }
             document.querySelectorAll('main[id^="page-"]').forEach(p => p.classList.add('hidden'));
             const target = document.getElementById('page-' + pageId);
             if (target) target.classList.remove('hidden');
@@ -10897,7 +12113,9 @@
                 window._profileDirty = false;
                 const saveBtn = document.getElementById('profile-save-btn');
                 if (saveBtn) saveBtn.classList.add('hidden');
+                window.profileMobileResetState?.();
                 window.switchProfileTab?.('personal-information');
+                window.profileMobBasicSyncFromDesktop?.();
                 window._profileWatchChanges();
             }
 
@@ -11458,6 +12676,46 @@
             </article>`;
         };
 
+        window._approvalsActionModalOpen = false;
+
+        window.openApprovalsActionModal = (approvalId) => {
+            if (!window.matchMedia('(max-width: 767px)').matches) return;
+            if ((window._approvalsActiveSubTab || 'pending') !== 'pending') return;
+            const modal = document.getElementById('approvals-action-modal');
+            if (!modal) return;
+            window._approvalsActionModalOpen = true;
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            if (approvalId) modal.dataset.activeApprovalId = approvalId;
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeApprovalsActionModal = () => {
+            const modal = document.getElementById('approvals-action-modal');
+            window._approvalsActionModalOpen = false;
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.setAttribute('aria-hidden', 'true');
+                delete modal.dataset.activeApprovalId;
+            }
+            if (!document.querySelector('.approvals-action-modal:not(.hidden)')) {
+                document.body.style.overflow = '';
+            }
+        };
+
+        window._bindApprovalsMobilePendingActions = () => {
+            const listP = document.getElementById('approvals-mobile-pending');
+            if (!listP || listP._approvalsActionBound) return;
+            listP._approvalsActionBound = true;
+            listP.addEventListener('click', (e) => {
+                if (!window.matchMedia('(max-width: 767px)').matches) return;
+                if ((window._approvalsActiveSubTab || 'pending') !== 'pending') return;
+                const card = e.target.closest('.approvals-mobile-card');
+                if (!card || card.classList.contains('hidden')) return;
+                window.openApprovalsActionModal(card.getAttribute('data-approval-id') || '');
+            });
+        };
+
         window.syncApprovalsMobileCards = () => {
             const pendingBody = document.getElementById('approvals-tbody-pending');
             const approvedBody = document.getElementById('approvals-tbody-approved');
@@ -11466,16 +12724,23 @@
             if (listP && pendingBody) {
                 listP.innerHTML = [...pendingBody.querySelectorAll('tr.approvals-row')].map((tr) =>
                     window._approvalsMobileCardHtml(tr, 'pending')).join('');
+                listP.querySelectorAll('.approvals-mobile-card').forEach((card) => {
+                    card.classList.add('approvals-mobile-card--pending-action');
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('tabindex', '0');
+                });
             }
             if (listA && approvedBody) {
                 listA.innerHTML = [...approvedBody.querySelectorAll('tr.approvals-row')].map((tr) =>
                     window._approvalsMobileCardHtml(tr, 'approved')).join('');
             }
+            window._bindApprovalsMobilePendingActions?.();
             if (window.lucide) lucide.createIcons();
         };
 
         window.switchApprovalsSubTab = (tab) => {
             window._approvalsActiveSubTab = tab;
+            if (tab !== 'pending') window.closeApprovalsActionModal?.();
             const pendingBody = document.getElementById('approvals-tbody-pending');
             const approvedBody = document.getElementById('approvals-tbody-approved');
             const listP = document.getElementById('approvals-mobile-pending');
@@ -12028,6 +13293,9 @@
         window.togglePassportNoticeModal = (show) => { const modal = document.getElementById('passport-notice-modal'); modal.classList.toggle('hidden', !show); };
 
         window.startBooking = (type) => {
+            if (window.matchMedia('(max-width: 767px)').matches && type === 'international') {
+                type = 'domestic';
+            }
             window.currentTravelFlow = type;
             window.setSidebarCollapsed(true);
             window.showPage('booking', type);
@@ -12305,6 +13573,10 @@
             const retSeg = document.getElementById('online-flight-return-segment');
             const depSeg = document.getElementById('online-flight-depart-segment');
             const barLbl = document.getElementById('online-flight-return-bar-label');
+            const datesRow = document.getElementById('online-flight-dates-row');
+            if (datesRow) {
+                datesRow.classList.toggle('online-flight-dates-row--oneway', v === 'oneway');
+            }
             if (v === 'multiple') {
                 singleWrap?.classList.add('hidden');
                 multiWrap?.classList.remove('hidden');
@@ -16363,6 +17635,10 @@
                 if (tb) {
                     const rc = tb.querySelectorAll('tr').length;
                     const tr = document.createElement('tr');
+                    tr.dataset.membershipId = 'm' + Date.now();
+                    tr.dataset.icon = 'badge-check';
+                    tr.dataset.date = new Date().toISOString().slice(0, 10);
+                    tr.dataset.notes = '';
                     tr.className = `border-t border-slate-200 ${rc % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'} hover:bg-slate-100/80 transition-colors`;
                     tr.innerHTML = `
                         <td class="px-4 py-2.5 font-semibold text-slate-800">${typeLabel}</td>
@@ -16391,20 +17667,22 @@
             } else if (modalId === 'approval-replacement') {
                 const name = document.getElementById('prof-modal-appr-name')?.value?.trim() || '—';
                 const workId = document.getElementById('prof-modal-appr-workid')?.value?.trim() || '—';
-                const panel = document.getElementById('prof-deleg-panel-approval');
-                if (panel) {
-                    const tbody = panel.querySelector('table tbody');
-                    if (tbody) {
-                        const rc = tbody.querySelectorAll('tr').length;
-                        const tr = document.createElement('tr');
-                        tr.className = `border-t border-slate-200 ${rc % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`;
-                        tr.innerHTML = `
-                            <td class="px-4 py-2.5 font-semibold text-slate-800">${name}</td>
-                            <td class="px-4 py-2.5 text-slate-700">${workId}</td>
-                            <td class="px-4 py-2.5 text-slate-600">—</td>
-                            <td class="px-4 py-2.5"><button type="button" class="profile-inline-action text-[#f26522] text-xs font-bold hover:underline">Edit</button></td>`;
-                        tbody.appendChild(tr);
-                    }
+                const tb = document.getElementById('profile-deleg-replacement-tbody');
+                if (tb) {
+                    const rc = tb.querySelectorAll('tr').length;
+                    const id = 'd' + Date.now();
+                    const initials = name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase() || '—';
+                    const tr = document.createElement('tr');
+                    tr.dataset.delegId = id;
+                    tr.dataset.initials = initials;
+                    tr.dataset.dept = '—';
+                    tr.className = `border-t border-slate-200 ${rc % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`;
+                    tr.innerHTML = `
+                        <td class="px-4 py-2.5 font-semibold text-slate-800">${name}</td>
+                        <td class="px-4 py-2.5 text-slate-700">${workId}</td>
+                        <td class="px-4 py-2.5 text-slate-600">—</td>
+                        <td class="px-4 py-2.5"><button type="button" class="profile-inline-action text-[#f26522] text-xs font-bold hover:underline">Edit</button></td>`;
+                    tb.appendChild(tr);
                 }
             } else if (modalId === 'effective-time') {
                 const start = document.getElementById('prof-modal-eff-start')?.value || '—';
@@ -16414,23 +17692,18 @@
                 const statusLabels = { active: ['Active', 'bg-emerald-50 text-emerald-700 border-emerald-200'], pending: ['Pending', 'bg-amber-50 text-amber-700 border-amber-200'], expired: ['Expired', 'bg-slate-100 text-slate-500 border-slate-200'] };
                 const [sLabel, sClass] = statusLabels[statusVal] || statusLabels.active;
                 const fmtDt = (v) => v && v !== '—' ? v.replace('T', ' ') : '—';
-                const panel = document.getElementById('prof-deleg-panel-approval');
-                if (panel) {
-                    const tables = panel.querySelectorAll('table');
-                    const effTable = tables.length >= 2 ? tables[1] : null;
-                    if (effTable) {
-                        const tbody = effTable.querySelector('tbody');
-                        if (tbody) {
-                            const rc = tbody.querySelectorAll('tr').length;
-                            const tr = document.createElement('tr');
-                            tr.className = `border-t border-slate-200 ${rc % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`;
-                            tr.innerHTML = `
-                                <td class="px-4 py-2.5 text-slate-700">${fmtDt(start)}</td>
-                                <td class="px-4 py-2.5 text-slate-700">${fmtDt(end)}</td>
-                                <td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded ${sClass} text-[10px] font-bold border">${sLabel}</span></td>`;
-                            tbody.appendChild(tr);
-                        }
-                    }
+                const tb = document.getElementById('profile-deleg-effective-tbody');
+                if (tb) {
+                    const rc = tb.querySelectorAll('tr').length;
+                    const tr = document.createElement('tr');
+                    tr.dataset.effId = 'e' + Date.now();
+                    tr.dataset.status = statusVal;
+                    tr.className = `border-t border-slate-200 ${rc % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`;
+                    tr.innerHTML = `
+                        <td class="px-4 py-2.5 text-slate-700">${fmtDt(start)}</td>
+                        <td class="px-4 py-2.5 text-slate-700">${fmtDt(end)}</td>
+                        <td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded ${sClass} text-[10px] font-bold border">${sLabel}</span></td>`;
+                    tb.appendChild(tr);
                 }
             } else if (modalId === 'travel-arranger') {
                 const name = document.getElementById('prof-modal-arr-name')?.value?.trim() || '—';
@@ -16440,6 +17713,7 @@
                 if (tb) {
                     const rc = tb.querySelectorAll('tr').length;
                     const tr = document.createElement('tr');
+                    tr.dataset.arrangerId = 'a' + Date.now();
                     tr.className = `border-t border-slate-200 ${rc % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`;
                     tr.innerHTML = `
                         <td class="px-4 py-2.5 font-semibold text-slate-800">${name}</td>
@@ -16450,6 +17724,8 @@
                 }
             }
             window.closeProfileModal(modalId);
+            if (modalId === 'membership') window.syncProfileMembershipMobile?.();
+            if (modalId === 'approval-replacement' || modalId === 'effective-time' || modalId === 'travel-arranger') window.syncProfileDelegationMobile?.();
             lucide.createIcons();
         };
 
@@ -16573,9 +17849,525 @@
             lucide.createIcons();
         };
 
-        /* AI-ADDED: Switch delegation sub-tabs (Approval Replacement / Travel Arranger)
-           Prompt: Refactor #page-profile to 7-tab layout matching reference images */
+        /* Profile Management — mobile state & navigation (<768px) */
+        window._profileMobileState = {
+            activeMainTab: 'personal-information',
+            activeDelegationSubTab: 'approval',
+            membershipView: 'list',
+            delegationView: 'list',
+            delegationDetailKind: null,
+            isDrillingDown: false,
+            selectedMembershipId: null,
+            selectedArrangerId: null
+        };
+
+        window.profileMobileIsActive = () => window.matchMedia('(max-width: 767px)').matches;
+
+        window._profileMobBasicInfo = { isModifyOpen: false, _snapshot: null };
+
+        window.profileMobBasicSnapshot = () => ({
+            gender: document.getElementById('prof-mob-basic-gender')?.value || 'male',
+            dob: document.getElementById('prof-mob-basic-dob')?.value || '',
+            phone: document.getElementById('prof-mob-basic-phone')?.value || '',
+            email: document.getElementById('prof-mob-basic-email')?.value || ''
+        });
+
+        window.profileMobBasicRestoreSnapshot = (snap) => {
+            if (!snap) return;
+            const g = document.getElementById('prof-mob-basic-gender');
+            const d = document.getElementById('prof-mob-basic-dob');
+            const p = document.getElementById('prof-mob-basic-phone');
+            const e = document.getElementById('prof-mob-basic-email');
+            if (g) g.value = snap.gender;
+            if (d) d.value = snap.dob;
+            if (p) p.value = snap.phone;
+            if (e) e.value = snap.email;
+        };
+
+        window.profileMobBasicSetModifyOpen = (open) => {
+            window._profileMobBasicInfo.isModifyOpen = !!open;
+            const root = document.getElementById('prof-mob-basic-info');
+            const drawer = document.getElementById('prof-mob-basic-drawer');
+            const btn = document.getElementById('prof-mob-basic-modify-btn');
+            const chev = btn?.querySelector('.prof-mob-basic-modify-chev');
+            root?.classList.toggle('prof-mob-basic--modify-open', window._profileMobBasicInfo.isModifyOpen);
+            if (drawer) drawer.setAttribute('aria-hidden', window._profileMobBasicInfo.isModifyOpen ? 'false' : 'true');
+            if (btn) {
+                btn.setAttribute('aria-expanded', window._profileMobBasicInfo.isModifyOpen ? 'true' : 'false');
+                if (chev) chev.textContent = window._profileMobBasicInfo.isModifyOpen ? '∧' : '∨';
+            }
+            if (window.lucide) lucide.createIcons();
+        };
+
+        window.profileMobBasicToggleModify = () => {
+            if (!window.profileMobileIsActive()) return;
+            const opening = !window._profileMobBasicInfo.isModifyOpen;
+            if (opening) window._profileMobBasicInfo._snapshot = window.profileMobBasicSnapshot();
+            else window._profileMobBasicInfo._snapshot = null;
+            window.profileMobBasicSetModifyOpen(opening);
+        };
+
+        window.profileMobBasicCancelModify = () => {
+            window.profileMobBasicRestoreSnapshot(window._profileMobBasicInfo._snapshot);
+            window._profileMobBasicInfo._snapshot = null;
+            window.profileMobBasicSetModifyOpen(false);
+        };
+
+        window.profileMobBasicSyncToDesktop = () => {
+            const g = document.getElementById('prof-mob-basic-gender');
+            const d = document.getElementById('prof-mob-basic-dob');
+            const p = document.getElementById('prof-mob-basic-phone');
+            const e = document.getElementById('prof-mob-basic-email');
+            const dg = document.getElementById('prof-desktop-basic-gender');
+            const dd = document.getElementById('prof-desktop-basic-dob');
+            const dp = document.getElementById('prof-desktop-basic-phone');
+            const de = document.getElementById('prof-desktop-basic-email');
+            if (dg && g) dg.value = g.value;
+            if (dp && p) dp.value = p.value;
+            if (de && e) de.value = e.value;
+            if (dd && d) {
+                const m = String(d.value || '').match(/^(\d{2})-(\d{2})-(\d{4})$/);
+                if (m) dd.value = `${m[3]}-${m[2]}-${m[1]}`;
+            }
+        };
+
+        window.profileMobBasicSyncFromDesktop = () => {
+            if (!window.profileMobileIsActive()) return;
+            const dg = document.getElementById('prof-desktop-basic-gender');
+            const dd = document.getElementById('prof-desktop-basic-dob');
+            const dp = document.getElementById('prof-desktop-basic-phone');
+            const de = document.getElementById('prof-desktop-basic-email');
+            const g = document.getElementById('prof-mob-basic-gender');
+            const d = document.getElementById('prof-mob-basic-dob');
+            const picker = document.getElementById('prof-mob-basic-dob-picker');
+            const p = document.getElementById('prof-mob-basic-phone');
+            const e = document.getElementById('prof-mob-basic-email');
+            if (g && dg) g.value = dg.value;
+            if (p && dp) p.value = dp.value;
+            if (e && de) e.value = de.value;
+            if (d && dd && dd.value) {
+                const parts = dd.value.split('-');
+                if (parts.length === 3) {
+                    d.value = `${parts[2]}-${parts[1]}-${parts[0]}`;
+                    if (picker) picker.value = dd.value;
+                }
+            }
+        };
+
+        window.profileMobBasicSaveChanges = () => {
+            window.profileMobBasicSyncToDesktop();
+            window._profileMobBasicInfo._snapshot = window.profileMobBasicSnapshot();
+            window.profileMobBasicSetModifyOpen(false);
+        };
+
+        window._profileMobEsc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+        window.profileMobileResetDrillDown = () => {
+            const st = window._profileMobileState;
+            st.membershipView = 'list';
+            st.delegationView = 'list';
+            st.delegationDetailKind = null;
+            st.isDrillingDown = false;
+            st.selectedMembershipId = null;
+            st.selectedArrangerId = null;
+            const mList = document.getElementById('prof-mob-membership-list');
+            const mDetail = document.getElementById('prof-mob-membership-detail');
+            if (mList) mList.classList.remove('hidden');
+            if (mDetail) mDetail.classList.add('hidden');
+            const dList = document.getElementById('prof-mob-deleg-list-wrap');
+            const dAppr = document.getElementById('prof-mob-deleg-detail-approval');
+            const dArr = document.getElementById('prof-mob-deleg-detail-arranger');
+            if (dList) dList.classList.remove('hidden');
+            if (dAppr) dAppr.classList.add('hidden');
+            if (dArr) dArr.classList.add('hidden');
+        };
+
+        window.profileMobileResetState = () => {
+            window.profileMobileResetDrillDown();
+            window._profileMobileState.activeMainTab = 'personal-information';
+            window._profileMobileState.activeDelegationSubTab = 'approval';
+            window.profileMobBasicSetModifyOpen?.(false);
+            window._profileMobBasicInfo._snapshot = null;
+            window.profileMobileSyncTabBarUI('personal-information');
+            window.profileMobileCloseMoreMenu();
+        };
+
+        window.profileMobileSyncTabBarUI = (tabId) => {
+            const primary = ['personal-information', 'billing-information', 'membership-card', 'credit-card'];
+            const moreTabs = ['preference', 'approve-delegation', 'change-password'];
+            document.querySelectorAll('#profile-mobile-tab-bar .profile-mobile-tab[data-profile-mob-tab]').forEach((btn) => {
+                const id = btn.getAttribute('data-profile-mob-tab');
+                const on = id === tabId;
+                btn.classList.toggle('profile-mobile-tab--active', on);
+                btn.setAttribute('aria-selected', on ? 'true' : 'false');
+            });
+            const moreBtn = document.getElementById('profile-mob-tab-more');
+            if (moreBtn) {
+                const moreOn = moreTabs.includes(tabId);
+                moreBtn.classList.toggle('profile-mobile-tab--active', moreOn);
+                moreBtn.setAttribute('aria-selected', moreOn ? 'true' : 'false');
+            }
+        };
+
+        window._profileMoreMenuSuppressClose = false;
+
+        window.profileMobileToggleMoreMenu = (ev) => {
+            if (ev) {
+                ev.stopPropagation();
+                ev.preventDefault();
+            }
+            const menu = document.getElementById('profile-mobile-more-menu');
+            const btn = document.getElementById('profile-mob-tab-more');
+            if (!menu) return;
+            const opening = menu.classList.contains('hidden');
+            if (opening) {
+                menu.classList.remove('hidden');
+                menu.classList.add('profile-mobile-more-menu--open');
+                if (btn) {
+                    btn.classList.add('profile-mobile-tab--menu-open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+                window._profileMoreMenuSuppressClose = true;
+                window.setTimeout(() => { window._profileMoreMenuSuppressClose = false; }, 0);
+            } else {
+                window.profileMobileCloseMoreMenu();
+            }
+            lucide.createIcons();
+        };
+
+        window.profileMobileCloseMoreMenu = () => {
+            const menu = document.getElementById('profile-mobile-more-menu');
+            const btn = document.getElementById('profile-mob-tab-more');
+            if (menu) {
+                menu.classList.add('hidden');
+                menu.classList.remove('profile-mobile-more-menu--open');
+            }
+            if (btn) {
+                btn.classList.remove('profile-mobile-tab--menu-open');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        };
+
+        window.profileMobileSwitchTab = (tabId) => {
+            window._profileMobileState.activeMainTab = tabId;
+            window.profileMobileResetDrillDown();
+            window.profileMobileSyncTabBarUI(tabId);
+            window.profileMobileCloseMoreMenu();
+            window._profileSwitchProfileTabCore(tabId);
+            if (tabId === 'personal-information') {
+                window.syncProfileDocumentInfoMobile?.();
+                window.profileMobBasicSyncFromDesktop?.();
+            }
+            if (tabId === 'membership-card') window.syncProfileMembershipMobile?.();
+            if (tabId === 'approve-delegation') {
+                window.switchDelegSubTab(window._profileMobileState.activeDelegationSubTab || 'approval');
+                window.syncProfileDelegationMobile?.();
+            }
+        };
+
+        window._profileSwitchProfileTabCore = (tabId) => {
+            document.querySelectorAll('.prof-tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.profile-tab-btn').forEach(btn => btn.classList.remove('profile-tab-active'));
+            const targetContent = document.getElementById('prof-content-' + tabId);
+            const targetBtn = document.getElementById('prof-tab-' + tabId);
+            if (targetContent) targetContent.classList.remove('hidden');
+            if (targetBtn) targetBtn.classList.add('profile-tab-active');
+            const scrollEl = document.getElementById('profile-content-scroll');
+            if (scrollEl) scrollEl.scrollTo({ top: 0, behavior: 'smooth' });
+            lucide.createIcons();
+        };
+
+        window.syncProfileMembershipMobile = () => {
+            if (!window.profileMobileIsActive()) return;
+            const tb = document.getElementById('profile-membership-tbody');
+            const container = document.getElementById('prof-mob-membership-cards');
+            if (!tb || !container) return;
+            const q = (document.getElementById('prof-mob-membership-search')?.value || '').trim().toLowerCase();
+            container.innerHTML = '';
+            tb.querySelectorAll('tr').forEach((tr) => {
+                const cells = tr.querySelectorAll('td');
+                if (cells.length < 3) return;
+                const title = (cells[0].textContent || '').trim();
+                const idNum = (cells[1].textContent || '').trim();
+                const issuer = (cells[2].textContent || '').trim();
+                const mid = tr.dataset.membershipId || ('m' + Math.random().toString(36).slice(2, 8));
+                if (!tr.dataset.membershipId) tr.dataset.membershipId = mid;
+                const hay = (title + idNum + issuer).toLowerCase();
+                if (q && !hay.includes(q)) return;
+                const icon = tr.dataset.icon || 'badge-check';
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'prof-mob-membership-card profile-inline-action w-full';
+                btn.dataset.membershipId = mid;
+                btn.onclick = () => window.profileMembershipMobileOpenDetail(mid);
+                btn.innerHTML = `
+                    <div class="prof-mob-membership-icon"><i data-lucide="${window._profileMobEsc(icon)}"></i></div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-bold text-slate-900 truncate">${window._profileMobEsc(title)}</p>
+                        <div class="grid grid-cols-2 gap-2 mt-1 text-[10px]">
+                            <div><span class="text-slate-400 font-semibold">ID Number</span><p class="font-mono text-slate-700 truncate">${window._profileMobEsc(idNum)}</p></div>
+                            <div><span class="text-slate-400 font-semibold">Issuer</span><p class="text-slate-600 truncate">${window._profileMobEsc(issuer)}</p></div>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 shrink-0"></i>`;
+                container.appendChild(btn);
+            });
+            lucide.createIcons();
+        };
+
+        window.profileMembershipMobileFilter = (query) => {
+            window.syncProfileMembershipMobile();
+        };
+
+        window.syncProfileDocumentInfoMobile = () => {
+            if (!window.profileMobileIsActive()) return;
+            const tb = document.getElementById('profile-doc-info-tbody');
+            const container = document.getElementById('prof-mob-doc-cards');
+            if (!tb || !container) return;
+            container.innerHTML = '';
+            tb.querySelectorAll('tr').forEach((tr) => {
+                const cells = tr.querySelectorAll('td');
+                if (cells.length < 6) return;
+                const docType = (cells[0].textContent || '').trim();
+                const idNum = (cells[1].textContent || '').trim();
+                const expiry = (cells[2].textContent || '').trim();
+                const country = (cells[3].textContent || '').trim();
+                const nationality = (cells[4].textContent || '').trim();
+                const card = document.createElement('button');
+                card.type = 'button';
+                card.className = 'prof-mob-doc-card profile-inline-action';
+                card.innerHTML = `
+                    <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 text-[#1e3a5f]">
+                        <i data-lucide="file-badge" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-bold text-slate-900">${window._profileMobEsc(docType)}</p>
+                        <p class="text-[11px] font-mono text-slate-600 mt-0.5 truncate">${window._profileMobEsc(idNum)}</p>
+                        <div class="grid grid-cols-2 gap-x-2 gap-y-1 mt-2 text-[10px]">
+                            <div><span class="text-slate-400 font-semibold">Expiry</span><p class="text-slate-700">${window._profileMobEsc(expiry)}</p></div>
+                            <div><span class="text-slate-400 font-semibold">Country</span><p class="text-slate-700">${window._profileMobEsc(country)}</p></div>
+                            <div class="col-span-2"><span class="text-slate-400 font-semibold">Nationality</span><p class="text-slate-700">${window._profileMobEsc(nationality)}</p></div>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 shrink-0 mt-1"></i>`;
+                container.appendChild(card);
+            });
+            lucide.createIcons();
+        };
+
+        window.profileMembershipMobileOpenDetail = (id) => {
+            const tr = document.querySelector(`#profile-membership-tbody tr[data-membership-id="${id}"]`);
+            if (!tr) return;
+            const cells = tr.querySelectorAll('td');
+            const title = (cells[0]?.textContent || '').trim();
+            const idNum = (cells[1]?.textContent || '').trim();
+            const issuer = (cells[2]?.textContent || '').trim();
+            const icon = tr.dataset.icon || 'plane';
+            window._profileMobileState.selectedMembershipId = id;
+            window._profileMobileState.membershipView = 'detail';
+            window._profileMobileState.isDrillingDown = true;
+            document.getElementById('prof-mob-membership-list')?.classList.add('hidden');
+            document.getElementById('prof-mob-membership-detail')?.classList.remove('hidden');
+            const set = (elId, val) => { const el = document.getElementById(elId); if (el) el.textContent = val; };
+            set('prof-mob-membership-detail-title', title);
+            set('prof-mob-membership-detail-sub', issuer);
+            set('prof-mob-membership-detail-id', idNum);
+            set('prof-mob-membership-detail-issuer', issuer);
+            set('prof-mob-membership-detail-date', tr.dataset.date || '—');
+            set('prof-mob-membership-detail-notes', tr.dataset.notes || '—');
+            const logo = document.getElementById('prof-mob-membership-detail-logo');
+            if (logo) logo.innerHTML = `<i data-lucide="${window._profileMobEsc(icon)}"></i>`;
+            const scrollEl = document.getElementById('profile-content-scroll');
+            if (scrollEl) scrollEl.scrollTo({ top: 0, behavior: 'smooth' });
+            lucide.createIcons();
+        };
+
+        window.profileMembershipMobileBack = () => {
+            window._profileMobileState.membershipView = 'list';
+            window._profileMobileState.isDrillingDown = false;
+            window._profileMobileState.selectedMembershipId = null;
+            document.getElementById('prof-mob-membership-list')?.classList.remove('hidden');
+            document.getElementById('prof-mob-membership-detail')?.classList.add('hidden');
+        };
+
+        window.profileMembershipMobileCopyId = () => {
+            const id = document.getElementById('prof-mob-membership-detail-id')?.textContent?.trim();
+            if (!id || id === '—') return;
+            navigator.clipboard?.writeText(id).catch(() => {});
+        };
+
+        window.profileMembershipMobileRemove = () => {
+            const id = window._profileMobileState.selectedMembershipId;
+            if (!id) return;
+            document.querySelector(`#profile-membership-tbody tr[data-membership-id="${id}"]`)?.remove();
+            window.profileMembershipMobileBack();
+            window.syncProfileMembershipMobile();
+        };
+
+        window._profileMobInitials = (name) => String(name || '').split(/\s+/).filter(Boolean).map((w) => w[0]).join('').slice(0, 2).toUpperCase() || '—';
+
+        window._profileMobRenderTimeline = (container, clickable) => {
+            if (!container) return;
+            const tb = document.getElementById('profile-deleg-effective-tbody');
+            if (!tb) return;
+            container.innerHTML = '';
+            tb.querySelectorAll('tr').forEach((tr) => {
+                const cells = tr.querySelectorAll('td');
+                if (cells.length < 3) return;
+                const start = (cells[0].textContent || '').trim();
+                const end = (cells[1].textContent || '').trim();
+                const status = tr.dataset.status || (cells[2].textContent || '').toLowerCase().includes('active') ? 'active' : 'expired';
+                const isActive = status === 'active';
+                const item = document.createElement('div');
+                item.className = 'prof-mob-timeline-item';
+                const row = clickable
+                    ? `<button type="button" class="prof-mob-timeline-row profile-inline-action" onclick="window.profileDelegationMobileOpenDetail('timeline')">`
+                    : `<div class="prof-mob-timeline-row">`;
+                const rowEnd = clickable ? '</button>' : '</div>';
+                item.innerHTML = `
+                    <span class="prof-mob-timeline-node ${isActive ? 'prof-mob-timeline-node--active' : 'prof-mob-timeline-node--expired'}"></span>
+                    ${row}
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[10px] font-bold text-slate-500">Start Time</p>
+                            <p class="text-xs font-semibold text-slate-800">${window._profileMobEsc(start)}</p>
+                            <p class="text-[10px] font-bold text-slate-500 mt-2">End Time</p>
+                            <p class="text-xs font-semibold text-slate-800">${window._profileMobEsc(end)}</p>
+                        </div>
+                        <div class="flex flex-col items-end gap-1 shrink-0">
+                            <span class="${isActive ? 'prof-mob-badge-active' : 'prof-mob-badge-expired'}">${isActive ? 'Active' : 'Expired'}</span>
+                            ${clickable ? '<i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>' : ''}
+                        </div>
+                    ${rowEnd}`;
+                container.appendChild(item);
+            });
+        };
+
+        window.syncProfileDelegationMobile = () => {
+            if (!window.profileMobileIsActive()) return;
+            const repTb = document.getElementById('profile-deleg-replacement-tbody');
+            const repCards = document.getElementById('prof-mob-deleg-replacement-cards');
+            if (repTb && repCards) {
+                repCards.innerHTML = '';
+                repTb.querySelectorAll('tr').forEach((tr) => {
+                    const cells = tr.querySelectorAll('td');
+                    if (cells.length < 3) return;
+                    const name = (cells[0].textContent || '').trim();
+                    const empId = (cells[1].textContent || '').trim();
+                    const dept = (cells[2].textContent || '').trim();
+                    const initials = tr.dataset.initials || window._profileMobInitials(name);
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'prof-mob-deleg-user-card profile-inline-action w-full';
+                    btn.onclick = () => window.profileDelegationMobileOpenDetail('replacement', { name, empId, dept, initials });
+                    btn.innerHTML = `
+                        <div class="w-11 h-11 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-xs font-black shrink-0">${window._profileMobEsc(initials)}</div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-bold text-slate-900">${window._profileMobEsc(initials)} — ${window._profileMobEsc(name)}</p>
+                            <p class="text-[11px] text-slate-500">${window._profileMobEsc(empId)}</p>
+                            <span class="inline-block mt-1 px-2 py-0.5 rounded bg-slate-100 text-[10px] font-bold text-slate-600">${window._profileMobEsc(dept)}</span>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 shrink-0"></i>`;
+                    repCards.appendChild(btn);
+                });
+            }
+            window._profileMobRenderTimeline(document.getElementById('prof-mob-deleg-timeline'), true);
+            window._profileMobRenderTimeline(document.getElementById('prof-mob-deleg-detail-timeline'), false);
+            const arrTb = document.getElementById('profile-travel-arrangers-tbody');
+            const arrCards = document.getElementById('prof-mob-arranger-cards');
+            if (arrTb && arrCards) {
+                arrCards.innerHTML = '';
+                arrTb.querySelectorAll('tr').forEach((tr) => {
+                    const cells = tr.querySelectorAll('td');
+                    if (cells.length < 3) return;
+                    const name = (cells[0].textContent || '').trim();
+                    const start = (cells[1].textContent || '').trim();
+                    const end = (cells[2].textContent || '').trim();
+                    const aid = tr.dataset.arrangerId || ('a' + Math.random().toString(36).slice(2, 8));
+                    if (!tr.dataset.arrangerId) tr.dataset.arrangerId = aid;
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'prof-mob-arranger-card profile-inline-action w-full';
+                    btn.dataset.arrangerId = aid;
+                    btn.onclick = () => window.profileDelegationMobileOpenDetail('arranger', { name, start, end, aid });
+                    btn.innerHTML = `
+                        <div class="w-11 h-11 rounded-full bg-[#0B2545] text-white flex items-center justify-center text-xs font-black shrink-0">${window._profileMobEsc(window._profileMobInitials(name))}</div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-bold text-slate-900">${window._profileMobEsc(name)}</p>
+                            <p class="text-[11px] text-slate-500">${window._profileMobEsc(start)} — ${window._profileMobEsc(end)}</p>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 shrink-0"></i>`;
+                    arrCards.appendChild(btn);
+                });
+            }
+            lucide.createIcons();
+        };
+
+        window.profileDelegationMobileOpenDetail = (kind, data) => {
+            window._profileMobileState.delegationView = 'detail';
+            window._profileMobileState.delegationDetailKind = kind;
+            window._profileMobileState.isDrillingDown = true;
+            document.getElementById('prof-mob-deleg-list-wrap')?.classList.add('hidden');
+            if (kind === 'arranger' && data) {
+                window._profileMobileState.selectedArrangerId = data.aid;
+                document.getElementById('prof-mob-deleg-detail-arranger')?.classList.remove('hidden');
+                document.getElementById('prof-mob-deleg-detail-approval')?.classList.add('hidden');
+                const ini = window._profileMobInitials(data.name);
+                const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+                set('prof-mob-arr-detail-initials', ini);
+                set('prof-mob-arr-detail-name', data.name);
+                set('prof-mob-arr-detail-range', `${data.start} — ${data.end}`);
+                set('prof-mob-arr-d-start', data.start);
+                set('prof-mob-arr-d-end', data.end);
+            } else {
+                const repTb = document.getElementById('profile-deleg-replacement-tbody');
+                const tr = repTb?.querySelector('tr');
+                const cells = tr?.querySelectorAll('td') || [];
+                const name = data?.name || (cells[0]?.textContent || '').trim() || 'Winston Scott';
+                const empId = data?.empId || (cells[1]?.textContent || '').trim() || 'EMP-1180';
+                const dept = data?.dept || (cells[2]?.textContent || '').trim() || 'Operations';
+                const initials = data?.initials || tr?.dataset.initials || window._profileMobInitials(name);
+                document.getElementById('prof-mob-deleg-detail-approval')?.classList.remove('hidden');
+                document.getElementById('prof-mob-deleg-detail-arranger')?.classList.add('hidden');
+                const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+                set('prof-mob-deleg-detail-initials', initials);
+                set('prof-mob-deleg-detail-name', name);
+                set('prof-mob-deleg-detail-emp', empId);
+                set('prof-mob-deleg-detail-dept', dept);
+                set('prof-mob-deleg-d-empid', empId);
+                set('prof-mob-deleg-d-dept', dept);
+                window._profileMobRenderTimeline(document.getElementById('prof-mob-deleg-detail-timeline'), false);
+            }
+            const scrollEl = document.getElementById('profile-content-scroll');
+            if (scrollEl) scrollEl.scrollTo({ top: 0, behavior: 'smooth' });
+            lucide.createIcons();
+        };
+
+        window.profileDelegationMobileBack = () => {
+            window._profileMobileState.delegationView = 'list';
+            window._profileMobileState.delegationDetailKind = null;
+            window._profileMobileState.isDrillingDown = false;
+            window._profileMobileState.selectedArrangerId = null;
+            document.getElementById('prof-mob-deleg-list-wrap')?.classList.remove('hidden');
+            document.getElementById('prof-mob-deleg-detail-approval')?.classList.add('hidden');
+            document.getElementById('prof-mob-deleg-detail-arranger')?.classList.add('hidden');
+        };
+
+        window.profileDelegationMobileRemoveReplacement = () => {
+            document.getElementById('profile-deleg-replacement-tbody')?.replaceChildren();
+            window.profileDelegationMobileBack();
+            window.syncProfileDelegationMobile();
+        };
+
+        window.profileDelegationMobileRemoveArranger = () => {
+            const id = window._profileMobileState.selectedArrangerId;
+            if (id) document.querySelector(`#profile-travel-arrangers-tbody tr[data-arranger-id="${id}"]`)?.remove();
+            window.profileDelegationMobileBack();
+            window.syncProfileDelegationMobile();
+        };
+
+        /* AI-ADDED: Switch delegation sub-tabs (Approval Replacement / Travel Arranger) */
         window.switchDelegSubTab = (which) => {
+            window._profileMobileState.activeDelegationSubTab = which;
             const panelApproval = document.getElementById('prof-deleg-panel-approval');
             const panelArranger = document.getElementById('prof-deleg-panel-arranger');
             const tabApproval = document.getElementById('prof-deleg-tab-approval');
@@ -16591,29 +18383,81 @@
                 if (tabArranger) { tabArranger.classList.add('bg-[#1e3a5f]', 'text-white'); tabArranger.classList.remove('bg-white', 'text-[#1e3a5f]'); }
                 if (tabApproval) { tabApproval.classList.remove('bg-[#1e3a5f]', 'text-white'); tabApproval.classList.add('bg-white', 'text-[#1e3a5f]'); }
             }
+            if (window.profileMobileIsActive()) {
+                const mobAppr = document.getElementById('prof-mob-deleg-approval-list');
+                const mobArr = document.getElementById('prof-mob-deleg-arranger-list');
+                const segAppr = document.getElementById('prof-mob-deleg-seg-approval');
+                const segArr = document.getElementById('prof-mob-deleg-seg-arranger');
+                if (which === 'approval') {
+                    mobAppr?.classList.remove('hidden');
+                    mobArr?.classList.add('hidden');
+                    segAppr?.classList.add('prof-mob-deleg-seg-btn--active');
+                    segArr?.classList.remove('prof-mob-deleg-seg-btn--active');
+                    segAppr?.setAttribute('aria-selected', 'true');
+                    segArr?.setAttribute('aria-selected', 'false');
+                } else {
+                    mobAppr?.classList.add('hidden');
+                    mobArr?.classList.remove('hidden');
+                    segArr?.classList.add('prof-mob-deleg-seg-btn--active');
+                    segAppr?.classList.remove('prof-mob-deleg-seg-btn--active');
+                    segArr?.setAttribute('aria-selected', 'true');
+                    segAppr?.setAttribute('aria-selected', 'false');
+                }
+                window.syncProfileDelegationMobile?.();
+            }
         };
 
         window.profileRequestArrangerChange = () => {
             alert('Arranger changes are submitted through your HR or travel administrator. This is a demo action.');
         };
 
-        /* AI-ADDED: Updated switchProfileTab for refactored 7-tab dark sidebar
-           Prompt: Refactor #page-profile to 7-tab layout matching reference images */
         window.switchProfileTab = (tabId) => {
-            document.querySelectorAll('.prof-tab-content').forEach(c => c.classList.add('hidden'));
-            document.querySelectorAll('.profile-tab-btn').forEach(btn => {
-                btn.classList.remove('profile-tab-active');
-            });
-            const targetContent = document.getElementById('prof-content-' + tabId);
-            const targetBtn = document.getElementById('prof-tab-' + tabId);
-            if (targetContent) targetContent.classList.remove('hidden');
-            if (targetBtn) {
-                targetBtn.classList.add('profile-tab-active');
+            if (window.profileMobileIsActive()) {
+                window.profileMobileSwitchTab(tabId);
+                return;
             }
-            const scrollEl = document.getElementById('profile-content-scroll');
-            if (scrollEl) scrollEl.scrollTo({ top: 0, behavior: 'smooth' });
-            lucide.createIcons();
+            window._profileSwitchProfileTabCore(tabId);
         };
+
+        document.addEventListener('click', (e) => {
+            if (window._profileMoreMenuSuppressClose) return;
+            const wrap = document.getElementById('profile-mobile-more-wrap');
+            const menu = document.getElementById('profile-mobile-more-menu');
+            if (!wrap || !menu || menu.classList.contains('hidden')) return;
+            if (wrap.contains(e.target)) return;
+            window.profileMobileCloseMoreMenu();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+            const menu = document.getElementById('profile-mobile-more-menu');
+            if (menu && !menu.classList.contains('hidden')) {
+                window.profileMobileCloseMoreMenu();
+            }
+            const approvalsModal = document.getElementById('approvals-action-modal');
+            if (approvalsModal && !approvalsModal.classList.contains('hidden')) {
+                window.closeApprovalsActionModal();
+            }
+            if (window._profileMobBasicInfo?.isModifyOpen) {
+                window.profileMobBasicCancelModify();
+            }
+        });
+
+        document.getElementById('prof-mob-basic-dob-picker')?.addEventListener('change', (e) => {
+            const val = e.target.value;
+            const text = document.getElementById('prof-mob-basic-dob');
+            if (!val || !text) return;
+            const [y, m, d] = val.split('-');
+            if (y && m && d) text.value = `${d}-${m}-${y}`;
+        });
+
+        document.getElementById('approvals-mobile-pending')?.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            const card = e.target.closest('.approvals-mobile-card');
+            if (!card) return;
+            e.preventDefault();
+            window.openApprovalsActionModal(card.getAttribute('data-approval-id') || '');
+        });
 
         window.toggleProfileDropdown = () => {
             document.querySelectorAll('[data-profile-dropdown]').forEach((el) => el.classList.toggle('hidden'));
