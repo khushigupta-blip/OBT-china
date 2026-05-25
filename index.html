@@ -441,9 +441,6 @@
                 margin-bottom: 0.125rem;
             }
 
-            #page-dashboard .dashboard-stat-value {
-            }
-
             /* Dashboard HOME — compact 3-up stat row on mobile (md+ unchanged via HTML md: classes) */
             #page-dashboard .dashboard-stat-grid {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1660,6 +1657,434 @@
 
             .online-flight-card-mob-meta__item--co2 {
                 color: #047857;
+            }
+
+            .online-flight-mobile-stepper {
+                margin-bottom: 0.875rem;
+            }
+
+            .online-flight-mobile-stepper__sticky {
+                position: sticky;
+                top: 0;
+                z-index: 12;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                margin-bottom: 0.875rem;
+                padding-top: 0.125rem;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.94) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+
+            .online-flight-mobile-stepper__tabs {
+                display: flex;
+                gap: 0.5rem;
+                overflow-x: auto;
+                padding-bottom: 0.25rem;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .online-flight-mobile-stepper__tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .online-flight-mobile-stepper__tab {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.375rem;
+                min-height: 42px;
+                padding: 0.625rem 0.875rem;
+                border-radius: 9999px;
+                border: 1px solid #cbd5e1;
+                background: #fff;
+                color: #64748b;
+                font-size: 0.6875rem;
+                font-weight: 800;
+                line-height: 1;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            .online-flight-mobile-stepper__tab--active {
+                background: #4285F4;
+                border-color: #4285F4;
+                color: #fff;
+                box-shadow: 0 12px 28px rgba(66, 133, 244, 0.28);
+            }
+
+            .online-flight-mobile-stepper__tab--done {
+                background: #eff6ff;
+                border-color: rgba(66, 133, 244, 0.32);
+                color: #0a3266;
+            }
+
+            .online-flight-mobile-stepper__tab--locked {
+                background: #f8fafc;
+                border-color: #e2e8f0;
+                color: #94a3b8;
+            }
+
+            .online-flight-mobile-stepper__tab-icon {
+                width: 1.375rem;
+                height: 1.375rem;
+                border-radius: 9999px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255, 255, 255, 0.2);
+                flex-shrink: 0;
+            }
+
+            .online-flight-mobile-stepper__summaries {
+                display: flex;
+                flex-direction: column;
+                gap: 0.625rem;
+            }
+
+            .online-flight-mobile-stepper__summary {
+                width: 100%;
+                border: 1px solid rgba(66, 133, 244, 0.18);
+                border-radius: 1rem;
+                background: #fff;
+                padding: 0.875rem 0.95rem;
+                box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+            }
+
+            .online-flight-mobile-stepper__summary-top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.75rem;
+            }
+
+            .online-flight-mobile-stepper__summary-route {
+                display: flex;
+                align-items: center;
+                gap: 0.625rem;
+                min-width: 0;
+            }
+
+            .online-flight-mobile-stepper__summary-badge {
+                width: 2rem;
+                height: 2rem;
+                border-radius: 9999px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: #2563eb;
+                color: #fff;
+                flex-shrink: 0;
+            }
+
+            .online-flight-mobile-stepper__summary-name {
+                font-size: 0.875rem;
+                font-weight: 800;
+                color: #0f172a;
+                line-height: 1.2;
+            }
+
+            .online-flight-mobile-stepper__summary-edit {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 34px;
+                padding: 0.45rem 0.8rem;
+                border-radius: 9999px;
+                border: 1px solid #cbd5e1;
+                background: #fff;
+                color: #2563eb;
+                font-size: 0.6875rem;
+                font-weight: 800;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            .online-flight-mobile-stepper__summary-detail {
+                margin-top: 0.75rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .online-flight-mobile-stepper__summary-detail-line {
+                flex: 1;
+                min-width: 0;
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                gap: 0.375rem;
+                color: #475569;
+                font-size: 0.6875rem;
+                font-weight: 700;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .online-flight-mobile-stepper__summary-check {
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 9999px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: #dcfce7;
+                color: #15803d;
+                flex-shrink: 0;
+            }
+
+            .online-flight-mobile-stepper__prompt,
+            .online-flight-mobile-review {
+                border: 1px solid #dbeafe;
+                border-radius: 1.25rem;
+                background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+                box-shadow: 0 20px 36px rgba(15, 23, 42, 0.08);
+            }
+
+            .online-flight-mobile-stepper__prompt {
+                padding: 1.5rem 1.125rem;
+                text-align: center;
+            }
+
+            .online-flight-mobile-stepper__prompt-illustration {
+                width: 4.75rem;
+                height: 4.75rem;
+                margin: 0 auto 1rem;
+                border-radius: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+                color: #2563eb;
+            }
+
+            .online-flight-mobile-stepper__prompt-title {
+                font-size: 1.125rem;
+                font-weight: 800;
+                color: #0f172a;
+            }
+
+            .online-flight-mobile-stepper__prompt-subtitle {
+                margin-top: 0.5rem;
+                font-size: 0.8125rem;
+                line-height: 1.5;
+                color: #64748b;
+            }
+
+            .online-flight-mobile-stepper__prompt-cta {
+                margin-top: 1rem;
+                width: 100%;
+                min-height: 48px;
+                border: none;
+                border-radius: 0.95rem;
+                background: #4285F4;
+                color: #fff;
+                font-size: 0.8125rem;
+                font-weight: 800;
+                box-shadow: 0 18px 32px rgba(66, 133, 244, 0.26);
+            }
+
+            .online-flight-mobile-review {
+                padding: 1.25rem 1rem 1rem;
+            }
+
+            .online-flight-mobile-review__header {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .online-flight-mobile-review__title {
+                font-size: 1.125rem;
+                font-weight: 800;
+                color: #0f172a;
+            }
+
+            .online-flight-mobile-review__subtitle {
+                margin-top: 0.375rem;
+                font-size: 0.75rem;
+                color: #64748b;
+            }
+
+            .online-flight-mobile-review__list {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .online-flight-mobile-review__card {
+                border: 1px solid #e2e8f0;
+                border-radius: 1rem;
+                background: #fff;
+                padding: 0.95rem;
+            }
+
+            .online-flight-mobile-review__card-top {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 0.75rem;
+            }
+
+            .online-flight-mobile-review__label {
+                font-size: 0.625rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: #94a3b8;
+            }
+
+            .online-flight-mobile-review__route {
+                margin-top: 0.25rem;
+                font-size: 0.9375rem;
+                font-weight: 800;
+                color: #0f172a;
+                line-height: 1.25;
+            }
+
+            .online-flight-mobile-review__meta {
+                margin-top: 0.75rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .online-flight-mobile-review__meta-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.25rem;
+                min-height: 28px;
+                padding: 0.35rem 0.55rem;
+                border-radius: 9999px;
+                background: #f8fafc;
+                color: #475569;
+                font-size: 0.6875rem;
+                font-weight: 700;
+                white-space: nowrap;
+            }
+
+            .online-flight-mobile-review__fare {
+                margin-top: 1rem;
+                border: 1px solid #e2e8f0;
+                border-radius: 1rem;
+                background: #f8fafc;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .online-flight-mobile-review__fare-label {
+                font-size: 0.75rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: #64748b;
+            }
+
+            .online-flight-mobile-review__fare-amount {
+                margin-top: 0.375rem;
+                font-size: 1.5rem;
+                font-weight: 900;
+                color: #0f172a;
+                white-space: nowrap;
+            }
+
+            .online-flight-mobile-review__fare-note {
+                margin-top: 0.375rem;
+                font-size: 0.75rem;
+                color: #64748b;
+            }
+
+            .online-flight-mobile-review__actions {
+                position: sticky;
+                bottom: 0;
+                margin-top: 1rem;
+                margin-left: -1rem;
+                margin-right: -1rem;
+                padding: 0.875rem 1rem calc(0.875rem + env(safe-area-inset-bottom));
+                background: linear-gradient(180deg, rgba(248, 251, 255, 0.82) 0%, rgba(255, 255, 255, 0.98) 45%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-top: 1px solid rgba(226, 232, 240, 0.95);
+            }
+
+            .online-flight-mobile-review__done {
+                width: 100%;
+                min-height: 48px;
+                border: none;
+                border-radius: 0.95rem;
+                background: #4285F4;
+                color: #fff;
+                font-size: 0.875rem;
+                font-weight: 800;
+                box-shadow: 0 18px 32px rgba(66, 133, 244, 0.24);
+            }
+
+            .online-flight-mobile-review__reset {
+                margin-top: 0.875rem;
+                width: 100%;
+                border: none;
+                background: transparent;
+                color: #2563eb;
+                font-size: 0.75rem;
+                font-weight: 800;
+                text-decoration: underline;
+                text-underline-offset: 0.18em;
+            }
+
+            @media (max-width: 767px) {
+                #page-booking .online-flight-card-mob-timeline {
+                    flex-wrap: nowrap;
+                    gap: 0.25rem;
+                }
+
+                #page-booking .online-flight-card-mob-leg {
+                    min-width: 3rem;
+                }
+
+                #page-booking .online-flight-card-mob-leg__time,
+                #page-booking .online-flight-card-mob-price__amount {
+                    font-size: 1rem;
+                    white-space: nowrap;
+                }
+
+                #page-booking .online-flight-card-mob-leg__code,
+                #page-booking .online-flight-card-mob-mid__dur,
+                #page-booking .online-flight-card-mob-mid__stops,
+                #page-booking .online-flight-card-mob-action button {
+                    white-space: nowrap;
+                }
+
+                #page-booking #online-hotel-cards .online-hotel-select-row .text-lg,
+                #page-booking #online-car-cards .online-car-select-row .text-sm {
+                    white-space: nowrap;
+                }
+
+                #page-booking .online-flight-date-card .online-flight-date-display,
+                #page-booking .online-flight-date-card .material-date-input,
+                #page-booking #online-hotel-checkin,
+                #page-booking #online-hotel-checkout,
+                #page-booking #online-car-pickup-date,
+                #page-booking #online-car-pickup-time {
+                    font-size: 0.875rem;
+                }
+
+                #page-booking #online-hotel-checkin,
+                #page-booking #online-hotel-checkout,
+                #page-booking #online-car-pickup-date,
+                #page-booking #online-car-pickup-time {
+                    min-height: 44px;
+                }
+
+                #page-booking .online-car-pickup-datetime-row {
+                    flex-wrap: nowrap;
+                    align-items: stretch;
+                }
+
+                #page-booking #online-car-pickup-time {
+                    flex: 0 0 7.75rem;
+                    width: 7.75rem;
+                }
             }
 
             #online-rail-cards-going .online-rail-card,
@@ -2963,7 +3388,7 @@
 
             .prof-mob-timeline {
                 position: relative;
-                padding-left: 1.5rem;
+                padding-left: 2rem;
             }
 
             .prof-mob-timeline-item {
@@ -2974,19 +3399,19 @@
             .prof-mob-timeline-item:not(:last-child)::before {
                 content: '';
                 position: absolute;
-                left: -1.125rem;
-                top: 1.25rem;
-                bottom: 0;
+                left: -0.9rem;
+                top: 1.8rem;
+                bottom: 0.3rem;
                 width: 2px;
-                background: #e2e8f0;
+                background: linear-gradient(180deg, rgba(22, 163, 74, 0.35) 0%, rgba(203, 213, 225, 0.9) 100%);
             }
 
             .prof-mob-timeline-node {
                 position: absolute;
-                left: -1.375rem;
-                top: 0.35rem;
-                width: 0.75rem;
-                height: 0.75rem;
+                left: -1.25rem;
+                top: 1rem;
+                width: 0.875rem;
+                height: 0.875rem;
                 border-radius: 50%;
                 border: 2px solid #fff;
                 box-shadow: 0 0 0 2px currentColor;
@@ -3003,16 +3428,74 @@
             }
 
             .prof-mob-timeline-row {
-                display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
-                gap: 0.5rem;
+                position: relative;
+                display: block;
                 width: 100%;
                 text-align: left;
                 min-height: 48px;
-                padding: 0.5rem 0;
+                padding: 0;
                 background: transparent;
                 border: none;
+                border-radius: 0.75rem;
+            }
+
+            .prof-mob-effective-card__timeline {
+                padding: 1rem 1rem 0.5rem 1.25rem;
+            }
+
+            .prof-mob-timeline-card {
+                position: relative;
+                margin-left: 0.25rem;
+                padding: 1.125rem 4.5rem 1rem 1rem;
+                border-radius: 1rem;
+                border: 1px solid #e2e8f0;
+                background: #fff;
+                box-shadow: 0 12px 26px rgba(15, 23, 42, 0.06);
+            }
+
+            .prof-mob-timeline-card__status {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .prof-mob-timeline-card__grid {
+                display: grid;
+                gap: 0.875rem;
+            }
+
+            .prof-mob-timeline-card__field {
+                min-width: 0;
+            }
+
+            .prof-mob-timeline-card__label {
+                font-size: 0.625rem;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: #94a3b8;
+                margin-bottom: 0.3rem;
+            }
+
+            .prof-mob-timeline-card__value {
+                font-size: 0.875rem;
+                font-weight: 700;
+                color: #0f172a;
+                line-height: 1.35;
+                white-space: nowrap;
+            }
+
+            .prof-mob-timeline-card__chevron {
+                position: absolute;
+                right: 1rem;
+                bottom: 1rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.75rem;
+                height: 1.75rem;
+                border-radius: 9999px;
+                background: #f8fafc;
             }
 
             .prof-mob-info-banner {
@@ -3064,6 +3547,122 @@
 
             .prof-mob-doc-card:active {
                 background: #f8fafc;
+            }
+
+            .prof-mob-doc-selector {
+                display: flex;
+                gap: 0.5rem;
+                overflow-x: auto;
+                padding-bottom: 0.125rem;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .prof-mob-doc-selector::-webkit-scrollbar {
+                display: none;
+            }
+
+            .prof-mob-doc-chip {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.375rem;
+                padding: 0.625rem 0.875rem;
+                border-radius: 9999px;
+                border: 1px solid #cbd5e1;
+                background: #fff;
+                color: #475569;
+                font-size: 0.6875rem;
+                font-weight: 800;
+                letter-spacing: 0.01em;
+                white-space: nowrap;
+                flex-shrink: 0;
+                min-height: 42px;
+            }
+
+            .prof-mob-doc-chip--active {
+                background: #eff6ff;
+                border-color: rgba(66, 133, 244, 0.35);
+                color: #0a3266;
+                box-shadow: 0 10px 24px rgba(66, 133, 244, 0.12);
+            }
+
+            .prof-mob-doc-chip__icon {
+                width: 1.75rem;
+                height: 1.75rem;
+                border-radius: 9999px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: #f8fafc;
+                color: #1e3a5f;
+                flex-shrink: 0;
+            }
+
+            .prof-mob-doc-chip--active .prof-mob-doc-chip__icon {
+                background: #dbeafe;
+                color: #2563eb;
+            }
+
+            .prof-mob-doc-detail {
+                margin-top: 0.75rem;
+                border: 1px solid #dbeafe;
+                border-radius: 1rem;
+                background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+                box-shadow: 0 18px 34px rgba(15, 23, 42, 0.08);
+                overflow: hidden;
+            }
+
+            .prof-mob-doc-detail__header {
+                display: flex;
+                align-items: center;
+                gap: 0.875rem;
+                padding: 1rem 1rem 0.75rem;
+            }
+
+            .prof-mob-doc-detail__badge {
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 0.875rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: #eff6ff;
+                color: #2563eb;
+                flex-shrink: 0;
+            }
+
+            .prof-mob-doc-detail__grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.75rem;
+                padding: 0.75rem 1rem 1rem;
+            }
+
+            .prof-mob-doc-detail__field {
+                min-width: 0;
+            }
+
+            .prof-mob-doc-detail__field--full {
+                grid-column: 1 / -1;
+                padding-top: 0.75rem;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            .prof-mob-doc-detail__label {
+                display: block;
+                font-size: 0.625rem;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: #94a3b8;
+                margin-bottom: 0.25rem;
+            }
+
+            .prof-mob-doc-detail__value {
+                font-size: 0.8125rem;
+                font-weight: 700;
+                color: #1e293b;
+                line-height: 1.35;
             }
 
             /* Personal Basic Info — TEMP 1 / TEMP 2 */
@@ -3316,6 +3915,100 @@
                 filter: brightness(0.95);
             }
 
+            .warning-modal__dialog {
+                width: min(100%, 28rem);
+                background: #fff;
+                border-radius: 1.5rem;
+                box-shadow: 0 28px 70px rgba(15, 23, 42, 0.3);
+                border: 1px solid rgba(226, 232, 240, 0.95);
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .warning-modal__body {
+                padding: 1.75rem 1.5rem 1.25rem;
+                text-align: center;
+            }
+
+            .warning-modal__icon {
+                width: 4rem;
+                height: 4rem;
+                margin: 0 auto 1rem;
+                border-radius: 9999px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #fff7ed;
+                border: 1px solid #fdba74;
+                box-shadow: inset 0 0 0 1px rgba(251, 146, 60, 0.18);
+            }
+
+            .warning-modal__title {
+                font-size: 1.25rem;
+                font-weight: 800;
+                color: #0f172a;
+                line-height: 1.2;
+            }
+
+            .warning-modal__lead {
+                margin-top: 0.875rem;
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: #64748b;
+            }
+
+            .warning-modal__order {
+                margin-top: 0.25rem;
+                font-size: 1rem;
+                font-weight: 800;
+                color: #2563eb;
+                white-space: nowrap;
+            }
+
+            .warning-modal__meta {
+                margin-top: 0.375rem;
+                font-size: 0.875rem;
+                color: #475569;
+            }
+
+            .warning-modal__warning {
+                margin-top: 1rem;
+                font-size: 0.8125rem;
+                font-weight: 700;
+                line-height: 1.5;
+                color: #dc2626;
+            }
+
+            .warning-modal__actions {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.875rem;
+                padding: 1rem 1.5rem 1.5rem;
+                border-top: 1px solid #e2e8f0;
+                background: rgba(248, 250, 252, 0.8);
+            }
+
+            .warning-modal__btn {
+                min-height: 52px;
+                width: 100%;
+                border: none;
+                border-radius: 0.9rem;
+                font-size: 0.8125rem;
+                font-weight: 800;
+                letter-spacing: 0.06em;
+                color: #fff;
+                box-shadow: 0 14px 24px rgba(15, 23, 42, 0.12);
+            }
+
+            .warning-modal__btn--reject {
+                background: rgb(220, 91, 27);
+            }
+
+            .warning-modal__btn--accept {
+                background: #002855;
+            }
+
             /* Approvals — mobile Action modal */
             .approvals-action-modal {
                 position: fixed;
@@ -3339,63 +4032,14 @@
                 -webkit-backdrop-filter: blur(4px);
             }
 
-            .approvals-action-modal__card {
+            .approvals-action-modal__dialog {
                 position: relative;
                 z-index: 1;
-                width: 100%;
-                max-width: 20rem;
-                background: #fff;
-                border-radius: 0.75rem;
-                padding: 1.5rem 1.25rem 1.25rem;
-                box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
-                text-align: center;
-            }
-
-            .approvals-action-modal__icon {
-                width: 3rem;
-                height: 3rem;
-                margin: 0 auto 0.75rem;
-                border-radius: 9999px;
-                background: #4285F4;
-                color: #fff;
-                font-size: 1.375rem;
-                font-weight: 900;
-                line-height: 3rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .approvals-action-modal__title {
-                font-size: 1rem;
-                font-weight: 800;
-                color: #0B2545;
-                margin-bottom: 1.25rem;
+                width: min(100%, 28rem);
             }
 
             .approvals-action-modal__actions {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 0.625rem;
-            }
-
-            .approvals-action-modal__btn {
-                min-height: 48px;
-                padding: 0.75rem 0.5rem;
-                border: none;
-                border-radius: 0.375rem;
-                font-size: 0.6875rem;
-                font-weight: 800;
-                letter-spacing: 0.04em;
-                color: #fff;
-            }
-
-            .approvals-action-modal__btn--reject {
-                background: #eb2c2c;
-            }
-
-            .approvals-action-modal__btn--accept {
-                background: #15803D;
+                padding-top: 0.875rem;
             }
 
             #approvals-mobile-pending .approvals-mobile-card--pending-action {
@@ -4459,7 +5103,8 @@
                             class="header-mobile-logo h-8 w-auto max-w-[min(160px,42vw)] object-contain object-left" width="120" height="28" decoding="async" />
                     </button>
                     <div class="relative shrink-0 header-profile-dropdown-wrap">
-                        <button type="button" onclick="window.toggleProfileDropdown()"
+                        <button type="button" onclick="window.toggleProfileDropdown(this)"
+                            data-profile-dropdown-trigger aria-haspopup="menu" aria-expanded="false"
                             class="flex items-center gap-1.5 p-1 pr-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-all border border-slate-200 min-h-[44px]"
                             aria-label="Account menu">
                             <div class="w-8 h-8 rounded-full bg-[#4285F4] text-white flex items-center justify-center font-bold text-[10px]">JW</div>
@@ -4472,16 +5117,16 @@
                                 <p class="text-sm font-bold text-slate-900">John Wick</p>
                             </div>
                             <div class="profile-dropdown-menu-inner p-2">
-                                <button type="button" onclick="window.showPage('profile'); window.toggleProfileDropdown();"
+                                <button type="button" onclick="window.showPage('profile'); window.closeProfileDropdowns();"
                                     class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors min-h-[44px]">
                                     <i data-lucide="user-cog" class="w-4 h-4"></i> My Profile
                                 </button>
-                                <button type="button" onclick="window.showPage('my-points'); window.toggleProfileDropdown();"
+                                <button type="button" onclick="window.showPage('my-points'); window.closeProfileDropdowns();"
                                     class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors min-h-[44px]">
                                     <i data-lucide="award" class="w-4 h-4"></i> My Points
                                 </button>
                                 <div class="h-px bg-slate-100 my-1"></div>
-                                <button type="button" onclick="window.handleLogout()"
+                                <button type="button" onclick="window.closeProfileDropdowns(); window.handleLogout()"
                                     class="profile-sign-out-btn w-full text-left flex items-center gap-3 px-3 py-3 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors">
                                     <i data-lucide="log-out" class="w-4 h-4 shrink-0"></i> Sign Out
                                 </button>
@@ -4535,7 +5180,8 @@
                                 <p class="text-sm font-bold text-slate-900 leading-tight">JOHN WICK</p>
                                 <p class="text-[10px] text-slate-500 font-medium tracking-tight">LCN: 2210</p>
                             </div>
-                            <button type="button" onclick="window.toggleProfileDropdown()"
+                            <button type="button" onclick="window.toggleProfileDropdown(this)"
+                                data-profile-dropdown-trigger aria-haspopup="menu" aria-expanded="false"
                                 class="flex items-center gap-1.5 p-1 pr-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-all border border-slate-200">
                                 <div class="w-8 h-8 rounded-full bg-[#4285F4] text-white flex items-center justify-center font-bold text-[10px]">JW</div>
                                 <i data-lucide="chevron-down" class="w-3 h-3 text-slate-400"></i>
@@ -4548,16 +5194,16 @@
                                 <p class="text-sm font-bold text-slate-900">John Wick</p>
                             </div>
                             <div class="profile-dropdown-menu-inner p-2">
-                                <button type="button" onclick="window.showPage('profile'); window.toggleProfileDropdown();"
+                                <button type="button" onclick="window.showPage('profile'); window.closeProfileDropdowns();"
                                     class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors min-h-[44px]">
                                     <i data-lucide="user-cog" class="w-4 h-4"></i> My Profile
                                 </button>
-                                <button type="button" onclick="window.showPage('my-points'); window.toggleProfileDropdown();"
+                                <button type="button" onclick="window.showPage('my-points'); window.closeProfileDropdowns();"
                                     class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm hover:bg-slate-50 rounded-lg text-slate-700 transition-colors min-h-[44px]">
                                     <i data-lucide="award" class="w-4 h-4"></i> My Points
                                 </button>
                                 <div class="h-px bg-slate-100 my-1"></div>
-                                <button type="button" onclick="window.handleLogout()"
+                                <button type="button" onclick="window.closeProfileDropdowns(); window.handleLogout()"
                                     class="profile-sign-out-btn w-full text-left flex items-center gap-3 px-3 py-3 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors">
                                     <i data-lucide="log-out" class="w-4 h-4 shrink-0"></i> Sign Out
                                 </button>
@@ -4577,7 +5223,7 @@
                             <p class="text-slate-500 mt-1 text-sm font-medium md:text-base">Manage your corporate travel plans and approvals.
                             </p>
                         </div>
-                        <button onclick="window.toggleTravelModal()"
+                        <button onclick="window.startBooking('domestic')"
                             class="bg-[#E53935] text-white w-full max-md:min-h-[44px] md:w-auto px-6 py-3 max-md:py-3 rounded-xl font-bold shadow-lg shadow-orange-200 hover:bg-[#C62828] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 shrink-0">
                             <i data-lucide="plus" class="w-5 h-5"></i> New Travel Request
                         </button>
@@ -4946,12 +5592,20 @@
                     <!-- Mobile: Action confirmation modal (Pending tab only) -->
                     <div id="approvals-action-modal" class="approvals-action-modal hidden md:hidden" role="dialog" aria-modal="true" aria-labelledby="approvals-action-modal-title" aria-hidden="true">
                         <div class="approvals-action-modal__backdrop" onclick="window.closeApprovalsActionModal()" aria-hidden="true"></div>
-                        <div class="approvals-action-modal__card" role="document">
-                            <div class="approvals-action-modal__icon" aria-hidden="true">!</div>
-                            <h3 id="approvals-action-modal-title" class="approvals-action-modal__title">Action</h3>
-                            <div class="approvals-action-modal__actions">
-                                <button type="button" onclick="window.closeApprovalsActionModal()" class="approvals-action-modal__btn approvals-action-modal__btn--reject profile-inline-action">REJECT</button>
-                                <button type="button" onclick="window.closeApprovalsActionModal()" class="approvals-action-modal__btn approvals-action-modal__btn--accept profile-inline-action">ACCEPT</button>
+                        <div class="warning-modal__dialog approvals-action-modal__dialog" role="document">
+                            <div class="warning-modal__body">
+                                <div class="warning-modal__icon" aria-hidden="true">
+                                    <i data-lucide="alert-triangle" class="w-8 h-8 text-[#dc5b1b]"></i>
+                                </div>
+                                <h3 id="approvals-action-modal-title" class="warning-modal__title">Approve Request</h3>
+                                <p id="approvals-action-modal-lead" class="warning-modal__lead">You are about to approve request:</p>
+                                <p id="approvals-action-modal-order" class="warning-modal__order">—</p>
+                                <p id="approvals-action-modal-traveler" class="warning-modal__meta">Traveler: —</p>
+                                <p id="approvals-action-modal-warning" class="warning-modal__warning">This action cannot be undone. The request will be moved to the approved history.</p>
+                            </div>
+                            <div class="warning-modal__actions approvals-action-modal__actions">
+                                <button type="button" onclick="window.closeApprovalsActionModal()" class="warning-modal__btn warning-modal__btn--reject profile-inline-action">REJECT</button>
+                                <button type="button" onclick="window.approveApprovalsRequest()" class="warning-modal__btn warning-modal__btn--accept profile-inline-action">APPROVE</button>
                             </div>
                         </div>
                     </div>
@@ -5217,7 +5871,8 @@
 
                                 <div id="prof-mob-doc-list" class="prof-mob-only md:hidden">
                                     <p class="text-sm font-black text-slate-800 tracking-wide mb-2">Document Info</p>
-                                    <div id="prof-mob-doc-cards" class="space-y-2"></div>
+                                    <div id="prof-mob-doc-selector" class="prof-mob-doc-selector" role="tablist" aria-label="Document types"></div>
+                                    <div id="prof-mob-doc-detail" class="prof-mob-doc-detail hidden" aria-live="polite"></div>
                                 </div>
                                 <div class="prof-section-container prof-desktop-table-wrap">
                                     <div class="prof-section-header">
@@ -5541,12 +6196,12 @@
                                                 </div>
                                             </div>
                                             <div id="prof-mob-deleg-replacement-cards" class="space-y-2 mb-4"></div>
-                                            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                                            <div class="prof-mob-effective-card bg-white rounded-xl border border-slate-200 overflow-hidden">
                                                 <div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
                                                     <p class="text-sm font-black text-slate-800">Effective Time</p>
                                                     <button type="button" onclick="window.openProfileModal('effective-time')" class="profile-inline-action text-[#f26522] text-xs font-bold min-h-[48px]">+ Add</button>
                                                 </div>
-                                                <div id="prof-mob-deleg-timeline" class="p-4 prof-mob-timeline"></div>
+                                                <div id="prof-mob-deleg-timeline" class="p-4 prof-mob-timeline prof-mob-effective-card__timeline"></div>
                                                 <div class="px-4 pb-4">
                                                     <div class="prof-mob-info-banner">
                                                         <i data-lucide="info" class="w-4 h-4 shrink-0 mt-0.5"></i>
@@ -6501,12 +7156,20 @@
                                                             <span class="block truncate w-full text-center" id="online-flight-tab-return-text">Return trip</span>
                                                         </button>
                                                     </div>
-                                                    <div id="online-flight-multi-leg-tabs" class="hidden flex flex-nowrap overflow-x-auto gap-2 max-w-full mb-4 p-1.5 rounded-xl bg-sky-50/90 border border-[#4285F4]/25" role="tablist" aria-label="Multi-city flight trips"></div>
+                                                    <div id="online-flight-multi-leg-tabs" class="hidden max-md:hidden md:flex flex-nowrap overflow-x-auto gap-2 max-w-full mb-4 p-1.5 rounded-xl bg-sky-50/90 border border-[#4285F4]/25" role="tablist" aria-label="Multi-city flight trips"></div>
+                                                    <div id="online-flight-mobile-stepper" class="hidden md:hidden online-flight-mobile-stepper">
+                                                        <div id="online-flight-mobile-stepper-sticky" class="online-flight-mobile-stepper__sticky">
+                                                            <div id="online-flight-mobile-stepper-tabs" class="online-flight-mobile-stepper__tabs" role="tablist" aria-label="Selected flight trips"></div>
+                                                            <div id="online-flight-mobile-stepper-summaries" class="online-flight-mobile-stepper__summaries"></div>
+                                                        </div>
+                                                        <div id="online-flight-mobile-stepper-prompt" class="online-flight-mobile-stepper__prompt hidden"></div>
+                                                        <div id="online-flight-mobile-review" class="online-flight-mobile-review hidden"></div>
+                                                    </div>
 
 
                                                                                     <!-- AI-ADDED: lg — filter column height = results card (absolute top/bottom)
                                                          Prompt: sidebar height matches search results block -->
-                                                    <div class="relative min-w-0 lg:pl-[276px]">
+                                                    <div id="online-flight-results-shell" class="relative min-w-0 lg:pl-[276px]">
                                                         <aside id="online-flight-filter-sidebar" class="max-md:hidden mb-4 lg:mb-0 flex flex-col bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden lg:absolute lg:left-0 lg:top-0 lg:bottom-0 lg:w-[260px] z-10">
                                                             <div class="shrink-0 flex items-center justify-between gap-2 px-4 py-3 border-b border-slate-100">
                                                                 <h4 class="text-[11px] font-black text-[#0A3266] tracking-widest uppercase flex items-center gap-1.5"><i data-lucide="sliders-horizontal" class="w-3.5 h-3.5"></i> Filters</h4>
@@ -6725,9 +7388,17 @@
                                                             <span class="block truncate w-full text-center" id="online-rail-tab-return-text">Return trip</span>
                                                         </button>
                                                     </div>
-                                                    <div id="online-rail-multi-leg-tabs" class="hidden flex flex-nowrap overflow-x-auto gap-2 max-w-full mb-4 p-1.5 rounded-xl bg-sky-50/90 border border-[#4285F4]/25" role="tablist" aria-label="Multi-city rail trips"></div>
+                                                    <div id="online-rail-multi-leg-tabs" class="hidden max-md:hidden md:flex flex-nowrap overflow-x-auto gap-2 max-w-full mb-4 p-1.5 rounded-xl bg-sky-50/90 border border-[#4285F4]/25" role="tablist" aria-label="Multi-city rail trips"></div>
+                                                    <div id="online-rail-mobile-stepper" class="hidden md:hidden online-flight-mobile-stepper">
+                                                        <div id="online-rail-mobile-stepper-sticky" class="online-flight-mobile-stepper__sticky">
+                                                            <div id="online-rail-mobile-stepper-tabs" class="online-flight-mobile-stepper__tabs" role="tablist" aria-label="Selected rail trips"></div>
+                                                            <div id="online-rail-mobile-stepper-summaries" class="online-flight-mobile-stepper__summaries"></div>
+                                                        </div>
+                                                        <div id="online-rail-mobile-stepper-prompt" class="online-flight-mobile-stepper__prompt hidden"></div>
+                                                        <div id="online-rail-mobile-review" class="online-flight-mobile-review hidden"></div>
+                                                    </div>
 
-                                                                                                        <div class="relative min-w-0 lg:pl-[276px]">
+                                                                                                        <div id="online-rail-results-shell" class="relative min-w-0 lg:pl-[276px]">
                                                         <aside id="online-rail-filter-sidebar" class="max-md:hidden mb-4 lg:mb-0 flex flex-col bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden lg:absolute lg:left-0 lg:top-0 lg:bottom-0 lg:w-[260px] z-10">
                                                             <div class="shrink-0 flex items-center justify-between gap-2 px-4 py-3 border-b border-slate-100">
                                                                 <h4 class="text-[11px] font-black text-[#0A3266] tracking-widest uppercase flex items-center gap-1.5"><i data-lucide="sliders-horizontal" class="w-3.5 h-3.5"></i> Filters</h4>
@@ -7015,7 +7686,7 @@
                                                     </div>
                                                     <div class="form-group !mb-0">
                                                         <label for="online-car-pickup-date">Pickup date &amp; time</label>
-                                                        <div class="flex flex-col sm:flex-row gap-2">
+                                                        <div class="online-car-pickup-datetime-row flex flex-col sm:flex-row gap-2">
                                                             <input type="date" id="online-car-pickup-date" class="w-full min-w-0 rounded-lg border border-slate-200 px-3 py-2 text-sm"
                                                                 value="2026-03-25" aria-label="Pickup date">
                                                             <input type="time" id="online-car-pickup-time" class="w-full min-w-0 rounded-lg border border-slate-200 px-3 py-2 text-sm shrink-0 sm:max-w-[9rem]"
@@ -8662,21 +9333,21 @@
 
     <!-- AI-ADDED: Cancel Trip Confirmation modal
          Prompt: Cancel trip should show confirmation popup -->
-    <div id="lib-cancel-confirm-modal" class="hidden fixed inset-0 z-[115] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4" onclick="if(event.target===this)window.closeCancelTripConfirm()">
-        <div class="bg-white rounded-2xl w-[min(100%,94vw)] sm:w-full max-w-sm max-h-[90vh] overflow-hidden shadow-2xl flex flex-col mx-auto" onclick="event.stopPropagation()">
-            <div class="p-6 text-center">
-                <div class="w-14 h-14 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
-                    <i data-lucide="alert-triangle" class="w-7 h-7 text-red-600"></i>
+    <div id="lib-cancel-confirm-modal" class="warning-modal hidden fixed inset-0 z-[115] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4" onclick="if(event.target===this)window.closeCancelTripConfirm()">
+        <div class="warning-modal__dialog" onclick="event.stopPropagation()">
+            <div class="warning-modal__body">
+                <div class="warning-modal__icon" aria-hidden="true">
+                    <i data-lucide="alert-triangle" class="w-8 h-8 text-[#dc5b1b]"></i>
                 </div>
-                <h3 class="text-lg font-bold text-slate-900 mb-2">Cancel This Trip?</h3>
-                <p class="text-sm text-slate-500 mb-1">You are about to cancel order:</p>
-                <p id="cancel-confirm-order" class="text-sm font-bold text-[#002855] mb-1">—</p>
-                <p id="cancel-confirm-traveler" class="text-sm text-slate-600 mb-3">—</p>
-                <p class="text-xs text-red-500">This action cannot be undone. Cancellation fees may apply.</p>
+                <h3 class="warning-modal__title">Cancel This Trip?</h3>
+                <p class="warning-modal__lead">You are about to cancel order:</p>
+                <p id="cancel-confirm-order" class="warning-modal__order">—</p>
+                <p id="cancel-confirm-traveler" class="warning-modal__meta">Traveler: —</p>
+                <p class="warning-modal__warning">This action cannot be undone. Cancellation fees may apply.</p>
             </div>
-            <div class="p-4 border-t border-slate-200 flex justify-center gap-3 modal-footer-sm-stack shrink-0">
-                <button type="button" onclick="window.closeCancelTripConfirm()" class="px-6 py-2 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-100 transition-colors">Go Back</button>
-                <button type="button" onclick="window.confirmCancelTrip()" class="px-6 py-2 rounded-xl text-sm font-bold text-white bg-red-600 shadow-md hover:bg-red-700 transition-colors">Yes, Cancel Trip</button>
+            <div class="warning-modal__actions">
+                <button type="button" onclick="window.closeCancelTripConfirm()" class="warning-modal__btn warning-modal__btn--reject">REJECT</button>
+                <button type="button" onclick="window.confirmCancelTrip()" class="warning-modal__btn warning-modal__btn--accept">ACCEPT</button>
             </div>
         </div>
     </div>
@@ -9577,30 +10248,6 @@
             </div>
         </div>
     </div>
-
-    <!-- MODAL -->
-    <div id="travel-modal"
-        class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
-        <div class="bg-white rounded-3xl w-[90%] max-w-2xl max-h-[min(90dvh,915px)] overflow-hidden shadow-2xl modal-enter flex flex-col mx-auto sm:w-full">
-            <div class="p-4 border-b flex justify-between items-center shrink-0 md:p-8">
-                <h3 class="text-lg font-black md:text-xl">New Request</h3>
-                <button type="button" onclick="window.toggleTravelModal()" class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors" aria-label="Close">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
-            <div class="p-4 grid grid-cols-1 gap-4 flex-1 min-h-0 overflow-y-auto md:p-8 md:grid-cols-2 md:gap-6">
-                <button type="button" onclick="window.startBooking('domestic'); window.toggleTravelModal();"
-                    class="w-full min-h-[44px] p-6 border-2 rounded-2xl hover:border-[#E53935] transition-all md:min-h-0 md:p-8"><i data-lucide="map"
-                        class="w-8 h-8 mb-4 mx-auto text-slate-400"></i><span
-                        class="font-black">Domestic</span></button>
-                <button type="button" onclick="window.startBooking('international'); window.toggleTravelModal();"
-                    class="w-full min-h-[44px] p-6 border-2 rounded-2xl hover:border-[#E53935] transition-all md:min-h-0 md:p-8"><i data-lucide="globe"
-                        class="w-8 h-8 mb-4 mx-auto text-slate-400"></i><span
-                        class="font-black">International</span></button>
-            </div>
-        </div>
-    </div>
-
 
     <!-- My Trip Library — mobile filter drawer -->
     <div id="library-filter-drawer-backdrop" class="hidden md:hidden fixed inset-0 z-[72] bg-black/50 backdrop-blur-sm" onclick="window.closeLibraryFilterDrawer()" aria-hidden="true"></div>
@@ -12660,9 +13307,10 @@
             const id = d.approvalId || '—';
             const traveler = d.traveler || '—';
             const reason = d.reason || '—';
-            return `<article class="approvals-mobile-card" data-approval-id="${id}">
+            const idClass = status === 'approved' ? 'text-slate-700' : 'text-[#4285F4]';
+            return `<article class="approvals-mobile-card" data-approval-id="${id}" data-approval-status="${status}">
                 <div class="approvals-mobile-card__header">
-                    <span class="text-sm font-bold text-[#4285F4]">${id}</span>
+                    <span class="text-sm font-bold ${idClass}">${id}</span>
                     <span class="${pillCls}">${pillText}</span>
                 </div>
                 <div class="approvals-mobile-card__body">
@@ -12678,15 +13326,51 @@
 
         window._approvalsActionModalOpen = false;
 
+        window._getApprovalRowById = (approvalId, status = 'pending') => {
+            const tbody = document.getElementById(`approvals-tbody-${status}`);
+            if (!tbody || !approvalId) return null;
+            return [...tbody.querySelectorAll('tr.approvals-row')].find((tr) => (tr.dataset.approvalId || '') === approvalId) || null;
+        };
+
+        window._populateApprovalsActionModal = (approvalId) => {
+            const row = window._getApprovalRowById(approvalId, 'pending');
+            const modal = document.getElementById('approvals-action-modal');
+            if (!modal || !row) return;
+            const d = row.dataset;
+            const title = document.getElementById('approvals-action-modal-title');
+            const lead = document.getElementById('approvals-action-modal-lead');
+            const order = document.getElementById('approvals-action-modal-order');
+            const traveler = document.getElementById('approvals-action-modal-traveler');
+            const warning = document.getElementById('approvals-action-modal-warning');
+            if (title) title.textContent = 'Approve Request';
+            if (lead) lead.textContent = 'You are about to approve request:';
+            if (order) order.textContent = d.approvalId || '—';
+            if (traveler) traveler.textContent = `Traveler: ${d.traveler || '—'}`;
+            if (warning) warning.textContent = 'This action cannot be undone. The request will be moved to the approved history.';
+        };
+
+        window._markApprovalRowApproved = (row) => {
+            if (!row) return;
+            row.dataset.status = 'approved';
+            const idCell = row.querySelector('td');
+            if (idCell) {
+                idCell.classList.remove('text-[#4285F4]');
+                idCell.classList.add('text-slate-700');
+            }
+        };
+
         window.openApprovalsActionModal = (approvalId) => {
             if (!window.matchMedia('(max-width: 767px)').matches) return;
             if ((window._approvalsActiveSubTab || 'pending') !== 'pending') return;
             const modal = document.getElementById('approvals-action-modal');
             if (!modal) return;
+            if (approvalId) {
+                modal.dataset.activeApprovalId = approvalId;
+                window._populateApprovalsActionModal(approvalId);
+            }
             window._approvalsActionModalOpen = true;
             modal.classList.remove('hidden');
             modal.setAttribute('aria-hidden', 'false');
-            if (approvalId) modal.dataset.activeApprovalId = approvalId;
             document.body.style.overflow = 'hidden';
         };
 
@@ -12701,6 +13385,29 @@
             if (!document.querySelector('.approvals-action-modal:not(.hidden)')) {
                 document.body.style.overflow = '';
             }
+        };
+
+        window.approveApprovalsRequest = () => {
+            const modal = document.getElementById('approvals-action-modal');
+            const pendingBody = document.getElementById('approvals-tbody-pending');
+            const approvedBody = document.getElementById('approvals-tbody-approved');
+            const approvalId = modal?.dataset.activeApprovalId || '';
+            if (!modal || !pendingBody || !approvedBody || !approvalId) {
+                window.closeApprovalsActionModal();
+                return;
+            }
+            const row = window._getApprovalRowById(approvalId, 'pending');
+            if (!row) {
+                window.closeApprovalsActionModal();
+                return;
+            }
+            window._markApprovalRowApproved(row);
+            approvedBody.prepend(row);
+            window.closeApprovalsActionModal();
+            window.syncApprovalsMobileCards?.();
+            window.switchApprovalsSubTab('approved');
+            window.applyApprovalsFilters?.();
+            requestAnimationFrame(() => window.normalizeAppDatesInSubtree?.(document.getElementById('page-approvals')));
         };
 
         window._bindApprovalsMobilePendingActions = () => {
@@ -13241,7 +13948,6 @@
             }
         });
 
-        window.toggleTravelModal = () => document.getElementById('travel-modal').classList.toggle('hidden');
         window.toggleIssueBulletinModal = () => { const m = document.getElementById('issue-bulletin-modal'); m.classList.toggle('hidden'); if (!m.classList.contains('hidden')) lucide.createIcons(); };
         window.openBcdNewsDetail = (el) => {
             if (!el || !el.dataset) return;
@@ -13574,6 +14280,7 @@
             const depSeg = document.getElementById('online-flight-depart-segment');
             const barLbl = document.getElementById('online-flight-return-bar-label');
             const datesRow = document.getElementById('online-flight-dates-row');
+            window.closeOnlineFlightMobileReview();
             if (datesRow) {
                 datesRow.classList.toggle('online-flight-dates-row--oneway', v === 'oneway');
             }
@@ -13604,6 +14311,7 @@
             window.syncOnlineFlightDateDisplays?.();
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            window.renderOnlineFlightMobileStepper?.();
         };
 
         window.swapOnlineRailLocations = () => {
@@ -13623,6 +14331,7 @@
             const retSeg = document.getElementById('online-rail-return-segment');
             const depSeg = document.getElementById('online-rail-depart-segment');
             const barLbl = document.getElementById('online-rail-return-bar-label');
+            window._onlineRailMobileReviewOpen = false;
             if (v === 'multiple') {
                 singleWrap?.classList.add('hidden');
                 multiWrap?.classList.remove('hidden');
@@ -13650,6 +14359,7 @@
             window.syncOnlineRailDateDisplays?.();
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            window.renderOnlineRailMobileStepper?.();
         };
 
         window.formatOnlineFlightDateDisplay = (iso) => window.formatAppDateDisplay(iso);
@@ -13802,17 +14512,39 @@
             const { mode, leg, idx, fareKey } = ctx;
             window.closeOnlineFareModal();
             if (mode === 'flight') {
+                window.closeOnlineFlightMobileReview();
                 window.selectOnlineFlightRow(leg, idx);
                 window._onlineFareSelection.flight[fareKey] = { name: fareName, price: farePrice };
                 /* Second refresh so badge + ring-2 ring-[#4285F4] bg-[#E8F4FC]/70 both apply after fare is stored */
                 window.refreshOnlineFlightRowBodies();
+                if (window.isOnlineFlightMobileStepperActive?.()) {
+                    const segs = window._multiCitySegments || [];
+                    const k = window._onlineFlightMultiProgressLeg;
+                    const allDone = window._onlineFlightMobileAllDone?.();
+                    if (!allDone && k < segs.length - 1) {
+                        window.switchOnlineFlightMultiLegTab(k + 1);
+                        return;
+                    }
+                }
             } else {
+                window._onlineRailMobileReviewOpen = false;
                 window.selectOnlineRailRow(leg, idx);
                 window._onlineFareSelection.rail[fareKey] = { name: fareName, price: farePrice };
                 window.refreshOnlineRailRowBodies();
+                if (window.isOnlineRailMobileStepperActive?.()) {
+                    const segs = window._multiCitySegments || [];
+                    const k = window._onlineRailMultiProgressLeg;
+                    const allDone = window._onlineRailMobileAllDone?.();
+                    if (!allDone && k < segs.length - 1) {
+                        window.switchOnlineRailMultiLegTab(k + 1);
+                        return;
+                    }
+                }
             }
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            window.renderOnlineFlightMobileStepper?.();
+            window.renderOnlineRailMobileStepper?.();
         };
 
         window._onlineHotelRows = [];
@@ -13831,9 +14563,13 @@
         window._onlineFlightMultiProgressLeg = 0;
         window._onlineFlightMultiSelections = [];
         window._onlineFlightIsSequentialRound = false;
+        window._onlineFlightMobileReviewOpen = false;
+        window._onlineFlightMobileReviewPending = false;
+        window._onlineFlightMobileReviewTimer = null;
         window._onlineRailMultiProgressLeg = 0;
         window._onlineRailMultiSelections = [];
         window._onlineRailIsSequentialRound = false;
+        window._onlineRailMobileReviewOpen = false;
         window._onlineFlightMultiLegRows = [];
         window._onlineRailMultiLegRows = [];
 
@@ -14189,6 +14925,7 @@
             if (scrollEl) scrollEl.scrollTop = 0;
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            window.renderOnlineFlightMobileStepper?.();
             lucide.createIcons();
         };
 
@@ -14227,6 +14964,7 @@
             if (scrollEl) scrollEl.scrollTop = 0;
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            window.renderOnlineRailMobileStepper?.();
             lucide.createIcons();
         };
 
@@ -14300,6 +15038,425 @@
                 if (k >= n - 1) return;
                 window.switchOnlineRailMultiLegTab(k + 1);
             }
+        };
+
+        window._onlineUiEsc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        window._onlineFlightMobileFareKeyAt = (legIndex, idx) => `mc-${legIndex}-${idx}`;
+        window._onlineRailMobileFareKeyAt = (legIndex, idx) => `mc-${legIndex}-${idx}`;
+        window._onlineFlightMobileAllDone = () => {
+            const segs = window._multiCitySegments || [];
+            const sel = window._onlineFlightMultiSelections || [];
+            return segs.length > 0 && sel.length === segs.length && sel.every((item) => item && item.row);
+        };
+        window._onlineRailMobileAllDone = () => {
+            const segs = window._multiCitySegments || [];
+            const sel = window._onlineRailMultiSelections || [];
+            return segs.length > 0 && sel.length === segs.length && sel.every((item) => item && item.row);
+        };
+        window.isOnlineFlightMobileStepperActive = () => {
+            const trip = document.querySelector('input[name="online-flight-trip-type"]:checked')?.value || 'round';
+            const flightActive = document.querySelector('.online-subtab-card[data-online-mode="flight"].ring-2');
+            const results = document.getElementById('online-flight-results');
+            return window.matchMedia('(max-width: 767px)').matches
+                && !!flightActive
+                && !!results
+                && !results.classList.contains('hidden')
+                && (trip === 'multiple' || window._onlineFlightIsSequentialRound);
+        };
+        window.isOnlineRailMobileStepperActive = () => {
+            const trip = document.querySelector('input[name="online-rail-trip-type"]:checked')?.value || 'round';
+            const railActive = document.querySelector('.online-subtab-card[data-online-mode="rail"].ring-2');
+            const results = document.getElementById('online-rail-results');
+            return window.matchMedia('(max-width: 767px)').matches
+                && !!railActive
+                && !!results
+                && !results.classList.contains('hidden')
+                && (trip === 'multiple' || window._onlineRailIsSequentialRound);
+        };
+        window._getOnlineFlightMobileSelectionSummary = (legIndex) => {
+            const seg = (window._multiCitySegments || [])[legIndex];
+            const sel = (window._onlineFlightMultiSelections || [])[legIndex];
+            if (!seg || !sel || !sel.row) return null;
+            const row = sel.row;
+            const fare = window._onlineFareSelection.flight[window._onlineFlightMobileFareKeyAt(legIndex, sel.idx)] || {};
+            const timeBits = String(row.time || '').split(/\s*[–—-]\s*/);
+            const dep = (timeBits[0] || '').trim();
+            const arr = (timeBits[1] || timeBits[0] || '').trim();
+            const stops = row.stops === 0 ? 'Non-stop' : (row.stops >= 2 ? '2+ Stops' : `${row.stops} Stop`);
+            const price = Number(fare.price ?? row.price ?? 0) || 0;
+            return {
+                legIndex,
+                tripLabel: `Trip ${legIndex + 1}`,
+                routeText: `${seg.from || '—'} -> ${seg.to || '—'}`,
+                airline: row.airline || 'Flight',
+                timeLine: `${dep || '—'} - ${arr || '—'}`,
+                dateLine: window.formatOnlineFlightDateDisplay ? window.formatOnlineFlightDateDisplay(seg.date) : (seg.date || '—'),
+                durationLine: [row.dur, stops].filter(Boolean).join(' '),
+                fareName: fare.name || '',
+                price,
+                priceText: `¥${price.toLocaleString()}`,
+                airportLine: row.route || `${seg.from || '—'} -> ${seg.to || '—'}`
+            };
+        };
+        window.closeOnlineFlightMobileReview = () => {
+            if (window._onlineFlightMobileReviewTimer) {
+                clearTimeout(window._onlineFlightMobileReviewTimer);
+                window._onlineFlightMobileReviewTimer = null;
+            }
+            window._onlineFlightMobileReviewPending = false;
+            window._onlineFlightMobileReviewOpen = false;
+        };
+        window.deferOnlineFlightMobileReviewOpen = (delay = 320) => {
+            if (window._onlineFlightMobileReviewTimer) {
+                clearTimeout(window._onlineFlightMobileReviewTimer);
+            }
+            window._onlineFlightMobileReviewPending = true;
+            window._onlineFlightMobileReviewOpen = false;
+            window._onlineFlightMobileReviewTimer = window.setTimeout(() => {
+                window._onlineFlightMobileReviewTimer = null;
+                window._onlineFlightMobileReviewPending = false;
+                if (!window._onlineFlightMobileAllDone()) {
+                    window.renderOnlineFlightMobileStepper?.();
+                    return;
+                }
+                window._onlineFlightMobileReviewOpen = true;
+                window.renderOnlineFlightMobileStepper?.();
+            }, delay);
+        };
+        window._getOnlineRailMobileSelectionSummary = (legIndex) => {
+            const seg = (window._multiCitySegments || [])[legIndex];
+            const sel = (window._onlineRailMultiSelections || [])[legIndex];
+            if (!seg || !sel || !sel.row) return null;
+            const row = sel.row;
+            const fare = window._onlineFareSelection.rail[window._onlineRailMobileFareKeyAt(legIndex, sel.idx)] || {};
+            const timeBits = String(row.time || '').split(/\s*[–—-]\s*/);
+            const dep = (timeBits[0] || '').trim();
+            const arr = (timeBits[1] || timeBits[0] || '').trim();
+            const price = Number(fare.price ?? row.price ?? 0) || 0;
+            return {
+                legIndex,
+                tripLabel: `Trip ${legIndex + 1}`,
+                routeText: `${seg.from || '—'} -> ${seg.to || '—'}`,
+                airline: row.service || 'Train',
+                timeLine: `${dep || '—'} - ${arr || '—'}`,
+                dateLine: window.formatOnlineFlightDateDisplay ? window.formatOnlineFlightDateDisplay(seg.date) : (seg.date || '—'),
+                durationLine: row.dur || '',
+                fareName: fare.name || '',
+                price,
+                priceText: `¥${price.toLocaleString()}`,
+                airportLine: `${row.depStation || seg.from || '—'} -> ${row.arrStation || seg.to || '—'}`
+            };
+        };
+        window.openOnlineFlightMobileReview = () => {
+            if (!window._onlineFlightMobileAllDone()) return;
+            const isFlightDrawerOpen = window.isOnlineFlightMobileStepperActive?.() && window._obtFilterDrawer?.vertical === 'flight';
+            if (isFlightDrawerOpen) {
+                window.closeObtFilterDrawer?.();
+                window.deferOnlineFlightMobileReviewOpen();
+                return;
+            }
+            if (window._onlineFlightMobileReviewTimer) {
+                clearTimeout(window._onlineFlightMobileReviewTimer);
+                window._onlineFlightMobileReviewTimer = null;
+            }
+            window._onlineFlightMobileReviewPending = false;
+            window._onlineFlightMobileReviewOpen = true;
+            window.renderOnlineFlightMobileStepper?.();
+        };
+        window.editOnlineFlightMobileLeg = (legIndex) => {
+            window.closeOnlineFlightMobileReview();
+            document.getElementById('online-flight-results-shell')?.classList.remove('hidden');
+            window.switchOnlineFlightMultiLegTab(legIndex);
+        };
+        window.startOverOnlineFlightMobileSelection = () => {
+            const segs = window._multiCitySegments || [];
+            if (!segs.length) return;
+            window.closeOnlineFlightMobileReview();
+            window._onlineFlightMultiSelections = segs.map(() => null);
+            const fareStore = window._onlineFareSelection.flight || {};
+            Object.keys(fareStore).filter((key) => key.startsWith('mc-')).forEach((key) => { delete fareStore[key]; });
+            window.switchOnlineFlightMultiLegTab(0);
+            window.refreshOnlineFlightRowBodies();
+            window.updateOnlineBookingFooterButtons?.();
+            window.updateBookingStepNextButtonState?.();
+            window.renderOnlineFlightMobileStepper?.();
+        };
+        window.completeOnlineFlightMobileReview = () => {
+            window.bookOnlineProvider();
+        };
+        window.renderOnlineFlightMobileStepper = () => {
+            const root = document.getElementById('online-flight-mobile-stepper');
+            const sticky = document.getElementById('online-flight-mobile-stepper-sticky');
+            const tabs = document.getElementById('online-flight-mobile-stepper-tabs');
+            const summaries = document.getElementById('online-flight-mobile-stepper-summaries');
+            const prompt = document.getElementById('online-flight-mobile-stepper-prompt');
+            const review = document.getElementById('online-flight-mobile-review');
+            const shell = document.getElementById('online-flight-results-shell');
+            if (!root || !sticky || !tabs || !summaries || !prompt || !review || !shell) return;
+            if (!window.isOnlineFlightMobileStepperActive()) {
+                root.classList.add('hidden');
+                sticky.classList.remove('hidden');
+                prompt.classList.add('hidden');
+                review.classList.add('hidden');
+                shell.classList.remove('hidden');
+                return;
+            }
+
+            const segs = window._multiCitySegments || [];
+            const active = window._onlineFlightMultiProgressLeg;
+            const allDone = window._onlineFlightMobileAllDone();
+            const isFlightDrawerOpen = window._obtFilterDrawer?.vertical === 'flight';
+            if (allDone && window.isOnlineFlightMobileStepperActive?.() && isFlightDrawerOpen) {
+                window.closeObtFilterDrawer?.();
+                if (window._onlineFlightMobileReviewOpen && !window._onlineFlightMobileReviewPending) {
+                    window.deferOnlineFlightMobileReviewOpen();
+                    return;
+                }
+            }
+            const selectedSummaries = segs.map((_, idx) => window._getOnlineFlightMobileSelectionSummary(idx)).filter(Boolean);
+            const completedCards = selectedSummaries.filter((item) => allDone || item.legIndex !== active);
+            root.classList.remove('hidden');
+            tabs.innerHTML = segs.map((seg, idx) => {
+                const done = !!window._getOnlineFlightMobileSelectionSummary(idx);
+                const reachable = typeof window._canReachFlightLeg === 'function' ? window._canReachFlightLeg(idx) : idx <= active;
+                const cls = idx === active
+                    ? 'online-flight-mobile-stepper__tab online-flight-mobile-stepper__tab--active'
+                    : done
+                        ? 'online-flight-mobile-stepper__tab online-flight-mobile-stepper__tab--done'
+                        : 'online-flight-mobile-stepper__tab online-flight-mobile-stepper__tab--locked';
+                const icon = idx === active ? 'plane' : done ? 'check' : 'lock';
+                return `<button type="button" class="${cls}" onclick="window.editOnlineFlightMobileLeg(${idx})" ${!reachable && !done ? 'disabled aria-disabled="true"' : ''}>
+                    <span class="online-flight-mobile-stepper__tab-icon"><i data-lucide="${icon}" class="w-3.5 h-3.5"></i></span>
+                    <span>Trip ${idx + 1}</span>
+                </button>`;
+            }).join('');
+            summaries.innerHTML = completedCards.map((item) => `
+                <div class="online-flight-mobile-stepper__summary">
+                    <div class="online-flight-mobile-stepper__summary-top">
+                        <div class="online-flight-mobile-stepper__summary-route">
+                            <span class="online-flight-mobile-stepper__summary-badge"><i data-lucide="plane" class="w-4 h-4"></i></span>
+                            <div class="min-w-0">
+                                <p class="online-flight-mobile-stepper__summary-name">${window._onlineUiEsc(item.routeText)}</p>
+                            </div>
+                        </div>
+                        <button type="button" class="online-flight-mobile-stepper__summary-edit" onclick="window.editOnlineFlightMobileLeg(${item.legIndex})">Edit</button>
+                    </div>
+                    <div class="online-flight-mobile-stepper__summary-detail">
+                        <div class="online-flight-mobile-stepper__summary-detail-line">
+                            <span><i data-lucide="badge-check" class="w-3.5 h-3.5 inline-block align-text-bottom mr-1"></i>${window._onlineUiEsc(item.airline)}</span>
+                            <span>&bull;</span>
+                            <span>${window._onlineUiEsc(item.timeLine)}</span>
+                            <span>&bull;</span>
+                            <span>${window._onlineUiEsc(item.priceText)}</span>
+                        </div>
+                        <span class="online-flight-mobile-stepper__summary-check"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                    </div>
+                </div>`).join('');
+
+            const showReview = allDone && window._onlineFlightMobileReviewOpen;
+            const showPrompt = allDone && !showReview;
+            sticky.classList.toggle('hidden', showReview);
+            prompt.classList.toggle('hidden', !showPrompt);
+            review.classList.toggle('hidden', !showReview);
+            shell.classList.toggle('hidden', showPrompt || showReview);
+
+            if (showPrompt) {
+                prompt.innerHTML = `
+                    <div class="online-flight-mobile-stepper__prompt-illustration"><i data-lucide="badge-check" class="w-8 h-8"></i></div>
+                    <p class="online-flight-mobile-stepper__prompt-title">All trips completed!</p>
+                    <p class="online-flight-mobile-stepper__prompt-subtitle">Every selected leg has been collapsed into a compact summary card. Review your chosen flights before you continue.</p>
+                    <button type="button" class="online-flight-mobile-stepper__prompt-cta" onclick="window.openOnlineFlightMobileReview()">Review Selected Flights</button>`;
+            } else {
+                prompt.innerHTML = '';
+            }
+
+            if (showReview) {
+                const total = selectedSummaries.reduce((sum, item) => sum + item.price, 0);
+                review.innerHTML = `
+                    <div class="online-flight-mobile-review__header">
+                        <p class="online-flight-mobile-review__title">Review Your Selected Flights</p>
+                        <p class="online-flight-mobile-review__subtitle">${selectedSummaries.length} of ${segs.length} trips selected</p>
+                    </div>
+                    <div class="online-flight-mobile-review__list">
+                        ${selectedSummaries.map((item) => `
+                            <div class="online-flight-mobile-review__card">
+                                <div class="online-flight-mobile-review__card-top">
+                                    <div class="min-w-0">
+                                        <p class="online-flight-mobile-review__label">${window._onlineUiEsc(item.tripLabel)}</p>
+                                        <p class="online-flight-mobile-review__route">${window._onlineUiEsc(item.routeText)}</p>
+                                    </div>
+                                    <button type="button" class="online-flight-mobile-stepper__summary-edit" onclick="window.editOnlineFlightMobileLeg(${item.legIndex})">Edit</button>
+                                </div>
+                                <div class="online-flight-mobile-review__meta">
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="calendar" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.dateLine)}</span>
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="plane" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.airline)}</span>
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="clock-3" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.timeLine)}</span>
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="route" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.durationLine)}</span>
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="wallet" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.priceText)}</span>
+                                    ${item.fareName ? `<span class="online-flight-mobile-review__meta-pill"><i data-lucide="tag" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.fareName)}</span>` : ''}
+                                </div>
+                            </div>`).join('')}
+                    </div>
+                    <div class="online-flight-mobile-review__fare">
+                        <p class="online-flight-mobile-review__fare-label">Total Fare</p>
+                        <p class="online-flight-mobile-review__fare-amount">¥${total.toLocaleString()}</p>
+                        <p class="online-flight-mobile-review__fare-note">Includes taxes and fees</p>
+                    </div>
+                    <div class="online-flight-mobile-review__actions">
+                        <button type="button" class="online-flight-mobile-review__done" onclick="window.completeOnlineFlightMobileReview()">Done</button>
+                        <button type="button" class="online-flight-mobile-review__reset" onclick="window.startOverOnlineFlightMobileSelection()">Start Over</button>
+                    </div>`;
+            } else {
+                review.innerHTML = '';
+            }
+            lucide.createIcons();
+        };
+
+        window.openOnlineRailMobileReview = () => {
+            if (!window._onlineRailMobileAllDone()) return;
+            window._onlineRailMobileReviewOpen = true;
+            window.renderOnlineRailMobileStepper?.();
+        };
+        window.editOnlineRailMobileLeg = (legIndex) => {
+            window._onlineRailMobileReviewOpen = false;
+            document.getElementById('online-rail-results-shell')?.classList.remove('hidden');
+            window.switchOnlineRailMultiLegTab(legIndex);
+        };
+        window.startOverOnlineRailMobileSelection = () => {
+            const segs = window._multiCitySegments || [];
+            if (!segs.length) return;
+            window._onlineRailMobileReviewOpen = false;
+            window._onlineRailMultiSelections = segs.map(() => null);
+            const fareStore = window._onlineFareSelection.rail || {};
+            Object.keys(fareStore).filter((key) => key.startsWith('mc-')).forEach((key) => { delete fareStore[key]; });
+            window.switchOnlineRailMultiLegTab(0);
+            window.refreshOnlineRailRowBodies();
+            window.updateOnlineBookingFooterButtons?.();
+            window.updateBookingStepNextButtonState?.();
+            window.renderOnlineRailMobileStepper?.();
+        };
+        window.completeOnlineRailMobileReview = () => {
+            window.bookOnlineProvider();
+        };
+        window.renderOnlineRailMobileStepper = () => {
+            const root = document.getElementById('online-rail-mobile-stepper');
+            const sticky = document.getElementById('online-rail-mobile-stepper-sticky');
+            const tabs = document.getElementById('online-rail-mobile-stepper-tabs');
+            const summaries = document.getElementById('online-rail-mobile-stepper-summaries');
+            const prompt = document.getElementById('online-rail-mobile-stepper-prompt');
+            const review = document.getElementById('online-rail-mobile-review');
+            const shell = document.getElementById('online-rail-results-shell');
+            if (!root || !sticky || !tabs || !summaries || !prompt || !review || !shell) return;
+            if (!window.isOnlineRailMobileStepperActive()) {
+                root.classList.add('hidden');
+                sticky.classList.remove('hidden');
+                prompt.classList.add('hidden');
+                review.classList.add('hidden');
+                shell.classList.remove('hidden');
+                return;
+            }
+
+            const segs = window._multiCitySegments || [];
+            const active = window._onlineRailMultiProgressLeg;
+            const allDone = window._onlineRailMobileAllDone();
+            const selectedSummaries = segs.map((_, idx) => window._getOnlineRailMobileSelectionSummary(idx)).filter(Boolean);
+            const completedCards = selectedSummaries.filter((item) => allDone || item.legIndex !== active);
+            root.classList.remove('hidden');
+            tabs.innerHTML = segs.map((seg, idx) => {
+                const done = !!window._getOnlineRailMobileSelectionSummary(idx);
+                const reachable = typeof window._canReachRailLeg === 'function' ? window._canReachRailLeg(idx) : idx <= active;
+                const cls = idx === active
+                    ? 'online-flight-mobile-stepper__tab online-flight-mobile-stepper__tab--active'
+                    : done
+                        ? 'online-flight-mobile-stepper__tab online-flight-mobile-stepper__tab--done'
+                        : 'online-flight-mobile-stepper__tab online-flight-mobile-stepper__tab--locked';
+                const icon = idx === active ? 'train-front' : done ? 'check' : 'lock';
+                return `<button type="button" class="${cls}" onclick="window.editOnlineRailMobileLeg(${idx})" ${!reachable && !done ? 'disabled aria-disabled="true"' : ''}>
+                    <span class="online-flight-mobile-stepper__tab-icon"><i data-lucide="${icon}" class="w-3.5 h-3.5"></i></span>
+                    <span>Trip ${idx + 1}</span>
+                </button>`;
+            }).join('');
+            summaries.innerHTML = completedCards.map((item) => `
+                <div class="online-flight-mobile-stepper__summary">
+                    <div class="online-flight-mobile-stepper__summary-top">
+                        <div class="online-flight-mobile-stepper__summary-route">
+                            <span class="online-flight-mobile-stepper__summary-badge"><i data-lucide="train-front" class="w-4 h-4"></i></span>
+                            <div class="min-w-0">
+                                <p class="online-flight-mobile-stepper__summary-name">${window._onlineUiEsc(item.routeText)}</p>
+                            </div>
+                        </div>
+                        <button type="button" class="online-flight-mobile-stepper__summary-edit" onclick="window.editOnlineRailMobileLeg(${item.legIndex})">Edit</button>
+                    </div>
+                    <div class="online-flight-mobile-stepper__summary-detail">
+                        <div class="online-flight-mobile-stepper__summary-detail-line">
+                            <span><i data-lucide="badge-check" class="w-3.5 h-3.5 inline-block align-text-bottom mr-1"></i>${window._onlineUiEsc(item.airline)}</span>
+                            <span>&bull;</span>
+                            <span>${window._onlineUiEsc(item.timeLine)}</span>
+                            <span>&bull;</span>
+                            <span>${window._onlineUiEsc(item.priceText)}</span>
+                        </div>
+                        <span class="online-flight-mobile-stepper__summary-check"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                    </div>
+                </div>`).join('');
+
+            const showReview = allDone && window._onlineRailMobileReviewOpen;
+            const showPrompt = allDone && !showReview;
+            sticky.classList.toggle('hidden', showReview);
+            prompt.classList.toggle('hidden', !showPrompt);
+            review.classList.toggle('hidden', !showReview);
+            shell.classList.toggle('hidden', showPrompt || showReview);
+
+            if (showPrompt) {
+                prompt.innerHTML = `
+                    <div class="online-flight-mobile-stepper__prompt-illustration"><i data-lucide="badge-check" class="w-8 h-8"></i></div>
+                    <p class="online-flight-mobile-stepper__prompt-title">All trips completed!</p>
+                    <p class="online-flight-mobile-stepper__prompt-subtitle">Every selected leg has been collapsed into a compact summary card. Review your chosen trains before you continue.</p>
+                    <button type="button" class="online-flight-mobile-stepper__prompt-cta" onclick="window.openOnlineRailMobileReview()">Review Selected Trains</button>`;
+            } else {
+                prompt.innerHTML = '';
+            }
+
+            if (showReview) {
+                const total = selectedSummaries.reduce((sum, item) => sum + item.price, 0);
+                review.innerHTML = `
+                    <div class="online-flight-mobile-review__header">
+                        <p class="online-flight-mobile-review__title">Review Your Selected Trains</p>
+                        <p class="online-flight-mobile-review__subtitle">${selectedSummaries.length} of ${segs.length} trips selected</p>
+                    </div>
+                    <div class="online-flight-mobile-review__list">
+                        ${selectedSummaries.map((item) => `
+                            <div class="online-flight-mobile-review__card">
+                                <div class="online-flight-mobile-review__card-top">
+                                    <div class="min-w-0">
+                                        <p class="online-flight-mobile-review__label">${window._onlineUiEsc(item.tripLabel)}</p>
+                                        <p class="online-flight-mobile-review__route">${window._onlineUiEsc(item.routeText)}</p>
+                                    </div>
+                                    <button type="button" class="online-flight-mobile-stepper__summary-edit" onclick="window.editOnlineRailMobileLeg(${item.legIndex})">Edit</button>
+                                </div>
+                                <div class="online-flight-mobile-review__meta">
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="calendar" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.dateLine)}</span>
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="train-front" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.airline)}</span>
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="clock-3" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.timeLine)}</span>
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="route" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.durationLine)}</span>
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.airportLine)}</span>
+                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="wallet" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.priceText)}</span>
+                                    ${item.fareName ? `<span class="online-flight-mobile-review__meta-pill"><i data-lucide="tag" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.fareName)}</span>` : ''}
+                                </div>
+                            </div>`).join('')}
+                    </div>
+                    <div class="online-flight-mobile-review__fare">
+                        <p class="online-flight-mobile-review__fare-label">Total Fare</p>
+                        <p class="online-flight-mobile-review__fare-amount">¥${total.toLocaleString()}</p>
+                        <p class="online-flight-mobile-review__fare-note">Includes taxes and fees</p>
+                    </div>
+                    <div class="online-flight-mobile-review__actions">
+                        <button type="button" class="online-flight-mobile-review__done" onclick="window.completeOnlineRailMobileReview()">Done</button>
+                        <button type="button" class="online-flight-mobile-review__reset" onclick="window.startOverOnlineRailMobileSelection()">Start Over</button>
+                    </div>`;
+            } else {
+                review.innerHTML = '';
+            }
+            lucide.createIcons();
         };
 
         window._buildMockOnlineFlights = (originCode, destCode, reverse) => {
@@ -14765,6 +15922,7 @@
                 window.refreshOnlineRailRowBodies();
                 window.updateOnlineBookingFooterButtons?.();
                 window.updateBookingStepNextButtonState?.();
+                window.renderOnlineRailMobileStepper?.();
                 return;
             }
             if (leg === 'going') {
@@ -14775,6 +15933,7 @@
             window.refreshOnlineRailRowBodies();
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            window.renderOnlineRailMobileStepper?.();
         };
 
         window._applyOnlineRailSort = () => {
@@ -14825,6 +15984,7 @@
 
         window._searchOnlineRailExecute = () => {
             const trip = document.querySelector('input[name="online-rail-trip-type"]:checked')?.value || 'round';
+            window._onlineRailMobileReviewOpen = false;
             if (trip === 'multiple') {
                 window.ensureOnlineRailMultiSegmentsRendered();
                 const segs = window._readOnlineRailMcFromDom();
@@ -14861,6 +16021,7 @@
                 window.switchOnlineRailMultiLegTab(0);
                 window.updateOnlineBookingFooterButtons?.();
                 window.updateBookingStepNextButtonState?.();
+                window.renderOnlineRailMobileStepper?.();
                 lucide.createIcons();
                 return;
             }
@@ -14916,6 +16077,7 @@
                 window.switchOnlineRailMultiLegTab(0);
                 window.updateOnlineBookingFooterButtons?.();
                 window.updateBookingStepNextButtonState?.();
+                window.renderOnlineRailMobileStepper?.();
                 lucide.createIcons();
                 return;
             }
@@ -14950,6 +16112,7 @@
             document.getElementById('online-rail-results')?.classList.remove('hidden');
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            window.renderOnlineRailMobileStepper?.();
             lucide.createIcons();
         };
 
@@ -15463,6 +16626,7 @@
                 window.refreshOnlineFlightRowBodies();
                 window.updateOnlineBookingFooterButtons?.();
                 window.updateBookingStepNextButtonState?.();
+                window.renderOnlineFlightMobileStepper?.();
                 return;
             }
             if (leg === 'going') {
@@ -15473,6 +16637,7 @@
             window.refreshOnlineFlightRowBodies();
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            window.renderOnlineFlightMobileStepper?.();
         };
 
         window._applyOnlineFlightSort = () => {
@@ -15546,6 +16711,13 @@
             const railResultsVisible = railResults && !railResults.classList.contains('hidden');
             const hotelResultsVisible = hotelResults && !hotelResults.classList.contains('hidden');
             const carResultsVisible = carResults && !carResults.classList.contains('hidden');
+
+            if (window.isOnlineFlightMobileStepperActive?.() || window.isOnlineRailMobileStepperActive?.()) {
+                footer.classList.add('hidden');
+                hint?.classList.add('hidden');
+                if (hint) hint.textContent = '';
+                return;
+            }
 
             const flightTrip = document.querySelector('input[name="online-flight-trip-type"]:checked')?.value || 'round';
             const railTrip = document.querySelector('input[name="online-rail-trip-type"]:checked')?.value || 'round';
@@ -15822,6 +16994,7 @@
             const classHidden = document.getElementById('online-flight-class');
             if (classHidden) classHidden.value = classVal;
             const trip = document.querySelector('input[name="online-flight-trip-type"]:checked')?.value || 'round';
+            window.closeOnlineFlightMobileReview();
             if (trip === 'multiple') {
                 window.ensureOnlineFlightMultiSegmentsRendered();
                 const segs = window._readOnlineFlightMcFromDom();
@@ -16256,8 +17429,12 @@
                 carPanel.classList.toggle('hidden', mode !== 'car');
                 if (mode !== 'car') document.getElementById('online-car-results')?.classList.add('hidden');
             }
+            if (mode !== 'flight') window.closeOnlineFlightMobileReview();
+            if (mode !== 'rail') window._onlineRailMobileReviewOpen = false;
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            window.renderOnlineFlightMobileStepper?.();
+            window.renderOnlineRailMobileStepper?.();
             lucide.createIcons();
         };
 
@@ -16314,9 +17491,11 @@
             window._onlineFlightMultiProgressLeg = 0;
             window._onlineFlightMultiSelections = [];
             window._onlineFlightIsSequentialRound = false;
+            window.closeOnlineFlightMobileReview();
             window._onlineRailMultiProgressLeg = 0;
             window._onlineRailMultiSelections = [];
             window._onlineRailIsSequentialRound = false;
+            window._onlineRailMobileReviewOpen = false;
             window._setOnlineMultiResultsHint('flight', '', false);
             window._setOnlineMultiResultsHint('rail', '', false);
             const fMcHost = document.getElementById('online-flight-multi-segments');
@@ -16341,6 +17520,8 @@
             }
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            window.renderOnlineFlightMobileStepper?.();
+            window.renderOnlineRailMobileStepper?.();
             lucide.createIcons();
         };
 
@@ -17857,6 +19038,8 @@
             delegationView: 'list',
             delegationDetailKind: null,
             isDrillingDown: false,
+            activeDocIndex: 0,
+            isDocExpanded: true,
             selectedMembershipId: null,
             selectedArrangerId: null
         };
@@ -17986,6 +19169,8 @@
             window.profileMobileResetDrillDown();
             window._profileMobileState.activeMainTab = 'personal-information';
             window._profileMobileState.activeDelegationSubTab = 'approval';
+            window._profileMobileState.activeDocIndex = 0;
+            window._profileMobileState.isDocExpanded = true;
             window.profileMobBasicSetModifyOpen?.(false);
             window._profileMobBasicInfo._snapshot = null;
             window.profileMobileSyncTabBarUI('personal-information');
@@ -18119,39 +19304,88 @@
             window.syncProfileMembershipMobile();
         };
 
+        window.profileMobileToggleDocumentDetail = (docIndex) => {
+            const st = window._profileMobileState;
+            if (st.activeDocIndex === docIndex) st.isDocExpanded = !st.isDocExpanded;
+            else {
+                st.activeDocIndex = docIndex;
+                st.isDocExpanded = true;
+            }
+            window.syncProfileDocumentInfoMobile?.();
+        };
+
         window.syncProfileDocumentInfoMobile = () => {
             if (!window.profileMobileIsActive()) return;
             const tb = document.getElementById('profile-doc-info-tbody');
-            const container = document.getElementById('prof-mob-doc-cards');
-            if (!tb || !container) return;
-            container.innerHTML = '';
-            tb.querySelectorAll('tr').forEach((tr) => {
+            const selector = document.getElementById('prof-mob-doc-selector');
+            const detail = document.getElementById('prof-mob-doc-detail');
+            if (!tb || !selector || !detail) return;
+            const docs = [];
+            tb.querySelectorAll('tr').forEach((tr, index) => {
                 const cells = tr.querySelectorAll('td');
                 if (cells.length < 6) return;
-                const docType = (cells[0].textContent || '').trim();
-                const idNum = (cells[1].textContent || '').trim();
-                const expiry = (cells[2].textContent || '').trim();
-                const country = (cells[3].textContent || '').trim();
-                const nationality = (cells[4].textContent || '').trim();
-                const card = document.createElement('button');
-                card.type = 'button';
-                card.className = 'prof-mob-doc-card profile-inline-action';
-                card.innerHTML = `
-                    <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 text-[#1e3a5f]">
-                        <i data-lucide="file-badge" class="w-5 h-5"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <p class="text-sm font-bold text-slate-900">${window._profileMobEsc(docType)}</p>
-                        <p class="text-[11px] font-mono text-slate-600 mt-0.5 truncate">${window._profileMobEsc(idNum)}</p>
-                        <div class="grid grid-cols-2 gap-x-2 gap-y-1 mt-2 text-[10px]">
-                            <div><span class="text-slate-400 font-semibold">Expiry</span><p class="text-slate-700">${window._profileMobEsc(expiry)}</p></div>
-                            <div><span class="text-slate-400 font-semibold">Country</span><p class="text-slate-700">${window._profileMobEsc(country)}</p></div>
-                            <div class="col-span-2"><span class="text-slate-400 font-semibold">Nationality</span><p class="text-slate-700">${window._profileMobEsc(nationality)}</p></div>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 shrink-0 mt-1"></i>`;
-                container.appendChild(card);
+                docs.push({
+                    index,
+                    docType: (cells[0].textContent || '').trim(),
+                    idNum: (cells[1].textContent || '').trim(),
+                    expiry: (cells[2].textContent || '').trim(),
+                    country: (cells[3].textContent || '').trim(),
+                    nationality: (cells[4].textContent || '').trim()
+                });
             });
+            if (!docs.length) {
+                selector.innerHTML = '';
+                detail.classList.add('hidden');
+                detail.innerHTML = '';
+                return;
+            }
+            const st = window._profileMobileState;
+            if (typeof st.activeDocIndex !== 'number' || st.activeDocIndex >= docs.length) st.activeDocIndex = 0;
+            if (typeof st.isDocExpanded !== 'boolean') st.isDocExpanded = true;
+            const activeDoc = docs[st.activeDocIndex] || docs[0];
+            const iconForDoc = (docType) => {
+                const t = String(docType || '').toLowerCase();
+                if (t.includes('passport')) return 'book-open';
+                if (t.includes('eep')) return 'shield-check';
+                if (t.includes('mtp')) return 'credit-card';
+                return 'file-badge';
+            };
+            selector.innerHTML = docs.map((doc, idx) => {
+                const isActive = idx === st.activeDocIndex;
+                return `<button type="button" class="prof-mob-doc-chip profile-inline-action${isActive ? ' prof-mob-doc-chip--active' : ''}" onclick="window.profileMobileToggleDocumentDetail(${idx})" role="tab" aria-selected="${isActive ? 'true' : 'false'}">
+                    <span class="prof-mob-doc-chip__icon"><i data-lucide="${iconForDoc(doc.docType)}" class="w-4 h-4"></i></span>
+                    <span>${window._profileMobEsc(doc.docType)}</span>
+                    ${isActive ? '<i data-lucide="chevron-down" class="w-3.5 h-3.5 shrink-0"></i>' : ''}
+                </button>`;
+            }).join('');
+            detail.classList.toggle('hidden', !st.isDocExpanded);
+            if (!st.isDocExpanded || !activeDoc) {
+                detail.innerHTML = '';
+                lucide.createIcons();
+                return;
+            }
+            detail.innerHTML = `
+                <div class="prof-mob-doc-detail__header">
+                    <span class="prof-mob-doc-detail__badge"><i data-lucide="${iconForDoc(activeDoc.docType)}" class="w-5 h-5"></i></span>
+                    <div class="min-w-0">
+                        <p class="text-sm font-bold text-slate-900">${window._profileMobEsc(activeDoc.docType)}</p>
+                        <p class="text-[11px] font-mono text-slate-600 mt-0.5 truncate">${window._profileMobEsc(activeDoc.idNum)}</p>
+                    </div>
+                </div>
+                <div class="prof-mob-doc-detail__grid">
+                    <div class="prof-mob-doc-detail__field">
+                        <span class="prof-mob-doc-detail__label">Expiry</span>
+                        <p class="prof-mob-doc-detail__value">${window._profileMobEsc(activeDoc.expiry)}</p>
+                    </div>
+                    <div class="prof-mob-doc-detail__field">
+                        <span class="prof-mob-doc-detail__label">Country</span>
+                        <p class="prof-mob-doc-detail__value">${window._profileMobEsc(activeDoc.country)}</p>
+                    </div>
+                    <div class="prof-mob-doc-detail__field prof-mob-doc-detail__field--full">
+                        <span class="prof-mob-doc-detail__label">Nationality</span>
+                        <p class="prof-mob-doc-detail__value">${window._profileMobEsc(activeDoc.nationality)}</p>
+                    </div>
+                </div>`;
             lucide.createIcons();
         };
 
@@ -18216,7 +19450,8 @@
                 if (cells.length < 3) return;
                 const start = (cells[0].textContent || '').trim();
                 const end = (cells[1].textContent || '').trim();
-                const status = tr.dataset.status || (cells[2].textContent || '').toLowerCase().includes('active') ? 'active' : 'expired';
+                const cellStatus = (cells[2].textContent || '').toLowerCase();
+                const status = tr.dataset.status || (cellStatus.includes('active') ? 'active' : 'expired');
                 const isActive = status === 'active';
                 const item = document.createElement('div');
                 item.className = 'prof-mob-timeline-item';
@@ -18227,15 +19462,19 @@
                 item.innerHTML = `
                     <span class="prof-mob-timeline-node ${isActive ? 'prof-mob-timeline-node--active' : 'prof-mob-timeline-node--expired'}"></span>
                     ${row}
-                        <div class="flex-1 min-w-0">
-                            <p class="text-[10px] font-bold text-slate-500">Start Time</p>
-                            <p class="text-xs font-semibold text-slate-800">${window._profileMobEsc(start)}</p>
-                            <p class="text-[10px] font-bold text-slate-500 mt-2">End Time</p>
-                            <p class="text-xs font-semibold text-slate-800">${window._profileMobEsc(end)}</p>
-                        </div>
-                        <div class="flex flex-col items-end gap-1 shrink-0">
-                            <span class="${isActive ? 'prof-mob-badge-active' : 'prof-mob-badge-expired'}">${isActive ? 'Active' : 'Expired'}</span>
-                            ${clickable ? '<i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>' : ''}
+                        <div class="prof-mob-timeline-card">
+                            <span class="prof-mob-timeline-card__status ${isActive ? 'prof-mob-badge-active' : 'prof-mob-badge-expired'}">${isActive ? 'Active' : 'Expired'}</span>
+                            <div class="prof-mob-timeline-card__grid">
+                                <div class="prof-mob-timeline-card__field">
+                                    <p class="prof-mob-timeline-card__label">Start Time</p>
+                                    <p class="prof-mob-timeline-card__value">${window._profileMobEsc(start)}</p>
+                                </div>
+                                <div class="prof-mob-timeline-card__field">
+                                    <p class="prof-mob-timeline-card__label">End Time</p>
+                                    <p class="prof-mob-timeline-card__value">${window._profileMobEsc(end)}</p>
+                                </div>
+                            </div>
+                            ${clickable ? '<span class="prof-mob-timeline-card__chevron"><i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i></span>' : ''}
                         </div>
                     ${rowEnd}`;
                 container.appendChild(item);
@@ -18459,12 +19698,33 @@
             window.openApprovalsActionModal(card.getAttribute('data-approval-id') || '');
         });
 
-        window.toggleProfileDropdown = () => {
-            document.querySelectorAll('[data-profile-dropdown]').forEach((el) => el.classList.toggle('hidden'));
+        window.closeProfileDropdowns = () => {
+            document.querySelectorAll('[data-profile-dropdown]').forEach((el) => el.classList.add('hidden'));
+            document.querySelectorAll('[data-profile-dropdown-trigger]').forEach((el) => el.setAttribute('aria-expanded', 'false'));
+        };
+        window.toggleProfileDropdown = (trigger) => {
+            const wrap = trigger?.closest?.('.header-profile-dropdown-wrap');
+            const menu = wrap?.querySelector?.('[data-profile-dropdown]');
+            if (!wrap || !menu) return;
+            const isOpen = !menu.classList.contains('hidden');
+            window.closeProfileDropdowns();
+            menu.classList.toggle('hidden', isOpen);
+            trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
         };
         window.toggleLangDropdown = () => {
             document.querySelectorAll('[data-lang-dropdown]').forEach((el) => el.classList.toggle('hidden'));
         };
+        document.addEventListener('pointerdown', (e) => {
+            const openWrap = Array.from(document.querySelectorAll('.header-profile-dropdown-wrap')).find((wrap) => {
+                const menu = wrap.querySelector('[data-profile-dropdown]');
+                return menu && !menu.classList.contains('hidden');
+            });
+            if (!openWrap || openWrap.contains(e.target)) return;
+            window.closeProfileDropdowns();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') window.closeProfileDropdowns();
+        });
 
         window.toggleApprovalsFiltersPanel = () => {
             const body = document.getElementById('approvals-filters-body');
