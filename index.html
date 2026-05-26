@@ -4391,6 +4391,48 @@
                 padding-top: 0.875rem;
             }
 
+            .approvals-action-modal__note {
+                margin-top: 1rem;
+                text-align: left;
+                border: 1px solid #e2e8f0;
+                border-radius: 1rem;
+                background: #f8fafc;
+                padding: 0.85rem;
+            }
+
+            .approvals-action-modal__note-label {
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 800;
+                color: #475569;
+                margin-bottom: 0.45rem;
+            }
+
+            .approvals-action-modal__note-textarea {
+                width: 100%;
+                min-height: 6rem;
+                border: 1px solid #cbd5e1;
+                border-radius: 0.9rem;
+                background: #fff;
+                padding: 0.8rem 0.9rem;
+                font-size: 0.875rem;
+                font-weight: 500;
+                color: #0f172a;
+                line-height: 1.45;
+                resize: vertical;
+                outline: none;
+                transition: border-color 0.18s ease, box-shadow 0.18s ease;
+            }
+
+            .approvals-action-modal__note-textarea:focus {
+                border-color: #4285F4;
+                box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.16);
+            }
+
+            .approvals-action-modal__note-textarea::placeholder {
+                color: #94a3b8;
+            }
+
             #approvals-mobile-pending .approvals-mobile-card--pending-action {
                 cursor: pointer;
             }
@@ -5551,6 +5593,421 @@
             line-height: 1.4;
         }
 
+        #online-fare-detail-modal .online-flight-fare-wizard {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-height: 0;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-summary {
+            border: 1px solid #dbe7f6;
+            border-radius: 1.5rem;
+            background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-summary__top {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-summary__route {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-summary__kicker {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.3rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-leg-tabs {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-leg-tab {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.25rem;
+            padding: 0.55rem 0.85rem;
+            border-radius: 9999px;
+            border: 1px solid #cbd5e1;
+            background: #fff;
+            color: #64748b;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-leg-tab--active {
+            border-color: #4285F4;
+            background: #e8f1ff;
+            color: #0a3266;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-leg-tab:disabled {
+            opacity: 0.52;
+            cursor: default;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-summary__meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem 1rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-summary__carrier {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            min-width: 0;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-summary__carrier-logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a3266;
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            flex-shrink: 0;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+        }
+
+        #online-fare-detail-modal .online-flight-fare-summary__carrier-line {
+            font-size: 0.9rem;
+            font-weight: 900;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-summary__carrier-sub {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 0.15rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-timeline {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(150px, auto) minmax(0, 1fr);
+            gap: 0.75rem;
+            align-items: center;
+            padding: 0.95rem 1rem;
+            border-radius: 1.2rem;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(191, 219, 254, 0.9);
+        }
+
+        #online-fare-detail-modal .online-flight-fare-timeline__point {
+            min-width: 0;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-timeline__point--end {
+            text-align: right;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-timeline__time {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #0f172a;
+            line-height: 1.1;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-timeline__city {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #334155;
+            margin-top: 0.22rem;
+            line-height: 1.3;
+            word-break: break-word;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-timeline__code {
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: #64748b;
+            margin-top: 0.15rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-timeline__mid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+            min-width: 0;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-timeline__line {
+            width: 100%;
+            height: 2px;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, rgba(66, 133, 244, 0.35) 0%, rgba(66, 133, 244, 0.9) 50%, rgba(66, 133, 244, 0.35) 100%);
+        }
+
+        #online-fare-detail-modal .online-flight-fare-timeline__duration {
+            font-size: 0.8rem;
+            font-weight: 900;
+            color: #0a3266;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-timeline__stops {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #64748b;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-tier-tabs {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding-bottom: 0.1rem;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-tier-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-tier-tab {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.5rem;
+            min-width: 11rem;
+            min-height: 5.2rem;
+            padding: 0.9rem;
+            border-radius: 1.2rem;
+            border: 1px solid #dbe5f0;
+            background: #fff;
+            color: #475569;
+            text-align: left;
+            flex-shrink: 0;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-tier-tab--active {
+            border-color: #4285F4;
+            background: #edf4ff;
+            box-shadow: 0 14px 28px rgba(66, 133, 244, 0.14);
+        }
+
+        #online-fare-detail-modal .online-flight-fare-tier-tab__name {
+            font-size: 0.9rem;
+            font-weight: 900;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-tier-tab__sub {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            line-height: 1.35;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-tier-tab__price {
+            font-size: 0.95rem;
+            font-weight: 900;
+            color: #0a3266;
+            line-height: 1;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-tier-tab__price-note {
+            font-size: 0.64rem;
+            font-weight: 700;
+            color: #94a3b8;
+            margin-top: 0.18rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offers-panel {
+            border: 1px solid #dbe5f0;
+            border-radius: 1.35rem;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+            padding: 1rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offers-panel__head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 0.5rem 0.75rem;
+            margin-bottom: 0.85rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offers-panel__title {
+            font-size: 0.98rem;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offers-panel__sub {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 0.18rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer {
+            position: relative;
+            border: 1px solid #dbe5f0;
+            border-radius: 1.2rem;
+            background: #fff;
+            padding: 1rem 1rem 1rem 3.4rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer:hover {
+            border-color: rgba(66, 133, 244, 0.38);
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer--selected {
+            border: 3px solid #4285F4;
+            box-shadow: 0 18px 32px rgba(66, 133, 244, 0.16);
+            transform: translateY(-1px);
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__radio {
+            position: absolute;
+            left: 1rem;
+            top: 1.08rem;
+            width: 1.3rem;
+            height: 1.3rem;
+            border-radius: 9999px;
+            border: 2px solid #94a3b8;
+            background: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer--selected .online-flight-fare-offer__radio {
+            border-color: #4285F4;
+            background: #4285F4;
+            color: #fff;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__name {
+            font-size: 0.96rem;
+            font-weight: 900;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__sub {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 0.18rem;
+            line-height: 1.35;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__price {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__price-value {
+            font-size: 1rem;
+            font-weight: 900;
+            color: #0a3266;
+            line-height: 1;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__price-note {
+            font-size: 0.64rem;
+            font-weight: 700;
+            color: #94a3b8;
+            margin-top: 0.18rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.75rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.32rem;
+            max-width: 100%;
+            padding: 0.34rem 0.52rem;
+            border-radius: 9999px;
+            background: #f8fafc;
+            color: #475569;
+            font-size: 0.67rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__chip i {
+            width: 0.82rem;
+            height: 0.82rem;
+            color: #64748b;
+            flex-shrink: 0;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-top: 0.8rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__summary {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
         @keyframes farePanelSlideIn {
             from {
                 opacity: 0;
@@ -5610,6 +6067,35 @@
 
             #online-fare-detail-modal .online-fare-offer-row__top,
             #online-fare-detail-modal .online-fare-offer-row__actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-summary,
+            #online-fare-detail-modal .online-flight-fare-offers-panel {
+                padding: 0.9rem;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-timeline {
+                grid-template-columns: 1fr;
+                gap: 0.65rem;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-timeline__point--end,
+            #online-fare-detail-modal .online-flight-fare-offer__price {
+                text-align: left;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-tier-tab {
+                min-width: 10rem;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-offer {
+                padding: 0.95rem 0.9rem 0.95rem 3rem;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-offer__top,
+            #online-fare-detail-modal .online-flight-fare-offer__actions {
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -6657,6 +7143,10 @@
                                 <p id="approvals-action-modal-order" class="warning-modal__order">—</p>
                                 <p id="approvals-action-modal-traveler" class="warning-modal__meta">Traveler: —</p>
                                 <p id="approvals-action-modal-warning" class="warning-modal__warning">This action cannot be undone. The request will be moved to the approved history.</p>
+                                <div class="approvals-action-modal__note">
+                                    <label for="approvals-action-modal-note" class="approvals-action-modal__note-label">Add a note (Optional)</label>
+                                    <textarea id="approvals-action-modal-note" class="approvals-action-modal__note-textarea" rows="4" placeholder="Add approval remarks or context for this request"></textarea>
+                                </div>
                             </div>
                             <div class="warning-modal__actions approvals-action-modal__actions">
                                 <button type="button" onclick="window.closeApprovalsActionModal()" class="warning-modal__btn warning-modal__btn--reject profile-inline-action">REJECT</button>
@@ -6821,12 +7311,8 @@
                                             </button>
                                         </div>
                                         <div class="prof-mob-basic-names">
-                                            <div class="prof-mob-basic-name-block">
-                                                <span class="prof-mob-basic-label">Chinese Name:</span>
-                                                <span class="prof-mob-basic-value" id="prof-mob-basic-cn">王大明</span>
-                                            </div>
-                                            <div class="prof-mob-basic-name-block">
-                                                <span class="prof-mob-basic-label">English Name:</span>
+                                                <div class="prof-mob-basic-name-block">
+                                                <span class="prof-mob-basic-label">Traveller Name:</span>
                                                 <span class="prof-mob-basic-value" id="prof-mob-basic-en">JOHN WICK</span>
                                             </div>
                                         </div>
@@ -14575,11 +15061,13 @@
             const order = document.getElementById('approvals-action-modal-order');
             const traveler = document.getElementById('approvals-action-modal-traveler');
             const warning = document.getElementById('approvals-action-modal-warning');
+            const note = document.getElementById('approvals-action-modal-note');
             if (title) title.textContent = 'Approve Request';
             if (lead) lead.textContent = 'You are about to approve request:';
             if (order) order.textContent = d.approvalId || '—';
             if (traveler) traveler.textContent = `Traveler: ${d.traveler || '—'}`;
             if (warning) warning.textContent = 'This action cannot be undone. The request will be moved to the approved history.';
+            if (note) note.value = d.approvalNote || '';
         };
 
         window._markApprovalRowApproved = (row) => {
@@ -14609,12 +15097,14 @@
 
         window.closeApprovalsActionModal = () => {
             const modal = document.getElementById('approvals-action-modal');
+            const note = document.getElementById('approvals-action-modal-note');
             window._approvalsActionModalOpen = false;
             if (modal) {
                 modal.classList.add('hidden');
                 modal.setAttribute('aria-hidden', 'true');
                 delete modal.dataset.activeApprovalId;
             }
+            if (note) note.value = '';
             if (!document.querySelector('.approvals-action-modal:not(.hidden)')) {
                 document.body.style.overflow = '';
             }
@@ -14630,9 +15120,16 @@
                 return;
             }
             const row = window._getApprovalRowById(approvalId, 'pending');
+            const note = document.getElementById('approvals-action-modal-note');
             if (!row) {
                 window.closeApprovalsActionModal();
                 return;
+            }
+            const noteValue = String(note?.value || '').trim();
+            if (noteValue) {
+                row.dataset.approvalNote = noteValue;
+            } else {
+                delete row.dataset.approvalNote;
             }
             window._markApprovalRowApproved(row);
             approvedBody.prepend(row);
@@ -15726,6 +16223,80 @@
             return `${service}-${String(200 + idx * 3).padStart(3, '0')}`;
         };
 
+        window._getOnlineFlightFareCarrierBadge = (airline) => {
+            const initials = String(airline || 'FL')
+                .split(/\s+/)
+                .filter(Boolean)
+                .slice(0, 2)
+                .map((part) => part[0] || '')
+                .join('')
+                .toUpperCase();
+            return initials || 'FL';
+        };
+
+        window._getOnlineFlightEquipmentType = (row, idx) => {
+            const known = row?.equipmentType || row?.aircraftType || row?.equipment;
+            if (known) return String(known);
+            const fallback = ['Airbus A320neo', 'Boeing 737-800', 'Airbus A321', 'Boeing 787-8'];
+            return fallback[idx % fallback.length];
+        };
+
+        window._getOnlineFlightFareCities = (ctx, fromCode, toCode) => {
+            const trip = document.querySelector('input[name="online-flight-trip-type"]:checked')?.value || 'round';
+            if (trip === 'multiple' || window._onlineFlightIsSequentialRound) {
+                const seg = (window._multiCitySegments || [])[window._onlineFlightMultiProgressLeg] || {};
+                return {
+                    fromCity: seg.from || fromCode,
+                    toCity: seg.to || toCode
+                };
+            }
+            const fromInput = document.getElementById('online-flight-from')?.value?.trim() || fromCode;
+            const toInput = document.getElementById('online-flight-to')?.value?.trim() || toCode;
+            if (ctx.leg === 'return') {
+                return { fromCity: toInput, toCity: fromInput };
+            }
+            return { fromCity: fromInput, toCity: toInput };
+        };
+
+        window._getOnlineFlightFareLegTabs = (ctx) => {
+            const trip = document.querySelector('input[name="online-flight-trip-type"]:checked')?.value || 'round';
+            if (trip === 'multiple' || window._onlineFlightIsSequentialRound) {
+                return (window._multiCitySegments || []).map((seg, legIndex) => ({
+                    type: 'multi',
+                    legIndex,
+                    label: window.getWorkflowLegLabel(legIndex),
+                    active: legIndex === window._onlineFlightMultiProgressLeg,
+                    disabled: typeof window._canReachFlightLeg === 'function' ? !window._canReachFlightLeg(legIndex) : false
+                }));
+            }
+            const hasReturn = trip !== 'oneway' && (window._onlineFlightReturnRows || []).length > 0;
+            return [
+                { type: 'single', leg: 'going', label: window.getWorkflowLegLabel(0), active: ctx.leg !== 'return', disabled: false },
+                ...(hasReturn ? [{ type: 'single', leg: 'return', label: window.getWorkflowLegLabel(1), active: ctx.leg === 'return', disabled: false }] : [])
+            ];
+        };
+
+        window.openOnlineFlightFareModalLeg = (targetLeg, fallbackIdx, legIndex) => {
+            const trip = document.querySelector('input[name="online-flight-trip-type"]:checked')?.value || 'round';
+            if (trip === 'multiple' || window._onlineFlightIsSequentialRound) {
+                const nextLeg = typeof legIndex === 'number' ? legIndex : 0;
+                if (typeof window._canReachFlightLeg === 'function' && !window._canReachFlightLeg(nextLeg)) return;
+                window.switchOnlineFlightMultiLegTab(nextLeg);
+                const rows = window._onlineFlightMultiLegRows?.[nextLeg] || [];
+                if (!rows.length) return;
+                const selected = (window._onlineFlightMultiSelections || [])[nextLeg];
+                const nextIdx = typeof selected?.idx === 'number' ? selected.idx : Math.min(fallbackIdx, rows.length - 1);
+                window.openOnlineFareModal('flight', 'going', nextIdx);
+                return;
+            }
+            if (targetLeg === 'return' && trip === 'oneway') return;
+            const rows = targetLeg === 'return' ? (window._onlineFlightReturnRows || []) : (window._onlineFlightGoingRows || []);
+            if (!rows.length) return;
+            const selected = targetLeg === 'return' ? window._onlineFlightSelectedReturn : window._onlineFlightSelectedGoing;
+            const nextIdx = typeof selected === 'number' ? selected : Math.min(fallbackIdx, rows.length - 1);
+            window.openOnlineFareModal('flight', targetLeg, nextIdx);
+        };
+
         window._getOnlineFareCategoryDescriptor = (mode, fareName, row) => {
             if (mode !== 'flight') {
                 const railMap = {
@@ -16060,100 +16631,223 @@
                 : ((matchedCategory && matchedCategory.name) || fares[0].name);
             ctx.expandedOfferKeys = ctx.expandedOfferKeys || {};
             const activeCategory = fares.find((fare) => fare.name === ctx.selectedCategory) || fares[0];
+            const descriptor = window._getOnlineFareCategoryDescriptor(mode, activeCategory.name, row);
+            const offers = window._buildOnlineFareOffers(mode, row, activeCategory);
             const routeTokens = String(row.route || '').split(/[–—-]/).map((token) => token.trim()).filter(Boolean);
             const fromCode = routeTokens[0] || '---';
             const toCode = routeTokens[1] || routeTokens[0] || '---';
             const serviceNumber = window._buildOnlineFareServiceNumber(mode, row, idx);
+            const [depTime, arrTime] = String(row.time || '').split(/\s*[–—-]\s*/).map((token) => token.trim());
             if (title) title.textContent = isFlight ? 'Flight fare options' : 'Train fare options';
-            if (itin) itin.textContent = 'Choose a compact tier and bundle combination below.';
-            if (!wrap) return;
-            const metaItems = [
-                { icon: isFlight ? 'plane' : 'train-front', text: `${isFlight ? row.airline : row.service} ${serviceNumber}` },
-                { icon: 'route', text: `${fromCode} → ${toCode}` },
-                { icon: 'clock-3', text: row.time },
-                { icon: 'timer-reset', text: row.dur }
-            ];
-            if (isFlight) {
-                metaItems.push({ icon: row.stops === 0 ? 'circle-dot' : 'git-commit-horizontal', text: row.stops === 0 ? 'Non-stop' : `${row.stops} stop(s)` });
+            if (itin) {
+                itin.textContent = isFlight
+                    ? 'Choose the fare family and bundle that best matches your baggage and flexibility needs.'
+                    : `${row.service} ${serviceNumber} · ${row.time} · ${row.dur}`;
             }
-            wrap.innerHTML = `
-                <div class="online-fare-compact-layout">
-                    <div class="online-fare-meta-strip">
-                        <p class="online-fare-meta-strip__route">${window._onlineUiEsc(fromCode)} <span class="text-slate-400">→</span> ${window._onlineUiEsc(toCode)}</p>
-                        <div class="online-fare-meta-strip__items">
-                            ${metaItems.map((item, index) => `
-                                ${index ? '<span class="online-fare-meta-strip__dot">&bull;</span>' : ''}
-                                <span class="online-fare-meta-strip__item"><i data-lucide="${item.icon}" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.text)}</span>
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="online-fare-tier-stack">
-                        ${fares.map((fare) => {
-                            const isActive = fare.name === activeCategory.name;
-                            const categoryDescriptor = window._getOnlineFareCategoryDescriptor(mode, fare.name, row);
-                            const tierOffers = window._buildOnlineFareOffers(mode, row, fare);
-                            return `
-                                <section class="online-fare-tier-accordion${isActive ? ' online-fare-tier-accordion--active' : ''}">
-                                    <button type="button" class="online-fare-tier-accordion__header" data-fare-category="${encodeURIComponent(fare.name)}">
-                                        <div class="min-w-0">
-                                            <p class="online-fare-tier-accordion__title">${window._onlineUiEsc(fare.name)}</p>
-                                            <p class="online-fare-tier-accordion__sub">${window._onlineUiEsc(categoryDescriptor)}</p>
-                                        </div>
-                                        <div class="online-fare-tier-accordion__summary">
-                                            <span class="online-fare-tier-accordion__count">${tierOffers.length} offers</span>
-                                            <p class="online-fare-tier-accordion__price">¥${Number(fare.price).toLocaleString()}</p>
-                                            <p class="online-fare-tier-accordion__price-note">from per adult</p>
-                                            <i data-lucide="chevron-down" class="online-fare-tier-accordion__chevron w-4 h-4"></i>
-                                        </div>
-                                    </button>
-                                    <div class="online-fare-tier-accordion__panel${isActive ? '' : ' hidden'}">
-                                        <div class="online-fare-tier-accordion__panel-head">
-                                            <p class="online-fare-tier-accordion__panel-title">Select an offer</p>
-                                            <p class="online-fare-tier-accordion__panel-sub">${window._onlineUiEsc(categoryDescriptor)}</p>
-                                        </div>
-                                        <div class="online-fare-offer-stack">
-                                            ${tierOffers.map((offer) => {
-                                                const isSelected = selectedFare?.name === offer.name;
-                                                const isExpanded = !!ctx.expandedOfferKeys[offer.name];
-                                                return `
-                                                    <div class="online-fare-offer-row${isSelected ? ' online-fare-offer-row--selected' : ''}" data-fare-offer-select="${encodeURIComponent(offer.name)}" data-fare-offer-price="${offer.price}" role="button" tabindex="0">
-                                                        <div class="online-fare-offer-row__top">
-                                                            <div class="min-w-0">
-                                                                <span class="online-fare-offer-row__badge">${window._onlineUiEsc(fare.name)}</span>
-                                                                <p class="online-fare-offer-row__name">${window._onlineUiEsc(offer.name)}</p>
-                                                                <p class="online-fare-offer-row__sub">${window._onlineUiEsc(offer.subtitle)}</p>
-                                                            </div>
-                                                            <div class="flex items-start gap-3 shrink-0">
-                                                                <div class="online-fare-offer-row__price">
-                                                                    <p class="online-fare-offer-row__price-value">¥${Number(offer.price).toLocaleString()}</p>
-                                                                    <p class="online-fare-offer-row__price-note">per adult</p>
-                                                                </div>
-                                                                <span class="online-fare-offer-row__indicator"><i data-lucide="check" class="w-3 h-3"></i></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="online-fare-offer-row__features">
-                                                            ${offer.features.map((feature) => `
-                                                                <span class="online-fare-offer-row__feature">
-                                                                    <i data-lucide="${feature.icon}" class="w-3.5 h-3.5"></i>
-                                                                    <span>${window._onlineUiEsc(feature.value)}</span>
-                                                                </span>`).join('')}
-                                                        </div>
-                                                        <div class="online-fare-offer-row__actions">
-                                                            <p class="online-fare-offer-row__rules">${window._onlineUiEsc(offer.features[2]?.value || '')} &bull; ${window._onlineUiEsc(offer.features[3]?.value || '')}</p>
-                                                            <button type="button" class="online-fare-offer-details-toggle" data-fare-offer-toggle="${encodeURIComponent(offer.name)}">
-                                                                ${isExpanded ? 'Hide details' : 'View details'} <i data-lucide="chevron-${isExpanded ? 'up' : 'down'}" class="w-3.5 h-3.5"></i>
-                                                            </button>
-                                                        </div>
-                                                        ${isExpanded ? `<div class="online-fare-offer-details">${window._onlineUiEsc(offer.detail)}</div>` : ''}
-                                                    </div>`;
-                                            }).join('')}
-                                        </div>
+            if (!wrap) return;
+            if (isFlight) {
+                const stopText = row.stops === 0 ? 'Non-stop' : (row.stops >= 2 ? '2+ Stops' : '1 Stop');
+                const cities = window._getOnlineFlightFareCities(ctx, fromCode, toCode);
+                const carrierBadge = window._getOnlineFlightFareCarrierBadge(row.airline);
+                const equipmentType = window._getOnlineFlightEquipmentType(row, idx);
+                const legTabs = window._getOnlineFlightFareLegTabs(ctx);
+                wrap.innerHTML = `
+                    <div class="online-flight-fare-wizard">
+                        <section class="online-flight-fare-summary">
+                            <div class="online-flight-fare-summary__top">
+                                <div class="min-w-0">
+                                    <p class="online-flight-fare-summary__kicker">Flight Summary</p>
+                                    <p class="online-flight-fare-summary__route">${window._onlineUiEsc(fromCode)} <span class="text-slate-400">→</span> ${window._onlineUiEsc(toCode)}</p>
+                                </div>
+                                <div class="online-flight-fare-leg-tabs">
+                                    ${legTabs.map((tab) => `
+                                        <button type="button" class="online-flight-fare-leg-tab${tab.active ? ' online-flight-fare-leg-tab--active' : ''}" ${tab.disabled ? 'disabled' : ''} ${tab.type === 'multi' ? `data-fare-leg-index="${tab.legIndex}"` : `data-fare-leg="${tab.leg}"`}>
+                                            ${window._onlineUiEsc(tab.label)}
+                                        </button>`).join('')}
+                                </div>
+                            </div>
+                            <div class="online-flight-fare-summary__meta">
+                                <div class="online-flight-fare-summary__carrier">
+                                    <span class="online-flight-fare-summary__carrier-logo">${window._onlineUiEsc(carrierBadge)}</span>
+                                    <div class="min-w-0">
+                                        <p class="online-flight-fare-summary__carrier-line">${window._onlineUiEsc(row.airline)} <span class="text-slate-400">•</span> ${window._onlineUiEsc(serviceNumber)}</p>
+                                        <p class="online-flight-fare-summary__carrier-sub">${window._onlineUiEsc(equipmentType)}</p>
                                     </div>
-                                </section>`;
-                        }).join('')}
-                    </div>
-                    <div class="online-fare-disclaimer">All fares are per adult and include taxes. Select the bundle that best matches your baggage, change, and refund needs.</div>
-                </div>`;
+                                </div>
+                            </div>
+                            <div class="online-flight-fare-timeline">
+                                <div class="online-flight-fare-timeline__point">
+                                    <p class="online-flight-fare-timeline__time">${window._onlineUiEsc(depTime || row.time)}</p>
+                                    <p class="online-flight-fare-timeline__city">${window._onlineUiEsc(cities.fromCity)}</p>
+                                    <p class="online-flight-fare-timeline__code">${window._onlineUiEsc(fromCode)}</p>
+                                </div>
+                                <div class="online-flight-fare-timeline__mid">
+                                    <span class="online-flight-fare-timeline__duration">${window._onlineUiEsc(row.dur)}</span>
+                                    <span class="online-flight-fare-timeline__line"></span>
+                                    <span class="online-flight-fare-timeline__stops">${window._onlineUiEsc(stopText)}</span>
+                                </div>
+                                <div class="online-flight-fare-timeline__point online-flight-fare-timeline__point--end">
+                                    <p class="online-flight-fare-timeline__time">${window._onlineUiEsc(arrTime || row.time)}</p>
+                                    <p class="online-flight-fare-timeline__city">${window._onlineUiEsc(cities.toCity)}</p>
+                                    <p class="online-flight-fare-timeline__code">${window._onlineUiEsc(toCode)}</p>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="online-flight-fare-tier-tabs" role="tablist" aria-label="Fare type selector">
+                            ${fares.map((fare) => {
+                                const tabActive = fare.name === activeCategory.name;
+                                const tabDescriptor = window._getOnlineFareCategoryDescriptor(mode, fare.name, row);
+                                return `
+                                    <button type="button" class="online-flight-fare-tier-tab${tabActive ? ' online-flight-fare-tier-tab--active' : ''}" data-fare-category="${encodeURIComponent(fare.name)}" role="tab" aria-selected="${tabActive}">
+                                        <div class="min-w-0">
+                                            <p class="online-flight-fare-tier-tab__name">${window._onlineUiEsc(fare.name)}</p>
+                                            <p class="online-flight-fare-tier-tab__sub">${window._onlineUiEsc(tabDescriptor)}</p>
+                                        </div>
+                                        <div>
+                                            <p class="online-flight-fare-tier-tab__price">¥${Number(fare.price).toLocaleString()}</p>
+                                            <p class="online-flight-fare-tier-tab__price-note">starting per adult</p>
+                                        </div>
+                                    </button>`;
+                            }).join('')}
+                        </div>
+                        <section class="online-flight-fare-offers-panel">
+                            <div class="online-flight-fare-offers-panel__head">
+                                <div class="min-w-0">
+                                    <p class="online-flight-fare-offers-panel__title">${window._onlineUiEsc(activeCategory.name)}</p>
+                                    <p class="online-flight-fare-offers-panel__sub">${window._onlineUiEsc(descriptor)}</p>
+                                </div>
+                            </div>
+                            <div class="online-flight-fare-offer-stack">
+                                ${offers.map((offer) => {
+                                    const isSelected = selectedFare?.name === offer.name;
+                                    const isExpanded = !!ctx.expandedOfferKeys[offer.name];
+                                    return `
+                                        <div class="online-flight-fare-offer${isSelected ? ' online-flight-fare-offer--selected' : ''}" data-fare-offer-select="${encodeURIComponent(offer.name)}" data-fare-offer-price="${offer.price}" role="button" tabindex="0">
+                                            <span class="online-flight-fare-offer__radio"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                            <div class="online-flight-fare-offer__top">
+                                                <div class="min-w-0">
+                                                    <p class="online-flight-fare-offer__name">${window._onlineUiEsc(offer.name)}</p>
+                                                    <p class="online-flight-fare-offer__sub">${window._onlineUiEsc(offer.subtitle)}</p>
+                                                </div>
+                                                <div class="online-flight-fare-offer__price">
+                                                    <p class="online-flight-fare-offer__price-value">¥${Number(offer.price).toLocaleString()}</p>
+                                                    <p class="online-flight-fare-offer__price-note">per adult</p>
+                                                </div>
+                                            </div>
+                                            <div class="online-flight-fare-offer__chips">
+                                                ${offer.features.map((feature) => `
+                                                    <span class="online-flight-fare-offer__chip">
+                                                        <i data-lucide="${feature.icon}" class="w-3.5 h-3.5"></i>
+                                                        <span>${window._onlineUiEsc(feature.label)}: ${window._onlineUiEsc(feature.value)}</span>
+                                                    </span>`).join('')}
+                                            </div>
+                                            <div class="online-flight-fare-offer__actions">
+                                                <p class="online-flight-fare-offer__summary">${window._onlineUiEsc(offer.features[2]?.value || '')} &bull; ${window._onlineUiEsc(offer.features[3]?.value || '')}</p>
+                                                <button type="button" class="online-fare-offer-details-toggle" data-fare-offer-toggle="${encodeURIComponent(offer.name)}">${isExpanded ? 'Hide details ∧' : 'View details ∨'}</button>
+                                            </div>
+                                            ${isExpanded ? `<div class="online-fare-offer-details">${window._onlineUiEsc(offer.detail)}</div>` : ''}
+                                        </div>`;
+                                }).join('')}
+                            </div>
+                        </section>
+                    </div>`;
+                wrap.querySelectorAll('[data-fare-leg]').forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        const targetLeg = btn.getAttribute('data-fare-leg') || 'going';
+                        window.openOnlineFlightFareModalLeg(targetLeg, idx);
+                    });
+                });
+                wrap.querySelectorAll('[data-fare-leg-index]').forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        const legIndex = parseInt(btn.getAttribute('data-fare-leg-index') || '0', 10);
+                        if (Number.isNaN(legIndex)) return;
+                        window.openOnlineFlightFareModalLeg('going', idx, legIndex);
+                    });
+                });
+            } else {
+                const metaItems = [
+                    { icon: 'train-front', text: `${row.service} ${serviceNumber}` },
+                    { icon: 'route', text: `${fromCode} → ${toCode}` },
+                    { icon: 'clock-3', text: row.time },
+                    { icon: 'timer-reset', text: row.dur }
+                ];
+                wrap.innerHTML = `
+                    <div class="online-fare-compact-layout">
+                        <div class="online-fare-meta-strip">
+                            <p class="online-fare-meta-strip__route">${window._onlineUiEsc(fromCode)} <span class="text-slate-400">→</span> ${window._onlineUiEsc(toCode)}</p>
+                            <div class="online-fare-meta-strip__items">
+                                ${metaItems.map((item, index) => `
+                                    ${index ? '<span class="online-fare-meta-strip__dot">&bull;</span>' : ''}
+                                    <span class="online-fare-meta-strip__item"><i data-lucide="${item.icon}" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.text)}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="online-fare-tier-stack">
+                            ${fares.map((fare) => {
+                                const isActive = fare.name === activeCategory.name;
+                                const categoryDescriptor = window._getOnlineFareCategoryDescriptor(mode, fare.name, row);
+                                const tierOffers = window._buildOnlineFareOffers(mode, row, fare);
+                                return `
+                                    <section class="online-fare-tier-accordion${isActive ? ' online-fare-tier-accordion--active' : ''}">
+                                        <button type="button" class="online-fare-tier-accordion__header" data-fare-category="${encodeURIComponent(fare.name)}">
+                                            <div class="min-w-0">
+                                                <p class="online-fare-tier-accordion__title">${window._onlineUiEsc(fare.name)}</p>
+                                                <p class="online-fare-tier-accordion__sub">${window._onlineUiEsc(categoryDescriptor)}</p>
+                                            </div>
+                                            <div class="online-fare-tier-accordion__summary">
+                                                <span class="online-fare-tier-accordion__count">${tierOffers.length} offers</span>
+                                                <p class="online-fare-tier-accordion__price">¥${Number(fare.price).toLocaleString()}</p>
+                                                <p class="online-fare-tier-accordion__price-note">from per adult</p>
+                                                <i data-lucide="chevron-down" class="online-fare-tier-accordion__chevron w-4 h-4"></i>
+                                            </div>
+                                        </button>
+                                        <div class="online-fare-tier-accordion__panel${isActive ? '' : ' hidden'}">
+                                            <div class="online-fare-tier-accordion__panel-head">
+                                                <p class="online-fare-tier-accordion__panel-title">Select an offer</p>
+                                                <p class="online-fare-tier-accordion__panel-sub">${window._onlineUiEsc(categoryDescriptor)}</p>
+                                            </div>
+                                            <div class="online-fare-offer-stack">
+                                                ${tierOffers.map((offer) => {
+                                                    const isSelected = selectedFare?.name === offer.name;
+                                                    const isExpanded = !!ctx.expandedOfferKeys[offer.name];
+                                                    return `
+                                                        <div class="online-fare-offer-row${isSelected ? ' online-fare-offer-row--selected' : ''}" data-fare-offer-select="${encodeURIComponent(offer.name)}" data-fare-offer-price="${offer.price}" role="button" tabindex="0">
+                                                            <div class="online-fare-offer-row__top">
+                                                                <div class="min-w-0">
+                                                                    <span class="online-fare-offer-row__badge">${window._onlineUiEsc(fare.name)}</span>
+                                                                    <p class="online-fare-offer-row__name">${window._onlineUiEsc(offer.name)}</p>
+                                                                    <p class="online-fare-offer-row__sub">${window._onlineUiEsc(offer.subtitle)}</p>
+                                                                </div>
+                                                                <div class="flex items-start gap-3 shrink-0">
+                                                                    <div class="online-fare-offer-row__price">
+                                                                        <p class="online-fare-offer-row__price-value">¥${Number(offer.price).toLocaleString()}</p>
+                                                                        <p class="online-fare-offer-row__price-note">per adult</p>
+                                                                    </div>
+                                                                    <span class="online-fare-offer-row__indicator"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="online-fare-offer-row__features">
+                                                                ${offer.features.map((feature) => `
+                                                                    <span class="online-fare-offer-row__feature">
+                                                                        <i data-lucide="${feature.icon}" class="w-3.5 h-3.5"></i>
+                                                                        <span>${window._onlineUiEsc(feature.value)}</span>
+                                                                    </span>`).join('')}
+                                                            </div>
+                                                            <div class="online-fare-offer-row__actions">
+                                                                <p class="online-fare-offer-row__rules">${window._onlineUiEsc(offer.features[2]?.value || '')} &bull; ${window._onlineUiEsc(offer.features[3]?.value || '')}</p>
+                                                                <button type="button" class="online-fare-offer-details-toggle" data-fare-offer-toggle="${encodeURIComponent(offer.name)}">${isExpanded ? 'Hide details ∧' : 'View details ∨'}</button>
+                                                            </div>
+                                                            ${isExpanded ? `<div class="online-fare-offer-details">${window._onlineUiEsc(offer.detail)}</div>` : ''}
+                                                        </div>`;
+                                                }).join('')}
+                                            </div>
+                                        </div>
+                                    </section>`;
+                            }).join('')}
+                        </div>
+                        <div class="online-fare-disclaimer">All fares are per adult and include taxes. Select the bundle that best matches your baggage, change, and refund needs.</div>
+                    </div>`;
+            }
             wrap.querySelectorAll('[data-fare-category]').forEach((btn) => {
                 btn.addEventListener('click', () => {
                     window.selectOnlineFareCategory(decodeURIComponent(btn.getAttribute('data-fare-category') || ''));
@@ -16909,14 +17603,20 @@
             const review = document.getElementById('online-flight-mobile-review');
             const shell = document.getElementById('online-flight-results-shell');
             const resultsRoot = document.getElementById('online-flight-results');
+            const legTabs = document.getElementById('online-flight-leg-tabs');
+            const multiTabs = document.getElementById('online-flight-multi-leg-tabs');
             if (!root || !sticky || !tabs || !summaries || !prompt || !review || !shell) return;
             if (!window.isOnlineFlightMobileStepperActive()) {
+                const trip = document.querySelector('input[name="online-flight-trip-type"]:checked')?.value || 'round';
+                const showMultiTabs = trip === 'multiple' || window._onlineFlightIsSequentialRound;
                 root.classList.add('hidden');
                 sticky.classList.remove('hidden');
                 prompt.classList.add('hidden');
                 review.classList.add('hidden');
                 shell.classList.remove('hidden');
                 resultsRoot?.classList.remove('online-results-complete');
+                legTabs?.classList.toggle('hidden', showMultiTabs);
+                multiTabs?.classList.toggle('hidden', !showMultiTabs);
                 return;
             }
 
@@ -16974,6 +17674,9 @@
             const showReview = allDone && window._onlineFlightMobileReviewOpen;
             const showPrompt = allDone && !showReview;
             resultsRoot?.classList.toggle('online-results-complete', allDone);
+            legTabs?.classList.toggle('hidden', allDone);
+            multiTabs?.classList.toggle('hidden', allDone);
+            if (allDone) window._setOnlineMultiResultsHint('flight', '', false);
             sticky.classList.toggle('hidden', showReview);
             prompt.classList.toggle('hidden', !showPrompt);
             review.classList.toggle('hidden', !showReview);
@@ -17066,14 +17769,20 @@
             const review = document.getElementById('online-rail-mobile-review');
             const shell = document.getElementById('online-rail-results-shell');
             const resultsRoot = document.getElementById('online-rail-results');
+            const legTabs = document.getElementById('online-rail-leg-tabs');
+            const multiTabs = document.getElementById('online-rail-multi-leg-tabs');
             if (!root || !sticky || !tabs || !summaries || !prompt || !review || !shell) return;
             if (!window.isOnlineRailMobileStepperActive()) {
+                const trip = document.querySelector('input[name="online-rail-trip-type"]:checked')?.value || 'round';
+                const showMultiTabs = trip === 'multiple' || window._onlineRailIsSequentialRound;
                 root.classList.add('hidden');
                 sticky.classList.remove('hidden');
                 prompt.classList.add('hidden');
                 review.classList.add('hidden');
                 shell.classList.remove('hidden');
                 resultsRoot?.classList.remove('online-results-complete');
+                legTabs?.classList.toggle('hidden', showMultiTabs);
+                multiTabs?.classList.toggle('hidden', !showMultiTabs);
                 return;
             }
 
@@ -17123,6 +17832,9 @@
             const showReview = allDone && window._onlineRailMobileReviewOpen;
             const showPrompt = allDone && !showReview;
             resultsRoot?.classList.toggle('online-results-complete', allDone);
+            legTabs?.classList.toggle('hidden', allDone);
+            multiTabs?.classList.toggle('hidden', allDone);
+            if (allDone) window._setOnlineMultiResultsHint('rail', '', false);
             sticky.classList.toggle('hidden', showReview);
             prompt.classList.toggle('hidden', !showPrompt);
             review.classList.toggle('hidden', !showReview);
