@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tripsource - Domestic</title>
+    <title>Tripsource - Booking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -138,6 +138,24 @@
             max-width: 100%;
             font-size: 0.875rem;
             color: var(--text-primary);
+        }
+
+        .booking-workflow-page[data-active-step="2"] .booking-workflow-header,
+        .booking-workflow-page[data-active-step="3"] .booking-workflow-header {
+            margin-bottom: 1rem;
+        }
+
+        .booking-workflow-page[data-active-step="2"] .booking-stepper-card,
+        .booking-workflow-page[data-active-step="3"] .booking-stepper-card {
+            margin-bottom: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .booking-workflow-page[data-active-step="2"] #booking-step-2,
+        .booking-workflow-page[data-active-step="2"] #change-request-step-2 {
+            margin-top: 0;
+            padding-top: 0;
         }
 
         .booking-workflow-page .form-row {
@@ -1345,6 +1363,162 @@
                 pointer-events: none;
             }
 
+            #page-booking .booking-interactive-host,
+            #page-booking .booking-shared-ui-root {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            #page-booking .booking-mobile-search-shell--collapsed .booking-mobile-search-form {
+                display: none;
+            }
+
+            #page-booking .booking-mobile-search-shell--collapsed #online-flight-results,
+            #page-booking .booking-mobile-search-shell--collapsed #online-rail-results,
+            #page-booking .booking-mobile-search-shell--collapsed #online-hotel-results,
+            #page-booking .booking-mobile-search-shell--collapsed #online-car-results {
+                margin-top: 0.75rem !important;
+            }
+
+            #page-booking .booking-mobile-summary-banner {
+                display: none;
+            }
+
+            #page-booking .booking-mobile-summary-banner:not(.hidden) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.75rem;
+                padding: 0.875rem 1rem;
+                border: 1px solid #dbeafe;
+                border-radius: 0.875rem;
+                background: linear-gradient(180deg, #f8fbff 0%, #eef6ff 100%);
+                box-shadow: 0 10px 24px rgba(66, 133, 244, 0.08);
+            }
+
+            #page-booking .booking-mobile-summary-banner__body {
+                min-width: 0;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 0.35rem;
+            }
+
+            #page-booking .booking-mobile-summary-banner__eyebrow {
+                font-size: 0.625rem;
+                font-weight: 800;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: #64748b;
+            }
+
+            #page-booking .booking-mobile-summary-banner__title {
+                font-size: 0.9375rem;
+                font-weight: 800;
+                color: #0a3266;
+                line-height: 1.25;
+            }
+
+            #page-booking .booking-mobile-summary-banner__meta {
+                font-size: 0.6875rem;
+                font-weight: 600;
+                color: #64748b;
+                line-height: 1.4;
+            }
+
+            #page-booking .booking-mobile-summary-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 2.5rem;
+                height: 2.5rem;
+                min-width: 2.5rem;
+                border-radius: 9999px;
+                border: 1px solid rgba(66, 133, 244, 0.18);
+                background: #fff;
+                color: #0a3266;
+                box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+            }
+
+            #page-booking .booking-mobile-summary-route {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 0.375rem;
+            }
+
+            #page-booking .booking-mobile-summary-code {
+                font-size: 1rem;
+                font-weight: 900;
+                letter-spacing: 0.05em;
+                color: #0f172a;
+            }
+
+            #page-booking .booking-mobile-summary-name {
+                font-size: 0.6875rem;
+                font-weight: 600;
+                color: #94a3b8;
+            }
+
+            #page-booking .booking-mobile-summary-sep {
+                font-size: 0.75rem;
+                font-weight: 800;
+                color: #94a3b8;
+            }
+
+            #page-booking .booking-mobile-form-grid .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.45rem;
+            }
+
+            #page-booking .booking-mobile-refine-card {
+                border-radius: 1rem;
+            }
+
+            #page-booking .booking-mobile-date-field {
+                position: relative;
+                min-height: 3rem;
+                padding: 0.75rem 0.9rem;
+                border: 1px solid #e2e8f0;
+                border-radius: 0.75rem;
+                background: #fff;
+                overflow: hidden;
+            }
+
+            #page-booking .booking-mobile-native-date-input {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            #page-booking .online-flight-date-card .online-flight-date-display,
+            #page-booking .booking-mobile-date-display {
+                display: flex;
+                align-items: baseline;
+                flex-wrap: wrap;
+                gap: 0.35rem;
+                padding-right: 1.5rem;
+                pointer-events: none;
+            }
+
+            #page-booking .booking-mobile-date-primary {
+                font-size: 1rem;
+                font-weight: 800;
+                line-height: 1.1;
+                color: #0a3266;
+            }
+
+            #page-booking .booking-mobile-date-secondary {
+                font-size: 0.6875rem;
+                font-weight: 600;
+                color: #94a3b8;
+                line-height: 1.2;
+            }
+
             #page-booking .online-flight-add-return-card {
                 display: flex;
                 flex-direction: column;
@@ -1566,9 +1740,184 @@
             }
 
             .online-flight-card-mob-leg__code {
-                font-size: 0.75rem;
-                color: #64748b;
+                font-size: 0.9375rem;
+                font-weight: 800;
+                letter-spacing: 0.05em;
+                color: #0f172a;
                 margin-top: 0.125rem;
+            }
+
+            .online-flight-card-mob-leg__desc {
+                font-size: 0.625rem;
+                font-weight: 600;
+                color: #94a3b8;
+                line-height: 1.2;
+                margin-top: 0.125rem;
+                max-width: 5rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            #page-booking .online-hotel-card-shell {
+                display: flex;
+                flex-direction: column;
+                gap: 0.9rem;
+                align-items: stretch;
+            }
+
+            #page-booking .online-hotel-card-media {
+                position: relative;
+                width: 100%;
+                min-width: 0;
+                aspect-ratio: 16 / 9;
+                border-radius: 1rem;
+                overflow: hidden;
+                background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 52%, #e2e8f0 100%);
+                box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.18);
+            }
+
+            #page-booking .online-hotel-card-media img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            #page-booking .online-hotel-card-content {
+                min-width: 0;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            #page-booking .online-hotel-card-body {
+                display: flex;
+                flex-direction: column;
+                gap: 0.55rem;
+                min-width: 0;
+            }
+
+            #page-booking .online-hotel-card-kicker {
+                font-size: 0.7rem;
+                font-weight: 700;
+                color: #64748b;
+                line-height: 1.35;
+            }
+
+            #page-booking .online-hotel-card-title {
+                font-size: 1rem;
+                font-weight: 900;
+                color: #0f172a;
+                line-height: 1.3;
+                word-break: break-word;
+            }
+
+            #page-booking .online-hotel-card-rating {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.45rem;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #334155;
+                line-height: 1.35;
+            }
+
+            #page-booking .online-hotel-card-rating-badge {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 1.5rem;
+                padding: 0.2rem 0.55rem;
+                border-radius: 9999px;
+                background: #f1f5f9;
+                color: #0f172a;
+                font-size: 0.7rem;
+                font-weight: 800;
+            }
+
+            #page-booking .online-hotel-card-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.25rem;
+            }
+
+            #page-booking .online-hotel-card-tag {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.28rem;
+                max-width: 100%;
+                padding: 0.32rem 0.48rem;
+                border-radius: 9999px;
+                background: #f8fafc;
+                color: #475569;
+                font-size: 0.67rem;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+
+            #page-booking .online-hotel-card-tag i {
+                width: 0.8rem;
+                height: 0.8rem;
+                flex-shrink: 0;
+            }
+
+            #page-booking .online-hotel-card-footer {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                gap: 0.75rem;
+                margin-top: auto;
+                padding-top: 0.8rem;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            #page-booking .online-hotel-card-price {
+                min-width: 0;
+            }
+
+            #page-booking .online-hotel-card-price-value {
+                font-size: 1.2rem;
+                font-weight: 900;
+                color: #0f172a;
+                line-height: 1.1;
+            }
+
+            #page-booking .online-hotel-card-price-note {
+                font-size: 0.67rem;
+                font-weight: 700;
+                color: #64748b;
+                line-height: 1.35;
+                margin-top: 0.2rem;
+            }
+
+            #page-booking .online-hotel-card-footer-action {
+                flex-shrink: 0;
+            }
+
+            #online-flight-results.online-results-complete #online-flight-results-shell,
+            #online-flight-results.online-results-complete #online-flight-leg-tabs,
+            #online-flight-results.online-results-complete #online-flight-multi-leg-tabs,
+            #online-rail-results.online-results-complete #online-rail-results-shell,
+            #online-rail-results.online-results-complete #online-rail-leg-tabs,
+            #online-rail-results.online-results-complete #online-rail-multi-leg-tabs {
+                display: none !important;
+            }
+
+            @media (max-width: 420px) {
+                #page-booking .online-hotel-card-footer {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+
+                #page-booking .online-hotel-card-footer-action {
+                    width: 100%;
+                }
+
+                #page-booking .online-hotel-card-footer-action button {
+                    width: 100%;
+                }
             }
 
             .online-flight-card-mob-mid {
@@ -4568,6 +4917,712 @@
             -webkit-overflow-scrolling: touch;
         }
 
+        #online-fare-detail-modal .online-fare-modal-shell {
+            width: min(100%, 94vw);
+            max-width: 920px;
+        }
+
+        #online-fare-detail-modal .online-fare-compact-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            min-height: 0;
+            padding: 0.2rem;
+        }
+
+        #online-fare-detail-modal .online-fare-meta-strip {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 0.75rem;
+            padding: 0.85rem 1rem;
+            border: 1px solid #dbe7f6;
+            border-radius: 1.25rem;
+            background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+        }
+
+        #online-fare-detail-modal .online-fare-meta-strip__route {
+            font-size: 1rem;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: -0.01em;
+            margin-right: auto;
+            white-space: nowrap;
+        }
+
+        #online-fare-detail-modal .online-fare-meta-strip__items {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.35rem 0.5rem;
+            min-width: 0;
+            flex: 1 1 320px;
+        }
+
+        #online-fare-detail-modal .online-fare-meta-strip__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            max-width: 100%;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #475569;
+            line-height: 1.25;
+            white-space: nowrap;
+        }
+
+        #online-fare-detail-modal .online-fare-meta-strip__item i {
+            width: 0.85rem;
+            height: 0.85rem;
+            color: #64748b;
+            flex-shrink: 0;
+        }
+
+        #online-fare-detail-modal .online-fare-meta-strip__dot {
+            color: #94a3b8;
+            font-size: 0.75rem;
+            line-height: 1;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion {
+            border: 1px solid #e2e8f0;
+            border-radius: 1.25rem;
+            background: #ffffff;
+            overflow: hidden;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion--active {
+            border-color: rgba(66, 133, 244, 0.45);
+            box-shadow: 0 12px 28px rgba(66, 133, 244, 0.12);
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__header {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 0.95rem 1rem;
+            text-align: left;
+            background: transparent;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__title {
+            font-size: 0.95rem;
+            font-weight: 900;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__sub {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 0.2rem;
+            line-height: 1.35;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__summary {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.25rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__count {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 9999px;
+            background: #eff6ff;
+            color: #0a3266;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__price {
+            font-size: 1rem;
+            font-weight: 900;
+            color: #0a3266;
+            line-height: 1;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__price-note {
+            font-size: 0.67rem;
+            font-weight: 700;
+            color: #94a3b8;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__chevron {
+            color: #64748b;
+            transition: transform 0.2s ease;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion--active .online-fare-tier-accordion__chevron {
+            transform: rotate(180deg);
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__panel {
+            padding: 0 1rem 1rem;
+            border-top: 1px solid #f1f5f9;
+            background: linear-gradient(180deg, rgba(248, 250, 252, 0.55) 0%, rgba(255, 255, 255, 0.98) 100%);
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__panel-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            padding: 0.8rem 0 0.25rem;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__panel-title {
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #64748b;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-accordion__panel-sub {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row {
+            width: 100%;
+            border: 1px solid #dbe5f0;
+            border-radius: 1rem;
+            background: #ffffff;
+            padding: 0.85rem 0.9rem;
+            text-align: left;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row:hover {
+            border-color: rgba(66, 133, 244, 0.35);
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row--selected {
+            border-color: #4285f4;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+            box-shadow: 0 10px 24px rgba(66, 133, 244, 0.12);
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.85rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 1.35rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px;
+            background: #e0ecff;
+            color: #0a3266;
+            font-size: 0.62rem;
+            font-weight: 900;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__name {
+            font-size: 0.9rem;
+            font-weight: 900;
+            color: #0f172a;
+            margin-top: 0.35rem;
+            line-height: 1.2;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__sub {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 0.2rem;
+            line-height: 1.4;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__price {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.2rem;
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__price-value {
+            font-size: 1rem;
+            font-weight: 900;
+            color: #0a3266;
+            line-height: 1;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__price-note {
+            font-size: 0.64rem;
+            font-weight: 700;
+            color: #94a3b8;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__indicator {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.15rem;
+            height: 1.15rem;
+            border-radius: 9999px;
+            border: 1.5px solid #94a3b8;
+            color: transparent;
+            margin-top: 0.45rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row--selected .online-fare-offer-row__indicator {
+            border-color: #4285f4;
+            background: #4285f4;
+            color: #ffffff;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.7rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__feature {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.32rem;
+            max-width: 100%;
+            padding: 0.35rem 0.5rem;
+            border-radius: 9999px;
+            background: #f8fafc;
+            color: #475569;
+            font-size: 0.67rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__feature i {
+            width: 0.8rem;
+            height: 0.8rem;
+            color: #64748b;
+            flex-shrink: 0;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-row__rules {
+            font-size: 0.67rem;
+            font-weight: 700;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
+        #online-fare-detail-modal .online-fare-modal-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+            gap: 1rem;
+            min-height: 0;
+        }
+
+        #online-fare-detail-modal .online-fare-modal-panel {
+            border: 1px solid #e2e8f0;
+            border-radius: 1.5rem;
+            background: #ffffff;
+            overflow: hidden;
+            min-height: 0;
+        }
+
+        #online-fare-detail-modal .online-fare-modal-panel--left {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        #online-fare-detail-modal .online-fare-modal-panel--right {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            box-shadow: inset 1px 0 0 rgba(226, 232, 240, 0.9);
+            animation: farePanelSlideIn 0.22s ease-out;
+        }
+
+        #online-fare-detail-modal .online-fare-summary-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 1.25rem;
+            background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+            padding: 1rem;
+        }
+
+        #online-fare-detail-modal .online-fare-summary-card__eyebrow {
+            font-size: 0.625rem;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #64748b;
+        }
+
+        #online-fare-detail-modal .online-fare-summary-card__route {
+            font-size: 1.125rem;
+            font-weight: 900;
+            color: #0f172a;
+            margin-top: 0.35rem;
+        }
+
+        #online-fare-detail-modal .online-fare-summary-card__meta {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #475569;
+            margin-top: 0.35rem;
+        }
+
+        #online-fare-detail-modal .online-fare-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        #online-fare-detail-modal .online-fare-summary-stat {
+            border-radius: 1rem;
+            border: 1px solid rgba(191, 219, 254, 0.85);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.85rem 0.9rem;
+        }
+
+        #online-fare-detail-modal .online-fare-summary-stat__label {
+            font-size: 0.625rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #94a3b8;
+        }
+
+        #online-fare-detail-modal .online-fare-summary-stat__value {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #0a3266;
+            margin-top: 0.3rem;
+            line-height: 1.25;
+        }
+
+        #online-fare-detail-modal .online-fare-category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-card {
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.1rem;
+            background: #ffffff;
+            padding: 1rem;
+            text-align: left;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-card:hover {
+            border-color: rgba(66, 133, 244, 0.42);
+            transform: translateY(-1px);
+        }
+
+        #online-fare-detail-modal .online-fare-tier-card--active {
+            border-color: #4285f4;
+            box-shadow: 0 14px 30px rgba(66, 133, 244, 0.16);
+            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        }
+
+        #online-fare-detail-modal .online-fare-tier-card__title {
+            font-size: 0.95rem;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-card__sub {
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-card__price {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #0a3266;
+            margin-top: 0.6rem;
+        }
+
+        #online-fare-detail-modal .online-fare-tier-card__price-note {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            color: #94a3b8;
+            margin-top: 0.15rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offers-head {
+            padding: 1rem 1.1rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        #online-fare-detail-modal .online-fare-offers-head__eyebrow {
+            font-size: 0.625rem;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #94a3b8;
+        }
+
+        #online-fare-detail-modal .online-fare-offers-head__title {
+            font-size: 1rem;
+            font-weight: 900;
+            color: #0f172a;
+            margin-top: 0.35rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offers-head__sub {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offers-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-card {
+            position: relative;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.2rem;
+            background: #ffffff;
+            padding: 1rem 1rem 0.9rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-card--selected {
+            border-color: #4285f4;
+            box-shadow: 0 14px 28px rgba(66, 133, 244, 0.14);
+            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        }
+
+        #online-fare-detail-modal .online-fare-offer-card__top {
+            display: flex;
+            gap: 0.9rem;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-right: 2.25rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-card__name {
+            font-size: 0.95rem;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-card__sub {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-card__price {
+            font-size: 1.05rem;
+            font-weight: 900;
+            color: #0a3266;
+            white-space: nowrap;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-card__price-note {
+            font-size: 0.625rem;
+            font-weight: 700;
+            color: #94a3b8;
+            margin-top: 0.15rem;
+            text-align: right;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-card__radio {
+            position: absolute;
+            top: 1.05rem;
+            right: 1rem;
+            width: 1rem;
+            height: 1rem;
+            accent-color: #4285f4;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-features {
+            list-style: none;
+            margin: 0.9rem 0 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #475569;
+            line-height: 1.35;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-feature i {
+            margin-top: 0.05rem;
+            color: #4285f4;
+            flex-shrink: 0;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-details-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.8rem;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: #7c3aed;
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-details {
+            margin-top: 0.7rem;
+            padding-top: 0.7rem;
+            border-top: 1px dashed #dbeafe;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            line-height: 1.45;
+        }
+
+        #online-fare-detail-modal .online-fare-disclaimer {
+            margin: 0 1rem 1rem;
+            border: 1px solid #e4d5b7;
+            background: #f8efe0;
+            color: #7c5f2b;
+            border-radius: 1rem;
+            padding: 0.85rem 0.95rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        @keyframes farePanelSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(14px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            #online-fare-detail-modal .online-fare-modal-layout {
+                grid-template-columns: 1fr;
+            }
+
+            #online-fare-detail-modal .online-fare-modal-panel--right {
+                box-shadow: inset 0 1px 0 rgba(226, 232, 240, 0.9);
+            }
+        }
+
+        @media (max-width: 640px) {
+            #online-fare-detail-modal .online-fare-modal-shell {
+                width: min(100%, 96vw);
+            }
+
+            #online-fare-detail-modal .online-fare-meta-strip {
+                padding: 0.8rem 0.85rem;
+            }
+
+            #online-fare-detail-modal .online-fare-meta-strip__route {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            #online-fare-detail-modal .online-fare-meta-strip__items {
+                justify-content: flex-start;
+                flex-basis: 100%;
+                gap: 0.25rem 0.45rem;
+            }
+
+            #online-fare-detail-modal .online-fare-tier-accordion__header,
+            #online-fare-detail-modal .online-fare-tier-accordion__panel {
+                padding-left: 0.85rem;
+                padding-right: 0.85rem;
+            }
+
+            #online-fare-detail-modal .online-fare-tier-accordion__header {
+                flex-direction: column;
+            }
+
+            #online-fare-detail-modal .online-fare-tier-accordion__summary,
+            #online-fare-detail-modal .online-fare-offer-row__price {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            #online-fare-detail-modal .online-fare-offer-row__top,
+            #online-fare-detail-modal .online-fare-offer-row__actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #online-fare-detail-modal .online-fare-summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #online-fare-detail-modal .online-fare-offer-card__top {
+                padding-right: 1.8rem;
+            }
+        }
+
         .overflow-x-auto {
             -webkit-overflow-scrolling: touch;
         }
@@ -4712,7 +5767,7 @@
             </div>
             <div class="absolute top-6 left-6 animate-fade-in select-none pointer-events-none">
                 <img src="blue.png" alt="tripsource by BCD travel" class="h-20 w-auto max-w-[360px] object-contain object-left drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]" width="360" height="80" decoding="async" />
-                <p class="text-xs text-white/90 mt-1 tracking-[0.2em] font-bold drop-shadow-md">Tripsource - Domestic</p>
+                <p class="text-xs text-white/90 mt-1 tracking-[0.2em] font-bold drop-shadow-md">Tripsource - Booking</p>
             </div>
             <!-- AI-ADDED: Language dropdown on open (hero) side — top-right over photo
                  Prompt: Also add language dropdown on right open side of login -->
@@ -5043,9 +6098,9 @@
 
                 <div class="sidebar-section-heading px-3 py-4 text-slate-500 tracking-widest mt-2">Travel
                     Application</div>
-                <button type="button" onclick="window.startBooking('domestic')" id="nav-domestic" title="Domestic Travel"
+                <button type="button" onclick="window.startBooking('domestic')" id="nav-domestic" title="Booking Travel"
                     class="nav-btn w-full flex items-center px-4 py-3 rounded-lg text-sm mb-1 text-slate-300 hover:bg-white/5 transition-all">
-                    <i data-lucide="map" class="sidebar-nav-icon w-4 h-4 mr-3 shrink-0"></i><span class="sidebar-link-text">Domestic Travel</span>
+                    <i data-lucide="map" class="sidebar-nav-icon w-4 h-4 mr-3 shrink-0"></i><span class="sidebar-link-text">Booking Travel</span>
                 </button>
                 <button type="button" onclick="window.startBooking('international')" id="nav-international" title="International Travel"
                     class="nav-btn w-full flex items-center px-4 py-3 rounded-lg text-sm mb-1 text-slate-300 hover:bg-white/5 transition-all">
@@ -5512,11 +6567,11 @@
                                     </tr>
                                 </thead>
                                 <tbody id="approvals-tbody-pending" class="divide-y divide-slate-100">
-                                    <tr class="approvals-row hover:bg-slate-50/50 transition-colors bg-white" data-approval-id="APR-2026-0142" data-traveler="TRIPUR PATEL" data-app-date="2026-04-02" data-reason="Domestic sales visit — Beijing / Shanghai" data-amount="12800">
+                                    <tr class="approvals-row hover:bg-slate-50/50 transition-colors bg-white" data-approval-id="APR-2026-0142" data-traveler="TRIPUR PATEL" data-app-date="2026-04-02" data-reason="Booking sales visit — Beijing / Shanghai" data-amount="12800">
                                         <td class="px-4 py-3 text-sm font-semibold text-[#4285F4]">APR-2026-0142</td>
                                         <td class="px-4 py-3 text-sm text-slate-800 whitespace-nowrap">2026/04/02</td>
                                         <td class="px-4 py-3 text-sm text-slate-800">TRIPUR PATEL</td>
-                                        <td class="px-4 py-3 text-sm text-slate-700">Domestic sales visit — Beijing / Shanghai</td>
+                                        <td class="px-4 py-3 text-sm text-slate-700">Booking sales visit — Beijing / Shanghai</td>
                                         <td class="px-4 py-3 text-sm font-bold text-slate-900 text-right">¥12,800</td>
                                     </tr>
                                     <tr class="approvals-row hover:bg-slate-50/50 transition-colors bg-white" data-approval-id="APR-2026-0138" data-traveler="LI WEI" data-app-date="2026-04-01" data-reason="Training workshop — Shenzhen" data-amount="3200">
@@ -6657,11 +7712,11 @@
                 </main>
 
                 <!-- BOOKING WORKFLOW -->
-                <main id="page-booking" class="booking-workflow-page p-4 sm:p-8 hidden bg-slate-50 min-h-screen w-full max-w-full">
+                <main id="page-booking" class="booking-workflow-page p-4 sm:p-8 hidden bg-slate-50 min-h-screen w-full max-w-full" data-active-step="1">
                     <div class="w-full max-w-full">
-                        <div class="mb-8 flex justify-between items-center">
+                        <div class="booking-workflow-header mb-8 flex justify-between items-center">
                             <h2 id="booking-title" class="app-heading-page">Travel:
-                                <span class="text-[#4285F4]">New Request</span>
+                                <span class="text-[#4285F4]">New Booking</span>
                             </h2>
                             <button onclick="window.showPage('dashboard')"
                                 class="text-xs font-bold text-slate-400 hover:text-slate-600 tracking-widest transition-colors flex items-center gap-1">
@@ -6924,15 +7979,15 @@
                                         class="app-tabstrip-inner itinerary-mode-tabstrip justify-center mb-0 bg-slate-100 p-1.5 rounded-2xl mx-auto gap-1">
                                         <!-- Tabs will be dynamically updated via startBooking -->
                                         <button id="tab-online" onclick="window.switchTab('online')"
-                                            class="shrink-0 whitespace-nowrap px-4 sm:px-8 py-2.5 rounded-xl font-bold bg-[#4285F4] text-white shadow-md transition-all">Domestic Online</button>
+                                            class="shrink-0 whitespace-nowrap px-4 sm:px-8 py-2.5 rounded-xl font-bold bg-[#4285F4] text-white shadow-md transition-all">Booking Online</button>
                                         <button id="tab-offline" onclick="window.switchTab('offline')"
-                                            class="shrink-0 whitespace-nowrap px-4 sm:px-8 py-2.5 rounded-xl font-bold text-slate-500 hover:text-slate-800 transition-all">Domestic Offline</button>
+                                            class="shrink-0 whitespace-nowrap px-4 sm:px-8 py-2.5 rounded-xl font-bold text-slate-500 hover:text-slate-800 transition-all">Booking Offline</button>
                                     </div>
                                     </div>
 
                                     <!-- Online Section: modality tabs + itinerary summary (visible for Flight / Rail / Hotel / Car like offline context) -->
-                                    <div id="content-online" class="py-2 text-left w-full max-w-full">
-                                        <div id="online-booking-ui-root" class="flex flex-col w-full max-w-full text-left">
+                                    <div id="content-online" class="booking-interactive-host py-2 text-left w-full max-w-full">
+                                        <div id="online-booking-ui-root" class="booking-shared-ui-root flex flex-col w-full max-w-full text-left">
                                         <div id="online-mode-nav-shell" class="online-mode-nav-shell w-full block shrink-0">
                                         <div id="online-mode-tabs"
                                             class="flex flex-row flex-nowrap items-stretch gap-3 overflow-x-auto scrollbar-hide py-2 -mx-1 px-1 w-full max-w-full md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-2 md:overflow-visible md:py-0 md:mx-0 md:px-0">
@@ -7022,8 +8077,9 @@
 
 
                                         <!-- Domestic online: Flight search (visible when Flight is selected) -->
-                                        <div id="online-flight-search-panel" class="hidden w-full max-w-full text-left animate-fade-in">
+                                        <div id="online-flight-search-panel" class="hidden w-full max-w-full text-left animate-fade-in booking-mobile-search-shell" data-search-mode="flight">
                                             <div class="bg-white border border-slate-200 rounded-xl p-5 max-md:p-3 shadow-sm space-y-5 max-md:space-y-4">
+                                                <div class="booking-mobile-search-form space-y-5 max-md:space-y-4">
                                                 <div>
                                                     <div class="online-flight-trip-type-row flex flex-wrap gap-4">
                                                         <label class="radio-item text-xs cursor-pointer">
@@ -7137,6 +8193,8 @@
                                                         Search
                                                     </button>
                                                 </div>
+                                                </div>
+                                                <div id="online-flight-search-summary" class="booking-mobile-summary-banner hidden md:hidden"></div>
 
                                                 <!-- AI-ADDED: Flight results with sidebar filter grid layout
                                                      Prompt: Implement vertical MakeMyTrip-style sidebar filter -->
@@ -7273,8 +8331,9 @@
                                         </div>
 
                                         <!-- Domestic online: Rail search (visible when Rail is selected) -->
-                                        <div id="online-rail-search-panel" class="hidden w-full max-w-full text-left animate-fade-in">
+                                        <div id="online-rail-search-panel" class="hidden w-full max-w-full text-left animate-fade-in booking-mobile-search-shell" data-search-mode="rail">
                                             <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-5">
+                                                <div class="booking-mobile-search-form space-y-5">
                                                 <div>
                                                     <div class="flex flex-wrap gap-4">
                                                         <label class="radio-item text-xs cursor-pointer">
@@ -7369,6 +8428,8 @@
                                                         Search
                                                     </button>
                                                 </div>
+                                                </div>
+                                                <div id="online-rail-search-summary" class="booking-mobile-summary-banner hidden md:hidden"></div>
 
                                                 <!-- AI-ADDED: Rail results with sidebar filter grid layout
                                                      Prompt: Implement vertical sidebar filter for Rail -->
@@ -7500,23 +8561,30 @@
                                         </div>
 
                                         <!-- Domestic online: Hotel search (visible when Hotel is selected) -->
-                                        <div id="online-hotel-search-panel" class="hidden w-full max-w-full text-left animate-fade-in">
+                                        <div id="online-hotel-search-panel" class="hidden w-full max-w-full text-left animate-fade-in booking-mobile-search-shell" data-search-mode="hotel">
                                             <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-5">
-                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                <div class="booking-mobile-search-form space-y-5">
+                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 booking-mobile-form-grid">
                                                     <div class="form-group !mb-0">
                                                         <label for="online-hotel-destination">Destination</label>
                                                         <input type="text" id="online-hotel-destination" class="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
                                                             placeholder="City or area" value="Tokyo" autocomplete="off">
                                                     </div>
-                                                    <div class="form-group !mb-0">
+                                                    <div class="form-group !mb-0 booking-mobile-date-card">
                                                         <label for="online-hotel-checkin">Check-in</label>
-                                                        <input type="date" id="online-hotel-checkin" class="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
-                                                            value="2026-03-25" aria-label="Check-in date">
+                                                        <div class="booking-mobile-date-field">
+                                                            <span id="online-hotel-checkin-display" class="booking-mobile-date-display" aria-hidden="true"></span>
+                                                            <input type="date" id="online-hotel-checkin" class="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm booking-mobile-native-date-input"
+                                                                value="2026-03-25" aria-label="Check-in date">
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group !mb-0">
+                                                    <div class="form-group !mb-0 booking-mobile-date-card">
                                                         <label for="online-hotel-checkout">Check-out</label>
-                                                        <input type="date" id="online-hotel-checkout" class="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
-                                                            value="2026-03-27" aria-label="Check-out date">
+                                                        <div class="booking-mobile-date-field">
+                                                            <span id="online-hotel-checkout-display" class="booking-mobile-date-display" aria-hidden="true"></span>
+                                                            <input type="date" id="online-hotel-checkout" class="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm booking-mobile-native-date-input"
+                                                                value="2026-03-27" aria-label="Check-out date">
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="flex justify-center pt-1">
@@ -7525,6 +8593,8 @@
                                                         Search
                                                     </button>
                                                 </div>
+                                                </div>
+                                                <div id="online-hotel-search-summary" class="booking-mobile-summary-banner hidden md:hidden"></div>
                                                 <!-- AI-ADDED: Hotel results with sidebar filter grid layout
                                                      Prompt: Implement vertical sidebar filter for Hotels -->
                                                 <div id="online-hotel-results" class="hidden mt-6 w-full animate-fade-in">
@@ -7607,9 +8677,9 @@
 
                                                     <div id="online-hotel-panel-modify" class="hidden">
                                                         <div id="online-hotel-modified-search"
-                                                            class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 space-y-4">
+                                                            class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 space-y-4 booking-mobile-refine-card">
                                                             <p class="text-xs font-black text-slate-500 tracking-widest uppercase">Refine hotel list</p>
-                                                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 booking-mobile-form-grid">
                                                                 <div class="form-group !mb-0">
                                                                     <label for="online-hotel-filter-max-price">Max price / night</label>
                                                                     <select id="online-hotel-filter-max-price" class="w-full">
@@ -7671,9 +8741,10 @@
                                         </div>
 
                                         <!-- Domestic online: Rental car (visible when Rental Car is selected) -->
-                                        <div id="online-car-search-panel" class="hidden mt-4 w-full max-w-full text-left animate-fade-in">
+                                        <div id="online-car-search-panel" class="hidden mt-4 w-full max-w-full text-left animate-fade-in booking-mobile-search-shell" data-search-mode="car">
                                             <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-5">
-                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                <div class="booking-mobile-search-form space-y-5">
+                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 booking-mobile-form-grid">
                                                     <div class="form-group !mb-0">
                                                         <label for="online-car-pickup">Pickup location</label>
                                                         <input type="text" id="online-car-pickup" class="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
@@ -7687,8 +8758,11 @@
                                                     <div class="form-group !mb-0">
                                                         <label for="online-car-pickup-date">Pickup date &amp; time</label>
                                                         <div class="online-car-pickup-datetime-row flex flex-col sm:flex-row gap-2">
-                                                            <input type="date" id="online-car-pickup-date" class="w-full min-w-0 rounded-lg border border-slate-200 px-3 py-2 text-sm"
-                                                                value="2026-03-25" aria-label="Pickup date">
+                                                            <div class="booking-mobile-date-field flex-1 min-w-0">
+                                                                <span id="online-car-pickup-display" class="booking-mobile-date-display" aria-hidden="true"></span>
+                                                                <input type="date" id="online-car-pickup-date" class="w-full min-w-0 rounded-lg border border-slate-200 px-3 py-2 text-sm booking-mobile-native-date-input"
+                                                                    value="2026-03-25" aria-label="Pickup date">
+                                                            </div>
                                                             <input type="time" id="online-car-pickup-time" class="w-full min-w-0 rounded-lg border border-slate-200 px-3 py-2 text-sm shrink-0 sm:max-w-[9rem]"
                                                                 value="10:00" aria-label="Pickup time">
                                                         </div>
@@ -7700,10 +8774,12 @@
                                                         Search
                                                     </button>
                                                 </div>
+                                                </div>
+                                                <div id="online-car-search-summary" class="booking-mobile-summary-banner hidden md:hidden"></div>
                                                 <div id="online-car-results" class="hidden mt-6 space-y-4 w-full animate-fade-in">
                                                     <div id="obt-filter-mount-car" class="max-md:hidden">
                                                     <div id="online-car-modified-search"
-                                                        class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-wrap gap-4 items-end">
+                                                        class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-wrap gap-4 items-end booking-mobile-refine-card">
                                                         <div class="form-group flex-1 min-w-[160px] !mb-0">
                                                             <label for="online-car-vehicle-class">Vehicle class</label>
                                                             <select id="online-car-vehicle-class" class="w-full">
@@ -7786,7 +8862,7 @@
                                 </div>
 
                                 <!-- Offline Section -->
-                                <div id="content-offline" class="hidden py-2"></div>
+                                <div id="content-offline" class="booking-interactive-host hidden py-2"></div>
 
                                 <!-- Other Request Section -->
                                 <div id="content-other"
@@ -7838,7 +8914,7 @@
                                 </div>
 
                                 <div class="flex justify-end items-center pt-8 border-t border-slate-200">
-                                    <button type="button" id="booking-step-next-btn" onclick="window.setBookingStep(2)" disabled
+                                    <button type="button" id="booking-step-next-btn" onclick="window.handleBookingStepNext()" disabled
                                         class="px-12 py-3 rounded-xl bg-slate-300 text-slate-500 font-black tracking-widest cursor-not-allowed transition-all">Next</button>
                                 </div>
                             </div>
@@ -8149,9 +9225,9 @@
             </main>
 
             <!-- CHANGE REQUEST WORKFLOW (separate from New Request; same form structure, heading "Change Request") -->
-            <main id="page-change-request" class="booking-workflow-page p-4 sm:p-8 hidden bg-slate-50 min-h-screen w-full max-w-full">
+            <main id="page-change-request" class="booking-workflow-page p-4 sm:p-8 hidden bg-slate-50 min-h-screen w-full max-w-full" data-active-step="1">
                 <div class="w-full max-w-full">
-                    <div class="mb-8 flex justify-between items-center">
+                    <div class="booking-workflow-header mb-8 flex justify-between items-center">
                         <h2 id="change-request-title" class="app-heading-page">Travel:
                             <span class="text-[#4285F4]">Change Request</span>
                         </h2>
@@ -8216,7 +9292,7 @@
                                             <div class="form-group">
                                                 <label for="reports-trip-type">Trip Type <span class="required-mark">*</span></label>
                                                 <select id="reports-trip-type" class="w-full">
-                                                    <option value="domestic">Domestic</option>
+                                                    <option value="domestic">Booking</option>
                                                     <option value="international">International</option>
                                                 </select>
                                             </div>
@@ -9043,7 +10119,7 @@
                                             <label for="library-search-order-style">Order Style</label>
                                             <select id="library-search-order-style" class="w-full">
                                                 <option value="">All Styles</option>
-                                                <option value="Domestic">Domestic</option>
+                                                <option value="Booking">Booking</option>
                                                 <option value="International">International</option>
                                             </select>
                                         </div>
@@ -9140,7 +10216,7 @@
                                         
                                         <!-- AI-ADDED: Dummy rows + View Details only on Upcoming; Prompt: library tabs -->
                                         <tbody id="library-tbody-upcoming" class="divide-y divide-slate-100">
-                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2026-0451" data-traveler="TRIPUR PATEL" data-travel-time="2026-06-02" data-route="Shanghai → Beijing" data-price="1280" data-status="Confirmed" data-style="Domestic">
+                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2026-0451" data-traveler="TRIPUR PATEL" data-travel-time="2026-06-02" data-route="Shanghai → Beijing" data-price="1280" data-status="Confirmed" data-style="Booking">
                                                 <td class="px-6 py-4">
                                                     <button type="button" onclick="window.openTripDetailModal(this.closest('tr'))" class="text-sm font-bold text-[#0A3266] hover:text-[#4285F4] underline decoration-blue-200 underline-offset-4">ORD-2026-0451</button>
                                                 </td>
@@ -9155,7 +10231,7 @@
                                                     <button type="button" onclick="window.openTripDetailModal(this.closest('tr'))" class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-black tracking-wide text-white bg-[#0A3266] hover:bg-[#4285F4] transition-colors shadow-sm">View Details</button>
                                                 </td>
                                             </tr>
-                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2026-0499" data-traveler="LI WEI" data-travel-time="2026-07-10" data-route="Guangzhou → Shenzhen" data-price="890" data-status="Pending" data-style="Domestic">
+                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2026-0499" data-traveler="LI WEI" data-travel-time="2026-07-10" data-route="Guangzhou → Shenzhen" data-price="890" data-status="Pending" data-style="Booking">
                                                 <td class="px-6 py-4"><button type="button" onclick="window.openTripDetailModal(this.closest('tr'))" class="text-sm font-bold text-[#0A3266] hover:text-[#4285F4] underline decoration-blue-200 underline-offset-4">ORD-2026-0499</button></td>
                                                 <td class="px-4 py-4 text-sm font-medium text-slate-700">LI WEI</td>
                                                 <td class="px-4 py-4 text-sm text-slate-600">2026/07/10</td>
@@ -9182,7 +10258,7 @@
                                                 <td class="px-4 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700 uppercase tracking-wide">Confirmed</span></td>
                                                 <td class="px-6 py-4 text-right"><button type="button" onclick="window.openTripDetailModal(this.closest('tr'))" class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-black tracking-wide text-white bg-[#0A3266] hover:bg-[#4285F4] transition-colors shadow-sm">View Details</button></td>
                                             </tr>
-                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2026-0520" data-traveler="WANG HAO" data-travel-time="2026-06-20" data-route="Chengdu → Kunming" data-price="720" data-status="Pending" data-style="Domestic">
+                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2026-0520" data-traveler="WANG HAO" data-travel-time="2026-06-20" data-route="Chengdu → Kunming" data-price="720" data-status="Pending" data-style="Booking">
                                                 <td class="px-6 py-4"><button type="button" onclick="window.openTripDetailModal(this.closest('tr'))" class="text-sm font-bold text-[#0A3266] hover:text-[#4285F4] underline decoration-blue-200 underline-offset-4">ORD-2026-0520</button></td>
                                                 <td class="px-4 py-4 text-sm font-medium text-slate-700">WANG HAO</td>
                                                 <td class="px-4 py-4 text-sm text-slate-600">2026/06/20</td>
@@ -9194,7 +10270,7 @@
                                         </tbody>
                                 
                                         <tbody id="library-tbody-history" class="hidden divide-y divide-slate-100">
-                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2025-1201" data-traveler="TRIPUR PATEL" data-travel-time="2025-11-18" data-route="Beijing → Shanghai" data-price="1100" data-status="Completed" data-style="Domestic">
+                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2025-1201" data-traveler="TRIPUR PATEL" data-travel-time="2025-11-18" data-route="Beijing → Shanghai" data-price="1100" data-status="Completed" data-style="Booking">
                                                 <td class="px-6 py-4"><button type="button" onclick="window.openTripDetailModal(this.closest('tr'))" class="text-sm font-bold text-[#0A3266] hover:text-[#4285F4] underline decoration-blue-200 underline-offset-4">ORD-2025-1201</button></td>
                                                 <td class="px-4 py-4 text-sm font-medium text-slate-700">TRIPUR PATEL</td>
                                                 <td class="px-4 py-4 text-sm text-slate-600">2025/11/18</td>
@@ -9203,7 +10279,7 @@
                                                 <td class="px-4 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600 uppercase tracking-wide">Completed</span></td>
                                                 <td class="px-6 py-4 text-right"><button type="button" onclick="window.openTripDetailModal(this.closest('tr'))" class="text-xs font-bold text-slate-400 hover:text-[#4285F4] hover:underline">View</button></td>
                                             </tr>
-                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2025-1108" data-traveler="LI WEI" data-travel-time="2025-10-05" data-route="Shenzhen → Hangzhou" data-price="1320" data-status="Completed" data-style="Domestic">
+                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2025-1108" data-traveler="LI WEI" data-travel-time="2025-10-05" data-route="Shenzhen → Hangzhou" data-price="1320" data-status="Completed" data-style="Booking">
                                                 <td class="px-6 py-4"><button type="button" onclick="window.openTripDetailModal(this.closest('tr'))" class="text-sm font-bold text-[#0A3266] hover:text-[#4285F4] underline decoration-blue-200 underline-offset-4">ORD-2025-1108</button></td>
                                                 <td class="px-4 py-4 text-sm font-medium text-slate-700">LI WEI</td>
                                                 <td class="px-4 py-4 text-sm text-slate-600">2025/10/05</td>
@@ -9230,7 +10306,7 @@
                                                 <td class="px-4 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-red-100 text-red-700 uppercase tracking-wide">Cancelled</span></td>
                                                 <td class="px-6 py-4 text-right"><button type="button" onclick="window.openTripDetailModal(this.closest('tr'))" class="text-xs font-bold text-slate-400 hover:text-[#4285F4] hover:underline">View</button></td>
                                             </tr>
-                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2025-0710" data-traveler="WANG HAO" data-travel-time="2025-07-22" data-route="Chengdu → Lhasa" data-price="2100" data-status="Completed" data-style="Domestic">
+                                            <tr class="library-trip-row hover:bg-slate-50/50 transition-colors" data-order="ORD-2025-0710" data-traveler="WANG HAO" data-travel-time="2025-07-22" data-route="Chengdu → Lhasa" data-price="2100" data-status="Completed" data-style="Booking">
                                                 <td class="px-6 py-4"><button type="button" onclick="window.openTripDetailModal(this.closest('tr'))" class="text-sm font-bold text-[#0A3266] hover:text-[#4285F4] underline decoration-blue-200 underline-offset-4">ORD-2025-0710</button></td>
                                                 <td class="px-4 py-4 text-sm font-medium text-slate-700">WANG HAO</td>
                                                 <td class="px-4 py-4 text-sm text-slate-600">2025/07/22</td>
@@ -9937,7 +11013,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Domestic Online</label>
+                        <label>Booking Online</label>
                         <select id="res-filter-domestic-online" class="w-full">
                             <option value="ALL" selected>ALL</option>
                             <option value="Yes">Yes</option>
@@ -10874,17 +11950,19 @@
     <!-- AI-ADDED: Online flight/rail "Select Fare" modal — itinerary + fare table + Select
          Prompt: fare modal, rounded-3xl, design system -->
     <div id="online-fare-detail-modal" class="hidden fixed inset-0 z-[225] flex items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="online-fare-modal-title" onclick="if(event.target===this)window.closeOnlineFareModal()">
-        <div class="bg-white rounded-3xl shadow-2xl w-[min(100%,94vw)] sm:w-full max-w-lg max-h-[90vh] overflow-hidden flex flex-col animate-fade-in border border-slate-200 mx-auto" onclick="event.stopPropagation()">
-            <div class="p-6 sm:p-8 overflow-y-auto flex-1 min-h-0">
-                <h3 id="online-fare-modal-title" class="text-lg font-black text-slate-900 tracking-tight" style="font-family: var(--font-heading);">Itinerary &amp; fares</h3>
-                <p id="online-fare-modal-itinerary" class="text-sm font-medium text-slate-600 leading-relaxed mt-3"></p>
-                <div class="mt-6 border-t border-slate-100 pt-4">
-                    <p class="text-[11px] font-black text-slate-700 tracking-widest uppercase mb-3">Fare options</p>
-                    <div id="online-fare-modal-table-wrap" class="rounded-xl border border-slate-200 overflow-hidden"></div>
+        <div class="online-fare-modal-shell bg-white rounded-3xl shadow-2xl sm:w-full max-h-[90vh] overflow-hidden flex flex-col animate-fade-in border border-slate-200 mx-auto" onclick="event.stopPropagation()">
+            <div class="p-5 sm:p-6 border-b border-slate-200 flex items-start justify-between gap-4 shrink-0">
+                <div class="min-w-0">
+                    <p class="text-[11px] font-black tracking-[0.18em] uppercase text-slate-500">Fare Breakdown</p>
+                    <h3 id="online-fare-modal-title" class="text-lg font-black text-slate-900 tracking-tight mt-1" style="font-family: var(--font-heading);">Itinerary &amp; fares</h3>
+                    <p id="online-fare-modal-itinerary" class="text-sm font-medium text-slate-600 leading-relaxed mt-2"></p>
                 </div>
+                <button type="button" onclick="window.closeOnlineFareModal()" class="inline-flex items-center justify-center min-w-[44px] min-h-[44px] rounded-xl border border-slate-200 text-slate-500 hover:bg-slate-50 hover:text-slate-800 transition-colors" aria-label="Close fare modal">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
             </div>
-            <div class="p-4 border-t border-slate-100 bg-slate-50 flex justify-end shrink-0">
-                <button type="button" onclick="window.closeOnlineFareModal()" class="px-6 py-2.5 rounded-xl border-2 border-slate-200 bg-white text-slate-800 text-xs font-black tracking-widest hover:bg-slate-50 transition-colors">Close</button>
+            <div class="p-4 sm:p-5 overflow-y-auto flex-1 min-h-0">
+                <div id="online-fare-modal-table-wrap" class="min-h-0"></div>
             </div>
         </div>
     </div>
@@ -11899,6 +12977,12 @@
         /* AI-ADDED: Updated renderItinerarySummary with leg-pill rendering + online/offline duplicate DOM
            Prompt: Synchronize Itinerary List and Details selection; show summary on every online tab */
 
+        window.getWorkflowLegLabel = (index) => {
+            if (index === 0) return 'Onward';
+            if (index === 1) return 'Return';
+            return `Trip ${index + 1}`;
+        };
+
         window.buildItineraryCompactSummaryHtml = () => {
             if (!window.itineraryItems || !window.itineraryItems.length) {
                 return { line: '—', embedded: '', stack: '' };
@@ -11908,7 +12992,7 @@
                 ? window.activeEditingLegIndex : 0;
             const item = window.itineraryItems[activeIdx];
             const emoji = PILL_ICONS[item.icon] || '📋';
-            const line = `${emoji} Trip ${activeIdx + 1}: ${item.primary}`;
+            const line = `${emoji} ${window.getWorkflowLegLabel(activeIdx)}: ${item.primary}`;
             const embedded = `
                 <p class="font-medium text-slate-700">${window.formatAppDateTokensInString(String(item.secondary || ''))}</p>
                 ${item.detail ? `<p class="text-slate-500 truncate">${item.detail}</p>` : ''}
@@ -11919,7 +13003,7 @@
                     const ic = PILL_ICONS[it.icon] || '📋';
                     const active = idx === activeIdx ? ' border-[#4285F4] bg-blue-50/50' : ' border-slate-100';
                     return `<button type="button" class="w-full text-left rounded-lg border px-2 py-1.5${active}" data-leg-index="${idx}" onclick="event.stopPropagation(); window.selectItineraryLeg(${idx})">
-                        <span class="font-bold text-slate-800">${ic} Trip ${idx + 1}: ${it.primary}</span>
+                        <span class="font-bold text-slate-800">${ic} ${window.getWorkflowLegLabel(idx)}: ${it.primary}</span>
                         <span class="block text-[10px] text-slate-500 truncate">${window.formatAppDateTokensInString(String(it.secondary || ''))}</span>
                     </button>`;
                 }).join('');
@@ -11963,7 +13047,7 @@
                         : 'bg-slate-100 text-slate-600 border-slate-200 hover:bg-slate-200';
                     const emoji = PILL_ICONS[item.icon] || '📋';
                     const shortLabel = item.primary.length > 18 ? item.primary.substring(0, 18) + '…' : item.primary;
-                    pillsHtml += `<button type="button" class="itin-leg-pill inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-bold border cursor-pointer transition-all duration-300 ease-in-out ${pillBase}" data-leg-index="${idx}" onclick="event.stopPropagation(); window.selectItineraryLeg(${idx})"><span>${emoji}</span><span>Trip ${idx + 1}: ${shortLabel}</span></button>`;
+                    pillsHtml += `<button type="button" class="itin-leg-pill inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-bold border cursor-pointer transition-all duration-300 ease-in-out ${pillBase}" data-leg-index="${idx}" onclick="event.stopPropagation(); window.selectItineraryLeg(${idx})"><span>${emoji}</span><span>${window.getWorkflowLegLabel(idx)}: ${shortLabel}</span></button>`;
                 });
                 return pillsHtml;
             };
@@ -12047,6 +13131,155 @@
             const id = preferInteractive ? 'booking-step1-itinerary-list-wrap' : 'booking-step1-itinerary-list-wrap-offline';
             const el = document.getElementById(id) || document.getElementById('booking-step1-itinerary-list-wrap');
             el?.scrollIntoView(o);
+        };
+
+        window._onlineSearchAccordionState = { flight: false, rail: false, hotel: false, car: false };
+        window.isMobileBookingViewport = () => window.matchMedia('(max-width: 767px)').matches;
+        window._mobileSummaryEsc = (value) => String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        window._mobileSummaryRouteHtml = (from, to) => {
+            const codeFor = (text) => {
+                if (typeof window._onlineLocCode === 'function') return window._onlineLocCode(text || '');
+                const clean = String(text || '').replace(/[^A-Za-z]/g, '').toUpperCase();
+                return (clean || '---').slice(0, 3);
+            };
+            const part = (text) => `<span class="booking-mobile-summary-code">${window._mobileSummaryEsc(codeFor(text))}</span><span class="booking-mobile-summary-name">${window._mobileSummaryEsc(text || 'Select location')}</span>`;
+            return `<div class="booking-mobile-summary-route">${part(from)}<span class="booking-mobile-summary-sep">→</span>${part(to)}</div>`;
+        };
+        window._mobileSummaryDateText = (iso) => {
+            if (!iso) return 'Select date';
+            return typeof window.formatOnlineFlightDateDisplay === 'function'
+                ? window.formatOnlineFlightDateDisplay(iso)
+                : String(iso);
+        };
+        window.buildOnlineSearchSummaryHtml = (mode) => {
+            if (mode === 'flight') {
+                const trip = document.querySelector('input[name="online-flight-trip-type"]:checked')?.value || 'round';
+                if (trip === 'multiple') {
+                    const segs = typeof window._readOnlineFlightMcFromDom === 'function' ? window._readOnlineFlightMcFromDom() : [];
+                    const count = segs.length || 0;
+                    const first = segs[0] || {};
+                    const last = segs[count - 1] || {};
+                    return `
+                        <div class="booking-mobile-summary-banner__body">
+                            <p class="booking-mobile-summary-banner__eyebrow">Flight search</p>
+                            <p class="booking-mobile-summary-banner__title">${count || 0} segments ready</p>
+                            <p class="booking-mobile-summary-banner__meta">${window._mobileSummaryEsc(first.from || 'Origin')} to ${window._mobileSummaryEsc(last.to || 'Destination')} · Multi-trip</p>
+                        </div>`;
+                }
+                const from = document.getElementById('online-flight-from')?.value?.trim() || '';
+                const to = document.getElementById('online-flight-to')?.value?.trim() || '';
+                const dd = document.getElementById('online-flight-depart-date')?.value || '';
+                const rd = document.getElementById('online-flight-return-date')?.value || '';
+                return `
+                    <div class="booking-mobile-summary-banner__body">
+                        <p class="booking-mobile-summary-banner__eyebrow">Flight search</p>
+                        ${window._mobileSummaryRouteHtml(from, to)}
+                        <p class="booking-mobile-summary-banner__meta">${window._mobileSummaryEsc(window._mobileSummaryDateText(dd))}${trip === 'oneway' ? '' : ` · ${window._mobileSummaryEsc(window._mobileSummaryDateText(rd))}`}</p>
+                    </div>`;
+            }
+            if (mode === 'rail') {
+                const trip = document.querySelector('input[name="online-rail-trip-type"]:checked')?.value || 'round';
+                if (trip === 'multiple') {
+                    const segs = typeof window._readOnlineRailMcFromDom === 'function' ? window._readOnlineRailMcFromDom() : [];
+                    const count = segs.length || 0;
+                    const first = segs[0] || {};
+                    const last = segs[count - 1] || {};
+                    return `
+                        <div class="booking-mobile-summary-banner__body">
+                            <p class="booking-mobile-summary-banner__eyebrow">Rail search</p>
+                            <p class="booking-mobile-summary-banner__title">${count || 0} segments ready</p>
+                            <p class="booking-mobile-summary-banner__meta">${window._mobileSummaryEsc(first.from || 'Origin')} to ${window._mobileSummaryEsc(last.to || 'Destination')} · Multi-trip</p>
+                        </div>`;
+                }
+                const from = document.getElementById('online-rail-from')?.value?.trim() || '';
+                const to = document.getElementById('online-rail-to')?.value?.trim() || '';
+                const dd = document.getElementById('online-rail-depart-date')?.value || '';
+                const rd = document.getElementById('online-rail-return-date')?.value || '';
+                return `
+                    <div class="booking-mobile-summary-banner__body">
+                        <p class="booking-mobile-summary-banner__eyebrow">Rail search</p>
+                        ${window._mobileSummaryRouteHtml(from, to)}
+                        <p class="booking-mobile-summary-banner__meta">${window._mobileSummaryEsc(window._mobileSummaryDateText(dd))}${trip === 'oneway' ? '' : ` · ${window._mobileSummaryEsc(window._mobileSummaryDateText(rd))}`}</p>
+                    </div>`;
+            }
+            if (mode === 'hotel') {
+                const dest = document.getElementById('online-hotel-destination')?.value?.trim() || '';
+                const ci = document.getElementById('online-hotel-checkin')?.value || '';
+                const co = document.getElementById('online-hotel-checkout')?.value || '';
+                return `
+                    <div class="booking-mobile-summary-banner__body">
+                        <p class="booking-mobile-summary-banner__eyebrow">Hotel search</p>
+                        <p class="booking-mobile-summary-banner__title">${window._mobileSummaryEsc(dest || 'Choose destination')}</p>
+                        <p class="booking-mobile-summary-banner__meta">${window._mobileSummaryEsc(window._mobileSummaryDateText(ci))} · ${window._mobileSummaryEsc(window._mobileSummaryDateText(co))}</p>
+                    </div>`;
+            }
+            const pickup = document.getElementById('online-car-pickup')?.value?.trim() || '';
+            const dropoff = document.getElementById('online-car-dropoff')?.value?.trim() || '';
+            const pu = document.getElementById('online-car-pickup-date')?.value || '';
+            const pt = document.getElementById('online-car-pickup-time')?.value || '';
+            return `
+                <div class="booking-mobile-summary-banner__body">
+                    <p class="booking-mobile-summary-banner__eyebrow">Car search</p>
+                    ${window._mobileSummaryRouteHtml(pickup, dropoff)}
+                    <p class="booking-mobile-summary-banner__meta">${window._mobileSummaryEsc(window._mobileSummaryDateText(pu))}${pt ? ` · ${window._mobileSummaryEsc(pt)}` : ''}</p>
+                </div>`;
+        };
+        window.renderOnlineSearchSummary = (mode) => {
+            const summary = document.getElementById(`online-${mode}-search-summary`);
+            if (!summary) return;
+            summary.innerHTML = `${window.buildOnlineSearchSummaryHtml(mode)}<button type="button" class="booking-mobile-summary-toggle" aria-label="Expand search form" onclick="window.expandOnlineSearchPanel('${mode}')"><i data-lucide="chevron-down" class="w-4 h-4"></i></button>`;
+            lucide.createIcons();
+        };
+        window.setOnlineSearchCollapsed = (mode, collapsed) => {
+            const panel = document.getElementById(`online-${mode}-search-panel`);
+            const summary = document.getElementById(`online-${mode}-search-summary`);
+            if (!panel || !summary) return;
+            const active = !!collapsed && window.isMobileBookingViewport();
+            window._onlineSearchAccordionState[mode] = active;
+            panel.classList.toggle('booking-mobile-search-shell--collapsed', active);
+            summary.classList.toggle('hidden', !active);
+            if (active) window.renderOnlineSearchSummary(mode);
+        };
+        window.collapseOnlineSearchPanel = (mode) => window.setOnlineSearchCollapsed(mode, true);
+        window.expandOnlineSearchPanel = (mode) => window.setOnlineSearchCollapsed(mode, false);
+        window.resetOnlineSearchPanels = () => {
+            Object.keys(window._onlineSearchAccordionState).forEach((mode) => window.setOnlineSearchCollapsed(mode, false));
+        };
+        window._getActiveOnlineMode = () => document.querySelector('.online-subtab-card.ring-2')?.getAttribute('data-online-mode') || '';
+        window._hasActiveOnlineSelection = () => {
+            const mode = window._getActiveOnlineMode();
+            if (mode === 'flight') {
+                const trip = document.querySelector('input[name="online-flight-trip-type"]:checked')?.value || 'round';
+                if (trip === 'multiple' || window._onlineFlightIsSequentialRound) {
+                    return typeof window._onlineFlightMobileAllDone === 'function' && window._onlineFlightMobileAllDone();
+                }
+                if (trip === 'oneway') return window._onlineFlightSelectedGoing !== null;
+                return window._onlineFlightSelectedGoing !== null && window._onlineFlightSelectedReturn !== null;
+            }
+            if (mode === 'rail') {
+                const trip = document.querySelector('input[name="online-rail-trip-type"]:checked')?.value || 'round';
+                if (trip === 'multiple' || window._onlineRailIsSequentialRound) {
+                    return typeof window._onlineRailMobileAllDone === 'function' && window._onlineRailMobileAllDone();
+                }
+                if (trip === 'oneway') return window._onlineRailSelectedGoing !== null;
+                return window._onlineRailSelectedGoing !== null && window._onlineRailSelectedReturn !== null;
+            }
+            if (mode === 'hotel') return window._onlineHotelSelectedIndex !== null;
+            if (mode === 'car') return window._onlineCarSelectedIndex !== null;
+            return false;
+        };
+        window.handleBookingStepNext = () => {
+            const interactiveBookingVisible = window._isInteractiveBookingTabVisible?.() === true;
+            if (interactiveBookingVisible && !(window.itineraryItems || []).length && window._hasActiveOnlineSelection()) {
+                const mode = window._getActiveOnlineMode();
+                if (mode) {
+                    window.bookOnlineProvider?.();
+                    if (mode === 'hotel' || mode === 'car') {
+                        window.resetOnlineSearchPanels?.();
+                    }
+                }
+            }
+            window.setBookingStep(2);
         };
 
         // --- GLOBAL APP LOGIC ---
@@ -13035,7 +14268,7 @@
         };
 
         window._askUsBotResponses = {
-            'how do i book a domestic flight?': 'To book a domestic flight:\n1. Click **"Domestic"** in the left sidebar.\n2. Select **Flight** as the travel type.\n3. Enter your Origin, Destination, and Travel Date.\n4. Click **Search** and choose from the available options.\n5. Add to itinerary and submit for approval.',
+            'how do i book a booking flight?': 'To book a booking flight:\n1. Click **"Booking"** in the left sidebar.\n2. Select **Flight** as the travel type.\n3. Enter your Origin, Destination, and Travel Date.\n4. Click **Search** and choose from the available options.\n5. Add to itinerary and submit for approval.',
             'what is my travel policy limit?': 'Your travel policy depends on your employee rank:\n• **Standard:** Economy class, hotels up to ¥800/night.\n• **Gold/Manager:** Premium Economy, hotels up to ¥1,200/night.\n• **Director+:** Business class, hotels up to ¥2,000/night.\nFor exact details, please check with your travel admin or HR.',
             'how can i cancel or change a trip?': 'To cancel or change a trip:\n1. Go to **My Trip Library**.\n2. Find your trip and click **View Details**.\n3. Use the **Change Request** or **Cancel** button.\n\nNote: Cancellation fees may apply depending on airline/hotel policy and how close to departure.',
             'where can i find my e-ticket?': 'Your e-ticket is available in **My Trip Library**:\n1. Open the trip.\n2. Look for the **E-Ticket** section under Flight details.\n3. You can download it as PDF or have it emailed to you.\n\nIf your ticket hasn\'t been issued yet, it may still be pending approval.',
@@ -13686,7 +14919,7 @@
             window.enableBookingStepNextButton?.();
             const title = document.getElementById('booking-title');
             if (title) {
-                const lab = flowForHydrate === 'international' ? 'International' : 'Domestic';
+                const lab = flowForHydrate === 'international' ? 'International' : 'Booking';
                 title.innerHTML = lab + ': <span class="text-[#4285F4]">Edit Trip Itinerary</span>';
             }
             document.getElementById('online-flight-search-panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -14022,7 +15255,7 @@
             const itineraryTabBtnIdle = 'shrink-0 whitespace-nowrap px-4 sm:px-8 py-2.5 rounded-xl font-bold text-slate-500 hover:text-slate-800 transition-all';
 
             if (type === 'international') {
-                title.innerHTML = 'International: <span class="text-[#4285F4]">New Request</span>';
+                title.innerHTML = 'International: <span class="text-[#4285F4]">New Booking</span>';
                 if (otherPlaceholder) otherPlaceholder.placeholder = "e.g., Visa assistance, specific flight meal, preferred seat...";
                 if (intlReminders) intlReminders.classList.remove('hidden');
 
@@ -14045,7 +15278,7 @@
                 else window.togglePassportNoticeModal(true);
                 window.switchTab('online');
             } else {
-                title.innerHTML = 'Domestic: <span class="text-[#4285F4]">New Request</span>';
+                title.innerHTML = 'Booking: <span class="text-[#4285F4]">New Booking</span>';
                 if (otherPlaceholder) otherPlaceholder.placeholder = "Describe additional instructions...";
                 if (intlReminders) intlReminders.classList.add('hidden');
 
@@ -14058,9 +15291,9 @@
                     tabContainer.className = itineraryTabStripClass;
                     tabContainer.innerHTML = `
                         <button id="tab-online" onclick="window.switchTab('online')"
-                            class="${itineraryTabBtnActive}">Domestic Online</button>
+                            class="${itineraryTabBtnActive}">Booking Online</button>
                         <button id="tab-offline" onclick="window.switchTab('offline')"
-                            class="${itineraryTabBtnIdle}">Domestic Offline</button>
+                            class="${itineraryTabBtnIdle}">Booking Offline</button>
                     `;
                 }
 
@@ -14092,6 +15325,7 @@
             window.changeRequestFormCloned = true;
         }
         window.setChangeRequestStep = (step) => {
+            document.getElementById('page-change-request')?.setAttribute('data-active-step', String(step));
             [1, 2, 3].forEach(s => {
                 const el = document.getElementById('change-request-step-' + s);
                 if (el) el.classList.toggle('hidden', s !== step);
@@ -14157,14 +15391,14 @@
                 if (changeContentOffline) changeContentOffline.classList.add('hidden');
                 if (changeContentOther) changeContentOther.classList.add('hidden');
             } else {
-                if (title) title.innerHTML = 'Domestic: <span class="text-[#4285F4]">Change Request</span>';
+                if (title) title.innerHTML = 'Booking: <span class="text-[#4285F4]">Change Request</span>';
                 const tabContainer = document.getElementById('change-itinerary-tab-container');
                 const stripCls = 'app-tabstrip-inner itinerary-mode-tabstrip justify-center mb-0 bg-slate-100 p-1.5 rounded-2xl mx-auto gap-1';
                 const btnOn = 'shrink-0 whitespace-nowrap px-4 sm:px-8 py-2.5 rounded-xl font-bold bg-[#4285F4] text-white shadow-md transition-all';
                 const btnOff = 'shrink-0 whitespace-nowrap px-4 sm:px-8 py-2.5 rounded-xl font-bold text-slate-500 hover:text-slate-800 transition-all';
                 if (tabContainer) {
                     tabContainer.className = stripCls;
-                    tabContainer.innerHTML = '<button id="change-tab-online" onclick="window.switchChangeTab(\'online\')" class="' + btnOn + '">Domestic Online</button><button id="change-tab-offline" onclick="window.switchChangeTab(\'offline\')" class="' + btnOff + '">Domestic Offline</button>';
+                    tabContainer.innerHTML = '<button id="change-tab-online" onclick="window.switchChangeTab(\'online\')" class="' + btnOn + '">Booking Online</button><button id="change-tab-offline" onclick="window.switchChangeTab(\'offline\')" class="' + btnOff + '">Booking Offline</button>';
                 }
                 const changeContentOnline = document.getElementById('change-content-online');
                 const changeContentOffline = document.getElementById('change-content-offline');
@@ -14223,33 +15457,63 @@
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             return `${d.getDate()} ${months[d.getMonth()]} ${days[d.getDay()]}, ${d.getFullYear()}`;
         };
+        window.formatOnlineSearchDateMarkup = (isoYmd) => {
+            const s = String(isoYmd || '').trim();
+            if (!s || !/^\d{4}-\d{2}-\d{2}$/.test(s)) {
+                return '<span class="booking-mobile-date-primary">Select date</span>';
+            }
+            const d = new Date(s + 'T12:00:00');
+            if (Number.isNaN(d.getTime())) {
+                return '<span class="booking-mobile-date-primary">Select date</span>';
+            }
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            return `<span class="booking-mobile-date-primary">${d.getDate()} ${months[d.getMonth()]}</span><span class="booking-mobile-date-secondary">${days[d.getDay()]}, ${d.getFullYear()}</span>`;
+        };
+        window.syncInlineDateDisplay = (inputId, displayId) => {
+            const input = document.getElementById(inputId);
+            const display = document.getElementById(displayId);
+            if (input && display) display.innerHTML = window.formatOnlineSearchDateMarkup(input.value);
+        };
         window.syncOnlineFlightDateDisplays = () => {
-            const dep = document.getElementById('online-flight-depart-date');
-            const ret = document.getElementById('online-flight-return-date');
-            const depD = document.getElementById('online-flight-depart-display');
-            const retD = document.getElementById('online-flight-return-display');
-            if (depD && dep) depD.textContent = window.formatOnlineSearchDateLabel(dep.value);
-            if (retD && ret) retD.textContent = window.formatOnlineSearchDateLabel(ret.value);
+            window.syncInlineDateDisplay('online-flight-depart-date', 'online-flight-depart-display');
+            window.syncInlineDateDisplay('online-flight-return-date', 'online-flight-return-display');
         };
         window.syncOnlineRailDateDisplays = () => {
-            const dep = document.getElementById('online-rail-depart-date');
-            const ret = document.getElementById('online-rail-return-date');
-            const depD = document.getElementById('online-rail-depart-display');
-            const retD = document.getElementById('online-rail-return-display');
-            if (depD && dep) depD.textContent = window.formatOnlineSearchDateLabel(dep.value);
-            if (retD && ret) retD.textContent = window.formatOnlineSearchDateLabel(ret.value);
+            window.syncInlineDateDisplay('online-rail-depart-date', 'online-rail-depart-display');
+            window.syncInlineDateDisplay('online-rail-return-date', 'online-rail-return-display');
+        };
+        window.syncOnlineHotelDateDisplays = () => {
+            window.syncInlineDateDisplay('online-hotel-checkin', 'online-hotel-checkin-display');
+            window.syncInlineDateDisplay('online-hotel-checkout', 'online-hotel-checkout-display');
+        };
+        window.syncOnlineCarDateDisplays = () => {
+            window.syncInlineDateDisplay('online-car-pickup-date', 'online-car-pickup-display');
+        };
+        window.syncOnlineMcDateDisplays = (mode) => {
+            const host = document.getElementById(mode === 'rail' ? 'online-rail-multi-segments' : 'online-flight-multi-segments');
+            if (!host) return;
+            host.querySelectorAll('[data-mc-date-display]').forEach((display) => {
+                const field = display.parentElement?.querySelector?.('[data-mc-field="date"]');
+                if (!field) return;
+                display.innerHTML = window.formatOnlineSearchDateMarkup(field.value);
+            });
         };
         window.wireOnlineSearchDateDisplays = () => {
             if (window._onlineSearchDatesWired) return;
             window._onlineSearchDatesWired = true;
-            ['online-flight-depart-date', 'online-flight-return-date', 'online-rail-depart-date', 'online-rail-return-date'].forEach((id) => {
+            ['online-flight-depart-date', 'online-flight-return-date', 'online-rail-depart-date', 'online-rail-return-date', 'online-hotel-checkin', 'online-hotel-checkout', 'online-car-pickup-date'].forEach((id) => {
                 document.getElementById(id)?.addEventListener('change', () => {
                     window.syncOnlineFlightDateDisplays?.();
                     window.syncOnlineRailDateDisplays?.();
+                    window.syncOnlineHotelDateDisplays?.();
+                    window.syncOnlineCarDateDisplays?.();
                 });
             });
             window.syncOnlineFlightDateDisplays?.();
             window.syncOnlineRailDateDisplays?.();
+            window.syncOnlineHotelDateDisplays?.();
+            window.syncOnlineCarDateDisplays?.();
         };
         window.activateOnlineFlightReturnTrip = () => {
             const round = document.querySelector('input[name="online-flight-trip-type"][value="round"]');
@@ -14448,6 +15712,480 @@
             window._fareModalContext = null;
         };
 
+        window._getOnlineFareStoreForMode = (mode) => mode === 'flight'
+            ? (window._onlineFareSelection.flight || {})
+            : (window._onlineFareSelection.rail || {});
+
+        window._buildOnlineFareServiceNumber = (mode, row, idx) => {
+            if (mode === 'flight') {
+                const airlineMap = { JAL: 'JL', ANA: 'NH', IndiGo: '6E', 'Spring Japan': 'IJ', 'Air China': 'CA' };
+                const code = airlineMap[row.airline] || String(row.airline || 'FL').replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase() || 'FL';
+                return `${code}${String(180 + idx * 7).padStart(3, '0')}`;
+            }
+            const service = String(row.service || 'JR').replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase() || 'JR';
+            return `${service}-${String(200 + idx * 3).padStart(3, '0')}`;
+        };
+
+        window._getOnlineFareCategoryDescriptor = (mode, fareName, row) => {
+            if (mode !== 'flight') {
+                const railMap = {
+                    Ordinary: 'Standard Seat',
+                    'Green Car': 'Enhanced Comfort',
+                    'Gran Class': 'Premium Cabin'
+                };
+                return railMap[fareName] || 'Flexible Rail Offer';
+            }
+            const bagOnly = row.luggageKg === 0 ? 'Cabin Bag Only' : row.luggageLabel;
+            const flightMap = {
+                'Economy Light': bagOnly,
+                'Economy Flex': 'Checked Bag Included',
+                'Premium Economy': 'Extra Comfort Seating',
+                Business: 'Priority Premium Cabin'
+            };
+            return flightMap[fareName] || row.luggageLabel || 'Flight Offer';
+        };
+
+        window._buildOnlineFareOffers = (mode, row, fare) => {
+            const descriptor = window._getOnlineFareCategoryDescriptor(mode, fare.name, row);
+            if (mode !== 'flight') {
+                const railVariants = [
+                    { suffix: '', price: fare.price, subtitle: descriptor, bag: 'Carry-on bag included', seat: fare.name === 'Gran Class' ? 'Dedicated premium seat' : 'Seat selection included', change: 'Change before departure', cancel: 'Refund with service fee', detail: 'Rail fares are subject to train-specific inventory and seat map availability.' },
+                    { suffix: ' Saver', price: Math.round(fare.price * 1.07), subtitle: `${descriptor} + lower exchange fee`, bag: 'Carry-on bag included', seat: 'Preferred seats available', change: 'Lower change fee', cancel: 'Partial refund available', detail: 'Saver fares keep the same cabin while softening change and cancellation conditions.' },
+                    { suffix: ' Value', price: Math.round(fare.price * 1.14), subtitle: `${descriptor} + premium flexibility`, bag: 'Carry-on bag included', seat: 'Priority seat handling', change: 'Free first change', cancel: 'Refundable with fee', detail: 'Value fares are the most flexible rail option in this cabin.' }
+                ];
+                return railVariants.map((variant) => ({
+                    name: `${fare.name}${variant.suffix}`,
+                    price: variant.price,
+                    subtitle: variant.subtitle,
+                    detail: variant.detail,
+                    features: [
+                        { icon: 'briefcase', label: 'Cabin baggage', value: variant.bag },
+                        { icon: 'armchair', label: 'Seat selection', value: variant.seat },
+                        { icon: 'undo-2', label: 'Changes', value: variant.change },
+                        { icon: 'shield-check', label: 'Cancellation', value: variant.cancel }
+                    ]
+                }));
+            }
+            const flightVariantsByFare = {
+                'Economy Light': [
+                    { suffix: '', price: fare.price, subtitle: 'Lowest fare with cabin bag only', bag: row.luggageKg === 0 ? '7kg cabin bag' : row.luggageLabel, seat: 'Seat selection with fee', change: 'Changes not permitted', cancel: 'Non-refundable', detail: 'Best for light travelers who only need cabin baggage and the lowest available fare.' },
+                    { suffix: ' Saver', price: Math.round(fare.price * 1.08), subtitle: 'Cabin bag + standard seat access', bag: row.luggageKg === 0 ? '7kg cabin bag' : row.luggageLabel, seat: 'Standard seat at check-in', change: 'Change fee applies', cancel: 'Credit voucher only', detail: 'Saver keeps the light bundle while unlocking a softer change path before departure.' },
+                    { suffix: ' Value', price: Math.round(fare.price * 1.15), subtitle: 'Cabin bag with extra flexibility', bag: row.luggageKg === 0 ? '7kg cabin bag' : row.luggageLabel, seat: 'Standard seat included', change: 'One change with fee', cancel: 'Partial credit available', detail: 'Value is the flexible cabin-bag option for travelers who may need to rework plans.' }
+                ],
+                'Economy Flex': [
+                    { suffix: '', price: fare.price, subtitle: 'Checked baggage and seat choice', bag: row.luggageKg > 0 ? row.luggageLabel : '20kg checked bag', seat: 'Standard seat included', change: 'Change fee applies', cancel: 'Refundable with fee', detail: 'A balanced economy bundle with checked baggage and standard seat selection.' },
+                    { suffix: ' Plus', price: Math.round(fare.price * 1.09), subtitle: 'Extra baggage and change coverage', bag: row.luggageKg > 0 ? `${row.luggageKg + 5}kg checked bag` : '25kg checked bag', seat: 'Preferred seat included', change: 'Lower change fee', cancel: 'Refundable with fee', detail: 'Plus includes more checked bag weight and reduces the penalty for itinerary changes.' },
+                    { suffix: ' Max', price: Math.round(fare.price * 1.18), subtitle: 'Highest flexibility in economy', bag: row.luggageKg > 0 ? `${row.luggageKg + 10}kg checked bag` : '30kg checked bag', seat: 'Extra-legroom seat request', change: 'First change free', cancel: 'Refundable with minimal fee', detail: 'Max is designed for business travelers who need economy pricing with stronger policy coverage.' }
+                ],
+                'Premium Economy': [
+                    { suffix: '', price: fare.price, subtitle: 'Larger seat and priority cabin', bag: row.luggageKg > 0 ? `${row.luggageKg}kg checked bag` : '25kg checked bag', seat: 'Premium seat included', change: 'Change fee applies', cancel: 'Refundable with fee', detail: 'Premium Economy adds more personal space, baggage allowance, and faster airport processing.' },
+                    { suffix: ' Choice', price: Math.round(fare.price * 1.08), subtitle: 'Premium seat with added flexibility', bag: row.luggageKg > 0 ? `${row.luggageKg + 5}kg checked bag` : '30kg checked bag', seat: 'Preferred premium seat', change: 'Lower change fee', cancel: 'Refundable with fee', detail: 'Choice improves flexibility while preserving the same premium-economy cabin comfort.' },
+                    { suffix: ' Elite', price: Math.round(fare.price * 1.16), subtitle: 'Premium comfort plus priority handling', bag: row.luggageKg > 0 ? `${row.luggageKg + 10}kg checked bag` : '35kg checked bag', seat: 'Bulkhead / front-cabin request', change: 'One change free', cancel: 'Higher refundability', detail: 'Elite is the most protected premium-economy bundle, combining comfort and schedule freedom.' }
+                ],
+                Business: [
+                    { suffix: '', price: fare.price, subtitle: 'Priority cabin with lounge access', bag: row.luggageKg > 0 ? `${row.luggageKg + 10}kg checked bag` : '40kg checked bag', seat: 'Lie-flat / business seat included', change: 'Flexible change policy', cancel: 'Refundable with fee', detail: 'Business includes priority airport services, premium meals, and the most comfortable cabin.' },
+                    { suffix: ' Advantage', price: Math.round(fare.price * 1.07), subtitle: 'Business class with lower penalties', bag: row.luggageKg > 0 ? `${row.luggageKg + 15}kg checked bag` : '45kg checked bag', seat: 'Advance seat assignment', change: 'Lower change fee', cancel: 'Refundable with lower fee', detail: 'Advantage is tailored for corporate travelers needing better post-ticketing flexibility.' },
+                    { suffix: ' Freedom', price: Math.round(fare.price * 1.15), subtitle: 'Business class with maximum flexibility', bag: row.luggageKg > 0 ? `${row.luggageKg + 20}kg checked bag` : '50kg checked bag', seat: 'Best available business seat', change: 'Unlimited changes before departure', cancel: 'Fully refundable', detail: 'Freedom removes most fare restrictions and is the closest equivalent to a fully flexible corporate fare.' }
+                ]
+            };
+            const variants = flightVariantsByFare[fare.name] || flightVariantsByFare['Economy Light'];
+            return variants.map((variant) => ({
+                name: `${fare.name}${variant.suffix}`,
+                price: variant.price,
+                subtitle: variant.subtitle,
+                detail: variant.detail,
+                features: [
+                    { icon: 'briefcase', label: 'Cabin / checked bag', value: variant.bag },
+                    { icon: 'armchair', label: 'Seat selection', value: variant.seat },
+                    { icon: 'undo-2', label: 'Changes', value: variant.change },
+                    { icon: 'shield-check', label: 'Cancellation', value: variant.cancel }
+                ]
+            }));
+        };
+
+        window._getOnlineFareStoreForMode = (mode) => mode === 'flight'
+            ? (window._onlineFareSelection.flight || {})
+            : (window._onlineFareSelection.rail || {});
+
+        window._buildOnlineFareServiceNumber = (mode, row, idx) => {
+            if (mode === 'flight') {
+                const airlineMap = { JAL: 'JL', ANA: 'NH', IndiGo: '6E', 'Spring Japan': 'IJ', 'Air China': 'CA' };
+                const code = airlineMap[row.airline] || String(row.airline || 'FL').replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase() || 'FL';
+                return `${code}${String(180 + idx * 7).padStart(3, '0')}`;
+            }
+            const service = String(row.service || 'JR').replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase() || 'JR';
+            return `${service}-${String(200 + idx * 3).padStart(3, '0')}`;
+        };
+
+        window._getOnlineFareCategoryDescriptor = (mode, fareName, row) => {
+            if (mode !== 'flight') {
+                const railMap = {
+                    Ordinary: 'Standard Seat',
+                    'Green Car': 'Enhanced Comfort',
+                    'Gran Class': 'Premium Cabin'
+                };
+                return railMap[fareName] || 'Flexible Rail Offer';
+            }
+            const bagOnly = row.luggageKg === 0 ? 'Cabin Bag Only' : row.luggageLabel;
+            const flightMap = {
+                'Economy Light': bagOnly,
+                'Economy Flex': 'Checked Bag Included',
+                'Premium Economy': 'Extra Comfort Seating',
+                Business: 'Priority Premium Cabin'
+            };
+            return flightMap[fareName] || row.luggageLabel || 'Flight Offer';
+        };
+
+        window._buildOnlineFareOffers = (mode, row, fare) => {
+            const descriptor = window._getOnlineFareCategoryDescriptor(mode, fare.name, row);
+            if (mode !== 'flight') {
+                const railVariants = [
+                    {
+                        suffix: '',
+                        price: fare.price,
+                        subtitle: descriptor,
+                        bag: 'Carry-on bag included',
+                        seat: fare.name === 'Gran Class' ? 'Dedicated premium seat' : 'Seat selection included',
+                        change: 'Change before departure',
+                        cancel: 'Refund with service fee',
+                        detail: 'Rail fares are subject to train-specific inventory and seat map availability.'
+                    },
+                    {
+                        suffix: ' Saver',
+                        price: Math.round(fare.price * 1.07),
+                        subtitle: `${descriptor} + lower exchange fee`,
+                        bag: 'Carry-on bag included',
+                        seat: 'Preferred seats available',
+                        change: 'Lower change fee',
+                        cancel: 'Partial refund available',
+                        detail: 'Saver fares keep the same cabin while softening change and cancellation conditions.'
+                    },
+                    {
+                        suffix: ' Value',
+                        price: Math.round(fare.price * 1.14),
+                        subtitle: `${descriptor} + premium flexibility`,
+                        bag: 'Carry-on bag included',
+                        seat: 'Priority seat handling',
+                        change: 'Free first change',
+                        cancel: 'Refundable with fee',
+                        detail: 'Value fares are the most flexible rail option in this cabin.'
+                    }
+                ];
+                return railVariants.map((variant) => ({
+                    name: `${fare.name}${variant.suffix}`,
+                    price: variant.price,
+                    subtitle: variant.subtitle,
+                    detail: variant.detail,
+                    features: [
+                        { icon: 'briefcase', label: 'Cabin baggage', value: variant.bag },
+                        { icon: 'armchair', label: 'Seat selection', value: variant.seat },
+                        { icon: 'undo-2', label: 'Changes', value: variant.change },
+                        { icon: 'shield-check', label: 'Cancellation', value: variant.cancel }
+                    ]
+                }));
+            }
+            const flightVariantsByFare = {
+                'Economy Light': [
+                    {
+                        suffix: '',
+                        price: fare.price,
+                        subtitle: 'Lowest fare with cabin bag only',
+                        bag: row.luggageKg === 0 ? '7kg cabin bag' : row.luggageLabel,
+                        seat: 'Seat selection with fee',
+                        change: 'Changes not permitted',
+                        cancel: 'Non-refundable',
+                        detail: 'Best for light travelers who only need cabin baggage and the lowest available fare.'
+                    },
+                    {
+                        suffix: ' Saver',
+                        price: Math.round(fare.price * 1.08),
+                        subtitle: 'Cabin bag + standard seat access',
+                        bag: row.luggageKg === 0 ? '7kg cabin bag' : row.luggageLabel,
+                        seat: 'Standard seat at check-in',
+                        change: 'Change fee applies',
+                        cancel: 'Credit voucher only',
+                        detail: 'Saver keeps the light bundle while unlocking a softer change path before departure.'
+                    },
+                    {
+                        suffix: ' Value',
+                        price: Math.round(fare.price * 1.15),
+                        subtitle: 'Cabin bag with extra flexibility',
+                        bag: row.luggageKg === 0 ? '7kg cabin bag' : row.luggageLabel,
+                        seat: 'Standard seat included',
+                        change: 'One change with fee',
+                        cancel: 'Partial credit available',
+                        detail: 'Value is the flexible cabin-bag option for travelers who may need to rework plans.'
+                    }
+                ],
+                'Economy Flex': [
+                    {
+                        suffix: '',
+                        price: fare.price,
+                        subtitle: 'Checked baggage and seat choice',
+                        bag: row.luggageKg > 0 ? row.luggageLabel : '20kg checked bag',
+                        seat: 'Standard seat included',
+                        change: 'Change fee applies',
+                        cancel: 'Refundable with fee',
+                        detail: 'A balanced economy bundle with checked baggage and standard seat selection.'
+                    },
+                    {
+                        suffix: ' Plus',
+                        price: Math.round(fare.price * 1.09),
+                        subtitle: 'Extra baggage and change coverage',
+                        bag: row.luggageKg > 0 ? `${row.luggageKg + 5}kg checked bag` : '25kg checked bag',
+                        seat: 'Preferred seat included',
+                        change: 'Lower change fee',
+                        cancel: 'Refundable with fee',
+                        detail: 'Plus includes more checked bag weight and reduces the penalty for itinerary changes.'
+                    },
+                    {
+                        suffix: ' Max',
+                        price: Math.round(fare.price * 1.18),
+                        subtitle: 'Highest flexibility in economy',
+                        bag: row.luggageKg > 0 ? `${row.luggageKg + 10}kg checked bag` : '30kg checked bag',
+                        seat: 'Extra-legroom seat request',
+                        change: 'First change free',
+                        cancel: 'Refundable with minimal fee',
+                        detail: 'Max is designed for business travelers who need economy pricing with stronger policy coverage.'
+                    }
+                ],
+                'Premium Economy': [
+                    {
+                        suffix: '',
+                        price: fare.price,
+                        subtitle: 'Larger seat and priority cabin',
+                        bag: row.luggageKg > 0 ? `${row.luggageKg}kg checked bag` : '25kg checked bag',
+                        seat: 'Premium seat included',
+                        change: 'Change fee applies',
+                        cancel: 'Refundable with fee',
+                        detail: 'Premium Economy adds more personal space, baggage allowance, and faster airport processing.'
+                    },
+                    {
+                        suffix: ' Choice',
+                        price: Math.round(fare.price * 1.08),
+                        subtitle: 'Premium seat with added flexibility',
+                        bag: row.luggageKg > 0 ? `${row.luggageKg + 5}kg checked bag` : '30kg checked bag',
+                        seat: 'Preferred premium seat',
+                        change: 'Lower change fee',
+                        cancel: 'Refundable with fee',
+                        detail: 'Choice improves flexibility while preserving the same premium-economy cabin comfort.'
+                    },
+                    {
+                        suffix: ' Elite',
+                        price: Math.round(fare.price * 1.16),
+                        subtitle: 'Premium comfort plus priority handling',
+                        bag: row.luggageKg > 0 ? `${row.luggageKg + 10}kg checked bag` : '35kg checked bag',
+                        seat: 'Bulkhead / front-cabin request',
+                        change: 'One change free',
+                        cancel: 'Higher refundability',
+                        detail: 'Elite is the most protected premium-economy bundle, combining comfort and schedule freedom.'
+                    }
+                ],
+                Business: [
+                    {
+                        suffix: '',
+                        price: fare.price,
+                        subtitle: 'Priority cabin with lounge access',
+                        bag: row.luggageKg > 0 ? `${row.luggageKg + 10}kg checked bag` : '40kg checked bag',
+                        seat: 'Lie-flat / business seat included',
+                        change: 'Flexible change policy',
+                        cancel: 'Refundable with fee',
+                        detail: 'Business includes priority airport services, premium meals, and the most comfortable cabin.'
+                    },
+                    {
+                        suffix: ' Advantage',
+                        price: Math.round(fare.price * 1.07),
+                        subtitle: 'Business class with lower penalties',
+                        bag: row.luggageKg > 0 ? `${row.luggageKg + 15}kg checked bag` : '45kg checked bag',
+                        seat: 'Advance seat assignment',
+                        change: 'Lower change fee',
+                        cancel: 'Refundable with lower fee',
+                        detail: 'Advantage is tailored for corporate travelers needing better post-ticketing flexibility.'
+                    },
+                    {
+                        suffix: ' Freedom',
+                        price: Math.round(fare.price * 1.15),
+                        subtitle: 'Business class with maximum flexibility',
+                        bag: row.luggageKg > 0 ? `${row.luggageKg + 20}kg checked bag` : '50kg checked bag',
+                        seat: 'Best available business seat',
+                        change: 'Unlimited changes before departure',
+                        cancel: 'Fully refundable',
+                        detail: 'Freedom removes most fare restrictions and is the closest equivalent to a fully flexible corporate fare.'
+                    }
+                ]
+            };
+            const variants = flightVariantsByFare[fare.name] || flightVariantsByFare['Economy Light'];
+            return variants.map((variant) => ({
+                name: `${fare.name}${variant.suffix}`,
+                price: variant.price,
+                subtitle: variant.subtitle,
+                detail: variant.detail,
+                features: [
+                    { icon: 'briefcase', label: 'Cabin / checked bag', value: variant.bag },
+                    { icon: 'armchair', label: 'Seat selection', value: variant.seat },
+                    { icon: 'undo-2', label: 'Changes', value: variant.change },
+                    { icon: 'shield-check', label: 'Cancellation', value: variant.cancel }
+                ]
+            }));
+        };
+
+        window.selectOnlineFareCategory = (fareName) => {
+            if (!window._fareModalContext) return;
+            window._fareModalContext.selectedCategory = fareName;
+            window.renderOnlineFareModal();
+        };
+
+        window.toggleOnlineFareOfferDetails = (offerName) => {
+            if (!window._fareModalContext) return;
+            const expanded = window._fareModalContext.expandedOfferKeys || {};
+            expanded[offerName] = !expanded[offerName];
+            window._fareModalContext.expandedOfferKeys = expanded;
+            window.renderOnlineFareModal();
+        };
+
+        window.renderOnlineFareModal = () => {
+            const ctx = window._fareModalContext;
+            if (!ctx || !ctx.row) return;
+            const { mode, idx, fareKey, row } = ctx;
+            const isFlight = mode === 'flight';
+            const title = document.getElementById('online-fare-modal-title');
+            const itin = document.getElementById('online-fare-modal-itinerary');
+            const wrap = document.getElementById('online-fare-modal-table-wrap');
+            const store = window._getOnlineFareStoreForMode(mode);
+            const selectedFare = store[fareKey];
+            const fares = row.fares && row.fares.length ? row.fares : [{ name: 'Standard', price: row.price }];
+            const matchedCategory = fares.find((fare) => selectedFare?.name === fare.name || String(selectedFare?.name || '').startsWith(`${fare.name} `) || String(selectedFare?.name || '').startsWith(`${fare.name}`));
+            ctx.selectedCategory = fares.some((fare) => fare.name === ctx.selectedCategory)
+                ? ctx.selectedCategory
+                : ((matchedCategory && matchedCategory.name) || fares[0].name);
+            ctx.expandedOfferKeys = ctx.expandedOfferKeys || {};
+            const activeCategory = fares.find((fare) => fare.name === ctx.selectedCategory) || fares[0];
+            const routeTokens = String(row.route || '').split(/[–—-]/).map((token) => token.trim()).filter(Boolean);
+            const fromCode = routeTokens[0] || '---';
+            const toCode = routeTokens[1] || routeTokens[0] || '---';
+            const serviceNumber = window._buildOnlineFareServiceNumber(mode, row, idx);
+            if (title) title.textContent = isFlight ? 'Flight fare options' : 'Train fare options';
+            if (itin) itin.textContent = 'Choose a compact tier and bundle combination below.';
+            if (!wrap) return;
+            const metaItems = [
+                { icon: isFlight ? 'plane' : 'train-front', text: `${isFlight ? row.airline : row.service} ${serviceNumber}` },
+                { icon: 'route', text: `${fromCode} → ${toCode}` },
+                { icon: 'clock-3', text: row.time },
+                { icon: 'timer-reset', text: row.dur }
+            ];
+            if (isFlight) {
+                metaItems.push({ icon: row.stops === 0 ? 'circle-dot' : 'git-commit-horizontal', text: row.stops === 0 ? 'Non-stop' : `${row.stops} stop(s)` });
+            }
+            wrap.innerHTML = `
+                <div class="online-fare-compact-layout">
+                    <div class="online-fare-meta-strip">
+                        <p class="online-fare-meta-strip__route">${window._onlineUiEsc(fromCode)} <span class="text-slate-400">→</span> ${window._onlineUiEsc(toCode)}</p>
+                        <div class="online-fare-meta-strip__items">
+                            ${metaItems.map((item, index) => `
+                                ${index ? '<span class="online-fare-meta-strip__dot">&bull;</span>' : ''}
+                                <span class="online-fare-meta-strip__item"><i data-lucide="${item.icon}" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.text)}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="online-fare-tier-stack">
+                        ${fares.map((fare) => {
+                            const isActive = fare.name === activeCategory.name;
+                            const categoryDescriptor = window._getOnlineFareCategoryDescriptor(mode, fare.name, row);
+                            const tierOffers = window._buildOnlineFareOffers(mode, row, fare);
+                            return `
+                                <section class="online-fare-tier-accordion${isActive ? ' online-fare-tier-accordion--active' : ''}">
+                                    <button type="button" class="online-fare-tier-accordion__header" data-fare-category="${encodeURIComponent(fare.name)}">
+                                        <div class="min-w-0">
+                                            <p class="online-fare-tier-accordion__title">${window._onlineUiEsc(fare.name)}</p>
+                                            <p class="online-fare-tier-accordion__sub">${window._onlineUiEsc(categoryDescriptor)}</p>
+                                        </div>
+                                        <div class="online-fare-tier-accordion__summary">
+                                            <span class="online-fare-tier-accordion__count">${tierOffers.length} offers</span>
+                                            <p class="online-fare-tier-accordion__price">¥${Number(fare.price).toLocaleString()}</p>
+                                            <p class="online-fare-tier-accordion__price-note">from per adult</p>
+                                            <i data-lucide="chevron-down" class="online-fare-tier-accordion__chevron w-4 h-4"></i>
+                                        </div>
+                                    </button>
+                                    <div class="online-fare-tier-accordion__panel${isActive ? '' : ' hidden'}">
+                                        <div class="online-fare-tier-accordion__panel-head">
+                                            <p class="online-fare-tier-accordion__panel-title">Select an offer</p>
+                                            <p class="online-fare-tier-accordion__panel-sub">${window._onlineUiEsc(categoryDescriptor)}</p>
+                                        </div>
+                                        <div class="online-fare-offer-stack">
+                                            ${tierOffers.map((offer) => {
+                                                const isSelected = selectedFare?.name === offer.name;
+                                                const isExpanded = !!ctx.expandedOfferKeys[offer.name];
+                                                return `
+                                                    <div class="online-fare-offer-row${isSelected ? ' online-fare-offer-row--selected' : ''}" data-fare-offer-select="${encodeURIComponent(offer.name)}" data-fare-offer-price="${offer.price}" role="button" tabindex="0">
+                                                        <div class="online-fare-offer-row__top">
+                                                            <div class="min-w-0">
+                                                                <span class="online-fare-offer-row__badge">${window._onlineUiEsc(fare.name)}</span>
+                                                                <p class="online-fare-offer-row__name">${window._onlineUiEsc(offer.name)}</p>
+                                                                <p class="online-fare-offer-row__sub">${window._onlineUiEsc(offer.subtitle)}</p>
+                                                            </div>
+                                                            <div class="flex items-start gap-3 shrink-0">
+                                                                <div class="online-fare-offer-row__price">
+                                                                    <p class="online-fare-offer-row__price-value">¥${Number(offer.price).toLocaleString()}</p>
+                                                                    <p class="online-fare-offer-row__price-note">per adult</p>
+                                                                </div>
+                                                                <span class="online-fare-offer-row__indicator"><i data-lucide="check" class="w-3 h-3"></i></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="online-fare-offer-row__features">
+                                                            ${offer.features.map((feature) => `
+                                                                <span class="online-fare-offer-row__feature">
+                                                                    <i data-lucide="${feature.icon}" class="w-3.5 h-3.5"></i>
+                                                                    <span>${window._onlineUiEsc(feature.value)}</span>
+                                                                </span>`).join('')}
+                                                        </div>
+                                                        <div class="online-fare-offer-row__actions">
+                                                            <p class="online-fare-offer-row__rules">${window._onlineUiEsc(offer.features[2]?.value || '')} &bull; ${window._onlineUiEsc(offer.features[3]?.value || '')}</p>
+                                                            <button type="button" class="online-fare-offer-details-toggle" data-fare-offer-toggle="${encodeURIComponent(offer.name)}">
+                                                                ${isExpanded ? 'Hide details' : 'View details'} <i data-lucide="chevron-${isExpanded ? 'up' : 'down'}" class="w-3.5 h-3.5"></i>
+                                                            </button>
+                                                        </div>
+                                                        ${isExpanded ? `<div class="online-fare-offer-details">${window._onlineUiEsc(offer.detail)}</div>` : ''}
+                                                    </div>`;
+                                            }).join('')}
+                                        </div>
+                                    </div>
+                                </section>`;
+                        }).join('')}
+                    </div>
+                    <div class="online-fare-disclaimer">All fares are per adult and include taxes. Select the bundle that best matches your baggage, change, and refund needs.</div>
+                </div>`;
+            wrap.querySelectorAll('[data-fare-category]').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    window.selectOnlineFareCategory(decodeURIComponent(btn.getAttribute('data-fare-category') || ''));
+                });
+            });
+            wrap.querySelectorAll('[data-fare-offer-select]').forEach((card) => {
+                const selectOffer = () => {
+                    const name = decodeURIComponent(card.getAttribute('data-fare-offer-select') || '');
+                    const price = parseInt(card.getAttribute('data-fare-offer-price') || '0', 10);
+                    window.applyOnlineFareChoice(name, price);
+                };
+                card.addEventListener('click', (event) => {
+                    const toggleBtn = event.target.closest('[data-fare-offer-toggle]');
+                    if (toggleBtn) return;
+                    selectOffer();
+                });
+                card.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        selectOffer();
+                    }
+                });
+            });
+            wrap.querySelectorAll('[data-fare-offer-toggle]').forEach((btn) => {
+                btn.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    window.toggleOnlineFareOfferDetails(decodeURIComponent(btn.getAttribute('data-fare-offer-toggle') || ''));
+                });
+            });
+            lucide.createIcons();
+        };
+
         window.openOnlineFareModal = (mode, leg, idx) => {
             const isFlight = mode === 'flight';
             const list = isFlight
@@ -14470,38 +16208,12 @@
             const row = list && list[idx];
             if (!row) return;
             const fareKey = isFlight ? window._onlineFlightFareKey(leg, idx) : window._onlineRailFareKey(leg, idx);
-            window._fareModalContext = { mode, leg, idx, fareKey, row };
-            const title = document.getElementById('online-fare-modal-title');
-            const itin = document.getElementById('online-fare-modal-itinerary');
-            const wrap = document.getElementById('online-fare-modal-table-wrap');
-            if (title) title.textContent = isFlight ? 'Flight details & fares' : 'Train details & fares';
-            if (itin) {
-                const meta = isFlight
-                    ? `${row.airline} · ${row.route} · ${row.time} · ${row.dur} · ${row.stops === 0 ? 'Non-stop' : row.stops + ' stop(s)'}`
-                    : `${row.service} · ${row.depStation || ''} → ${row.arrStation || ''} · ${row.time} · ${row.dur}`;
-                const extras = isFlight
-                    ? `\nCO₂ ~${row.co2Kg} kg · Luggage ${row.luggageLabel} · ${row.mealLabel}`
-                    : '';
-                itin.textContent = meta + extras;
-            }
             const fares = row.fares && row.fares.length ? row.fares : [{ name: 'Standard', price: row.price }];
-            if (wrap) {
-                wrap.innerHTML = `<table class="w-full text-xs"><thead><tr class="bg-slate-50 text-[10px] font-black text-slate-500 uppercase tracking-wider"><th class="text-left px-3 py-2">Fare</th><th class="text-right px-3 py-2">Price</th><th class="px-2 py-2 w-24"></th></tr></thead><tbody>${fares.map((f) => `
-                    <tr class="border-t border-slate-100">
-                        <td class="px-3 py-2.5 font-semibold text-slate-800">${f.name}</td>
-                        <td class="px-3 py-2.5 text-right font-black text-[#0A3266]">¥${Number(f.price).toLocaleString()}</td>
-                        <td class="px-2 py-2 text-center"><button type="button" class="px-3 py-1.5 rounded-lg bg-[#4285F4] text-white text-[10px] font-black tracking-wider hover:bg-[#3367D6] transition-colors" data-fare-select="${encodeURIComponent(f.name)}" data-fare-price="${f.price}">Select</button></td>
-                    </tr>`).join('')}</tbody></table>`;
-                wrap.querySelectorAll('[data-fare-select]').forEach((btn) => {
-                    btn.addEventListener('click', () => {
-                        const name = decodeURIComponent(btn.getAttribute('data-fare-select') || '');
-                        const price = parseInt(btn.getAttribute('data-fare-price') || '0', 10);
-                        window.applyOnlineFareChoice(name, price);
-                    });
-                });
-            }
+            const selectedFare = window._getOnlineFareStoreForMode(mode)[fareKey];
+            const selectedCategory = fares.find((fare) => selectedFare?.name === fare.name || String(selectedFare?.name || '').startsWith(`${fare.name} `) || String(selectedFare?.name || '').startsWith(`${fare.name}`))?.name || fares[0].name;
+            window._fareModalContext = { mode, leg, idx, fareKey, row, selectedCategory, expandedOfferKeys: {} };
             document.getElementById('online-fare-detail-modal')?.classList.remove('hidden');
-            lucide.createIcons();
+            window.renderOnlineFareModal();
         };
 
         /* AI-ADDED: Picking a fare selects the row (ring highlight via selected index), then stores fare; modal already closed
@@ -14658,8 +16370,9 @@
                     </div>
                     <div class="online-flight-searchbar-seg${lastCls}">
                         <div class="online-flight-searchbar-label">Travel date</div>
-                        <div class="material-date-field w-full">
-                            <input type="date" data-mc-field="date" class="material-date-input" value="${(seg.date || '').replace(/"/g, '&quot;')}" aria-label="Travel date segment ${idx + 1}">
+                        <div class="material-date-field w-full booking-mobile-date-field">
+                            <span class="booking-mobile-date-display" data-mc-date-display aria-hidden="true"></span>
+                            <input type="date" data-mc-field="date" class="material-date-input booking-mobile-native-date-input" value="${(seg.date || '').replace(/"/g, '&quot;')}" aria-label="Travel date segment ${idx + 1}" onchange="window.syncOnlineMcDateDisplays('flight')">
                             <i data-lucide="calendar" class="material-date-icon w-4 h-4"></i>
                         </div>
                     </div>
@@ -14701,8 +16414,9 @@
                     </div>
                     <div class="online-flight-searchbar-seg${lastCls}">
                         <div class="online-flight-searchbar-label">Travel date</div>
-                        <div class="material-date-field w-full">
-                            <input type="date" data-mc-field="date" class="material-date-input" value="${(seg.date || '').replace(/"/g, '&quot;')}" aria-label="Travel date segment ${idx + 1}">
+                        <div class="material-date-field w-full booking-mobile-date-field">
+                            <span class="booking-mobile-date-display" data-mc-date-display aria-hidden="true"></span>
+                            <input type="date" data-mc-field="date" class="material-date-input booking-mobile-native-date-input" value="${(seg.date || '').replace(/"/g, '&quot;')}" aria-label="Travel date segment ${idx + 1}" onchange="window.syncOnlineMcDateDisplays('rail')">
                             <i data-lucide="calendar" class="material-date-icon w-4 h-4"></i>
                         </div>
                     </div>
@@ -14723,6 +16437,7 @@
             }
             for (let j = 0; j < segs.length - 1; j++) window._chainOnlineMcNextOrigin('flight', j);
             window._syncMultiCitySegmentsFromDom('flight');
+            window.syncOnlineMcDateDisplays?.('flight');
             lucide.createIcons();
         };
 
@@ -14739,6 +16454,7 @@
             }
             for (let j = 0; j < segs.length - 1; j++) window._chainOnlineMcNextOrigin('rail', j);
             window._syncMultiCitySegmentsFromDom('rail');
+            window.syncOnlineMcDateDisplays?.('rail');
             lucide.createIcons();
         };
 
@@ -14907,7 +16623,7 @@
                 const reachable = window._canReachFlightLeg(i);
                 const cls = i === active ? onCls : (reachable ? offCls : disCls);
                 const dis = !reachable && i !== active ? ' disabled aria-disabled="true"' : '';
-                return `<button type="button" role="tab" aria-selected="${i === active}" data-multi-leg="${i}" onclick="window.switchOnlineFlightMultiLegTab(${i})" class="${cls}"${dis}><span class="font-black tracking-tight">Trip ${i + 1}${ok}</span><span class="text-[10px] font-semibold opacity-90 truncate max-w-[11rem]" title="${route.replace(/"/g, '&quot;')}">${route.replace(/</g, '')}</span></button>`;
+                return `<button type="button" role="tab" aria-selected="${i === active}" data-multi-leg="${i}" onclick="window.switchOnlineFlightMultiLegTab(${i})" class="${cls}"${dis}><span class="font-black tracking-tight">${window.getWorkflowLegLabel(i)}${ok}</span><span class="text-[10px] font-semibold opacity-90 truncate max-w-[11rem]" title="${route.replace(/"/g, '&quot;')}">${route.replace(/</g, '')}</span></button>`;
             }).join('');
         };
 
@@ -14946,7 +16662,7 @@
                 const reachable = window._canReachRailLeg(i);
                 const cls = i === active ? onCls : (reachable ? offCls : disCls);
                 const dis = !reachable && i !== active ? ' disabled aria-disabled="true"' : '';
-                return `<button type="button" role="tab" aria-selected="${i === active}" data-multi-rail-leg="${i}" onclick="window.switchOnlineRailMultiLegTab(${i})" class="${cls}"${dis}><span class="font-black tracking-tight">Trip ${i + 1}${ok}</span><span class="text-[10px] font-semibold opacity-90 truncate max-w-[11rem]" title="${route.replace(/"/g, '&quot;')}">${route.replace(/</g, '')}</span></button>`;
+                return `<button type="button" role="tab" aria-selected="${i === active}" data-multi-rail-leg="${i}" onclick="window.switchOnlineRailMultiLegTab(${i})" class="${cls}"${dis}><span class="font-black tracking-tight">${window.getWorkflowLegLabel(i)}${ok}</span><span class="text-[10px] font-semibold opacity-90 truncate max-w-[11rem]" title="${route.replace(/"/g, '&quot;')}">${route.replace(/</g, '')}</span></button>`;
             }).join('');
         };
 
@@ -14986,11 +16702,11 @@
             const i = window._onlineFlightMultiProgressLeg;
             const seg = window._multiCitySegments[i];
             if (!seg || !n) return;
-            const leg = i + 1;
-            const msg = `Select Trip ${leg} of ${n}: ${seg.from || '—'} to ${seg.to || '—'}`;
+            const legLabel = window.getWorkflowLegLabel(i);
+            const msg = `Select ${legLabel}${n > 2 ? ` of ${n}` : ''}: ${seg.from || '—'} to ${seg.to || '—'}`;
             window._setOnlineMultiResultsHint('flight', msg, true);
             const cnt = document.getElementById('online-flight-results-count');
-            if (cnt) cnt.textContent = `Showing flights · Trip ${leg} of ${n}`;
+            if (cnt) cnt.textContent = `Showing flights · ${legLabel}${n > 2 ? ` of ${n}` : ''}`;
         };
 
         window._updateOnlineMultiRailResultsHeader = () => {
@@ -15003,11 +16719,11 @@
             const i = window._onlineRailMultiProgressLeg;
             const seg = window._multiCitySegments[i];
             if (!seg || !n) return;
-            const leg = i + 1;
-            const msg = `Select Trip ${leg} of ${n}: ${seg.from || '—'} to ${seg.to || '—'}`;
+            const legLabel = window.getWorkflowLegLabel(i);
+            const msg = `Select ${legLabel}${n > 2 ? ` of ${n}` : ''}: ${seg.from || '—'} to ${seg.to || '—'}`;
             window._setOnlineMultiResultsHint('rail', msg, true);
             const cnt = document.getElementById('online-rail-results-count');
-            if (cnt) cnt.textContent = `Showing trains · Trip ${leg} of ${n}`;
+            if (cnt) cnt.textContent = `Showing trains · ${legLabel}${n > 2 ? ` of ${n}` : ''}`;
         };
 
         window.goToOnlineMultiNextLeg = () => {
@@ -15086,7 +16802,7 @@
             const price = Number(fare.price ?? row.price ?? 0) || 0;
             return {
                 legIndex,
-                tripLabel: `Trip ${legIndex + 1}`,
+                tripLabel: window.getWorkflowLegLabel(legIndex),
                 routeText: `${seg.from || '—'} -> ${seg.to || '—'}`,
                 airline: row.airline || 'Flight',
                 timeLine: `${dep || '—'} - ${arr || '—'}`,
@@ -15135,7 +16851,7 @@
             const price = Number(fare.price ?? row.price ?? 0) || 0;
             return {
                 legIndex,
-                tripLabel: `Trip ${legIndex + 1}`,
+                tripLabel: window.getWorkflowLegLabel(legIndex),
                 routeText: `${seg.from || '—'} -> ${seg.to || '—'}`,
                 airline: row.service || 'Train',
                 timeLine: `${dep || '—'} - ${arr || '—'}`,
@@ -15192,6 +16908,7 @@
             const prompt = document.getElementById('online-flight-mobile-stepper-prompt');
             const review = document.getElementById('online-flight-mobile-review');
             const shell = document.getElementById('online-flight-results-shell');
+            const resultsRoot = document.getElementById('online-flight-results');
             if (!root || !sticky || !tabs || !summaries || !prompt || !review || !shell) return;
             if (!window.isOnlineFlightMobileStepperActive()) {
                 root.classList.add('hidden');
@@ -15199,6 +16916,7 @@
                 prompt.classList.add('hidden');
                 review.classList.add('hidden');
                 shell.classList.remove('hidden');
+                resultsRoot?.classList.remove('online-results-complete');
                 return;
             }
 
@@ -15227,7 +16945,7 @@
                 const icon = idx === active ? 'plane' : done ? 'check' : 'lock';
                 return `<button type="button" class="${cls}" onclick="window.editOnlineFlightMobileLeg(${idx})" ${!reachable && !done ? 'disabled aria-disabled="true"' : ''}>
                     <span class="online-flight-mobile-stepper__tab-icon"><i data-lucide="${icon}" class="w-3.5 h-3.5"></i></span>
-                    <span>Trip ${idx + 1}</span>
+                    <span>${window.getWorkflowLegLabel(idx)}</span>
                 </button>`;
             }).join('');
             summaries.innerHTML = completedCards.map((item) => `
@@ -15255,10 +16973,11 @@
 
             const showReview = allDone && window._onlineFlightMobileReviewOpen;
             const showPrompt = allDone && !showReview;
+            resultsRoot?.classList.toggle('online-results-complete', allDone);
             sticky.classList.toggle('hidden', showReview);
             prompt.classList.toggle('hidden', !showPrompt);
             review.classList.toggle('hidden', !showReview);
-            shell.classList.toggle('hidden', showPrompt || showReview);
+            shell.classList.toggle('hidden', allDone);
 
             if (showPrompt) {
                 prompt.innerHTML = `
@@ -15346,6 +17065,7 @@
             const prompt = document.getElementById('online-rail-mobile-stepper-prompt');
             const review = document.getElementById('online-rail-mobile-review');
             const shell = document.getElementById('online-rail-results-shell');
+            const resultsRoot = document.getElementById('online-rail-results');
             if (!root || !sticky || !tabs || !summaries || !prompt || !review || !shell) return;
             if (!window.isOnlineRailMobileStepperActive()) {
                 root.classList.add('hidden');
@@ -15353,6 +17073,7 @@
                 prompt.classList.add('hidden');
                 review.classList.add('hidden');
                 shell.classList.remove('hidden');
+                resultsRoot?.classList.remove('online-results-complete');
                 return;
             }
 
@@ -15373,7 +17094,7 @@
                 const icon = idx === active ? 'train-front' : done ? 'check' : 'lock';
                 return `<button type="button" class="${cls}" onclick="window.editOnlineRailMobileLeg(${idx})" ${!reachable && !done ? 'disabled aria-disabled="true"' : ''}>
                     <span class="online-flight-mobile-stepper__tab-icon"><i data-lucide="${icon}" class="w-3.5 h-3.5"></i></span>
-                    <span>Trip ${idx + 1}</span>
+                    <span>${window.getWorkflowLegLabel(idx)}</span>
                 </button>`;
             }).join('');
             summaries.innerHTML = completedCards.map((item) => `
@@ -15401,10 +17122,11 @@
 
             const showReview = allDone && window._onlineRailMobileReviewOpen;
             const showPrompt = allDone && !showReview;
+            resultsRoot?.classList.toggle('online-results-complete', allDone);
             sticky.classList.toggle('hidden', showReview);
             prompt.classList.toggle('hidden', !showPrompt);
             review.classList.toggle('hidden', !showReview);
-            shell.classList.toggle('hidden', showPrompt || showReview);
+            shell.classList.toggle('hidden', allDone);
 
             if (showPrompt) {
                 prompt.innerHTML = `
@@ -15641,6 +17363,7 @@
                         <div class="online-flight-card-mob-leg online-flight-card-mob-leg--dep">
                             <div class="online-flight-card-mob-leg__time">${times.dep}</div>
                             <div class="online-flight-card-mob-leg__code">${codes.dep}</div>
+                            <div class="online-flight-card-mob-leg__desc">Departure</div>
                         </div>
                         <div class="online-flight-card-mob-mid">
                             <div class="online-flight-card-mob-mid__track" aria-hidden="true">
@@ -15652,6 +17375,7 @@
                         <div class="online-flight-card-mob-leg online-flight-card-mob-leg--arr">
                             <div class="online-flight-card-mob-leg__time">${times.arr}</div>
                             <div class="online-flight-card-mob-leg__code">${codes.arr}</div>
+                            <div class="online-flight-card-mob-leg__desc">Arrival</div>
                         </div>
                         <div class="online-flight-card-mob-action">
                             <button type="button" onclick="event.stopPropagation(); window.openOnlineFareModal('flight','${leg}',${idx})"
@@ -15825,6 +17549,7 @@
                         <div class="online-flight-card-mob-leg online-flight-card-mob-leg--dep">
                             <div class="online-flight-card-mob-leg__time">${times.dep}</div>
                             <div class="online-flight-card-mob-leg__code">${depLabel}</div>
+                            <div class="online-flight-card-mob-leg__desc">${depS || 'Departure'}</div>
                         </div>
                         <div class="online-flight-card-mob-mid">
                             <div class="online-flight-card-mob-mid__track" aria-hidden="true">
@@ -15836,6 +17561,7 @@
                         <div class="online-flight-card-mob-leg online-flight-card-mob-leg--arr">
                             <div class="online-flight-card-mob-leg__time">${times.arr}</div>
                             <div class="online-flight-card-mob-leg__code">${arrLabel}</div>
+                            <div class="online-flight-card-mob-leg__desc">${arrS || 'Arrival'}</div>
                         </div>
                         <div class="online-flight-card-mob-action">
                             <button type="button" onclick="event.stopPropagation(); window.openOnlineFareModal('rail','${leg}',${idx})"
@@ -16018,6 +17744,7 @@
                 const sortIcon = document.getElementById('online-rail-sort-icon');
                 if (sortIcon) sortIcon.setAttribute('data-lucide', 'chevron-down');
                 document.getElementById('online-rail-results')?.classList.remove('hidden');
+                window.collapseOnlineSearchPanel?.('rail');
                 window.switchOnlineRailMultiLegTab(0);
                 window.updateOnlineBookingFooterButtons?.();
                 window.updateBookingStepNextButtonState?.();
@@ -16074,6 +17801,7 @@
                 const sortIcon = document.getElementById('online-rail-sort-icon');
                 if (sortIcon) sortIcon.setAttribute('data-lucide', 'chevron-down');
                 document.getElementById('online-rail-results')?.classList.remove('hidden');
+                window.collapseOnlineSearchPanel?.('rail');
                 window.switchOnlineRailMultiLegTab(0);
                 window.updateOnlineBookingFooterButtons?.();
                 window.updateBookingStepNextButtonState?.();
@@ -16110,6 +17838,7 @@
             if (sortIcon) sortIcon.setAttribute('data-lucide', 'chevron-down');
 
             document.getElementById('online-rail-results')?.classList.remove('hidden');
+            window.collapseOnlineSearchPanel?.('rail');
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
             window.renderOnlineRailMobileStepper?.();
@@ -16338,17 +18067,42 @@
             document.getElementById('hotel-map-modal')?.classList.add('hidden');
         };
 
+        window._buildHotelCardImageUrl = (row) => {
+            const name = String(row?.name || 'Hotel');
+            const area = String(row?.area || 'City stay');
+            const stars = Number(row?.starRank || 4);
+            const palette = ['#0A3266', '#4285F4', '#2563EB', '#0F766E', '#7C3AED'];
+            const accent = palette[stars % palette.length];
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="320" height="220" viewBox="0 0 320 220">
+                    <defs>
+                        <linearGradient id="hotelCardBg" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="${accent}" />
+                            <stop offset="100%" stop-color="#E0F2FE" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="320" height="220" rx="24" fill="url(#hotelCardBg)" />
+                    <rect x="22" y="28" width="130" height="78" rx="16" fill="rgba(255,255,255,0.22)" />
+                    <rect x="166" y="44" width="126" height="18" rx="9" fill="rgba(255,255,255,0.28)" />
+                    <rect x="166" y="72" width="94" height="14" rx="7" fill="rgba(255,255,255,0.2)" />
+                    <rect x="22" y="134" width="276" height="56" rx="18" fill="rgba(255,255,255,0.88)" />
+                    <text x="36" y="162" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#0F172A">${window._mobileSummaryEsc(name)}</text>
+                    <text x="36" y="184" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#64748B">${window._mobileSummaryEsc(area)} · ${'★'.repeat(Math.max(1, Math.min(stars, 5)))}</text>
+                </svg>`;
+            return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+        };
+
         window._renderOnlineHotelCardRowsHtml = (rows, selectedIndex) => {
             return rows.map((r, idx) => {
                 const sel = selectedIndex === idx ? ' ring-2 ring-[#4285F4] bg-[#E8F4FC]/70' : '';
                 const starLabel = r.starRank ? `${r.starRank} Star` : 'Hotel';
-                const badges = [];
-                if (r.includeBreakfast) badges.push('<span class="inline-flex items-center gap-1 text-xs text-slate-600"><i data-lucide="coffee" class="w-3 h-3 shrink-0"></i>Breakfast included</span>');
-                if (r.freeCancellation) badges.push('<span class="inline-flex items-center gap-1 text-xs text-slate-600"><i data-lucide="shield-check" class="w-3 h-3 shrink-0"></i>Free cancellation</span>');
-                if (r.corporateRate) badges.push('<span class="inline-flex items-center gap-1 text-xs text-slate-600"><i data-lucide="briefcase" class="w-3 h-3 shrink-0"></i>Corporate rate</span>');
-                const badgeStack = badges.length
-                    ? `<div class="mt-2 flex flex-col gap-1">${badges.join('')}</div>`
-                    : '';
+                const mediaSrc = window._buildHotelCardImageUrl(r);
+                const safeName = window._mobileSummaryEsc(r.name);
+                const tags = [];
+                if (r.includeBreakfast) tags.push('<span class="online-hotel-card-tag"><i data-lucide="coffee" class="w-3 h-3 shrink-0"></i>Breakfast included</span>');
+                if (r.freeCancellation) tags.push('<span class="online-hotel-card-tag"><i data-lucide="shield-check" class="w-3 h-3 shrink-0"></i>Free cancellation</span>');
+                if (r.corporateRate) tags.push('<span class="online-hotel-card-tag"><i data-lucide="briefcase" class="w-3 h-3 shrink-0"></i>Corporate rate</span>');
+                if (!tags.length) tags.push('<span class="online-hotel-card-tag"><i data-lucide="bed-double" class="w-3 h-3 shrink-0"></i>Room only</span>');
                 return `
                 <div role="button" tabindex="0" data-hotel-idx="${idx}"
                     data-stars="${r.starRank || 0}" data-price="${r.price}" data-area="${r.area}"
@@ -16356,27 +18110,35 @@
                     onclick="window.selectOnlineHotelRow(${idx})"
                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.selectOnlineHotelRow(${idx});}"
                     class="online-hotel-select-row bg-white rounded-xl p-4 mb-3 border border-gray-100 shadow-sm cursor-pointer hover:bg-slate-50/80 transition-colors${sel}">
-                    <div class="flex justify-between items-start gap-3">
-                        <div class="flex-1 min-w-0">
-                            <p class="text-xs text-gray-500 mb-1">${starLabel} · ${r.area}</p>
-                            <h3 class="text-base font-bold text-gray-900 block truncate">${r.name}</h3>
-                            <div class="flex flex-wrap items-center gap-2 mt-1">
-                                <span class="inline-flex items-center px-1.5 py-0.5 rounded bg-slate-100 text-xs font-semibold text-slate-800">${r.rating}</span>
-                                <span class="text-xs text-gray-500">${r.area}</span>
+                    <div class="online-hotel-card-shell">
+                        <div class="online-hotel-card-media">
+                            <img src="${mediaSrc}" alt="${safeName}" loading="lazy" decoding="async">
+                        </div>
+                        <div class="online-hotel-card-content">
+                            <div class="online-hotel-card-body">
+                                <p class="online-hotel-card-kicker">${window._mobileSummaryEsc(starLabel)} &bull; ${window._mobileSummaryEsc(r.area)}</p>
+                                <h3 class="online-hotel-card-title">${window._mobileSummaryEsc(r.name)}</h3>
+                                <div class="online-hotel-card-rating">
+                                    <span class="online-hotel-card-rating-badge">${window._mobileSummaryEsc(r.rating)}</span>
+                                    <span>${window._mobileSummaryEsc(r.area)}</span>
+                                </div>
+                                <div class="online-hotel-card-tags">${tags.join('')}</div>
                             </div>
-                            ${badgeStack}
+                            <div class="online-hotel-card-footer">
+                                <div class="online-hotel-card-price">
+                                    <div class="online-hotel-card-price-value">¥${r.price.toLocaleString()}</div>
+                                    <p class="online-hotel-card-price-note">+ Taxes &amp; fees</p>
+                                    <p class="online-hotel-card-price-note">per night</p>
+                                </div>
+                                <div class="online-hotel-card-footer-action" onclick="event.stopPropagation()">
+                                    <button type="button" onclick="window.openHotelMoreModal(${idx})"
+                                        class="inline-flex items-center justify-center gap-1 px-3 py-2 rounded-xl text-[10px] font-black tracking-wide text-[#4285F4] border border-[#4285F4]/40 bg-white hover:bg-blue-50 transition-colors whitespace-nowrap">
+                                        <i data-lucide="layers" class="w-3.5 h-3.5 shrink-0"></i>
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex flex-col items-end justify-end shrink-0 text-right">
-                            <div class="text-lg font-extrabold text-gray-900">¥${r.price.toLocaleString()}</div>
-                            <p class="text-[10px] text-gray-500 mt-0.5">+ Taxes &amp; fees</p>
-                            <p class="text-[10px] text-gray-500">per night</p>
-                        </div>
-                    </div>
-                    <div class="mt-3 pt-3 border-t border-slate-100" onclick="event.stopPropagation()">
-                        <button type="button" onclick="window.openHotelMoreModal(${idx})"
-                            class="inline-flex items-center justify-center gap-1 px-2.5 py-1.5 rounded-lg text-[10px] font-black tracking-wide text-[#4285F4] border border-[#4285F4]/40 bg-white hover:bg-blue-50 transition-colors whitespace-nowrap">
-                            <i data-lucide="layers" class="w-3.5 h-3.5 shrink-0"></i>
-                            View Details                        </button>
                     </div>
                 </div>`;
             }).join('');
@@ -16474,6 +18236,7 @@
             const cnt = document.getElementById('online-hotel-results-count');
             if (cnt) cnt.textContent = `Showing hotels : ${window._onlineHotelRows.length}`;
             document.getElementById('online-hotel-results')?.classList.remove('hidden');
+            window.collapseOnlineSearchPanel?.('hotel');
             window.switchOnlineHotelResultsTab('results');
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
@@ -16605,6 +18368,7 @@
             const cnt = document.getElementById('online-car-results-count');
             if (cnt) cnt.textContent = `Showing vehicles : ${window._onlineCarRows.length}`;
             document.getElementById('online-car-results')?.classList.remove('hidden');
+            window.collapseOnlineSearchPanel?.('car');
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
             lucide.createIcons();
@@ -17027,6 +18791,7 @@
                 const sortIcon = document.getElementById('online-flight-sort-icon');
                 if (sortIcon) sortIcon.setAttribute('data-lucide', 'chevron-down');
                 document.getElementById('online-flight-results')?.classList.remove('hidden');
+                window.collapseOnlineSearchPanel?.('flight');
                 window.switchOnlineFlightMultiLegTab(0);
                 window.updateOnlineBookingFooterButtons?.();
                 window.updateBookingStepNextButtonState?.();
@@ -17082,6 +18847,7 @@
                 const sortIcon = document.getElementById('online-flight-sort-icon');
                 if (sortIcon) sortIcon.setAttribute('data-lucide', 'chevron-down');
                 document.getElementById('online-flight-results')?.classList.remove('hidden');
+                window.collapseOnlineSearchPanel?.('flight');
                 window.switchOnlineFlightMultiLegTab(0);
                 window.updateOnlineBookingFooterButtons?.();
                 window.updateBookingStepNextButtonState?.();
@@ -17117,6 +18883,7 @@
             if (sortIcon) sortIcon.setAttribute('data-lucide', 'chevron-down');
 
             document.getElementById('online-flight-results')?.classList.remove('hidden');
+            window.collapseOnlineSearchPanel?.('flight');
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
             lucide.createIcons();
@@ -17430,6 +19197,8 @@
             }
             if (mode !== 'flight') window.closeOnlineFlightMobileReview();
             if (mode !== 'rail') window._onlineRailMobileReviewOpen = false;
+            window.wireOnlineSearchDateDisplays?.();
+            window.setOnlineSearchCollapsed?.(mode, window._onlineSearchAccordionState?.[mode] === true);
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
             window.renderOnlineFlightMobileStepper?.();
@@ -17504,6 +19273,7 @@
             window._onlineFlightMultiLegRows = [];
             window._onlineRailMultiLegRows = [];
             window._onlineFareSelection = { flight: {}, rail: {} };
+            window.resetOnlineSearchPanels?.();
             window._editingItemId = null;
             window._editingItineraryReplaceStart = null;
             window._editingItineraryReplaceCount = null;
@@ -17615,7 +19385,7 @@
             segs.forEach((seg, i) => {
                 const gr = sel[i].row;
                 const dStr = window.formatOnlineFlightDateDisplay(seg.date);
-                let title = isRound ? (i === 0 ? 'Flight' : 'Flight (Return)') : `Flight (Trip ${i + 1})`;
+                let title = isRound ? (i === 0 ? 'Flight' : 'Flight (Return)') : `Flight (${window.getWorkflowLegLabel(i)})`;
                 const idx = sel[i].idx;
                 const fk = `mc-${i}-${idx}`;
                 const fp = window._onlineFareSelection.flight[fk];
@@ -17705,7 +19475,7 @@
             segs.forEach((seg, i) => {
                 const gr = sel[i].row;
                 const dStr = window.formatOnlineFlightDateDisplay(seg.date);
-                const title = isRound ? (i === 0 ? 'Railway (JR)' : 'Railway (Return)') : `Rail (Trip ${i + 1})`;
+                const title = isRound ? (i === 0 ? 'Railway (JR)' : 'Railway (Return)') : `Rail (${window.getWorkflowLegLabel(i)})`;
                 const idx = sel[i].idx;
                 const fk = `mc-${i}-${idx}`;
                 const rp = window._onlineFareSelection.rail[fk];
@@ -17901,14 +19671,16 @@
                 const hotelResultsEl = document.getElementById('online-hotel-results');
                 const hotelResultsVisible = hotelResultsEl && !hotelResultsEl.classList.contains('hidden');
                 if (interactiveBookingVisible && hotelActive && hotelResultsVisible) {
-                    window.disableBookingStepNextButton();
+                    if (window._onlineHotelSelectedIndex !== null) window.enableBookingStepNextButton();
+                    else window.disableBookingStepNextButton();
                     return;
                 }
                 const carActive = document.querySelector('.online-subtab-card[data-online-mode="car"].ring-2');
                 const carResultsEl = document.getElementById('online-car-results');
                 const carResultsVisible = carResultsEl && !carResultsEl.classList.contains('hidden');
                 if (interactiveBookingVisible && carActive && carResultsVisible) {
-                    window.disableBookingStepNextButton();
+                    if (window._onlineCarSelectedIndex !== null) window.enableBookingStepNextButton();
+                    else window.disableBookingStepNextButton();
                     return;
                 }
                 const visibleSubtab = [...document.querySelectorAll('.subtab-content')].find(el => !el.classList.contains('hidden'));
@@ -18067,6 +19839,7 @@
         };
 
         window.setBookingStep = (step) => {
+            document.getElementById('page-booking')?.setAttribute('data-active-step', String(step));
             if (step !== 2) window.closeBookingTravelInfoModal?.();
             // Updated for 3 steps
             for (let i = 1; i <= 3; i++) { const el = document.getElementById('booking-step-' + i); if (el) el.classList.add('hidden'); }
@@ -18113,7 +19886,7 @@
                     }
                 }
             });
-            lucide.createIcons(); window.scrollTo({ top: 0, behavior: 'smooth' });
+            lucide.createIcons();
         };
 
         window._bookingOnlineUiOfflineTab = false;
