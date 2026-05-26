@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Tripsource - Booking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -405,22 +405,30 @@
             }
 
             #login-screen {
-                align-items: center;
-                justify-content: center;
-                padding: 1rem;
-                overflow-y: auto;
+                display: grid;
+                place-items: center;
+                align-content: center;
+                min-height: 100dvh;
+                min-height: 100svh;
+                padding: max(1rem, env(safe-area-inset-top)) 1rem max(1rem, env(safe-area-inset-bottom));
+                overflow: hidden;
             }
 
             #login-screen .login-aside {
                 width: 100%;
                 max-width: 28rem;
                 height: auto;
-                max-height: min(92dvh, calc(100dvh - 2rem));
-                margin: auto;
+                max-height: calc(100dvh - 2rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+                max-height: calc(100svh - 2rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+                margin: 0;
+                align-self: center;
+                justify-self: center;
                 border-radius: 1.25rem;
                 border: 1px solid #e2e8f0;
                 background: #FFFFFF;
                 box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.22);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
 
             #login-screen .login-aside > .sticky.top-0 {
@@ -440,51 +448,33 @@
                 display: block;
             }
 
-            /* Dashboard HOME — compact 3-up stat row on mobile (md+ unchanged via HTML md: classes) */
-            #page-dashboard .dashboard-stat-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 0.375rem;
-            }
-
+            /* Dashboard HOME — readable labels; column count from Tailwind min-[450px]:grid-cols-3 */
             #page-dashboard .dashboard-stat-chip {
-                padding: 0.5rem 0.25rem;
+                padding: 0.75rem 0.5rem;
                 border-radius: 0.5rem;
                 min-width: 0;
             }
 
             #page-dashboard .dashboard-stat-label {
-                font-size: 7px;
-                line-height: 1.15;
-                letter-spacing: -0.02em;
-                margin-bottom: 0.125rem;
-            }
-
-            /* Dashboard HOME — compact 3-up stat row on mobile (md+ unchanged via HTML md: classes) */
-            #page-dashboard .dashboard-stat-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 0.375rem;
-            }
-
-            #page-dashboard .dashboard-stat-chip {
-                padding: 0.5rem 0.25rem;
-                border-radius: 0.5rem;
-                min-width: 0;
-            }
-
-            #page-dashboard .dashboard-stat-label {
-                font-size: 7px;
-                line-height: 1.15;
-                letter-spacing: -0.02em;
-                margin-bottom: 0.125rem;
+                font-size: 0.6875rem;
+                line-height: 1.25;
+                letter-spacing: normal;
+                margin-bottom: 0.25rem;
             }
 
             #page-dashboard .dashboard-stat-value {
-                font-size: 1.85rem;
+                font-size: 1.5rem;
                 line-height: 1.15;
             }
 
-            #page-dashboard .dashboard-stat-grid-wrap {
-                padding: 0.5rem;
+            /* iOS Safari: prevent auto-zoom on form focus */
+            #login-screen input,
+            #login-screen select,
+            #login-screen textarea,
+            #main-app input,
+            #main-app select,
+            #main-app textarea {
+                font-size: 16px !important;
             }
         }
 
@@ -561,12 +551,12 @@
         /* Forgot password: OTP cells */
         .fp-otp-cell {
             width: 100%;
-            max-width: 2.5rem;
+            max-width: 2.75rem;
             aspect-ratio: 1;
-            min-height: 2.5rem;
+            min-height: 2.75rem;
             padding: 0;
             text-align: center;
-            font-size: 0.875rem;
+            font-size: 1rem;
             font-weight: 800;
             border-radius: 0.75rem;
             border: 1px solid rgb(226 232 240);
@@ -1282,6 +1272,7 @@
 
             #page-booking .online-flight-class-seg {
                 position: relative;
+                padding-bottom: 0.5rem;
             }
 
             #page-booking .online-flight-class-seg > .flex.items-center {
@@ -2699,6 +2690,16 @@
             }
         }
 
+        /* Hide flight/rail result lists once every leg is selected (all viewports) */
+        #online-flight-results.online-results-complete #online-flight-results-shell,
+        #online-flight-results.online-results-complete #online-flight-leg-tabs,
+        #online-flight-results.online-results-complete #online-flight-multi-leg-tabs,
+        #online-rail-results.online-results-complete #online-rail-results-shell,
+        #online-rail-results.online-results-complete #online-rail-leg-tabs,
+        #online-rail-results.online-results-complete #online-rail-multi-leg-tabs {
+            display: none !important;
+        }
+
         /* Narrow viewports: legacy grid override removed — vertical stack above applies */
 
         /* Narrow viewports: From | swap | To on one row; dates and class full width */
@@ -2824,11 +2825,24 @@
         #reservation-list-table-wrap .reservation-list-table td:nth-child(12) { width: 8%; min-width: 95px; }
 
 
-        /* Library / Reports / User Management — mobile gap fix (gap-fix-v3) */
+        /* Mobile shell — content-height pages (no viewport stretch / bottom gap) */
         @media (max-width: 767px) {
             #main-content-wrapper {
                 min-height: 0 !important;
+                height: auto !important;
             }
+
+            #main-content-wrapper > .mobile-app-bg-photo,
+            #main-content-wrapper > .mobile-app-bg-scrim {
+                position: fixed !important;
+                inset: 0 !important;
+                min-height: 0 !important;
+                height: auto !important;
+            }
+            #main-content-wrapper > header {
+  gap: 0.375rem;           /* was gap-2 (0.5rem) via Tailwind */
+  padding-bottom: 0.25rem; /* reduce space under search */
+}
 
             #pages-container {
                 flex: 0 0 auto !important;
@@ -2837,8 +2851,57 @@
                 height: auto !important;
                 padding-top: 0 !important;
                 margin-top: 0 !important;
+                padding-bottom: calc(4.25rem + env(safe-area-inset-bottom)) !important;
+                overflow-x: hidden;
             }
 
+            #page-booking,
+            #page-change-request {
+                padding-bottom: 0 !important;
+            }
+
+            #page-booking #booking-step-1 {
+                padding-bottom: 0 !important;
+            }
+
+            #page-booking #booking-step1-nav {
+                margin-top: 0.75rem !important;
+                padding-top: 0.75rem !important;
+                padding-bottom: 0 !important;
+                border-top: none !important;
+            }
+
+            #page-booking #booking-step1-nav #booking-step-next-btn {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            #page-booking #booking-step-1 .domestic-form-container > form > .mt-6.rounded-2xl > .p-4 {
+                padding-bottom: 0.75rem !important;
+            }
+
+            #online-flight-table-scroll,
+            #online-rail-table-scroll,
+            #online-hotel-table-scroll,
+            #online-car-table-scroll {
+                max-height: none !important;
+            }
+
+            #pages-container > main:not(.hidden),
+            #pages-container > section:not(.hidden),
+            #pages-container > div:not(.hidden) {
+                flex: 0 0 auto !important;
+                min-height: 0 !important;
+                height: auto !important;
+                width: 100% !important;
+            }
+
+            #page-dashboard,
+            #page-approvals,
+            #page-profile,
+            #page-my-points,
+            #page-booking,
+            #page-change-request,
             #page-library,
             #page-reports,
             #page-user-management,
@@ -2869,13 +2932,92 @@
             .low-content-page-body .domestic-form-container {
                 margin-top: 0;
             }
+            .mobile-app-header-bar {
+                display: grid;
+                grid-template-columns: 44px 1fr auto;
+                align-items: center;
+                column-gap: 0.5rem;
+                width: 100%;
+                min-height: 4rem;
+                height: 4rem;
+                padding: 0 0.375rem;
+            }
+
+            .mobile-app-header-bar__side {
+                display: flex;
+                align-items: center;
+                min-height: 44px;
+            }
+
+            .mobile-app-header-bar__side--start {
+                justify-content: flex-start;
+            }
+
+            .mobile-app-header-bar__side--end {
+                justify-content: flex-end;
+            }
+
+            .mobile-app-header-bar__brand {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 0;
+                min-height: 44px;
+                padding: 0 0.25rem;
+            }
+
             .header-mobile-logo {
                 display: block;
-                height: 2rem;
+                height: 3.25rem;
+                max-height: 4.25rem;
+                min-height: 0;
                 width: auto;
-                min-height: 2rem;
-                flex-shrink: 0;
+                max-width: min(400px, 52vw);
+                object-fit: contain;
+                object-position: center;
+                flex-shrink: 1;
             }
+
+            .mobile-app-header-bar .header-profile-dropdown-wrap button[data-profile-dropdown-trigger] {
+                min-height: 44px;
+                height: 44px;
+                padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+            }
+
+            .mobile-app-header-bar .header-profile-dropdown-wrap button[data-profile-dropdown-trigger] > div {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.625rem;
+            }
+
+            #page-dashboard .mb-8 {
+                margin-bottom: 1.25rem !important;
+            }
+
+            #page-dashboard .mb-6 {
+                margin-bottom: 1rem !important;
+            }
+
+            #page-dashboard .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+                margin-top: 1.25rem !important;
+            }
+
+            #page-library {
+  align-self: flex-start; /* prevent flex stretch gap above page */
+  width: 100%;
+}
+#page-library .low-content-page-header {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0 !important;
+}
+#page-library .low-content-page-header > div {
+  margin-bottom: 0.25rem !important; /* was 0.5rem in shared rule */
+}
+#page-library .low-content-page-header .app-heading-page {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
             #page-library .library-mobile-toolbar {
                 position: sticky;
                 top: 0;
@@ -6192,9 +6334,10 @@
                 padding-bottom: 0.65rem;
             }
 
-            #nav-international,
-            #nav-user-management {
-                display: none !important;
+            /* Itinerary mode tabs: allow wrapped rows (parent overflow-y was clipping line 2) */
+            #itinerary-tab-container-wrap.app-tabstrip-scroll,
+            #change-itinerary-tab-container-wrap.app-tabstrip-scroll {
+                overflow-y: visible;
             }
 
             body.mobile-nav-open {
@@ -6233,7 +6376,7 @@
 <body class="bg-slate-50 text-slate-800 text-sm">
 
     <!-- LOGIN SCREEN: full-bleed photo bg; hero left (md+); wider white panel right; column scroll (no inner box scrollbar) -->
-    <div id="login-screen" class="fixed inset-0 z-[200] flex flex-col md:flex-row overflow-hidden max-md:overflow-y-auto max-md:items-center max-md:justify-center max-md:p-4 relative">
+    <div id="login-screen" class="fixed inset-0 z-[200] flex flex-col md:flex-row overflow-hidden max-md:overflow-hidden max-md:p-0 relative">
 
         <div class="login-bg-photo fixed md:absolute inset-0 z-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none" aria-hidden="true"></div>
         <div class="login-bg-overlay fixed md:absolute inset-0 z-[1] w-full h-full pointer-events-none" aria-hidden="true"></div>
@@ -6280,7 +6423,7 @@
         <!-- AI-ADDED: Slightly narrower panel vs previous 36rem/42rem
              Prompt: reduce little width of login panel -->
         <aside
-            class="login-aside relative flex flex-col h-[100dvh] max-h-[100dvh] max-md:h-auto max-md:max-h-[min(92dvh,calc(100dvh-2rem))] w-full max-md:max-w-md max-md:mx-auto max-md:rounded-2xl max-md:border max-md:border-slate-200 max-md:bg-white max-md:shadow-2xl md:w-[min(100%,33rem)] lg:w-[38rem] shrink-0 overflow-y-auto overflow-x-hidden bg-white shadow-[-8px_0_32px_-8px_rgba(15,23,42,0.12)] z-20 animate-fade-in md:border-l border-slate-100">
+            class="login-aside relative flex flex-col h-[100dvh] max-h-[100dvh] max-md:h-auto max-md:max-h-none w-full max-md:max-w-md max-md:mx-auto max-md:rounded-2xl max-md:border max-md:border-slate-200 max-md:bg-white max-md:shadow-2xl md:w-[min(100%,33rem)] lg:w-[38rem] shrink-0 overflow-y-auto overflow-x-hidden bg-white shadow-[-8px_0_32px_-8px_rgba(15,23,42,0.12)] z-20 animate-fade-in md:border-l border-slate-100">
             <div class="sticky top-0 z-30 shrink-0 flex items-center justify-between md:justify-end gap-3 px-5 sm:px-6 pt-3 pb-2 border-b bg-white border-slate-100">
                 <div class="login-mobile-brand flex items-center gap-3 min-w-0 relative z-10 md:hidden">
                     <img src="blue.png" alt="tripsource by BCD travel" class="relative z-10 block h-9 w-auto max-w-[200px] object-contain object-left" width="200" height="36" decoding="async" />
@@ -6303,7 +6446,7 @@
                 </div>
             </div>
 
-            <div class="login-panel-scroll flex flex-col min-h-[calc(100dvh-4.5rem)] max-md:min-h-0 max-md:justify-start max-md:pt-4 justify-center pt-20 pb-6 sm:pb-8">
+            <div class="login-panel-scroll flex flex-col min-h-[calc(100dvh-4.5rem)] max-md:min-h-0 max-md:justify-start max-md:pt-3 max-md:pb-4 justify-center pt-20 pb-6 sm:pb-8">
                 <div class="w-full max-w-lg mx-auto px-6 sm:px-9">
             <div class="pb-3 text-center border-b border-slate-100">
                 <h2 class="text-lg font-black text-slate-900 flex items-center justify-center gap-2 flex-wrap">
@@ -6624,32 +6767,35 @@
         <div id="sidebar-backdrop" class="hidden fixed inset-0 z-[25] bg-slate-900/40 md:pointer-events-none" aria-hidden="true" role="presentation"></div>
 
         <!-- MAIN CONTENT WRAPPER -->
-        <div id="main-content-wrapper" class="ml-64 relative flex flex-col min-h-screen transition-all duration-300 ease-in-out md:bg-slate-50">
-            <div class="pointer-events-none absolute inset-0 z-0 hidden max-md:block bg-cover bg-center bg-no-repeat min-h-screen bg-[url('airplane-miniature-notepad-world-map-laptop-wooden-table.jpg')]" aria-hidden="true"></div>
-            <div class="pointer-events-none absolute inset-0 z-[1] hidden max-md:block bg-white/88" aria-hidden="true"></div>
+        <div id="main-content-wrapper" class="ml-64 relative flex flex-col min-h-screen max-md:min-h-0 max-md:h-auto transition-all duration-300 ease-in-out md:bg-slate-50">
+            <div class="mobile-app-bg-photo pointer-events-none fixed inset-0 z-0 hidden max-md:block md:absolute md:min-h-screen bg-cover bg-center bg-no-repeat bg-[url('airplane-miniature-notepad-world-map-laptop-wooden-table.jpg')]" aria-hidden="true"></div>
+            <div class="mobile-app-bg-scrim pointer-events-none fixed inset-0 z-[1] hidden max-md:block md:absolute md:min-h-screen bg-white/88" aria-hidden="true"></div>
             <header
-                class="relative z-30 min-h-16 bg-white border-b border-slate-200 flex flex-col gap-2 py-2 px-3 sm:px-6 md:px-8 md:flex-row md:items-center md:justify-between md:gap-4 md:py-0 md:h-16 sticky top-0 shadow-sm">
-                <!-- Mobile: hamburger + logo (left) + profile (right); 412px-friendly -->
-                <div class="flex w-full items-center gap-3 px-2 md:hidden">
-                    <button type="button" id="mobile-nav-toggle" onclick="window.toggleSidebar()"
-                        class="inline-flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg text-slate-700 hover:bg-slate-100 transition-colors shrink-0"
-                        aria-controls="app-sidebar" aria-expanded="false" aria-label="Open menu" title="Menu">
-                        <i data-lucide="menu" class="w-6 h-6 shrink-0" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" onclick="window.showPage('dashboard')"
-                        class="flex items-center min-w-0 flex-1 justify-start rounded-lg hover:opacity-90 transition-opacity"
-                        aria-label="Go to home">
-                        <!-- RESIZED   -->
-                        <img src="blue.png" alt="tripsource by BCD travel"
-                            class="header-mobile-logo h-8 w-auto max-w-[min(160px,42vw)] object-contain object-left" width="120" height="28" decoding="async" />
-                    </button>
-                    <div class="relative shrink-0 header-profile-dropdown-wrap">
+                class="relative z-30 min-h-16 bg-white border-b border-slate-200 flex flex-col gap-2 py-2 px-3 sm:px-6 md:px-8 max-md:gap-2 max-md:py-2 md:flex-row md:items-center md:justify-between md:gap-4 md:py-0 md:h-16 sticky top-0 shadow-sm">
+                <!-- Mobile: menu | logo (center) | profile — single aligned row -->
+                <div class="mobile-app-header-bar md:hidden">
+                    <div class="mobile-app-header-bar__side mobile-app-header-bar__side--start">
+                        <button type="button" id="mobile-nav-toggle" onclick="window.toggleSidebar()"
+                            class="inline-flex items-center justify-center w-11 h-11 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors shrink-0"
+                            aria-controls="app-sidebar" aria-expanded="false" aria-label="Open menu" title="Menu">
+                            <i data-lucide="menu" class="w-6 h-6 shrink-0" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="mobile-app-header-bar__brand">
+                        <button type="button" onclick="window.showPage('dashboard')"
+                            class="inline-flex items-center justify-center max-w-full rounded-lg hover:opacity-90 transition-opacity"
+                            aria-label="Go to home">
+                            <img src="blue.png" alt="tripsource by BCD travel"
+                                class="header-mobile-logo" width="160" height="150" decoding="async" />
+                        </button>
+                    </div>
+                    <div class="mobile-app-header-bar__side mobile-app-header-bar__side--end header-profile-dropdown-wrap relative shrink-0">
                         <button type="button" onclick="window.toggleProfileDropdown(this)"
                             data-profile-dropdown-trigger aria-haspopup="menu" aria-expanded="false"
-                            class="flex items-center gap-1.5 p-1 pr-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-all border border-slate-200 min-h-[44px]"
+                            class="inline-flex items-center gap-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-all border border-slate-200 shrink-0"
                             aria-label="Account menu">
-                            <div class="w-8 h-8 rounded-full bg-[#4285F4] text-white flex items-center justify-center font-bold text-[10px]">JW</div>
-                            <i data-lucide="chevron-down" class="w-3 h-3 text-slate-400"></i>
+                            <div class="rounded-full bg-[#4285F4] text-white flex items-center justify-center font-bold">JW</div>
+                            <i data-lucide="chevron-down" class="w-3 h-3 text-slate-400 shrink-0" aria-hidden="true"></i>
                         </button>
                         <div data-profile-dropdown
                             class="hidden absolute top-full right-0 mt-2 w-64 min-w-[220px] bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden text-slate-800 z-50">
@@ -6755,9 +6901,9 @@
             </header>
 
             <!-- PAGES (gap-fix-v3: mobile pt-0, no min-h-screen stretch on library/reports/UM) -->
-            <div id="pages-container" class="relative z-10 flex flex-1 flex-col items-stretch justify-start min-h-0 max-md:min-h-0 max-md:flex-none max-md:flex-grow-0 max-md:h-auto w-full overflow-y-auto pt-0 max-md:pt-0 md:pt-0 max-md:pb-[calc(5rem+env(safe-area-inset-bottom))]">
+           
                 <!-- DASHBOARD -->
-                <main id="page-dashboard" class="p-4 md:p-8 max-w-7xl mx-auto w-full animate-fade-in">
+                <main id="page-dashboard" class="p-4 md:p-8 max-w-7xl mx-auto w-full animate-fade-in max-md:pb-2">
                     <div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-end mb-6 md:mb-8">
                         <div>
                             <h2 class="text-xl font-extrabold text-slate-900 tracking-tight md:text-3xl">Welcome Home, John</h2>
@@ -6828,24 +6974,24 @@
                                         </button>
                                     </div>
                                     <div class="p-4 md:p-6">
-                                        <div class="dashboard-stat-grid grid grid-cols-3 gap-2 md:gap-4 items-stretch w-full text-center">
-                                            <div class="dashboard-stat-chip stat-card bg-slate-50 p-2 md:p-4 rounded-lg md:rounded-xl border border-slate-100">
+                                        <div class="dashboard-stat-grid grid grid-cols-1 min-[450px]:grid-cols-3 gap-4 md:gap-4 items-stretch w-full text-center">
+                                            <div class="dashboard-stat-chip stat-card bg-slate-50 p-3 min-[450px]:p-4 md:p-4 rounded-lg md:rounded-xl border border-slate-100">
                                                 <span
-                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 tracking-tighter mb-1 block">Reservation
+                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 max-md:tracking-normal tracking-tighter mb-1 block">Reservation
                                                     in Progress</span>
                                                 <span class="dashboard-stat-value text-xl md:text-3xl font-black text-[#4285F4]">0</span>
                                             </div>
-                                            <div class="dashboard-stat-chip stat-card bg-slate-50 p-2 md:p-4 rounded-lg md:rounded-xl border border-slate-100">
+                                            <div class="dashboard-stat-chip stat-card bg-slate-50 p-3 min-[450px]:p-4 md:p-4 rounded-lg md:rounded-xl border border-slate-100">
                                                 <span
-                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 tracking-tighter mb-1 block">Quotation
+                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 max-md:tracking-normal tracking-tighter mb-1 block">Quotation
                                                     Available</span>
-                                                <span class="text-3xl font-black text-slate-800">0</span>
+                                                <span class="dashboard-stat-value text-xl md:text-3xl font-black text-slate-800">0</span>
                                             </div>
-                                            <div class="dashboard-stat-chip stat-card bg-slate-50 p-2 md:p-4 rounded-lg md:rounded-xl border border-slate-100">
+                                            <div class="dashboard-stat-chip stat-card bg-slate-50 p-3 min-[450px]:p-4 md:p-4 rounded-lg md:rounded-xl border border-slate-100">
                                                 <span
-                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 tracking-tighter mb-1 block">Approval
+                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 max-md:tracking-normal tracking-tighter mb-1 block">Approval
                                                     in Progress</span>
-                                                <span class="text-3xl font-black text-slate-800">0</span>
+                                                <span class="dashboard-stat-value text-xl md:text-3xl font-black text-slate-800">0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -6860,32 +7006,32 @@
                                         </h4>
                                     </div>
                                     <div class="p-4 md:p-6">
-                                        <div class="dashboard-stat-grid grid grid-cols-3 gap-2 md:gap-4 items-stretch w-full text-center">
+                                        <div class="dashboard-stat-grid grid grid-cols-1 min-[450px]:grid-cols-3 gap-4 md:gap-4 items-stretch w-full text-center">
                                             <div role="button" tabindex="0"
-                                                class="dashboard-stat-chip stat-card bg-slate-50 p-2 md:p-4 rounded-lg md:rounded-xl border border-slate-100 cursor-pointer hover:border-[#4285F4]/40 hover:shadow-md transition-all"
+                                                class="dashboard-stat-chip stat-card bg-slate-50 p-3 min-[450px]:p-4 md:p-4 rounded-lg md:rounded-xl border border-slate-100 cursor-pointer hover:border-[#4285F4]/40 hover:shadow-md transition-all"
                                                 onclick="window.openLibraryFromApproverMenu('pending')"
                                                 onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.openLibraryFromApproverMenu('pending');}">
                                                 <span
-                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 tracking-tighter mb-1 block">Pending
+                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 max-md:tracking-normal tracking-tighter mb-1 block">Pending
                                                     Approvals</span>
-                                                <span class="text-3xl font-black text-slate-800">0</span>
+                                                <span class="dashboard-stat-value text-xl md:text-3xl font-black text-slate-800">0</span>
                                             </div>
                                             <div role="button" tabindex="0"
-                                                class="dashboard-stat-chip stat-card bg-slate-50 p-2 md:p-4 rounded-lg md:rounded-xl border border-slate-100 cursor-pointer hover:border-[#4285F4]/40 hover:shadow-md transition-all"
+                                                class="dashboard-stat-chip stat-card bg-slate-50 p-3 min-[450px]:p-4 md:p-4 rounded-lg md:rounded-xl border border-slate-100 cursor-pointer hover:border-[#4285F4]/40 hover:shadow-md transition-all"
                                                 onclick="window.openLibraryFromApproverMenu('new')"
                                                 onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.openLibraryFromApproverMenu('new');}">
                                                 <span
-                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 tracking-tighter mb-1 block">New
+                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 max-md:tracking-normal tracking-tighter mb-1 block">New
                                                     Requests</span>
-                                                <span class="text-3xl font-black text-slate-800">1</span>
+                                                <span class="dashboard-stat-value text-xl md:text-3xl font-black text-slate-800">1</span>
                                             </div>
                                             <div role="button" tabindex="0"
-                                                class="dashboard-stat-chip stat-card bg-slate-50 p-2 md:p-4 rounded-lg md:rounded-xl border border-slate-100 cursor-pointer hover:border-[#4285F4]/40 hover:shadow-md transition-all"
+                                                class="dashboard-stat-chip stat-card bg-slate-50 p-3 min-[450px]:p-4 md:p-4 rounded-lg md:rounded-xl border border-slate-100 cursor-pointer hover:border-[#4285F4]/40 hover:shadow-md transition-all"
                                                 onclick="window.openLibraryFromApproverMenu('approved')"
                                                 onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.openLibraryFromApproverMenu('approved');}">
                                                 <span
-                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 tracking-tighter mb-1 block">Approved Requests</span>
-                                                <span class="text-3xl font-black text-slate-800">0</span>
+                                                    class="dashboard-stat-label text-[10px] font-bold text-slate-400 max-md:tracking-normal tracking-tighter mb-1 block">Approved Requests</span>
+                                                <span class="dashboard-stat-value text-xl md:text-3xl font-black text-slate-800">0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -8198,9 +8344,9 @@
                 </main>
 
                 <!-- BOOKING WORKFLOW -->
-                <main id="page-booking" class="booking-workflow-page p-4 sm:p-8 hidden bg-slate-50 min-h-screen w-full max-w-full" data-active-step="1">
+                <main id="page-booking" class="booking-workflow-page p-4 sm:p-8 hidden bg-slate-50 max-md:min-h-0 md:min-h-screen w-full max-w-full" data-active-step="1">
                     <div class="w-full max-w-full">
-                        <div class="booking-workflow-header mb-8 flex justify-between items-center">
+                        <div class="booking-workflow-header mb-8 max-md:mb-3 flex justify-between items-center">
                             <h2 id="booking-title" class="app-heading-page">Travel:
                                 <span class="text-[#4285F4]">New Booking</span>
                             </h2>
@@ -8233,7 +8379,7 @@
                         </div>
 
                         <!-- STEP 1: TRAVEL INFO -->
-                        <div id="booking-step-1" class="animate-fade-in pb-10">
+                        <div id="booking-step-1" class="animate-fade-in pb-4 max-md:pb-0">
                             <div class="domestic-form-container">
                                 <form id="domestic-travel-form">
                                     <!-- Trip Information / Applicant Type -->
@@ -8458,7 +8604,7 @@
                                         <i data-lucide="map" class="w-4 h-4 text-[#4285F4]"></i> Itinerary Details
                                     </h3>
                                 </div>
-                                <div class="p-4 sm:p-6 text-center">
+                                <div class="p-4 sm:p-6 max-md:pb-3 text-center">
 
                                     <div id="itinerary-tab-container-wrap" class="app-tabstrip-scroll mb-6 -mx-1 px-1">
                                     <div id="itinerary-tab-container"
@@ -8673,7 +8819,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="online-flight-search-btn-wrap flex justify-center pt-1 max-md:pt-3">
+                                                <div class="online-flight-search-btn-wrap flex justify-center pt-1 max-md:pt-0">
                                                     <button type="button" onclick="window.searchOnlineFlight()"
                                                         class="online-flight-search-submit bg-[#4285F4] text-white px-10 py-2.5 rounded-xl font-bold text-sm hover:bg-[#3367D6] transition-all shadow-sm max-md:w-full max-md:min-h-[48px]">
                                                         Search
@@ -9399,9 +9545,9 @@
                                     </div>
                                 </div>
 
-                                <div class="flex justify-end items-center pt-8 border-t border-slate-200">
+                                <div id="booking-step1-nav" class="flex justify-end items-center pt-8 max-md:pt-3 max-md:pb-0 max-md:mt-2 border-t border-slate-200 max-md:border-t-0">
                                     <button type="button" id="booking-step-next-btn" onclick="window.handleBookingStepNext()" disabled
-                                        class="px-12 py-3 rounded-xl bg-slate-300 text-slate-500 font-black tracking-widest cursor-not-allowed transition-all">Next</button>
+                                        class="w-full max-md:w-full sm:w-auto px-12 max-md:px-6 py-3 max-md:min-h-[48px] rounded-xl bg-slate-300 text-slate-500 font-black tracking-widest cursor-not-allowed transition-all">Next</button>
                                 </div>
                             </div>
                         </div>
@@ -9711,7 +9857,7 @@
             </main>
 
             <!-- CHANGE REQUEST WORKFLOW (separate from New Request; same form structure, heading "Change Request") -->
-            <main id="page-change-request" class="booking-workflow-page p-4 sm:p-8 hidden bg-slate-50 min-h-screen w-full max-w-full" data-active-step="1">
+            <main id="page-change-request" class="booking-workflow-page p-4 sm:p-8 hidden bg-slate-50 max-md:min-h-0 md:min-h-screen w-full max-w-full" data-active-step="1">
                 <div class="w-full max-w-full">
                     <div class="booking-workflow-header mb-8 flex justify-between items-center">
                         <h2 id="change-request-title" class="app-heading-page">Travel:
@@ -11861,7 +12007,7 @@
             </div>
         </div>
         <div id="obt-filter-drawer-body" class="mobile-overlay-scroll flex-1 overflow-y-auto min-h-0"></div>
-        <div class="obt-filter-drawer-footer shrink-0 sticky bottom-0 flex flex-col sm:flex-row gap-2 p-4 border-t border-slate-200 bg-white shadow-[0_-4px_16px_rgba(15,23,42,0.08)]">
+        <div class="obt-filter-drawer-footer shrink-0 sticky bottom-0 flex flex-col sm:flex-row gap-2 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] border-t border-slate-200 bg-white shadow-[0_-4px_16px_rgba(15,23,42,0.08)]">
             <button type="button" onclick="window.resetObtFilterDrawer()" class="w-full sm:flex-1 min-h-[48px] rounded-xl border border-slate-200 bg-white text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors">Reset</button>
             <button type="button" onclick="window.applyObtFilterDrawer()" class="w-full sm:flex-[1.2] min-h-[48px] rounded-xl bg-[#4285F4] text-white text-sm font-bold shadow-md hover:bg-[#3367D6] transition-colors">Apply Filters</button>
         </div>
@@ -11869,7 +12015,7 @@
 
     <!-- Global price sort — mobile bottom sheet + desktop popover -->
     <div id="price-sort-sheet-backdrop" class="hidden md:hidden fixed inset-0 z-[76] bg-black/50 backdrop-blur-sm" onclick="window.closePriceSortMenu()" aria-hidden="true"></div>
-    <div id="price-sort-sheet" class="price-sort-sheet md:hidden fixed z-[77] inset-x-0 bottom-0 max-h-[50dvh] rounded-t-2xl flex flex-col bg-white shadow-2xl pointer-events-none" role="dialog" aria-modal="true" aria-labelledby="price-sort-sheet-title">
+    <div id="price-sort-sheet" class="price-sort-sheet md:hidden fixed z-[77] inset-x-0 bottom-0 max-h-[50dvh] rounded-t-2xl flex flex-col bg-white shadow-2xl pointer-events-none pb-[env(safe-area-inset-bottom)]" role="dialog" aria-modal="true" aria-labelledby="price-sort-sheet-title">
         <div class="shrink-0 px-4 py-3 border-b border-slate-200 flex items-center justify-between">
             <h4 id="price-sort-sheet-title" class="text-sm font-black text-[#0A3266]">Sort by price</h4>
             <button type="button" onclick="window.closePriceSortMenu()" class="inline-flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg text-slate-600 hover:bg-slate-100" aria-label="Close sort menu">
@@ -14428,10 +14574,6 @@
         };
 
         window.showPage = (pageId, type) => {
-            if (window.matchMedia('(max-width: 767px)').matches && pageId === 'user-management') {
-                pageId = 'dashboard';
-                type = undefined;
-            }
             document.querySelectorAll('main[id^="page-"]').forEach(p => p.classList.add('hidden'));
             const target = document.getElementById('page-' + pageId);
             if (target) target.classList.remove('hidden');
@@ -15729,9 +15871,6 @@
         window.togglePassportNoticeModal = (show) => { const modal = document.getElementById('passport-notice-modal'); modal.classList.toggle('hidden', !show); };
 
         window.startBooking = (type) => {
-            if (window.matchMedia('(max-width: 767px)').matches && type === 'international') {
-                type = 'domestic';
-            }
             window.currentTravelFlow = type;
             window.setSidebarCollapsed(true);
             window.showPage('booking', type);
@@ -16919,6 +17058,7 @@
             window.closeOnlineFareModal();
             if (mode === 'flight') {
                 window.closeOnlineFlightMobileReview();
+                window._onlineFlightMobileEditingLeg = null;
                 window.selectOnlineFlightRow(leg, idx);
                 window._onlineFareSelection.flight[fareKey] = { name: fareName, price: farePrice };
                 /* Second refresh so badge + ring-2 ring-[#4285F4] bg-[#E8F4FC]/70 both apply after fare is stored */
@@ -16972,6 +17112,7 @@
         window._onlineFlightMobileReviewOpen = false;
         window._onlineFlightMobileReviewPending = false;
         window._onlineFlightMobileReviewTimer = null;
+        window._onlineFlightMobileEditingLeg = null;
         window._onlineRailMultiProgressLeg = 0;
         window._onlineRailMultiSelections = [];
         window._onlineRailIsSequentialRound = false;
@@ -17335,6 +17476,11 @@
             if (scrollEl) scrollEl.scrollTop = 0;
             window.updateOnlineBookingFooterButtons?.();
             window.updateBookingStepNextButtonState?.();
+            if (window.isOnlineFlightMobileStepperActive?.()) {
+                const allDone = window._onlineFlightMobileAllDone?.();
+                const editing = window._onlineFlightMobileEditingLeg != null;
+                window._syncOnlineFlightResultsCompleteUi(allDone && !editing);
+            }
             window.renderOnlineFlightMobileStepper?.();
             lucide.createIcons();
         };
@@ -17390,6 +17536,12 @@
             const trip = document.querySelector('input[name="online-flight-trip-type"]:checked')?.value;
             if (trip !== 'multiple' && !window._onlineFlightIsSequentialRound) {
                 window._setOnlineMultiResultsHint('flight', '', false);
+                return;
+            }
+            if (window.isOnlineFlightMobileStepperActive?.() && window._onlineFlightMobileAllDone?.()) {
+                window._setOnlineMultiResultsHint('flight', '', false);
+                const cnt = document.getElementById('online-flight-results-count');
+                if (cnt) cnt.textContent = '';
                 return;
             }
             const n = (window._multiCitySegments || []).length;
@@ -17575,13 +17727,15 @@
         };
         window.editOnlineFlightMobileLeg = (legIndex) => {
             window.closeOnlineFlightMobileReview();
-            document.getElementById('online-flight-results-shell')?.classList.remove('hidden');
+            window._onlineFlightMobileEditingLeg = legIndex;
+            window._syncOnlineFlightResultsCompleteUi(false);
             window.switchOnlineFlightMultiLegTab(legIndex);
         };
         window.startOverOnlineFlightMobileSelection = () => {
             const segs = window._multiCitySegments || [];
             if (!segs.length) return;
             window.closeOnlineFlightMobileReview();
+            window._onlineFlightMobileEditingLeg = null;
             window._onlineFlightMultiSelections = segs.map(() => null);
             const fareStore = window._onlineFareSelection.flight || {};
             Object.keys(fareStore).filter((key) => key.startsWith('mc-')).forEach((key) => { delete fareStore[key]; });
@@ -17593,6 +17747,23 @@
         };
         window.completeOnlineFlightMobileReview = () => {
             window.bookOnlineProvider();
+        };
+        window._syncOnlineFlightResultsCompleteUi = (allDone) => {
+            const resultsRoot = document.getElementById('online-flight-results');
+            const shell = document.getElementById('online-flight-results-shell');
+            const legTabs = document.getElementById('online-flight-leg-tabs');
+            const multiTabs = document.getElementById('online-flight-multi-leg-tabs');
+            if (!resultsRoot || !shell) return;
+            const hideResults = !!allDone;
+            resultsRoot.classList.toggle('online-results-complete', hideResults);
+            shell.classList.toggle('hidden', hideResults);
+            legTabs?.classList.toggle('hidden', hideResults);
+            multiTabs?.classList.toggle('hidden', hideResults);
+            if (hideResults) {
+                window._setOnlineMultiResultsHint('flight', '', false);
+                const cnt = document.getElementById('online-flight-results-count');
+                if (cnt) cnt.textContent = '';
+            }
         };
         window.renderOnlineFlightMobileStepper = () => {
             const root = document.getElementById('online-flight-mobile-stepper');
@@ -17623,6 +17794,7 @@
             const segs = window._multiCitySegments || [];
             const active = window._onlineFlightMultiProgressLeg;
             const allDone = window._onlineFlightMobileAllDone();
+            window._syncOnlineFlightResultsCompleteUi(allDone);
             const isFlightDrawerOpen = window._obtFilterDrawer?.vertical === 'flight';
             if (allDone && window.isOnlineFlightMobileStepperActive?.() && isFlightDrawerOpen) {
                 window.closeObtFilterDrawer?.();
@@ -17673,14 +17845,9 @@
 
             const showReview = allDone && window._onlineFlightMobileReviewOpen;
             const showPrompt = allDone && !showReview;
-            resultsRoot?.classList.toggle('online-results-complete', allDone);
-            legTabs?.classList.toggle('hidden', allDone);
-            multiTabs?.classList.toggle('hidden', allDone);
-            if (allDone) window._setOnlineMultiResultsHint('flight', '', false);
             sticky.classList.toggle('hidden', showReview);
             prompt.classList.toggle('hidden', !showPrompt);
             review.classList.toggle('hidden', !showReview);
-            shell.classList.toggle('hidden', allDone);
 
             if (showPrompt) {
                 prompt.innerHTML = `
@@ -18091,7 +18258,7 @@
                         </div>
                         <div class="online-flight-card-mob-action">
                             <button type="button" onclick="event.stopPropagation(); window.openOnlineFareModal('flight','${leg}',${idx})"
-                                class="inline-flex items-center gap-0.5 min-h-[36px] px-2.5 rounded-lg border border-slate-200 bg-white text-[10px] font-bold text-slate-700 hover:bg-slate-50 transition-colors whitespace-nowrap">
+                                class="inline-flex items-center gap-0.5 min-h-[44px] px-2.5 rounded-lg border border-slate-200 bg-white text-[10px] font-bold text-slate-700 hover:bg-slate-50 transition-colors whitespace-nowrap">
                                 Select Fare <i data-lucide="chevron-right" class="w-3 h-3 shrink-0"></i>
                             </button>
                         </div>
@@ -18277,7 +18444,7 @@
                         </div>
                         <div class="online-flight-card-mob-action">
                             <button type="button" onclick="event.stopPropagation(); window.openOnlineFareModal('rail','${leg}',${idx})"
-                                class="inline-flex items-center gap-0.5 min-h-[36px] px-2.5 rounded-lg border border-slate-200 bg-white text-[10px] font-bold text-slate-700 hover:bg-slate-50 transition-colors whitespace-nowrap">
+                                class="inline-flex items-center gap-0.5 min-h-[44px] px-2.5 rounded-lg border border-slate-200 bg-white text-[10px] font-bold text-slate-700 hover:bg-slate-50 transition-colors whitespace-nowrap">
                                 Select Fare <i data-lucide="chevron-right" class="w-3 h-3 shrink-0"></i>
                             </button>
                         </div>
