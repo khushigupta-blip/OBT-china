@@ -47,6 +47,50 @@
             --text-secondary: #475569;
             --text-muted: #64748b;
             --text-inverse: #ffffff;
+            --density-badge-gap: 6px;
+            --density-badge-margin: 4px 0;
+        }
+
+        /* Task 1 — hide intl / user-mgmt nav on mobile (desktop unchanged) */
+        @media (max-width: 768px) {
+            #nav-international,
+            #nav-user-management,
+            [data-obt-mobile-nav-suppressed="true"] {
+                display: none !important;
+            }
+        }
+
+        .obt-density-badge-row {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: var(--density-badge-gap);
+            margin: var(--density-badge-margin);
+        }
+
+        .obt-density-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            min-height: 1.625rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 9999px;
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            line-height: 1;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .obt-density-badge i,
+        .obt-density-badge svg {
+            width: 1em;
+            height: 1em;
+            flex-shrink: 0;
+            display: block;
         }
 
         body {
@@ -1978,11 +2022,33 @@
                 border-top: 1px solid #f1f5f9;
             }
 
+            /* Task 2.5 — meta column + action buttons on one horizontal bar (flight & rail cards) */
+            .online-flight-card-mob-footer-bar {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            .online-flight-card-mob-footer .online-flight-card-mob-action {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 0.375rem;
+                flex-shrink: 0;
+                margin-left: 0;
+            }
+
             .online-flight-card-mob-meta {
                 display: flex;
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
                 gap: 0.375rem;
+                flex: 1 1 auto;
+                min-width: 0;
             }
 
             .online-flight-card-mob-meta__item {
@@ -2285,23 +2351,60 @@
 
             .online-flight-mobile-review__meta {
                 margin-top: 0.75rem;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.5rem;
             }
 
-            .online-flight-mobile-review__meta-pill {
+            /* Task 3 — compact review metadata chips */
+            .online-flight-mobile-review__meta.obt-density-badge-row,
+            .online-flight-mobile-review__meta {
+                display: inline-flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: var(--density-badge-gap, 6px);
+                margin: var(--density-badge-margin, 4px 0);
+            }
+
+            .online-flight-mobile-review__meta-pill,
+            .online-flight-mobile-review__meta .obt-density-badge {
                 display: inline-flex;
                 align-items: center;
+                justify-content: center;
                 gap: 0.25rem;
-                min-height: 28px;
-                padding: 0.35rem 0.55rem;
+                min-height: 1.625rem;
+                padding: 0.2rem 0.5rem;
                 border-radius: 9999px;
-                background: #f8fafc;
+                background: #f1f5f9;
                 color: #475569;
                 font-size: 0.6875rem;
                 font-weight: 700;
+                line-height: 1;
+                vertical-align: middle;
                 white-space: nowrap;
+            }
+
+            .online-flight-mobile-review__meta-pill i,
+            .online-flight-mobile-review__meta-pill svg,
+            .online-flight-mobile-review__meta .obt-density-badge i,
+            .online-flight-mobile-review__meta .obt-density-badge svg {
+                width: 1em;
+                height: 1em;
+                flex-shrink: 0;
+                display: block;
+            }
+
+            .online-flight-mobile-stepper__summary-detail-line.obt-density-badge-row {
+                display: inline-flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: var(--density-badge-gap, 6px);
+                margin: var(--density-badge-margin, 4px 0);
+                flex: 1 1 auto;
+                min-width: 0;
+            }
+
+            .online-flight-mobile-stepper__summary-detail-line.obt-density-badge-row .obt-density-badge {
+                min-height: 1.5rem;
+                padding: 0.15rem 0.45rem;
+                font-size: 0.625rem;
             }
 
             .online-flight-mobile-review__fare {
@@ -2456,6 +2559,12 @@
                 align-items: center;
                 gap: 0.375rem;
                 flex-shrink: 0;
+            }
+
+            #nav-international,
+            #nav-user-management,
+            [data-obt-mobile-nav-suppressed="true"] {
+                display: none !important;
             }
 
             #page-user-management .low-content-page-header .app-heading-page {
@@ -5852,7 +5961,47 @@
             font-size: 0.72rem;
             font-weight: 600;
             color: #64748b;
-            margin-top: 0.15rem;
+            margin-top: 0;
+        }
+
+        /* Task 2.1 — carrier sub inline adjacent to carrier line (font sizes unchanged) */
+        #online-fare-detail-modal .online-flight-fare-summary__carrier > .min-w-0 {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.25rem 0.5rem;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+            padding: 0.55rem 0.65rem;
+            border-radius: 0.65rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #475569;
+            line-height: 1.4;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-details__row {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 0.35rem;
+            margin: 0;
+        }
+
+        #online-fare-detail-modal .online-fare-offer-details__note {
+            margin: 0;
+        }
+
+        #online-fare-detail-modal .online-flight-fare-offer__summary,
+        #online-fare-detail-modal .online-fare-offer-row__rules {
+            display: none;
         }
 
         #online-fare-detail-modal .online-flight-fare-timeline {
@@ -5933,6 +6082,47 @@
             padding-bottom: 0.1rem;
             scrollbar-width: none;
             -ms-overflow-style: none;
+        }
+
+        /* Task 2.2 / 2.3 — mobile fare modal timeline row + compact tier tabs */
+        @media (max-width: 768px) {
+            #online-fare-detail-modal .online-flight-fare-timeline {
+                display: flex;
+                flex-direction: row;
+                align-items: stretch;
+                gap: 0.35rem;
+                padding: 0.55rem 0.5rem;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-timeline__point,
+            #online-fare-detail-modal .online-flight-fare-timeline__point--end {
+                flex: 1 1 0;
+                min-width: 0;
+                text-align: left;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-timeline__point--end {
+                text-align: right;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-timeline__mid {
+                flex: 0 1 5.5rem;
+                min-width: 4.25rem;
+                max-width: 6.5rem;
+                justify-content: center;
+                padding: 0 0.15rem;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-tier-tabs {
+                gap: 0.4rem;
+            }
+
+            #online-fare-detail-modal .online-flight-fare-tier-tab {
+                min-width: 7.5rem;
+                min-height: auto;
+                padding: 0.45rem 0.5rem;
+                gap: 0.25rem;
+            }
         }
 
         #online-fare-detail-modal .online-flight-fare-tier-tabs::-webkit-scrollbar {
@@ -6218,18 +6408,14 @@
                 padding: 0.9rem;
             }
 
-            #online-fare-detail-modal .online-flight-fare-timeline {
-                grid-template-columns: 1fr;
-                gap: 0.65rem;
-            }
-
             #online-fare-detail-modal .online-flight-fare-timeline__point--end,
             #online-fare-detail-modal .online-flight-fare-offer__price {
                 text-align: left;
             }
 
             #online-fare-detail-modal .online-flight-fare-tier-tab {
-                min-width: 10rem;
+                min-width: 7.5rem;
+                padding: 0.45rem 0.5rem;
             }
 
             #online-fare-detail-modal .online-flight-fare-offer {
@@ -6731,8 +6917,8 @@
                     class="nav-btn w-full flex items-center px-4 py-3 rounded-lg text-sm mb-1 text-slate-300 hover:bg-white/5 transition-all">
                     <i data-lucide="map" class="sidebar-nav-icon w-4 h-4 mr-3 shrink-0"></i><span class="sidebar-link-text">Booking Travel</span>
                 </button>
-                <button type="button" onclick="window.startBooking('international')" id="nav-international" title="International Travel"
-                    class="nav-btn w-full flex items-center px-4 py-3 rounded-lg text-sm mb-1 text-slate-300 hover:bg-white/5 transition-all">
+                <button type="button" onclick="window.startBooking('international')" id="nav-international" title="International Travel" data-obt-mobile-nav-suppressed="true"
+                    class="nav-btn max-md:hidden w-full flex items-center px-4 py-3 rounded-lg text-sm mb-1 text-slate-300 hover:bg-white/5 transition-all">
                     <i data-lucide="globe" class="sidebar-nav-icon w-4 h-4 mr-3 shrink-0"></i><span class="sidebar-link-text">International Travel</span>
                 </button>
                 <!-- AI-ADDED: Approvals under Travel Application; Prompt: approvals tab with filters and Pending/Approved -->
@@ -6753,8 +6939,8 @@
                     class="nav-btn w-full flex items-center px-4 py-3 rounded-lg text-sm mb-1 text-slate-300 hover:bg-white/5 transition-all">
                     <i data-lucide="file-bar-chart" class="sidebar-nav-icon w-4 h-4 mr-3 shrink-0"></i><span class="sidebar-link-text">Reports</span>
                 </button>
-                <button type="button" onclick="window.showPage('user-management')" id="nav-user-management" title="User Management"
-                    class="nav-btn w-full flex items-center px-4 py-3 rounded-lg text-sm mb-1 text-slate-300 hover:bg-white/5 transition-all">
+                <button type="button" onclick="window.showPage('user-management')" id="nav-user-management" title="User Management" data-obt-mobile-nav-suppressed="true"
+                    class="nav-btn max-md:hidden w-full flex items-center px-4 py-3 rounded-lg text-sm mb-1 text-slate-300 hover:bg-white/5 transition-all">
                     <i data-lucide="users-2" class="sidebar-nav-icon w-4 h-4 mr-3 shrink-0"></i><span class="sidebar-link-text">User Management</span>
                 </button>
             </nav>
@@ -16348,6 +16534,29 @@
             window._fareModalContext = null;
         };
 
+        window._densityBadgeHtml = (icon, text) => {
+            const t = window._onlineUiEsc(String(text || ''));
+            return `<span class="obt-density-badge"><i data-lucide="${icon}"></i>${t}</span>`;
+        };
+
+        window._buildFareOfferPrimaryFeaturesHtml = (offer, layout) => {
+            const esc = window._onlineUiEsc;
+            return (offer.features || []).slice(0, 2).map((f) => {
+                if (layout === 'flight') {
+                    return `<span class="online-flight-fare-offer__chip"><i data-lucide="${f.icon}" class="w-3.5 h-3.5"></i><span>${esc(f.label)}: ${esc(f.value)}</span></span>`;
+                }
+                return `<span class="online-fare-offer-row__feature"><i data-lucide="${f.icon}" class="w-3.5 h-3.5"></i><span>${esc(f.value)}</span></span>`;
+            }).join('');
+        };
+
+        window._buildFareOfferDetailsPanelHtml = (offer) => {
+            const esc = window._onlineUiEsc;
+            const extra = (offer.features || []).slice(2);
+            const rows = extra.map((f) => `<p class="online-fare-offer-details__row"><i data-lucide="${f.icon}" class="w-3.5 h-3.5 shrink-0"></i><span><strong>${esc(f.label)}:</strong> ${esc(f.value)}</span></p>`).join('');
+            const note = offer.detail ? `<p class="online-fare-offer-details__note">${esc(offer.detail)}</p>` : '';
+            return `${note}${rows}`;
+        };
+
         window._getOnlineFareStoreForMode = (mode) => mode === 'flight'
             ? (window._onlineFareSelection.flight || {})
             : (window._onlineFareSelection.rail || {});
@@ -16874,17 +17083,12 @@
                                                 </div>
                                             </div>
                                             <div class="online-flight-fare-offer__chips">
-                                                ${offer.features.map((feature) => `
-                                                    <span class="online-flight-fare-offer__chip">
-                                                        <i data-lucide="${feature.icon}" class="w-3.5 h-3.5"></i>
-                                                        <span>${window._onlineUiEsc(feature.label)}: ${window._onlineUiEsc(feature.value)}</span>
-                                                    </span>`).join('')}
+                                                ${window._buildFareOfferPrimaryFeaturesHtml(offer, 'flight')}
                                             </div>
                                             <div class="online-flight-fare-offer__actions">
-                                                <p class="online-flight-fare-offer__summary">${window._onlineUiEsc(offer.features[2]?.value || '')} &bull; ${window._onlineUiEsc(offer.features[3]?.value || '')}</p>
                                                 <button type="button" class="online-fare-offer-details-toggle" data-fare-offer-toggle="${encodeURIComponent(offer.name)}">${isExpanded ? 'Hide details ∧' : 'View details ∨'}</button>
                                             </div>
-                                            ${isExpanded ? `<div class="online-fare-offer-details">${window._onlineUiEsc(offer.detail)}</div>` : ''}
+                                            ${isExpanded ? `<div class="online-fare-offer-details">${window._buildFareOfferDetailsPanelHtml(offer)}</div>` : ''}
                                         </div>`;
                                 }).join('')}
                             </div>
@@ -16966,17 +17170,12 @@
                                                                 </div>
                                                             </div>
                                                             <div class="online-fare-offer-row__features">
-                                                                ${offer.features.map((feature) => `
-                                                                    <span class="online-fare-offer-row__feature">
-                                                                        <i data-lucide="${feature.icon}" class="w-3.5 h-3.5"></i>
-                                                                        <span>${window._onlineUiEsc(feature.value)}</span>
-                                                                    </span>`).join('')}
+                                                                ${window._buildFareOfferPrimaryFeaturesHtml(offer, 'rail')}
                                                             </div>
                                                             <div class="online-fare-offer-row__actions">
-                                                                <p class="online-fare-offer-row__rules">${window._onlineUiEsc(offer.features[2]?.value || '')} &bull; ${window._onlineUiEsc(offer.features[3]?.value || '')}</p>
                                                                 <button type="button" class="online-fare-offer-details-toggle" data-fare-offer-toggle="${encodeURIComponent(offer.name)}">${isExpanded ? 'Hide details ∧' : 'View details ∨'}</button>
                                                             </div>
-                                                            ${isExpanded ? `<div class="online-fare-offer-details">${window._onlineUiEsc(offer.detail)}</div>` : ''}
+                                                            ${isExpanded ? `<div class="online-fare-offer-details">${window._buildFareOfferDetailsPanelHtml(offer)}</div>` : ''}
                                                         </div>`;
                                                 }).join('')}
                                             </div>
@@ -17832,12 +18031,10 @@
                         <button type="button" class="online-flight-mobile-stepper__summary-edit" onclick="window.editOnlineFlightMobileLeg(${item.legIndex})">Edit</button>
                     </div>
                     <div class="online-flight-mobile-stepper__summary-detail">
-                        <div class="online-flight-mobile-stepper__summary-detail-line">
-                            <span><i data-lucide="badge-check" class="w-3.5 h-3.5 inline-block align-text-bottom mr-1"></i>${window._onlineUiEsc(item.airline)}</span>
-                            <span>&bull;</span>
-                            <span>${window._onlineUiEsc(item.timeLine)}</span>
-                            <span>&bull;</span>
-                            <span>${window._onlineUiEsc(item.priceText)}</span>
+                        <div class="online-flight-mobile-stepper__summary-detail-line obt-density-badge-row">
+                            ${window._densityBadgeHtml('plane', item.airline)}
+                            ${window._densityBadgeHtml('clock-3', item.timeLine)}
+                            ${window._densityBadgeHtml('wallet', item.priceText)}
                         </div>
                         <span class="online-flight-mobile-stepper__summary-check"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
                     </div>
@@ -17876,13 +18073,13 @@
                                     </div>
                                     <button type="button" class="online-flight-mobile-stepper__summary-edit" onclick="window.editOnlineFlightMobileLeg(${item.legIndex})">Edit</button>
                                 </div>
-                                <div class="online-flight-mobile-review__meta">
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="calendar" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.dateLine)}</span>
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="plane" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.airline)}</span>
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="clock-3" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.timeLine)}</span>
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="route" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.durationLine)}</span>
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="wallet" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.priceText)}</span>
-                                    ${item.fareName ? `<span class="online-flight-mobile-review__meta-pill"><i data-lucide="tag" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.fareName)}</span>` : ''}
+                                <div class="online-flight-mobile-review__meta obt-density-badge-row">
+                                    ${window._densityBadgeHtml('calendar', item.dateLine)}
+                                    ${window._densityBadgeHtml('plane', item.airline)}
+                                    ${window._densityBadgeHtml('clock-3', item.timeLine)}
+                                    ${window._densityBadgeHtml('route', item.durationLine)}
+                                    ${window._densityBadgeHtml('wallet', item.priceText)}
+                                    ${item.fareName ? window._densityBadgeHtml('tag', item.fareName) : ''}
                                 </div>
                             </div>`).join('')}
                     </div>
@@ -17985,12 +18182,10 @@
                         <button type="button" class="online-flight-mobile-stepper__summary-edit" onclick="window.editOnlineRailMobileLeg(${item.legIndex})">Edit</button>
                     </div>
                     <div class="online-flight-mobile-stepper__summary-detail">
-                        <div class="online-flight-mobile-stepper__summary-detail-line">
-                            <span><i data-lucide="badge-check" class="w-3.5 h-3.5 inline-block align-text-bottom mr-1"></i>${window._onlineUiEsc(item.airline)}</span>
-                            <span>&bull;</span>
-                            <span>${window._onlineUiEsc(item.timeLine)}</span>
-                            <span>&bull;</span>
-                            <span>${window._onlineUiEsc(item.priceText)}</span>
+                        <div class="online-flight-mobile-stepper__summary-detail-line obt-density-badge-row">
+                            ${window._densityBadgeHtml('train-front', item.airline)}
+                            ${window._densityBadgeHtml('clock-3', item.timeLine)}
+                            ${window._densityBadgeHtml('wallet', item.priceText)}
                         </div>
                         <span class="online-flight-mobile-stepper__summary-check"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
                     </div>
@@ -18034,14 +18229,14 @@
                                     </div>
                                     <button type="button" class="online-flight-mobile-stepper__summary-edit" onclick="window.editOnlineRailMobileLeg(${item.legIndex})">Edit</button>
                                 </div>
-                                <div class="online-flight-mobile-review__meta">
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="calendar" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.dateLine)}</span>
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="train-front" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.airline)}</span>
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="clock-3" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.timeLine)}</span>
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="route" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.durationLine)}</span>
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.airportLine)}</span>
-                                    <span class="online-flight-mobile-review__meta-pill"><i data-lucide="wallet" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.priceText)}</span>
-                                    ${item.fareName ? `<span class="online-flight-mobile-review__meta-pill"><i data-lucide="tag" class="w-3.5 h-3.5"></i>${window._onlineUiEsc(item.fareName)}</span>` : ''}
+                                <div class="online-flight-mobile-review__meta obt-density-badge-row">
+                                    ${window._densityBadgeHtml('calendar', item.dateLine)}
+                                    ${window._densityBadgeHtml('train-front', item.airline)}
+                                    ${window._densityBadgeHtml('clock-3', item.timeLine)}
+                                    ${window._densityBadgeHtml('route', item.durationLine)}
+                                    ${window._densityBadgeHtml('map-pin', item.airportLine)}
+                                    ${window._densityBadgeHtml('wallet', item.priceText)}
+                                    ${item.fareName ? window._densityBadgeHtml('tag', item.fareName) : ''}
                                 </div>
                             </div>`).join('')}
                     </div>
@@ -18256,19 +18451,21 @@
                             <div class="online-flight-card-mob-leg__code">${codes.arr}</div>
                             <div class="online-flight-card-mob-leg__desc">Arrival</div>
                         </div>
-                        <div class="online-flight-card-mob-action">
-                            <button type="button" onclick="event.stopPropagation(); window.openOnlineFareModal('flight','${leg}',${idx})"
-                                class="inline-flex items-center gap-0.5 min-h-[44px] px-2.5 rounded-lg border border-slate-200 bg-white text-[10px] font-bold text-slate-700 hover:bg-slate-50 transition-colors whitespace-nowrap">
-                                Select Fare <i data-lucide="chevron-right" class="w-3 h-3 shrink-0"></i>
-                            </button>
-                        </div>
                     </div>
                     <div class="online-flight-card-mob-footer">
-                        <div class="online-flight-card-mob-meta">
-                            <span class="online-flight-card-mob-meta__item online-flight-card-mob-meta__item--co2"><i data-lucide="leaf" class="w-3 h-3 text-emerald-600 shrink-0"></i>CO₂ ~${r.co2Kg}kg</span>
-                            <span class="online-flight-card-mob-meta__item"><i data-lucide="luggage" class="w-3 h-3 text-slate-500 shrink-0"></i>${r.luggageLabel}</span>
-                            <span class="online-flight-card-mob-meta__item"><i data-lucide="utensils" class="w-3 h-3 text-amber-600 shrink-0"></i>${r.mealLabel}</span>
-                            ${fareBadge ? `<span class="online-flight-card-mob-meta__item">${fareBadge}</span>` : ''}
+                        <div class="online-flight-card-mob-footer-bar">
+                            <div class="online-flight-card-mob-meta">
+                                <span class="online-flight-card-mob-meta__item online-flight-card-mob-meta__item--co2"><i data-lucide="leaf" class="w-3 h-3 text-emerald-600 shrink-0"></i>CO₂ ~${r.co2Kg}kg</span>
+                                <span class="online-flight-card-mob-meta__item"><i data-lucide="luggage" class="w-3 h-3 text-slate-500 shrink-0"></i>${r.luggageLabel}</span>
+                                <span class="online-flight-card-mob-meta__item"><i data-lucide="utensils" class="w-3 h-3 text-amber-600 shrink-0"></i>${r.mealLabel}</span>
+                                ${fareBadge ? `<span class="online-flight-card-mob-meta__item">${fareBadge}</span>` : ''}
+                            </div>
+                            <div class="online-flight-card-mob-action">
+                                <button type="button" onclick="event.stopPropagation(); window.openOnlineFareModal('flight','${leg}',${idx})"
+                                    class="inline-flex items-center gap-0.5 min-h-[44px] px-2.5 rounded-lg border border-slate-200 bg-white text-[10px] font-bold text-slate-700 hover:bg-slate-50 transition-colors whitespace-nowrap">
+                                    Select Fare <i data-lucide="chevron-right" class="w-3 h-3 shrink-0"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>`;
@@ -18442,18 +18639,20 @@
                             <div class="online-flight-card-mob-leg__code">${arrLabel}</div>
                             <div class="online-flight-card-mob-leg__desc">${arrS || 'Arrival'}</div>
                         </div>
-                        <div class="online-flight-card-mob-action">
-                            <button type="button" onclick="event.stopPropagation(); window.openOnlineFareModal('rail','${leg}',${idx})"
-                                class="inline-flex items-center gap-0.5 min-h-[44px] px-2.5 rounded-lg border border-slate-200 bg-white text-[10px] font-bold text-slate-700 hover:bg-slate-50 transition-colors whitespace-nowrap">
-                                Select Fare <i data-lucide="chevron-right" class="w-3 h-3 shrink-0"></i>
-                            </button>
-                        </div>
                     </div>
                     <div class="online-flight-card-mob-footer">
-                        <div class="online-flight-card-mob-meta">
-                            <span class="online-flight-card-mob-meta__item"><i data-lucide="map-pin" class="w-3 h-3 text-slate-500 shrink-0"></i>${stationLine}</span>
-                            <span class="online-flight-card-mob-meta__item"><i data-lucide="armchair" class="w-3 h-3 text-slate-500 shrink-0"></i>${seatLabel}</span>
-                            ${fareBadge ? `<span class="online-flight-card-mob-meta__item">${fareBadge}</span>` : ''}
+                        <div class="online-flight-card-mob-footer-bar">
+                            <div class="online-flight-card-mob-meta">
+                                <span class="online-flight-card-mob-meta__item"><i data-lucide="map-pin" class="w-3 h-3 text-slate-500 shrink-0"></i>${stationLine}</span>
+                                <span class="online-flight-card-mob-meta__item"><i data-lucide="armchair" class="w-3 h-3 text-slate-500 shrink-0"></i>${seatLabel}</span>
+                                ${fareBadge ? `<span class="online-flight-card-mob-meta__item">${fareBadge}</span>` : ''}
+                            </div>
+                            <div class="online-flight-card-mob-action">
+                                <button type="button" onclick="event.stopPropagation(); window.openOnlineFareModal('rail','${leg}',${idx})"
+                                    class="inline-flex items-center gap-0.5 min-h-[44px] px-2.5 rounded-lg border border-slate-200 bg-white text-[10px] font-bold text-slate-700 hover:bg-slate-50 transition-colors whitespace-nowrap">
+                                    Select Fare <i data-lucide="chevron-right" class="w-3 h-3 shrink-0"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>`;
